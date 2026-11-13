@@ -1,4 +1,10 @@
-# 이 웹북이 참고한 원작 강의의 라이선스
+# 원작과 라이선스 고지
+
+## 첫째 권: 떡볶이 주문의 여행
+
+[jedikim/cs-foundations](https://github.com/jedikim/cs-foundations) "개발의 기초"(Jedi Kim)의 1~5부를 바탕으로 다시 쓴 것입니다. 원작은 CC0 1.0(퍼블릭 도메인)으로 공개되어 있습니다. 표시 의무는 없지만 출처를 밝혀 둡니다.
+
+## 둘째 권: 번개와 다섯 가지 장비
 
 이 웹북의 내용은 [walkinglabs/learn-harness-engineering](https://github.com/walkinglabs/learn-harness-engineering) 강의 문서를 바탕으로 다시 쓴 것이며, 원작의 MIT 라이선스 고지를 아래에 그대로 싣습니다.
 

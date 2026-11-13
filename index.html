@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23168A82%27/%3E%3Cpath d=%27M36 8 L16 36 H30 L26 56 L48 26 H34 Z%27 fill=%27%23F2B630%27 stroke=%27%2323305E%27 stroke-width=%273%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
-<meta name="description" content="AI 코딩 에이전트를 믿고 쓰게 만드는 하네스 엔지니어링을 1부 애니메이션 그림책과 2부 도식 교과서로 풀어 쓴 웹북">
+<meta name="description" content="AI와 함께 만드는 사람을 위한 두 권의 웹북. 컴퓨터 과학 기초와 하네스 엔지니어링을 그림책과 도식 교과서로 읽어요.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="번개와 다섯 가지 장비">
-<meta property="og:description" content="AI 코딩 에이전트를 믿고 쓰게 만드는 하네스 엔지니어링을 1부 애니메이션 그림책과 2부 도식 교과서로 풀어 쓴 웹북">
+<meta property="og:title" content="AI 개발 책장">
+<meta property="og:description" content="AI와 함께 만드는 사람을 위한 두 권의 웹북. 컴퓨터 과학 기초와 하네스 엔지니어링을 그림책과 도식 교과서로 읽어요.">
 <meta property="og:url" content="https://notadev-iamaura.github.io/harness-book/">
 <meta property="og:image" content="https://notadev-iamaura.github.io/harness-book/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.4 system-ui,-apple-system,"Apple SD Gothic Neo",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>번개와 다섯 가지 장비</title>
+<title>AI 개발 책장</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Jua&display=swap">
@@ -352,14 +352,59 @@ table.tbl{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5}
   .face::after{animation:none!important;opacity:0!important}
   .plate *{animation:none!important}
 }
+
+/* ---------- 책장 (책 고르기) ---------- */
+.top-actions{display:flex;gap:8px;flex:none}
+.shelf{height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.shelf-inner{
+  max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:26px 40px;
+}
+.shelf-head{display:flex;flex-direction:column;gap:8px}
+.shelf-kicker{margin:0;font:600 12px/1.2 var(--font-ui);letter-spacing:.08em;color:var(--teal)}
+.shelf h1{margin:0;font-family:var(--font-display);font-weight:400;font-size:clamp(30px,6vw,44px);line-height:1.12;color:var(--ink);text-wrap:balance}
+.shelf-sub{margin:0;font-family:var(--font-story);font-size:16px;line-height:1.7;color:var(--ink);word-break:keep-all;max-width:38em}
+.shelf-books{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px}
+.bookcard{
+  position:relative;display:flex;flex-direction:column;gap:14px;min-width:0;
+  background:var(--paper);border-radius:3px 12px 12px 3px;padding:20px 20px 20px 28px;
+  box-shadow:3px 3px 0 -1px #EAE9E0,6px 6px 0 -2px #E1E0D6,0 22px 40px -16px rgba(35,48,94,.4);
+}
+.bookcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:20px;border-radius:3px 0 0 3px;background:linear-gradient(90deg,rgba(35,48,94,.18),rgba(35,48,94,0));pointer-events:none}
+.bookcard .plate{width:100%;height:auto;aspect-ratio:8/5}
+.bookcard .vol{margin:0;font:600 12px/1.2 var(--font-ui);letter-spacing:.06em;color:var(--teal)}
+.bookcard h2{margin:0;font-family:var(--font-display);font-weight:400;font-size:27px;line-height:1.18;color:var(--ink);text-wrap:balance}
+.bookcard .desc{margin:0;font-size:14.5px;line-height:1.7;word-break:keep-all;color:var(--ink)}
+.bookcard .meta{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.bookcard .meta li{font:500 12px/1 var(--font-ui);color:var(--ink-soft);border:1.5px solid var(--rule);border-radius:999px;padding:6px 10px;background:#fff}
+.bookcard .actions{margin-top:auto}
+.shelf-foot{margin:0;font-size:12.5px;line-height:1.6;color:var(--ink-soft)}
+.shelf-foot a{color:var(--ink-soft)}
+#root{height:100%}
+
+#shelf h1,#shelf h2,#shelf p{word-break:keep-all}
 </style>
 </head>
 <body>
-
+<div class="shelf" id="shelf">
+  <div class="shelf-inner">
+    <header class="shelf-head">
+      <p class="shelf-kicker">AI와 함께 만드는 사람을 위한 책장</p>
+      <h1>그림책으로 시작해서, 교과서로 깊어지는 두 권</h1>
+      <p class="shelf-sub">두 권 모두 1부는 그림책, 2부는 움직이는 도식으로 읽는 교과서예요. 읽고 싶은 책을 골라 주세요.</p>
+    </header>
+    <div class="shelf-books" id="shelfBooks"></div>
+    <p class="shelf-foot">원작: <a href="https://github.com/jedikim/cs-foundations" target="_blank" rel="noopener">개발의 기초</a> (Jedi Kim, CC0) · <a href="https://github.com/walkinglabs/learn-harness-engineering" target="_blank" rel="noopener">Learn Harness Engineering</a> (walkinglabs, MIT)</p>
+  </div>
+</div>
+<div id="root" hidden></div>
+<template id="shellTpl">
 <div class="app">
   <header class="topbar">
-    <p class="brand" id="brand">번개와 다섯 가지 <span>장비</span></p>
-    <button class="ghost" id="tocBtn" type="button" aria-haspopup="dialog" aria-controls="toc">목차</button>
+    <p class="brand" id="brand"></p>
+    <div class="top-actions"><button class="ghost" id="shelfBtn" type="button">책장</button>
+<button class="ghost" id="tocBtn" type="button" aria-haspopup="dialog" aria-controls="toc">목차</button></div>
   </header>
 
   <main class="stage">
@@ -391,10 +436,10 @@ table.tbl{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5}
 </div>
 <p class="sr-only" id="live" aria-live="polite"></p>
 
+</template>
 <script>
 (function(){
 "use strict";
-
 /* ---------- 색 (그림 전용, 단일 라이트 디자인) ---------- */
 var C = {
   ink:'#23305E', inkSoft:'#5A648C', teal:'#168A82', tealDark:'#0E625C', sun:'#F2B630', berry:'#D4505A',
@@ -588,6 +633,66 @@ function check(x, y, r, d){
 function star(x, y, d){ return sparkle(x, y, 4, d, '#FFF4C8'); }
 function moon(x, y, bg){ return '<circle cx="' + x + '" cy="' + y + '" r="15" fill="' + C.sun + '"/><circle cx="' + (x + 7) + '" cy="' + (y - 4) + '" r="13" fill="' + bg + '"/>'; }
 
+/* ---------- 심화편 도식 부품 ---------- */
+function dia(label, build){
+  var gid = nid('grid');
+  var mk = { ink: arrowDef(C.ink), teal: arrowDef(C.teal), berry: arrowDef(C.berry), soft: arrowDef(C.inkSoft) };
+  var defs = '<pattern id="' + gid + '" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0V16" fill="none" stroke="#E4E9F0" stroke-width="1"/></pattern>' +
+    mk.ink.def + mk.teal.def + mk.berry.def + mk.soft.def;
+  var m = { ink: mk.ink.id, teal: mk.teal.id, berry: mk.berry.id, soft: mk.soft.id };
+  return '<svg viewBox="0 0 400 250" role="img" aria-label="' + label + '" xmlns="http://www.w3.org/2000/svg"><defs>' + defs + '</defs>' +
+    '<rect width="400" height="250" fill="#FBFCFE"/><rect width="400" height="250" fill="url(#' + gid + ')"/>' + build(m) + '</svg>';
+}
+function T(x, y, s, o){
+  o = o || {};
+  return '<text' + (o.cls ? ' class="' + o.cls + '"' : '') + ' x="' + x + '" y="' + y + '" font-size="' + (o.fs || 10) + '" text-anchor="' + (o.a || 'middle') + '" fill="' + (o.c || C.ink) + '">' + s + '</text>';
+}
+function box(x, y, w, h, text, o){
+  o = o || {};
+  var fs = o.fs || 11, sfs = o.sfs || 9, lines = String(text).split('\n'), lh = fs * 1.22;
+  var total = lines.length * lh + (o.sub ? sfs * 1.3 : 0);
+  var top = y + (h - total) / 2, cx = x + w / 2;
+  var t = lines.map(function(l, k){
+    return '<text' + (o.mono ? ' class="svg-m"' : '') + ' x="' + cx + '" y="' + (top + k * lh + fs * 0.88).toFixed(1) + '" font-size="' + fs + '" text-anchor="middle" fill="' + (o.color || C.ink) + '">' + l + '</text>';
+  }).join('');
+  if (o.sub) t += '<text' + (o.smono ? ' class="svg-m"' : '') + ' x="' + cx + '" y="' + (top + lines.length * lh + sfs * 1.05).toFixed(1) + '" font-size="' + sfs + '" text-anchor="middle" fill="' + (o.scolor || C.inkSoft) + '">' + o.sub + '</text>';
+  return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="' + (o.rx === undefined ? 7 : o.rx) + '" fill="' + (o.fill || '#fff') + '" stroke="' + (o.stroke || C.ink) + '" stroke-width="' + (o.sw || 1.8) + '"/>' + t;
+}
+function pill(cx, cy, w, h, text, o){
+  var q = {}; o = o || {};
+  for (var k in o) q[k] = o[k];
+  q.rx = h / 2; if (!q.fs) q.fs = 10;
+  return box(cx - w / 2, cy - h / 2, w, h, text, q);
+}
+function ar(d, marker, o){
+  o = o || {};
+  return '<path' + (o.cls ? ' class="' + o.cls + '"' : '') + ' d="' + d + '" fill="none" stroke="' + (o.color || C.ink) + '" stroke-width="' + (o.w || 1.8) + '"' +
+    (o.dash ? ' stroke-dasharray="' + o.dash + '"' : '') + (marker ? ' marker-end="url(#' + marker + ')"' : '') + '/>';
+}
+/* 일이 흘러가는 방향을 보여 주는 노란 점 */
+function tok(path, o){
+  o = o || {};
+  var dur = o.dur || 4, r = o.r || 5, col = o.color || C.sun, b = o.begin || 0;
+  var mo = '<animateMotion dur="' + dur + 's" begin="' + b + 's" repeatCount="indefinite" path="' + path + '"';
+  var extra = '';
+  if (o.loop){
+    mo += '/>';
+    if (b) extra = '<set attributeName="opacity" to="1" begin="' + b + 's" fill="freeze"/>';
+  } else {
+    var tr = o.tr || .85, t2 = Math.min(.99, tr + .08).toFixed(2);
+    mo += ' keyPoints="0;1;1" keyTimes="0;' + tr + ';1" calcMode="linear"/>';
+    extra = '<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;' + tr + ';' + t2 + ';1" dur="' + dur + 's" begin="' + b + 's" repeatCount="indefinite"/>';
+  }
+  return '<circle r="' + r + '" fill="' + col + '" stroke="' + C.ink + '" stroke-width="1.4"' + (b ? ' opacity="0"' : '') + '>' + mo + extra + '</circle>';
+}
+/* 차례로 켜지는 강조 테두리 */
+function hl(x, y, w, h, dl, cy){
+  return '<rect class="lit" style="--dl:' + dl + 's;--cy:' + cy + 's" x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="6" fill="rgba(242,182,48,.22)" stroke="' + C.sun + '" stroke-width="2.6"/>';
+}
+
+
+var BOOKS = {};
+BOOKS.harness = function(){
 /* ---------- 장면 ---------- */
 var ALL = ['collar', 'saddle', 'map', 'book', 'bell'];
 var scenes = [
@@ -1259,64 +1364,6 @@ var scenes = [
     });
   }
 ];
-
-/* ---------- 심화편 도식 부품 ---------- */
-function dia(label, build){
-  var gid = nid('grid');
-  var mk = { ink: arrowDef(C.ink), teal: arrowDef(C.teal), berry: arrowDef(C.berry), soft: arrowDef(C.inkSoft) };
-  var defs = '<pattern id="' + gid + '" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0V16" fill="none" stroke="#E4E9F0" stroke-width="1"/></pattern>' +
-    mk.ink.def + mk.teal.def + mk.berry.def + mk.soft.def;
-  var m = { ink: mk.ink.id, teal: mk.teal.id, berry: mk.berry.id, soft: mk.soft.id };
-  return '<svg viewBox="0 0 400 250" role="img" aria-label="' + label + '" xmlns="http://www.w3.org/2000/svg"><defs>' + defs + '</defs>' +
-    '<rect width="400" height="250" fill="#FBFCFE"/><rect width="400" height="250" fill="url(#' + gid + ')"/>' + build(m) + '</svg>';
-}
-function T(x, y, s, o){
-  o = o || {};
-  return '<text' + (o.cls ? ' class="' + o.cls + '"' : '') + ' x="' + x + '" y="' + y + '" font-size="' + (o.fs || 10) + '" text-anchor="' + (o.a || 'middle') + '" fill="' + (o.c || C.ink) + '">' + s + '</text>';
-}
-function box(x, y, w, h, text, o){
-  o = o || {};
-  var fs = o.fs || 11, sfs = o.sfs || 9, lines = String(text).split('\n'), lh = fs * 1.22;
-  var total = lines.length * lh + (o.sub ? sfs * 1.3 : 0);
-  var top = y + (h - total) / 2, cx = x + w / 2;
-  var t = lines.map(function(l, k){
-    return '<text' + (o.mono ? ' class="svg-m"' : '') + ' x="' + cx + '" y="' + (top + k * lh + fs * 0.88).toFixed(1) + '" font-size="' + fs + '" text-anchor="middle" fill="' + (o.color || C.ink) + '">' + l + '</text>';
-  }).join('');
-  if (o.sub) t += '<text' + (o.smono ? ' class="svg-m"' : '') + ' x="' + cx + '" y="' + (top + lines.length * lh + sfs * 1.05).toFixed(1) + '" font-size="' + sfs + '" text-anchor="middle" fill="' + (o.scolor || C.inkSoft) + '">' + o.sub + '</text>';
-  return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="' + (o.rx === undefined ? 7 : o.rx) + '" fill="' + (o.fill || '#fff') + '" stroke="' + (o.stroke || C.ink) + '" stroke-width="' + (o.sw || 1.8) + '"/>' + t;
-}
-function pill(cx, cy, w, h, text, o){
-  var q = {}; o = o || {};
-  for (var k in o) q[k] = o[k];
-  q.rx = h / 2; if (!q.fs) q.fs = 10;
-  return box(cx - w / 2, cy - h / 2, w, h, text, q);
-}
-function ar(d, marker, o){
-  o = o || {};
-  return '<path' + (o.cls ? ' class="' + o.cls + '"' : '') + ' d="' + d + '" fill="none" stroke="' + (o.color || C.ink) + '" stroke-width="' + (o.w || 1.8) + '"' +
-    (o.dash ? ' stroke-dasharray="' + o.dash + '"' : '') + (marker ? ' marker-end="url(#' + marker + ')"' : '') + '/>';
-}
-/* 일이 흘러가는 방향을 보여 주는 노란 점 */
-function tok(path, o){
-  o = o || {};
-  var dur = o.dur || 4, r = o.r || 5, col = o.color || C.sun, b = o.begin || 0;
-  var mo = '<animateMotion dur="' + dur + 's" begin="' + b + 's" repeatCount="indefinite" path="' + path + '"';
-  var extra = '';
-  if (o.loop){
-    mo += '/>';
-    if (b) extra = '<set attributeName="opacity" to="1" begin="' + b + 's" fill="freeze"/>';
-  } else {
-    var tr = o.tr || .85, t2 = Math.min(.99, tr + .08).toFixed(2);
-    mo += ' keyPoints="0;1;1" keyTimes="0;' + tr + ';1" calcMode="linear"/>';
-    extra = '<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;' + tr + ';' + t2 + ';1" dur="' + dur + 's" begin="' + b + 's" repeatCount="indefinite"/>';
-  }
-  return '<circle r="' + r + '" fill="' + col + '" stroke="' + C.ink + '" stroke-width="1.4"' + (b ? ' opacity="0"' : '') + '>' + mo + extra + '</circle>';
-}
-/* 차례로 켜지는 강조 테두리 */
-function hl(x, y, w, h, dl, cy){
-  return '<rect class="lit" style="--dl:' + dl + 's;--cy:' + cy + 's" x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="6" fill="rgba(242,182,48,.22)" stroke="' + C.sun + '" stroke-width="2.6"/>';
-}
-
 /* ---------- 원문 링크 ---------- */
 var REPO = 'https://github.com/walkinglabs/learn-harness-engineering';
 var LEC = {
@@ -1330,11 +1377,13 @@ var LEC = {
 };
 function lec(n){ return { label: '강의 ' + n, url: REPO + '/blob/main/docs/ko/lectures/' + LEC[n] + '/index.md' }; }
 function hd(name, label){ return { label: label, url: REPO + '/blob/main/docs/ko/harness-designs/' + (name ? name + '/' : '') + 'index.md' }; }
-var STORY_LAST = 16, PART2 = 17;
 
 /* ---------- 쪽 내용 ---------- */
 var pages = [
-  { type: 'cover', title: '표지' },
+  { type: 'cover', title: '표지', kicker: '그림책으로 읽는 하네스 엔지니어링', h1: '번개와<br>다섯 가지 <em>장비</em>',
+    lead: 'AI 코딩 에이전트에게 일을 믿고 맡기려면 무엇이 필요할까요? 힘센 말 ‘번개’와 번개를 돌보는 아이 ‘하나’의 이야기로 따라가 봐요.',
+    legend: '<b class="teal">청록색</b>으로 그린 것은 모두 번개의 장비, 즉 하네스예요.',
+    credit: '원작 강의: <a href="' + REPO + '" target="_blank" rel="noopener">Learn Harness Engineering</a> (walkinglabs, MIT 라이선스)' },
   { chapter: '옛날 옛적에', title: '똑똑한 말, 번개',
     story: ['코드 마을에 번개라는 말이 살았어요. 세상에서 가장 힘이 세고 머리도 좋아서, 달리기 시험에선 늘 1등이었죠.',
             '마을 사람들은 번개에게 짐 배달을 맡기기로 했어요.'],
@@ -1452,10 +1501,25 @@ var pages = [
            '<code>progress.md</code> : 배달 일지 (강의 예제 이름은 <code>claude-progress.md</code>)',
            '강의 레포의 <code>harness-creator</code> 스킬이 이 뼈대를 몇 분 만에 만들어 줘요.'],
     refs: [{ label: '템플릿 모음', url: REPO + '/tree/main/docs/ko/resources/templates' }, { label: 'harness-creator', url: REPO + '/tree/main/skills/harness-creator' }] },
-  { type: 'end', chapter: '1부를 마치며', title: '단어장' },
+  { type: 'end', chapter: '1부를 마치며', title: '단어장',
+    words: [
+      ['하네스', '모델 바깥에서 AI의 일을 받쳐 주는 모든 장치. 그림책에서는 번개의 ‘장비’로 그렸고, 지침, 상태, 범위, 검증, 세션 관리 다섯 가지로 봤어요.'],
+      ['컨텍스트 윈도', 'AI가 한 번에 보고 기억할 수 있는 양'],
+      ['세션', 'AI와 일하는 한 번의 작업 단위. 끝나면 기억이 사라져요.'],
+      ['WIP=1', '진행 중인 일은 하나만'],
+      ['완료 기준', '기계가 확인할 수 있는 “끝”의 조건'],
+      ['E2E 테스트', '사용자처럼 처음부터 끝까지 써 보는 검사'],
+      ['메이커-체커', '만드는 쪽과 검사하는 쪽을 나누는 구조']],
+    notes: ['원작은 강의 14개, 실습 8개로 이루어져 있고 한국어를 포함한 15개 언어로 볼 수 있어요.',
+            '강의 2장은 하네스를 지시, 도구, 환경, 상태, 피드백으로 나누기도 해요. 두 가지 나누는 법은 2부 심화편 2장에서 비교해요.'],
+    links: [['GitHub 레포', REPO], ['한국어 강의 문서', REPO + '/tree/main/docs/ko']] },
 
   /* ================= 2부 · 심화편 ================= */
-  { type: 'tbcover', title: '심화편 표지' },
+  { type: 'tbcover', title: '심화편 표지', h1: '하네스 설계<br><em>교과서</em>',
+    lead: '그림책 속 다섯 가지 장비를 실제 저장소에서 하네스로 설계하는 방법을 14장에 담았어요. 장마다 움직이는 도식, 원문 근거, 바로 쓰는 템플릿이 있어요.',
+    bullets: ['<b>1~10장</b>은 하네스, <b>11장</b>은 루프, <b>12장</b>은 그래프, <b>13~14장</b>은 제품 비교와 실습 로드맵이에요.',
+              '도식 속 노란 점은 일이 흘러가는 방향이에요. 청록색은 하네스, 붉은색은 실패와 되돌아가는 길이에요.',
+              '장 끝의 “원문”은 한국어 강의 문서로, “그림책 다시 보기”는 1부의 같은 장면으로 이어져요.'] },
   { type: 'tb', no: '01', kicker: '진단', title: '실패를 다섯 층으로 나눠 보기', storyPage: 5,
     lede: '에이전트가 일을 망치면 먼저 “어느 층이 비어 있었나”를 물어요. 모델 교체는 가장 비싼 선택지이고, 대부분은 모델 문제가 아니에요.',
     blocks: [
@@ -1818,6 +1882,1157 @@ var CORE = [
   ['Cursor · Continually improving our agent harness', 'https://cursor.com/blog/continually-improving-agent-harness']
 ];
 
+return { cfg: { title: '번개와 다섯 가지 장비', id: 'harness-book', hash: 'harness', storyLast: 16, part2: 17, noteLabel: 'AI 개발에서는',
+  brand1: '번개와 다섯 가지 <span>장비</span>', brand2: '하네스 설계 <span>교과서</span>' },
+  scenes: scenes, pages: pages, CHECKS: CHECKS, CORE: CORE };
+};
+/* ================= 둘째 책: 떡볶이 주문의 여행 (원작: 개발의 기초, Jedi Kim, CC0) ================= */
+BOOKS.cs = function(){
+var SRC = 'https://jedikim.github.io/cs-foundations/';
+function ch(n){ return { label: n + '장', url: SRC + 'ch' + (n < 10 ? '0' + n : n) + '.html' }; }
+
+/* ---------- 이 책의 그림 부품 ---------- */
+/* 주문 쪽지 '또또' */
+function toto(x, y, s, o){
+  o = o || {}; s = s || 1;
+  var fill = o.fill || C.note, fold = o.fold || '#F2D76B';
+  var face = o.mood === 'sad'
+    ? '<path d="M-7 -20 q2 -2 4 0 M3 -20 q2 -2 4 0" fill="none" ' + S(1.5) + '/><path d="M-3 -13 q3 -2.5 6 0" fill="none" ' + S(1.4) + '/>'
+    : '<g class="blink"><circle cx="-5" cy="-21" r="1.9" fill="' + C.ink + '"/><circle cx="5" cy="-21" r="1.9" fill="' + C.ink + '"/></g><path d="M-3 -16 q3 2.6 6 0" fill="none" ' + S(1.4) + '/>' +
+      '<circle cx="-8.5" cy="-17" r="2" fill="' + C.berry + '" opacity=".3"/><circle cx="8.5" cy="-17" r="2" fill="' + C.berry + '" opacity=".3"/>';
+  return '<g transform="translate(' + x + ' ' + y + ') scale(' + s + ')"><g class="' + (o.run ? 'run ' : '') + (o.cls || '') + '">' +
+    '<g class="leg la"><path d="M-6 -1 v10" stroke="' + C.ink + '" stroke-width="3" stroke-linecap="round"/></g>' +
+    '<g class="leg lb"><path d="M6 -1 v10" stroke="' + C.ink + '" stroke-width="3" stroke-linecap="round"/></g>' +
+    '<path d="M-14 -36 H8 L14 -30 V0 H-14 Z" fill="' + fill + '" ' + S(2) + '/>' +
+    '<path d="M8 -36 V-30 H14" fill="' + fold + '" ' + S(1.6) + '/>' +
+    '<path d="M-8 -8 h16 M-8 -4 h10" stroke="' + C.inkSoft + '" stroke-width="1.3" stroke-linecap="round"/>' +
+    face + (o.extra || '') + '</g></g>';
+}
+function phone(x, y, s, screen){
+  s = s || 1;
+  return '<g transform="translate(' + x + ' ' + y + ') scale(' + s + ')">' +
+    '<rect x="-17" y="-58" width="34" height="58" rx="6" fill="' + C.ink + '"/>' +
+    '<rect x="-14" y="-53" width="28" height="46" rx="2.5" fill="#EEF6F4"/>' +
+    (screen || '<rect x="-10" y="-47" width="20" height="5" rx="2" fill="#C9D3E3"/><rect x="-10" y="-39" width="14" height="4" rx="2" fill="#DDE3EE"/><rect x="-10" y="-22" width="20" height="10" rx="3" fill="' + C.teal + '"/>') +
+    '<circle cx="0" cy="-3.6" r="1.6" fill="#8791B4"/></g>';
+}
+function shop(x, y, s, o){
+  o = o || {}; s = s || 1;
+  var stripes = '';
+  for (var k = 0; k < 6; k++) stripes += '<path d="M' + (-36 + k * 12) + ' -50 h12 l-2 12 h-12 z" fill="' + (k % 2 ? '#fff' : C.berry) + '" ' + S(1.4) + '/>';
+  return '<g transform="translate(' + x + ' ' + y + ') scale(' + s + ')">' +
+    '<rect x="-32" y="-46" width="64" height="46" fill="#F5E6CC" ' + S() + '/>' +
+    '<rect x="-24" y="-72" width="48" height="19" rx="3" fill="#fff" ' + S(1.8) + '/>' +
+    '<text x="0" y="-58.5" font-size="11" text-anchor="middle" fill="' + C.ink + '">' + (o.sign || '분식') + '</text>' + stripes +
+    '<rect x="-24" y="-30" width="22" height="16" fill="#FFF7DA" ' + S(1.6) + '/>' +
+    '<rect x="6" y="-28" width="16" height="28" rx="2" fill="' + C.ink + '" opacity=".85"/>' + (o.extra || '') + '</g>';
+}
+function chef(x, y, s, o){
+  o = o || {}; s = s || 1;
+  return '<g transform="translate(' + x + ' ' + y + ') scale(' + s + ')"><g class="' + (o.cls || '') + '">' +
+    '<path d="M-6 -12 v10 M6 -12 v10" stroke="' + C.ink + '" stroke-width="3.4" stroke-linecap="round"/>' +
+    '<ellipse cx="-7" cy="-2" rx="5" ry="2.6" fill="' + C.ink + '"/><ellipse cx="7" cy="-2" rx="5" ry="2.6" fill="' + C.ink + '"/>' +
+    '<path d="M-9 -40 L-18 -26 M9 -40 L18 -28" stroke="' + C.ink + '" stroke-width="6.2" stroke-linecap="round"/>' +
+    '<path d="M-9 -40 L-18 -26 M9 -40 L18 -28" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/>' +
+    '<path d="M-14 -10 L-9 -44 L9 -44 L14 -10 Z" fill="#fff" ' + S() + '/>' +
+    '<path d="M0 -40 v24" stroke="' + C.rule0 + '" stroke-width="1.4"/><circle cx="-3.5" cy="-34" r="1.3" fill="' + C.ink + '"/><circle cx="-3.5" cy="-26" r="1.3" fill="' + C.ink + '"/>' +
+    '<circle cx="0" cy="-55" r="12" fill="' + C.skin + '" ' + S() + '/>' +
+    '<path d="M-11 -64 h22 v-7 a6.5 6.5 0 0 0 -7.4 -6 a6.5 6.5 0 0 0 -7.2 0 a6.5 6.5 0 0 0 -7.4 6 Z" fill="#fff" ' + S(1.8) + '/>' +
+    '<g class="blink"><circle cx="-4.5" cy="-55" r="1.7" fill="' + C.ink + '"/><circle cx="4.5" cy="-55" r="1.7" fill="' + C.ink + '"/></g>' +
+    '<path d="M-3 -50 q3 2.5 6 0" fill="none" ' + S(1.4) + '/>' + (o.extra || '') + '</g></g>';
+}
+C.rule0 = '#D7DAE5';
+function floor(color, y){ y = y || 204; return '<rect x="0" y="' + y + '" width="400" height="' + (250 - y) + '" fill="' + color + '"/><path d="M0 ' + y + ' H400" stroke="' + C.ink + '" stroke-width="2"/>'; }
+function road(d){ return '<path class="flow" d="' + d + '" fill="none" stroke="' + C.teal + '" stroke-width="3.6" stroke-dasharray="2 9" stroke-linecap="round"/>'; }
+function plateDish(x, y, s){
+  return '<g transform="translate(' + x + ' ' + y + ') scale(' + (s || 1) + ')"><ellipse cx="0" cy="0" rx="30" ry="9" fill="#fff" ' + S(1.8) + '/>' +
+    '<path d="M-18 -3 q4 -12 10 -3 q4 -13 10 -2 q5 -11 10 -1 q4 -6 6 3 Z" fill="' + C.berry + '" ' + S(1.4) + '/><ellipse cx="0" cy="1" rx="19" ry="4" fill="' + C.berry + '"/></g>';
+}
+function tbl(x, y, title, widths, rows, hi){
+  var w = widths.reduce(function(a, b){ return a + b; }, 0), s = T(x, y - 5, title, { fs: 10, a: 'start' });
+  rows.forEach(function(r, ri){
+    var cx = x, ry = y + ri * 18;
+    s += '<rect x="' + x + '" y="' + ry + '" width="' + w + '" height="18" fill="' + (ri === 0 ? '#ECEFF7' : '#fff') + '" stroke="' + C.ink + '" stroke-width="1.2"/>';
+    r.forEach(function(cell, ci){
+      if (hi && hi[0] === ri && hi[1] === ci) s += '<rect x="' + cx + '" y="' + ry + '" width="' + widths[ci] + '" height="18" fill="#E1F1EE" stroke="' + C.teal + '" stroke-width="1.8"/>';
+      s += T(cx + widths[ci] / 2, ry + 12.5, cell, { fs: 8.5, cls: ri === 0 ? '' : 'svg-m', c: ri === 0 ? C.inkSoft : C.ink });
+      cx += widths[ci];
+    });
+  });
+  return s;
+}
+
+/* ---------- 장면 ---------- */
+var scenes = [
+  /* 0 표지 */
+  function(){
+    return svgWrap('주문 쪽지 또또가 스마트폰에서 분식집을 향해 달려가는 그림', '#BBDCEA', '#EDF5F0',
+      sun(338, 46, 18) + cloud(112, 50, .9, 0) + cloud(236, 32, .7, 3) +
+      road('M72 216 C 140 190 250 236 322 208') +
+      phone(46, 222, 1.05) + shop(346, 216, .86) +
+      toto(196, 212, 1.5, { run: true }) +
+      sparkle(150, 150, 6, 0) + sparkle(262, 140, 5, .7) + sparkle(96, 120, 5, 1.2));
+  },
+  /* 1 주문하기 */
+  function(){
+    var scr = '<rect x="-10" y="-47" width="20" height="5" rx="2" fill="#C9D3E3"/><rect x="-10" y="-39" width="14" height="4" rx="2" fill="#DDE3EE"/><rect x="-10" y="-22" width="20" height="10" rx="3" fill="' + C.teal + '"/>';
+    return svgWrap('스마트폰의 주문하기 버튼을 누르자 주문 쪽지 또또가 튀어나오는 그림', '#FBEFD2', '#F6F2E6',
+      floor('#E9DFC8', 214) + phone(120, 224, 3.3, scr) +
+      T(120, 172, '주문하기', { fs: 11, c: '#fff' }) +
+      '<g fill="none" stroke="' + C.teal + '" stroke-width="2"><circle class="wave" style="--d:0s" cx="120" cy="168" r="16"/><circle class="wave" style="--d:.7s" cx="120" cy="168" r="16"/></g>' +
+      '<g transform="translate(150 196) rotate(-28)"><rect x="-7" y="-4" width="14" height="40" rx="7" fill="' + C.skin + '" ' + S(1.8) + '/></g>' +
+      road('M186 150 C 230 120 280 150 372 120') +
+      '<g class="pop" style="--d:.5s">' + toto(268, 176, 1.7, {}) + '</g>' +
+      bubble(300, 78, '다녀올게요!', { tx: 282, ty: 108, d: 1.1 }) +
+      sparkle(222, 110, 7, 0) + sparkle(340, 168, 6, .6),
+      { hills: false });
+  },
+  /* 2 컴퓨터의 몸 */
+  function(){
+    var shelf = '';
+    for (var r = 0; r < 3; r++) for (var k = 0; k < 3; k++) shelf += '<rect x="' + (300 + k * 26) + '" y="' + (82 + r * 40) + '" width="20" height="' + (18 + (k + r) % 2 * 6) + '" rx="2" fill="' + [C.kraft, '#9AA6D1', '#B8D59A'][(k + r) % 3] + '" ' + S(1.4) + ' transform="translate(0 ' + ((k + r) % 2 ? 0 : 6) + ')"/>';
+    return svgWrap('분식집 주방의 요리사, 조리대, 창고가 CPU, 메모리, 저장장치에 해당하는 그림', '#FBEFD2', '#F8F1E2',
+      floor('#E3D6BC') +
+      '<rect x="290" y="64" width="92" height="140" fill="#F3E7CF" ' + S() + '/><path d="M290 110 H382 M290 150 H382" stroke="' + C.ink + '" stroke-width="2"/>' + shelf +
+      '<rect x="112" y="150" width="150" height="14" rx="3" fill="#C9A77A" ' + S() + '/><rect x="122" y="164" width="10" height="40" fill="#B08E63" ' + S(1.6) + '/><rect x="242" y="164" width="10" height="40" fill="#B08E63" ' + S(1.6) + '/>' +
+      '<rect x="168" y="128" width="30" height="22" rx="2" fill="#fff" ' + S(1.6) + '/><path d="M173 135 h20 M173 140 h20 M173 145 h12" stroke="' + C.inkSoft + '" stroke-width="1.3"/>' +
+      plateDish(228, 144, .7) +
+      chef(70, 204, 1.25, { cls: 'float' }) +
+      chip(70, 40, '요리사 = CPU', { fs: 10, cls: 'pop', d: .3 }) + chip(188, 100, '조리대 = 메모리', { fs: 10, cls: 'pop', d: .8 }) + chip(336, 44, '창고 = 저장장치', { fs: 10, cls: 'pop', d: 1.3 }) +
+      toto(150, 150, .8, {}),
+      { hills: false });
+  },
+  /* 3 0과 1 */
+  function(){
+    var bits = [0, 1, 0, 0, 0, 0, 0, 1], sw = '';
+    bits.forEach(function(b, i){
+      var x = 62 + i * 36;
+      sw += '<rect x="' + x + '" y="62" width="24" height="46" rx="6" fill="' + (b ? C.sun : '#fff') + '" ' + S(1.8) + '/>' +
+        '<rect x="' + (x + 5) + '" y="' + (b ? 67 : 87) + '" width="14" height="16" rx="4" fill="' + (b ? '#fff' : '#C9CFDD') + '" ' + S(1.4) + '/>' +
+        (b ? '<g transform="translate(' + (x + 12) + ' 52)"><path class="twinkle" style="--d:' + (i * .2) + 's" d="M0 -5 Q0 0 5 0 Q0 0 0 5 Q0 0 -5 0 Q0 0 0 -5Z" fill="' + C.sun + '"/></g>' : '') +
+        '<text class="svg-m" x="' + (x + 12) + '" y="124" font-size="11" text-anchor="middle" fill="' + C.ink + '">' + b + '</text>';
+    });
+    return svgWrap('여덟 개의 스위치 줄을 약속에 따라 숫자, 글자, 색으로 읽는 그림', '#E9EEF7', '#F2F4F8',
+      floor('#DADFEA', 214) + sw +
+      T(200, 36, '켜짐과 꺼짐, 스위치 여덟 개', { cls: 'svg-d', fs: 15 }) +
+      '<g class="pop" style="--d:.6s"><rect x="40" y="150" width="88" height="46" rx="8" fill="#fff" ' + S(1.8) + '/>' + T(84, 167, '숫자로 읽으면', { fs: 9, c: C.inkSoft }) + T(84, 187, '65', { fs: 16, cls: 'svg-m' }) + '</g>' +
+      '<g class="pop" style="--d:1.1s"><rect x="156" y="150" width="88" height="46" rx="8" fill="#fff" ' + S(1.8) + '/>' + T(200, 167, '글자로 읽으면', { fs: 9, c: C.inkSoft }) + T(200, 187, 'A', { fs: 16, cls: 'svg-m' }) + '</g>' +
+      '<g class="pop" style="--d:1.6s"><rect x="272" y="150" width="88" height="46" rx="8" fill="#fff" ' + S(1.8) + '/>' + T(316, 167, '밝기로 읽으면', { fs: 9, c: C.inkSoft }) + '<rect x="302" y="173" width="28" height="16" rx="3" fill="#414141" ' + S(1.2) + '/></g>' +
+      toto(30, 214, .8, {}),
+      { hills: false });
+  },
+  /* 4 운영체제 */
+  function(){
+    var pans = '';
+    [0, 1, 2].forEach(function(i){
+      var x = 232 + i * 56;
+      pans += '<ellipse cx="' + x + '" cy="168" rx="20" ry="7" fill="#5A648C" ' + S(1.8) + '/><path d="M' + (x + 18) + ' 166 l16 -8" stroke="' + C.ink + '" stroke-width="4" stroke-linecap="round"/>' +
+        '<circle class="lit" style="--dl:' + (i * 1.2) + 's;--cy:3.6s" cx="' + x + '" cy="166" r="27" fill="rgba(242,182,48,.25)" stroke="' + C.sun + '" stroke-width="3"/>' +
+        T(x, 148, (i + 1) + '번', { fs: 9.5 });
+    });
+    return svgWrap('지배인 부엉이가 차례를 정해 주고 요리사 한 명이 냄비 세 개를 빠르게 번갈아 돌보는 그림', '#FBEFD2', '#F8F1E2',
+      floor('#E3D6BC') + '<rect x="204" y="176" width="176" height="28" fill="#8C93AE" ' + S() + '/>' + pans +
+      chef(160, 204, 1.15, { cls: 'wob' }) +
+      owl(58, 204, .95, { extra: '<g transform="translate(22 -22) rotate(10)"><rect x="-8" y="-11" width="16" height="22" rx="2" fill="' + C.kraft + '" ' + S(1.5) + '/><rect x="-6" y="-7" width="12" height="15" fill="#fff"/><path d="M-4 -3 h8 M-4 1 h8 M-4 5 h5" stroke="' + C.inkSoft + '" stroke-width="1"/></g>' }) +
+      bubble(96, 60, '다음은 2번 냄비!', { tx: 70, ty: 108, fs: 11, d: .4 }) +
+      chip(300, 60, '아주 빠르게 번갈아', { fs: 10, cls: 'pop', d: 1 }),
+      { hills: false });
+  },
+  /* 5 코드 실행 */
+  function(){
+    return svgWrap('사람이 쓴 레시피가 번역기를 지나 0과 1로 된 기계의 말이 되는 그림', '#E9F3F1', '#F3F7F4',
+      floor('#D6E3DD', 212) +
+      '<rect x="24" y="84" width="84" height="104" rx="4" fill="#fff" ' + S() + '/>' + T(66, 104, '레시피', { fs: 11 }) +
+      '<path d="M36 118 h60 M36 130 h60 M36 142 h44 M36 154 h60 M36 166 h36" stroke="' + C.inkSoft + '" stroke-width="2" stroke-linecap="round"/>' +
+      T(66, 204, '사람의 글 (코드)', { fs: 9.5, c: C.inkSoft }) +
+      '<rect x="150" y="70" width="100" height="126" rx="10" fill="' + C.teal + '" ' + S() + '/><rect x="162" y="84" width="76" height="30" rx="5" fill="#fff" ' + S(1.6) + '/>' + T(200, 104, '번역기', { fs: 12 }) +
+      '<g transform="translate(184 152)"><g class="spin" style="animation-duration:6s"><path d="M0 -15 L4 -6 L14 -6 L7 1 L10 12 L0 6 L-10 12 L-7 1 L-14 -6 L-4 -6 Z" fill="#fff" ' + S(1.5) + '/></g></g>' +
+      '<g transform="translate(218 160)"><g class="spin" style="animation-duration:4s;animation-direction:reverse"><circle r="9" fill="' + C.sun + '" ' + S(1.5) + '/><path d="M-9 0 h18 M0 -9 v18" stroke="' + C.ink + '" stroke-width="1.5"/></g></g>' +
+      '<rect x="292" y="84" width="84" height="104" rx="4" fill="#23305E" ' + S() + '/>' +
+      ['0100 1011', '1101 0010', '0011 1100', '1010 0101'].map(function(l, i){ return '<g class="pop" style="--d:' + (1 + i * .35) + 's">' + T(334, 112 + i * 20, l, { cls: 'svg-m', fs: 10, c: '#BFE6DF' }) + '</g>'; }).join('') +
+      T(334, 204, '기계의 말', { fs: 9.5, c: C.inkSoft }) +
+      '<path d="M112 136 H146 M254 136 H288" stroke="' + C.ink + '" stroke-width="2.4" stroke-linecap="round"/><path d="M140 130 l7 6 l-7 6 M282 130 l7 6 l-7 6" fill="none" ' + S(2.2) + '/>' +
+      toto(130, 212, .75, {}) + chip(200, 40, '요리사는 한 가지 말만 알아들어요', { fs: 10 }),
+      { hills: false });
+  },
+  /* 6 작업대 */
+  function(){
+    var flags = '';
+    [0, 1, 2, 3].forEach(function(i){
+      var x = 70 + i * 86;
+      flags += '<circle cx="' + x + '" cy="206" r="6" fill="#fff" ' + S(1.8) + '/><g class="pop" style="--d:' + (.5 + i * .5) + 's"><path d="M' + x + ' 200 V172" stroke="' + C.ink + '" stroke-width="2"/><path d="M' + x + ' 172 h22 l-6 7 l6 7 h-22 z" fill="' + (i === 3 ? C.sun : C.teal) + '" ' + S(1.5) + '/></g>' +
+        T(x, 230, '저장 ' + (i + 1), { fs: 9.5, c: C.inkSoft });
+    });
+    return svgWrap('글로 명령하는 터미널 창과 저장 지점 깃발이 늘어선 개발자의 작업대', '#EAF0EE', '#F1F4EF',
+      '<rect x="70" y="22" width="260" height="118" rx="10" fill="#1F2A52" ' + S() + '/><circle cx="88" cy="38" r="4" fill="' + C.berry + '"/><circle cx="102" cy="38" r="4" fill="' + C.sun + '"/><circle cx="116" cy="38" r="4" fill="#7CC3BB"/>' +
+      T(88, 70, '$ 테스트 돌려 줘', { cls: 'svg-m', fs: 12, a: 'start', c: '#E8ECF7' }) +
+      '<g class="pop" style="--d:1s">' + T(88, 92, '✓ 12개 통과', { cls: 'svg-m', fs: 12, a: 'start', c: '#9BE0D5' }) + '</g>' +
+      '<g class="pop" style="--d:1.6s">' + T(88, 114, '$ 저장 지점 만들기', { cls: 'svg-m', fs: 12, a: 'start', c: '#E8ECF7' }) + '</g>' +
+      '<rect x="224" y="104" width="8" height="13" fill="#E8ECF7"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></rect>' +
+      '<path d="M40 206 H360" stroke="' + C.teal + '" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/>' + flags +
+      '<path d="M300 196 C 290 158 190 158 168 194" fill="none" stroke="' + C.berry + '" stroke-width="2" stroke-dasharray="5 4"/><path d="M168 194 l8 -3 l-3 9 z" fill="' + C.berry + '"/>' +
+      T(236, 160, '망가지면 되돌아가기', { fs: 9.5, c: C.berry }),
+      { hills: false });
+  },
+  /* 7 그릇과 길 */
+  function(){
+    var q = '', dr = '';
+    [0, 1, 2, 3].forEach(function(i){ q += toto(42 + i * 34, 196, .6, { cls: i === 3 ? 'float' : '' }); });
+    ['떡볶이', '순대', '튀김'].forEach(function(n, i){
+      dr += '<rect x="254" y="' + (70 + i * 42) + '" width="110" height="36" rx="4" fill="#F1E3C6" ' + S(1.8) + '/><rect x="270" y="' + (80 + i * 42) + '" width="46" height="16" rx="3" fill="#fff" ' + S(1.2) + '/>' + T(293, 92 + i * 42, n, { fs: 9 }) +
+        '<circle cx="344" cy="' + (88 + i * 42) + '" r="3.5" fill="' + C.ink + '"/>' + hl(254, 70 + i * 42, 110, 36, i * 1.3, 3.9);
+    });
+    return svgWrap('줄을 선 주문 쪽지들과 이름표가 붙은 서랍장으로 자료구조를 보여 주는 그림', '#FBEFD2', '#F8F1E2',
+      floor('#E3D6BC') + '<rect x="20" y="118" width="170" height="12" rx="3" fill="#C9A77A" ' + S(1.8) + '/>' +
+      '<path d="M176 100 l12 8 l-12 8" fill="none" ' + S(2.4) + '/>' + q +
+      chip(104, 80, '줄 서기 = 큐', { fs: 10 }) + T(104, 228, '먼저 온 주문이 먼저 나가요', { fs: 9.5, c: C.inkSoft }) +
+      '<rect x="246" y="62" width="126" height="142" rx="6" fill="#C9A77A" ' + S() + '/>' + dr +
+      chip(310, 40, '이름표 서랍 = 해시 맵', { fs: 10 }) + T(310, 228, '이름표를 보고 바로 찾아요', { fs: 9.5, c: C.inkSoft }),
+      { hills: false });
+  },
+  /* 8 동시성 */
+  function(){
+    return svgWrap('남은 떡볶이 한 접시를 두 주문 쪽지가 동시에 확인하고 손을 뻗는 그림', '#FBE9E3', '#F8F0EA',
+      floor('#EAD9CE') + '<rect x="150" y="150" width="100" height="12" rx="3" fill="#C9A77A" ' + S(1.8) + '/><rect x="194" y="162" width="12" height="42" fill="#B08E63" ' + S(1.6) + '/>' +
+      plateDish(200, 144, 1) + chip(200, 108, '딱 1인분 남음', { fs: 10 }) +
+      toto(92, 204, 1.25, { cls: 'jump' }) + toto(308, 204, 1.25, { cls: 'jump' }) +
+      bubble(84, 80, '1인분 있네, 내 거!', { tx: 96, ty: 138, fs: 10.5, d: .3 }) + bubble(316, 80, '1인분 있네, 내 거!', { tx: 304, ty: 138, fs: 10.5, d: .5 }) +
+      '<g transform="translate(200 52)"><g class="pop" style="--d:1.8s"><rect x="-13" y="-4" width="26" height="20" rx="4" fill="' + C.teal + '" ' + S(1.8) + '/><path d="M-7 -4 v-6 a7 7 0 0 1 14 0 v6" fill="none" ' + S(2.4) + '/><circle cx="0" cy="6" r="2.5" fill="#fff"/></g></g>' +
+      T(200, 232, '확인하고 가져가는 사이의 틈이 문제', { fs: 9.5, c: C.berry }),
+      { hills: false });
+  },
+  /* 9 버그 수사 */
+  function(){
+    var prints = '';
+    for (var i = 0; i < 6; i++) prints += '<ellipse class="trail" style="--d:' + (i * .25).toFixed(2) + 's" cx="' + (150 + i * 28) + '" cy="' + (i % 2 ? 222 : 214) + '" rx="5" ry="3" fill="#8A93B5"/>';
+    return svgWrap('탐정 여우가 발자국을 따라 버그를 찾아가고, 테스트 경보기가 울리는 그림', '#E6EEF0', '#EEF3F2',
+      floor('#D5E0DD', 206) + prints + fox(92, 206, 1.25) +
+      '<g transform="translate(336 196)"><g class="wob"><ellipse cx="0" cy="-10" rx="14" ry="10" fill="' + C.berry + '" ' + S(1.8) + '/><path d="M0 -20 V0" stroke="' + C.ink + '" stroke-width="1.6"/><circle cx="-5" cy="-12" r="2" fill="' + C.ink + '"/><circle cx="5" cy="-8" r="2" fill="' + C.ink + '"/>' +
+      '<path d="M-12 -14 l-8 -5 M-13 -8 l-9 2 M12 -14 l8 -5 M13 -8 l9 2 M-5 -19 l-4 -8 M5 -19 l4 -8" stroke="' + C.ink + '" stroke-width="1.8" stroke-linecap="round"/></g></g>' +
+      chip(336, 150, '처음 틀어진 곳', { fs: 9.5, color: C.berry, cls: 'pop', d: 1.6 }) +
+      '<g transform="translate(250 44)"><path d="M0 0 V16" stroke="' + C.ink + '" stroke-width="2.4"/><g class="bell" transform="translate(-47 16)"><path d="M38 20 C 38 2 56 2 56 20 Z" fill="' + C.sun + '" ' + S(1.8) + '/><circle cx="47" cy="23" r="3" fill="' + C.ink + '"/></g></g>' +
+      T(250, 96, '테스트 = 경보기', { fs: 10 }) +
+      bubble(104, 60, '찍지 말고, 좁혀 가자', { tx: 112, ty: 110, fs: 11, d: .3 }),
+      { hills: false });
+  },
+  /* 10 인터넷 */
+  function(){
+    var r1 = 'M60 206 C 120 150 200 120 340 150', r2 = 'M60 210 C 140 200 240 190 340 170', r3 = 'M60 216 C 150 234 260 226 340 190';
+    function piece(path, n, b){ return '<g opacity="0"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.85;.93;1" dur="4.5s" begin="' + b + 's" repeatCount="indefinite"/><animateMotion dur="4.5s" begin="' + b + 's" repeatCount="indefinite" path="' + path + '" keyPoints="0;1;1" keyTimes="0;.85;1" calcMode="linear"/>' +
+      '<rect x="-8" y="-10" width="16" height="20" rx="2" fill="' + C.note + '" ' + S(1.5) + '/><text y="4" font-size="10" text-anchor="middle" fill="' + C.ink + '">' + n + '</text></g>'; }
+    return svgWrap('주문이 세 조각으로 나뉘어 서로 다른 길로 분식집 주소를 찾아가는 그림', '#BBDCEA', '#EDF5F0',
+      cloud(120, 44, .8, 0) + cloud(300, 36, .7, 3) + road(r1) + road(r2) + road(r3) +
+      phone(40, 226, .9) + shop(360, 206, .7) +
+      '<g transform="translate(196 104)"><rect x="-30" y="-30" width="60" height="30" fill="#fff" ' + S(1.8) + '/><path d="M-36 -30 L0 -52 L36 -30 Z" fill="#8C9AC7" ' + S(1.8) + '/><text y="-10" font-size="10" text-anchor="middle" fill="' + C.ink + '">주소 안내소</text></g>' +
+      bubble(196, 26, '분식집은 203.0.113.7', { tx: 196, ty: 50, fs: 10, d: .4 }) +
+      piece(r1, 1, 0) + piece(r2, 2, .5) + piece(r3, 3, 1) +
+      T(200, 244, '조각마다 다른 길로 가도, 도착해서 다시 맞춰요', { fs: 9.5, c: C.ink }),
+      { h1: '#B8D59A', h2: '#9CC27F' });
+  },
+  /* 11 HTTP */
+  function(){
+    return svgWrap('잠긴 상자에 담긴 주문서가 분식집에 도착하고 200 답변서가 돌아오는 그림', '#E9F3F1', '#F3F7F4',
+      floor('#D6E3DD', 208) + shop(326, 208, 1.25) +
+      '<g transform="translate(120 208)"><g class="float"><rect x="-44" y="-58" width="88" height="58" rx="5" fill="' + C.kraft + '" ' + S() + '/><path d="M-44 -40 H44" stroke="' + C.kraftLine + '" stroke-width="2.4"/>' +
+      '<rect x="-11" y="-36" width="22" height="18" rx="3" fill="' + C.teal + '" ' + S(1.8) + '/><path d="M-6 -36 v-5 a6 6 0 0 1 12 0 v5" fill="none" ' + S(2.2) + '/></g></g>' +
+      toto(120, 150, .8, {}) +
+      chip(120, 40, '주문서는 잠긴 상자에 (HTTPS)', { fs: 10 }) +
+      road('M168 180 H 276') +
+      '<g transform="translate(232 108)"><g class="float" style="--d:.6s"><rect x="-36" y="-22" width="72" height="44" rx="4" fill="#fff" ' + S(1.8) + '/>' + T(0, -5, '답변서', { fs: 9, c: C.inkSoft }) + T(0, 13, '200 OK', { cls: 'svg-m', fs: 13, c: C.tealDark }) + '</g></g>' +
+      chip(232, 232, '4로 시작하면 주문서 문제, 5로 시작하면 가게 문제', { fs: 9 }),
+      { hills: false });
+  },
+  /* 12 장부 */
+  function(){
+    var rows = '';
+    [['#1042', '떡볶이 1', '접수'], ['#1043', '순대 2', '접수'], ['#1044', '튀김 1', '접수']].forEach(function(r, i){
+      rows += '<g class="pop" style="--d:' + (.5 + i * .6) + 's">' + T(140, 106 + i * 26, r[0], { cls: 'svg-m', fs: 9.5 }) + T(188, 106 + i * 26, r[1], { fs: 9.5 }) + T(262, 106 + i * 26, r[2], { fs: 9.5, c: C.tealDark }) + '</g><path d="M112 ' + (114 + i * 26) + ' H192 M208 ' + (114 + i * 26) + ' H288" stroke="#E3E6EE" stroke-width="1.2"/>';
+    });
+    return svgWrap('가게의 큰 장부에 주문이 한 줄씩 적히는 그림', '#FBEFD2', '#F8F1E2',
+      floor('#E3D6BC', 212) +
+      '<path d="M100 60 H196 Q200 60 200 66 V190 Q200 184 196 184 H100 Z" fill="#fff" ' + S() + '/><path d="M300 60 H204 Q200 60 200 66 V190 Q200 184 204 184 H300 Z" fill="#fff" ' + S() + '/>' +
+      '<rect x="92" y="56" width="216" height="140" rx="6" fill="none" stroke="' + C.teal + '" stroke-width="5"/>' +
+      T(150, 82, '주문 장부', { fs: 11 }) + T(252, 82, '상태', { fs: 10, c: C.inkSoft }) + rows +
+      '<g transform="translate(318 150) rotate(30)"><g class="float"><rect x="-3.5" y="-40" width="7" height="34" fill="' + C.sun + '" ' + S(1.5) + '/><path d="M-3.5 -6 L0 3 L3.5 -6 Z" fill="' + C.ink + '"/></g></g>' +
+      chef(46, 212, 1) + toto(354, 212, .8, {}) +
+      chip(200, 30, '전원이 꺼져도 지워지지 않아요', { fs: 10 }),
+      { hills: false });
+  },
+  /* 13 문단속 */
+  function(){
+    return svgWrap('문지기 부엉이가 진짜 주문은 들여보내고 가격을 고친 가짜 주문은 돌려보내는 그림', '#ECE8F3', '#F3F1F6',
+      floor('#DDD8E6', 208) + shop(330, 208, 1.2) + owl(232, 208, 1.05) +
+      toto(150, 208, 1, {}) + check(150, 150, 10, .8) +
+      toto(60, 208, 1, { mood: 'sad', fill: '#F6D5D8', fold: '#E7A9AF' }) +
+      chip(60, 132, '떡볶이 900원', { fs: 9.5, color: C.berry }) +
+      '<g transform="translate(60 106)"><g class="pop" style="--d:1.4s"><circle r="11" fill="' + C.berry + '" ' + S(1.6) + '/><path d="M-4.5 -4.5 l9 9 M4.5 -4.5 l-9 9" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></g></g>' +
+      bubble(232, 60, '가격은 장부에서 다시 확인!', { tx: 232, ty: 124, fs: 10.5, d: .4 }),
+      { hills: false });
+  },
+  /* 14 배포와 관측 */
+  function(){
+    var belt = 'M20 190 H250';
+    return svgWrap('새 버전 상자가 검사대를 지나 가게로 나가고, 계기판과 기록으로 가게를 지켜보는 그림', '#E9F3F1', '#F3F7F4',
+      floor('#D6E3DD', 212) +
+      '<rect x="14" y="192" width="244" height="12" rx="6" fill="#8C93AE" ' + S(1.8) + '/>' +
+      '<rect x="118" y="120" width="54" height="72" fill="none" stroke="' + C.teal + '" stroke-width="5"/>' + T(145, 112, '검사대', { fs: 10 }) + check(145, 140, 9, 1.2) +
+      '<g><animateMotion dur="5s" repeatCount="indefinite" path="' + belt + '"/>' + parcel(0, 2, 1, {}) + '</g>' +
+      shop(318, 212, .9) + T(60, 228, '새 버전', { fs: 9.5, c: C.inkSoft }) +
+      '<rect x="236" y="20" width="150" height="92" rx="8" fill="#fff" ' + S() + '/>' +
+      '<path d="M258 86 A30 30 0 0 1 318 86" fill="none" stroke="#C9CFDD" stroke-width="7" stroke-linecap="round"/><path d="M258 86 A30 30 0 0 1 300 60" fill="none" stroke="' + C.teal + '" stroke-width="7" stroke-linecap="round"/>' +
+      '<g transform="translate(288 86)"><g class="sweep" style="transform-origin:50% 100%"><path d="M0 0 V-24" stroke="' + C.ink + '" stroke-width="3" stroke-linecap="round"/></g><circle r="4" fill="' + C.ink + '"/></g>' +
+      T(288, 104, '계기판', { fs: 9, c: C.inkSoft }) +
+      ['12:01 주문 접수', '12:01 결제 완료', '12:02 느림 주의'].map(function(l, i){ return '<g class="pop" style="--d:' + (.6 + i * .5) + 's">' + T(330, 44 + i * 16, l, { fs: 7.5, a: 'start', c: i === 2 ? C.berry : C.inkSoft }) + '</g>'; }).join('') +
+      T(352, 104, '기록', { fs: 9, c: C.inkSoft }),
+      { hills: false });
+  },
+  /* 15 돌아온 대답 */
+  function(){
+    var scr = '<circle cx="0" cy="-36" r="8" fill="' + C.teal + '"/><path d="M-4 -36 l3 3.4 l5 -6" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="-10" y="-22" width="20" height="4" rx="2" fill="#C9D3E3"/><rect x="-7" y="-15" width="14" height="3.5" rx="1.7" fill="#DDE3EE"/>';
+    function card(x, t, d){ return '<g transform="translate(' + x + ' 44)"><g class="float" style="--d:' + d + 's"><rect x="-44" y="-18" width="88" height="36" rx="7" fill="#fff" ' + S(1.8) + '/><path d="M-43 -11 v-1 a6 6 0 0 1 6 -5 h74 a6 6 0 0 1 6 5 v1 Z" fill="' + C.teal + '"/>' + T(0, 10, t, { fs: 12 }) + '</g></g>'; }
+    return svgWrap('주문 접수 화면이 뜬 스마트폰 옆에서 하나와 또또가 기뻐하고, 사람이 할 일 세 가지 카드가 떠 있는 그림', '#F8D9B4', '#F3EADB',
+      card(96, '시키기', 0) + card(200, '확인하기', .5) + card(304, '좁히기', 1) +
+      phone(200, 226, 2.4, scr) + T(200, 204, '주문 접수!', { fs: 9.5 }) +
+      girl(96, 226, 1.1, { cls: 'jump' }) + toto(304, 224, 1.3, { cls: 'jump' }) +
+      sparkle(150, 120, 7, 0) + sparkle(256, 110, 6, .6) + sparkle(340, 150, 5, 1.1),
+      { h1: '#C9D6A8', h2: '#AEC48D' });
+  },
+  /* 16 단어장 */
+  function(){
+    return svgWrap('또또가 책 더미 옆에서 쉬는 그림', '#EEF0F5', '#E3E7EF',
+      '<rect x="0" y="214" width="400" height="36" fill="#D9D3C4"/><path d="M0 214 H400" stroke="' + C.ink + '" stroke-width="2"/>' +
+      '<rect x="58" y="196" width="88" height="18" rx="2" fill="#C9665E" ' + S(1.8) + '/><rect x="64" y="178" width="78" height="18" rx="2" fill="#8C9AC7" ' + S(1.8) + '/><rect x="60" y="160" width="84" height="18" rx="2" fill="' + C.sun + '" ' + S(1.8) + '/>' +
+      '<g transform="translate(316 120)"><circle class="glow" r="54" fill="' + C.sun + '" opacity=".18"/></g>' +
+      '<path d="M316 214 V112" stroke="' + C.ink + '" stroke-width="3"/><path d="M296 112 L336 112 L326 84 L306 84 Z" fill="' + C.sun + '" ' + S(1.8) + '/><rect x="300" y="208" width="32" height="7" rx="2" fill="' + C.ink + '"/>' +
+      toto(204, 212, 2, {}) +
+      T(200, 56, '끝', { cls: 'svg-d', fs: 30 }) + sparkle(160, 50, 6, 0) + sparkle(242, 46, 5, .8),
+      { hills: false });
+  },
+
+  /* ================= 2부 도식 ================= */
+  /* 17 심화편 표지 */
+  function(){
+    return dia('스마트폰, 인터넷, 서버, 데이터베이스를 요청이 지나가고 응답이 돌아오는 지도', function(m){
+      var s = T(200, 38, '버튼 한 번이 다녀오는 길', { cls: 'svg-d', fs: 17 });
+      [['스마트폰', '1~4 · 7~10장', 14], ['인터넷', '11장', 112], ['서버', '13 · 14장', 210], ['데이터베이스', '12장', 308]].forEach(function(b, i){
+        s += box(b[2], 86, 80, 52, b[0], { fs: 10.5, sub: b[1], sfs: 8.5, fill: i === 2 ? '#E1F1EE' : '#fff', stroke: i === 2 ? C.teal : C.ink });
+        if (i < 3) s += ar('M' + (b[2] + 80) + ' 104 H' + (b[2] + 96), m.teal, { color: C.teal, w: 2.2 });
+      });
+      s += ar('M348 138 C 348 180 54 180 54 142', m.soft, { color: C.inkSoft, dash: '4 4' });
+      s += T(200, 68, '요청 →', { fs: 9.5, c: C.tealDark }) + T(200, 196, '← 응답', { fs: 9.5, c: C.inkSoft });
+      s += tok('M54 78 H348', { dur: 4, tr: .45, r: 4.5 }) + tok('M348 138 C 348 180 54 180 54 142', { dur: 4, begin: 2, tr: .45, r: 4.5, color: '#fff' });
+      s += chip(104, 226, '5 · 6장 작업대와 Git', { fs: 9, cls: 'pop', d: 1 }) + chip(296, 226, '10장 디버깅과 테스트', { fs: 9, cls: 'pop', d: 1.3 });
+      return s;
+    });
+  },
+  /* 18 1장 컴퓨터의 몸 */
+  function(){
+    return dia('저장장치에서 메모리로, 메모리에서 CPU로 데이터가 올라가는 구조와 세 부품의 차이', function(m){
+      var s = T(200, 30, '주방의 세 가지 = 컴퓨터의 세 부품', { cls: 'svg-d', fs: 14 });
+      s += box(14, 56, 112, 58, 'CPU', { fs: 13, sub: '요리사 · 명령을 하나씩', sfs: 8.5, fill: '#FFF3D6' });
+      s += box(144, 56, 112, 58, '메모리(RAM)', { fs: 12, sub: '조리대 · 지금 쓰는 것', sfs: 8.5, fill: '#E1F1EE', stroke: C.teal });
+      s += box(274, 56, 112, 58, '저장장치', { fs: 12, sub: '창고 · 오래 보관', sfs: 8.5 });
+      s += ar('M272 78 H260', m.ink) + ar('M142 78 H130', m.ink) + ar('M128 96 H140', m.soft, { color: C.inkSoft }) ;
+      s += T(266, 50, '펼치기', { fs: 8.5, c: C.inkSoft }) + T(136, 50, '읽고 쓰기', { fs: 8.5, c: C.inkSoft });
+      s += tok('M330 48 C 300 36 240 36 200 48 C 160 36 100 36 70 48', { dur: 4.5, tr: .85, r: 4.5 });
+      var rows = [['빠르기', '가장 빠름', '빠름', '느림'], ['담는 양', '아주 적음', '중간', '아주 많음'], ['전원을 끄면', '—', '사라짐', '남음']];
+      rows.forEach(function(r, i){
+        var y = 142 + i * 28;
+        s += T(8, y + 4, r[0], { fs: 9, a: 'start', c: C.inkSoft });
+        [70, 200, 330].forEach(function(x, k){ s += '<rect x="' + (x - 44) + '" y="' + (y - 10) + '" width="88" height="20" rx="10" fill="#fff" stroke="#D7DAE5" stroke-width="1.2"/>' + T(x + 8, y + 3.5, r[k + 1], { fs: 9 }); });
+      });
+      s += T(200, 238, '창고가 커도 조리대가 좁으면 한꺼번에 못 만들어요', { fs: 9.5, c: C.berry });
+      return s;
+    });
+  },
+  /* 19 2장 0과 1 */
+  function(){
+    return dia('같은 스위치 여덟 개를 읽는 약속에 따라 숫자, 글자, 밝기로 해석하는 그림', function(m){
+      var s = T(200, 30, '같은 스위치 줄, 다른 약속', { cls: 'svg-d', fs: 15 });
+      [0, 1, 0, 0, 0, 0, 0, 1].forEach(function(b, i){
+        var x = 68 + i * 34;
+        s += '<rect x="' + x + '" y="46" width="26" height="34" rx="5" fill="' + (b ? C.sun : '#fff') + '" ' + S(1.6) + '/>' + T(x + 13, 68, String(b), { cls: 'svg-m', fs: 13 });
+      });
+      s += T(200, 98, '1바이트 = 스위치(비트) 8개', { fs: 9.5, c: C.inkSoft });
+      [['숫자로', '65', '64 + 1'], ['글자로', 'A', '문자표 65번'], ['밝기로', '■', '0~255 중 65']].forEach(function(r, i){
+        var x = 14 + i * 129;
+        s += ar('M200 104 C 200 122 ' + (x + 57) + ' 112 ' + (x + 57) + ' 130', m.soft, { color: C.inkSoft });
+        s += box(x, 134, 114, 66, '', {}) + T(x + 57, 152, r[0] + ' 읽으면', { fs: 9, c: C.inkSoft }) +
+          T(x + 57, 176, r[1], { cls: 'svg-m', fs: 17, c: i === 2 ? '#414141' : C.ink }) + T(x + 57, 192, r[2], { fs: 8.5, c: C.inkSoft }) + hl(x, 134, 114, 66, i * 1.4, 4.2);
+      });
+      s += T(200, 226, '바이트는 자기가 무엇인지 스스로 말하지 않아요', { fs: 9.5, c: C.berry }) + T(200, 242, '글자가 깨졌다면 데이터가 아니라 읽는 약속이 틀린 것', { fs: 9, c: C.inkSoft });
+      return s;
+    });
+  },
+  /* 20 3장 운영체제 */
+  function(){
+    return dia('CPU 하나가 여러 프로그램을 아주 짧게 번갈아 실행하고, 프로그램은 커널을 거쳐서만 하드웨어를 쓰는 구조', function(m){
+      var cols = ['#7CC3BB', C.sun, '#9AA6D1'], s = T(200, 28, '요리사 한 명이 여러 요리를 하는 법', { cls: 'svg-d', fs: 14 });
+      s += T(14, 62, 'CPU', { fs: 10, a: 'start' }) + '<rect x="52" y="44" width="336" height="28" rx="5" fill="#fff" ' + S(1.6) + '/>';
+      for (var i = 0; i < 12; i++) s += '<rect x="' + (55 + i * 27.6) + '" y="47" width="26" height="22" rx="2" fill="' + cols[i % 3] + '"/>';
+      s += tok('M55 80 H386', { dur: 6, loop: true, r: 4 });
+      ['메신저', '음악', '게임'].forEach(function(n, i){
+        var x = 64 + i * 104;
+        s += box(x, 100, 84, 30, n, { fs: 10, fill: cols[i] }) + ar('M' + (x + 42) + ' 130 V160', m.teal, { color: C.teal });
+      });
+      s += T(372, 150, '시스템 호출', { fs: 9, a: 'end', c: C.tealDark });
+      s += box(52, 164, 296, 30, '운영체제(커널) · 주방의 지배인', { fs: 10.5, fill: C.teal, color: '#fff' });
+      s += ar('M200 194 V208', m.ink);
+      s += box(52, 212, 296, 28, '하드웨어 · CPU · 메모리 · 저장장치 · 네트워크', { fs: 9.5 });
+      return s;
+    });
+  },
+  /* 21 4장 코드 실행 */
+  function(){
+    return dia('소스 코드가 번역과 로딩을 거쳐 실행되는 흐름과 오류가 드러나는 세 시점', function(m){
+      var s = '';
+      [['소스 코드', '사람의 글', 10], ['번역', '컴파일러 · 인터프리터', 108], ['실행 파일', '기계의 말', 206], ['실행', '로딩 · 런타임', 304]].forEach(function(b, i){
+        s += box(b[2], 34, 86, 48, b[0], { fs: 11, sub: b[1], sfs: 8, fill: i === 1 ? '#E1F1EE' : '#fff', stroke: i === 1 ? C.teal : C.ink });
+        if (i < 3) s += ar('M' + (b[2] + 86) + ' 58 H' + (b[2] + 96), m.ink);
+      });
+      s += tok('M30 92 H370', { dur: 4.5, tr: .85, r: 4.5 });
+      s += T(200, 124, '오류가 드러나는 세 시점', { fs: 11 });
+      [['번역할 때', '문법 · 타입 오류', '바로 알려 줌'], ['실행할 때', '없는 파일 · 0으로 나누기', '그 줄에 닿아야 드러남'], ['끝난 뒤', '돌아가는데 답이 틀림', '아무도 알려 주지 않음']].forEach(function(r, i){
+        var x = 10 + i * 130;
+        s += box(x, 136, 120, 64, r[0], { fs: 10.5, sub: r[1], sfs: 8.5, fill: i === 2 ? '#F9E4E5' : '#fff', stroke: i === 2 ? C.berry : C.ink }) + T(x + 60, 216, r[2], { fs: 8.5, c: C.inkSoft }) + hl(x, 136, 120, 64, i * 1.4, 4.2);
+      });
+      s += T(200, 240, '“오류 없이 번역됐다”는 “맞게 움직인다”가 아니에요', { fs: 9.5, c: C.berry });
+      return s;
+    });
+  },
+  /* 22 5장 터미널 */
+  function(){
+    return dia('명령 한 줄의 구조와, 파이프와 리다이렉션으로 작은 명령을 잇는 흐름', function(m){
+      var s = '<rect x="20" y="24" width="360" height="86" rx="9" fill="#1F2A52" ' + S() + '/>';
+      s += T(36, 62, '$ ls -l src', { cls: 'svg-m', fs: 18, a: 'start', c: '#E8ECF7' });
+      [['명령', 68, 22], ['옵션', 101, 22], ['인수', 139, 32]].forEach(function(a){
+        s += '<path d="M' + (a[1] - a[2] / 2) + ' 72 h' + a[2] + '" stroke="' + C.sun + '" stroke-width="2.4" stroke-linecap="round"/>' + T(a[1], 92, a[0], { fs: 9.5, c: C.sun });
+      });
+      s += T(272, 56, '무엇을 · 어떻게 · 어디에', { fs: 10, c: '#BFC8E4' }) + T(272, 76, '목록을 · 자세히 · src 폴더', { fs: 9, c: '#8E9AC4' });
+      s += box(14, 142, 104, 38, 'cat app.log', { mono: true, fs: 10 }) + box(148, 142, 104, 38, 'grep 오류', { mono: true, fs: 10 }) + box(282, 142, 104, 38, '오류.txt', { mono: true, fs: 10, fill: '#FFF8E6', rx: 2 });
+      s += ar('M118 161 H144', m.teal, { color: C.teal, w: 2.2 }) + ar('M252 161 H278', m.teal, { color: C.teal, w: 2.2 });
+      s += T(132, 134, '|', { cls: 'svg-m', fs: 14, c: C.tealDark }) + T(266, 134, '>', { cls: 'svg-m', fs: 14, c: C.tealDark });
+      s += T(132, 198, '다음 명령으로', { fs: 8.5, c: C.inkSoft }) + T(266, 198, '파일로', { fs: 8.5, c: C.inkSoft });
+      s += tok('M40 161 H360', { dur: 4, tr: .85, r: 4 });
+      s += T(200, 222, '종료 코드 0 = 성공, 0이 아니면 실패', { fs: 10 }) + T(200, 239, '화면의 “완료”보다 종료 코드를 믿어요', { fs: 9, c: C.berry });
+      return s;
+    });
+  },
+  /* 23 6장 Git */
+  function(){
+    return dia('작업 폴더, 스테이지, 저장소 세 구역과 브랜치가 갈라졌다 합쳐지는 커밋 이력', function(m){
+      var s = '';
+      [['작업 폴더', '고치는 곳', 14, 0], ['스테이지', '담는 곳', 146, 0], ['저장소', '쌓이는 곳', 278, 1]].forEach(function(b){
+        s += box(b[2], 40, 108, 52, b[0], { fs: 11, sub: b[1], sfs: 8.5, fill: b[3] ? '#E1F1EE' : '#fff', stroke: b[3] ? C.teal : C.ink });
+      });
+      s += ar('M122 66 H142', m.ink) + ar('M254 66 H274', m.ink) + T(132, 34, 'git add', { cls: 'svg-m', fs: 8.5 }) + T(264, 34, 'git commit', { cls: 'svg-m', fs: 8.5 });
+      s += tok('M68 100 H332', { dur: 4, tr: .85, r: 4 });
+      s += T(14, 132, '커밋 = 돌아올 수 있는 저장 지점', { fs: 10, a: 'start' });
+      s += '<path d="M60 164 H330" stroke="' + C.ink + '" stroke-width="2.4"/><path d="M110 164 C 132 164 140 208 164 208 H214 C 240 208 246 164 268 164" fill="none" stroke="' + C.teal + '" stroke-width="2.4"/>';
+      [60, 110, 162, 214].forEach(function(x){ s += '<circle cx="' + x + '" cy="164" r="7" fill="#fff" ' + S(1.8) + '/>'; });
+      [164, 214].forEach(function(x){ s += '<circle cx="' + x + '" cy="208" r="7" fill="' + C.teal + '" ' + S(1.8) + '/>'; });
+      s += '<circle cx="268" cy="164" r="8" fill="' + C.sun + '" ' + S(1.8) + '/><circle cx="322" cy="164" r="7" fill="#fff" ' + S(1.8) + '/>';
+      s += T(268, 146, '병합', { fs: 9 }) + chip(352, 142, 'main', { fs: 9 }) + T(189, 232, '실험 브랜치', { fs: 9, c: C.tealDark });
+      s += tok('M60 164 H110 C 132 164 140 208 164 208 H214 C 240 208 246 164 268 164 H322', { dur: 5, tr: .9, r: 4, begin: 1 });
+      return s;
+    });
+  },
+  /* 24 7장 자료구조 */
+  function(){
+    return dia('배열, 큐, 해시 맵, 트리 네 가지 자료구조의 생김새', function(m){
+      var s = '';
+      function panel(x, y, t, cap, i){ return '<rect x="' + x + '" y="' + y + '" width="182" height="100" rx="8" fill="#fff" ' + S(1.6) + '/>' + T(x + 10, y + 18, t, { fs: 10.5, a: 'start' }) + T(x + 91, y + 92, cap, { fs: 8.5, c: C.inkSoft }) + hl(x, y, 182, 100, i * 1.4, 5.6); }
+      s += panel(12, 22, '배열', '번호만 알면 바로 꺼내요', 0);
+      for (var i = 0; i < 6; i++) s += '<rect x="' + (26 + i * 26) + '" y="52" width="26" height="24" fill="' + (i === 3 ? '#FFF3D6' : '#fff') + '" ' + S(1.4) + '/>' + T(39 + i * 26, 68, String(i), { cls: 'svg-m', fs: 9, c: C.inkSoft });
+      s += panel(206, 22, '큐 · 스택', '꺼내는 순서가 정해져 있어요', 1);
+      for (var k = 0; k < 4; k++) s += '<rect x="' + (246 + k * 26) + '" y="52" width="24" height="24" rx="3" fill="' + C.note + '" ' + S(1.4) + '/>';
+      s += ar('M222 64 H242', m.ink) + ar('M352 64 H372', m.ink);
+      s += panel(12, 134, '해시 맵', '이름표로 바로 찾아요', 2);
+      ['떡볶이', '순대'].forEach(function(n, j){ s += '<rect x="24" y="' + (160 + j * 26) + '" width="52" height="20" rx="10" fill="#fff" ' + S(1.3) + '/>' + T(50, 174 + j * 26, n, { fs: 8.5 }) + ar('M78 ' + (170 + j * 26) + ' H112', m.teal, { color: C.teal }) + '<rect x="116" y="' + (160 + j * 26) + '" width="66" height="20" fill="#E1F1EE" ' + S(1.3) + '/>' + T(149, 174 + j * 26, j ? '5,000원' : '4,000원', { fs: 8.5 }); });
+      s += panel(206, 134, '트리', '위에서 아래로 갈라져요', 3);
+      s += '<path d="M297 164 L262 188 M297 164 L332 188 M262 188 L244 208 M262 188 L280 208 M332 188 L350 208" stroke="' + C.ink + '" stroke-width="1.6"/>';
+      [[297, 164], [262, 188], [332, 188], [244, 208], [280, 208], [350, 208]].forEach(function(p, j){ s += '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="7" fill="' + (j ? '#fff' : C.sun) + '" ' + S(1.5) + '/>'; });
+      return s;
+    });
+  },
+  /* 25 8장 알고리즘 */
+  function(){
+    return dia('데이터 개수가 늘 때 걸음 수가 늘어나는 네 가지 모양을 비교한 그래프', function(m){
+      var s = T(200, 26, '데이터가 늘 때 걸음 수가 늘어나는 모양', { cls: 'svg-d', fs: 14 });
+      s += '<path d="M50 40 V210 H376" fill="none" ' + S(1.8) + '/>' + T(370, 228, '데이터 개수 →', { fs: 9, a: 'end', c: C.inkSoft }) + '<text transform="translate(34 60) rotate(-90)" font-size="9" text-anchor="end" fill="' + C.inkSoft + '">걸음 수 →</text>';
+      s += '<g class="grow">' +
+        '<path d="M50 198 H360" fill="none" stroke="' + C.teal + '" stroke-width="3"/>' +
+        '<path d="M50 206 C 80 176 180 164 360 156" fill="none" stroke="#5A8FC4" stroke-width="3"/>' +
+        '<path d="M50 208 L360 104" fill="none" stroke="' + C.ink + '" stroke-width="3"/>' +
+        '<path d="M50 208 Q 190 204 250 44" fill="none" stroke="' + C.berry + '" stroke-width="3"/></g>';
+      s += chip(330, 190, 'O(1) 그대로', { fs: 8.5, color: C.tealDark, cls: 'pop', d: 1.6 }) + chip(322, 146, 'O(log n) 아주 조금', { fs: 8.5, cls: 'pop', d: 1.9 }) +
+           chip(330, 92, 'O(n) 같은 비율로', { fs: 8.5, cls: 'pop', d: 2.2 }) + chip(196, 60, 'O(n²) 폭발', { fs: 8.5, color: C.berry, cls: 'pop', d: 2.5 });
+      s += T(214, 244, '데이터 10배: O(n)은 10배, O(n²)은 100배', { fs: 9.5 });
+      return s;
+    });
+  },
+  /* 26 9장 상태와 동시성 */
+  function(){
+    return dia('두 주문이 같은 재고 값을 동시에 읽고 각자 고쳐서 한 접시가 두 번 팔리는 경쟁 상태', function(m){
+      var s = T(200, 26, '경쟁 상태: 확인과 변경 사이의 틈', { cls: 'svg-d', fs: 14 });
+      s += T(14, 66, '주문 A', { fs: 10, a: 'start' }) + T(14, 176, '주문 B', { fs: 10, a: 'start' });
+      s += '<path d="M60 62 H388 M60 172 H388" stroke="#D7DAE5" stroke-width="1.6" stroke-dasharray="3 4"/>';
+      s += box(126, 102, 148, 30, '남은 떡볶이: 1인분', { fs: 10.5, fill: '#FFF3D6' });
+      var steps = [[70, 46, '읽기: 1 남음', 0], [150, 156, '읽기: 1 남음', 1], [236, 46, '쓰기: 0으로', 2], [306, 156, '쓰기: 0으로', 3]];
+      steps.forEach(function(p){
+        s += box(p[0], p[1], 84, 32, p[2], { fs: 9.5, fill: p[3] > 1 ? '#F9E4E5' : '#fff', stroke: p[3] > 1 ? C.berry : C.ink }) + hl(p[0], p[1], 84, 32, p[3] * 1.3, 6.5);
+        s += '<path d="M' + (p[0] + 42) + ' ' + (p[1] < 100 ? 78 : 156) + ' L' + Math.min(Math.max(p[0] + 42, 140), 260) + ' ' + (p[1] < 100 ? 102 : 132) + '" stroke="' + C.inkSoft + '" stroke-width="1.3" stroke-dasharray="2 3"/>';
+      });
+      s += T(384, 214, '시간 →', { fs: 9, a: 'end', c: C.inkSoft });
+      s += chip(104, 218, '결과: 1인분이 두 번 팔림', { fs: 9.5, color: C.berry }) ;
+      s += T(200, 242, '해결: 함께 쓰는 값을 없애거나, 확인과 변경을 한 번에 (락 · 조건부 수정)', { fs: 8.8, c: C.tealDark });
+      return s;
+    });
+  },
+  /* 27 10장 디버깅 */
+  function(){
+    return dia('재현, 오류 읽기, 절반씩 좁히기, 테스트로 고정하기를 도는 수사 고리와 범위를 반씩 줄여 가는 그림', function(m){
+      var ring = 'M112 56 A72 72 0 0 1 112 200 A72 72 0 0 1 112 56';
+      var s = '<path class="flow" d="' + ring + '" fill="none" stroke="' + C.teal + '" stroke-width="2.4" stroke-dasharray="4 6"/>';
+      s += T(112, 124, '버그 수사', { cls: 'svg-d', fs: 14 }) + T(112, 141, '찍지 말고 좁히기', { fs: 9, c: C.inkSoft }) + tok(ring, { dur: 6, loop: true });
+      s += pill(112, 56, 64, 24, '다시 일으키기') + pill(184, 128, 64, 24, '오류 읽기') + pill(112, 200, 76, 24, '절반씩 좁히기', { fill: '#FFF3D6' }) + pill(40, 128, 70, 24, '테스트로 고정', { fill: '#E1F1EE', stroke: C.teal });
+      s += T(318, 40, '범위를 반씩 줄이면', { fs: 10 });
+      [[0, 8], [4, 8], [4, 6], [5, 6]].forEach(function(r, i){
+        var y = 54 + i * 38;
+        for (var k = 0; k < 8; k++){
+          var act = k >= r[0] && k < r[1];
+          s += '<rect x="' + (250 + k * 17) + '" y="' + y + '" width="15" height="22" rx="2" fill="' + (k === 5 && act ? C.berry : (act ? '#FFF3D6' : '#EEF0F5')) + '" stroke="' + (act ? C.ink : '#D7DAE5') + '" stroke-width="1.2"/>';
+        }
+        s += hl(248, y - 2, 138, 26, i * 1.3, 5.2);
+      });
+      s += T(318, 216, '8곳도 3번이면 찾아요', { fs: 9.5, c: C.tealDark }) + T(318, 233, '고칠 곳은 값이 처음 틀어진 곳', { fs: 9, c: C.berry });
+      return s;
+    });
+  },
+  /* 28 11장 네트워크와 HTTP */
+  function(){
+    return dia('브라우저와 서버 사이에서 이름, 길, 문, 내용 순서로 확인하는 흐름과 상태 코드 읽는 법', function(m){
+      var s = box(8, 62, 78, 56, '브라우저', { fs: 10.5, sub: '주문서 보냄', sfs: 8.5 }) + box(314, 62, 78, 56, '서버', { fs: 10.5, sub: '답변서 보냄', sfs: 8.5, fill: '#E1F1EE', stroke: C.teal });
+      [['이름', 'DNS'], ['길', 'IP'], ['문', '포트'], ['내용', 'HTTP']].forEach(function(c, i){
+        var x = 98 + i * 52;
+        s += box(x, 22, 46, 38, c[0], { fs: 10, sub: c[1], sfs: 8, smono: true }) + hl(x, 22, 46, 38, i * 1.1, 4.4);
+        if (i < 3) s += T(x + 49, 45, '›', { fs: 12, c: C.inkSoft });
+      });
+      s += ar('M88 80 H310', m.teal, { color: C.teal, w: 2.2 }) + ar('M312 104 H90', m.soft, { color: C.inkSoft, dash: '4 4' });
+      s += T(200, 74, '요청', { fs: 8.5, c: C.tealDark }) + T(200, 118, '응답', { fs: 8.5, c: C.inkSoft });
+      s += tok('M88 80 H310', { dur: 4, tr: .45, r: 4.5 }) + tok('M312 104 H90', { dur: 4, begin: 2, tr: .45, r: 4.5, color: '#fff' });
+      s += T(200, 148, '답변서 첫 줄의 상태 코드', { fs: 10.5 });
+      [['2xx', '잘 됐어요', '#E1F1EE', C.teal], ['4xx', '주문서를 고칠 일', '#FFF3D6', C.ink], ['5xx', '가게를 살필 일', '#F9E4E5', C.berry]].forEach(function(c, i){
+        s += box(14 + i * 127, 158, 118, 50, c[0], { mono: true, fs: 14, sub: c[1], sfs: 9, fill: c[2], stroke: c[3] });
+      });
+      s += T(200, 232, '상태 코드가 아예 없으면: 이름 → 길 → 문 순서로 가는 길을 살펴요', { fs: 9, c: C.berry });
+      return s;
+    });
+  },
+  /* 29 12장 데이터 */
+  function(){
+    return dia('주문 표가 메뉴 표를 번호로 가리키는 구조와, 전부 되거나 전부 안 되는 트랜잭션', function(m){
+      var s = tbl(14, 36, '주문 표', [44, 58, 40], [['번호', '메뉴_번호', '수량'], ['1042', '1', '1'], ['1043', '2', '2']], [1, 1]);
+      s += tbl(232, 36, '메뉴 표', [40, 62, 52], [['번호', '이름', '가격'], ['1', '떡볶이', '4000'], ['2', '순대', '5000']], [1, 0]);
+      s += ar('M100 63 C 150 40 190 50 230 63', m.teal, { color: C.teal, w: 2 }) + T(166, 104, '한 가지 사실은 한 곳에만 적고,', { fs: 9, c: C.inkSoft }) + T(166, 117, '다른 표에서는 번호(키)로 가리켜요', { fs: 9, c: C.inkSoft });
+      s += '<rect x="14" y="140" width="214" height="94" rx="10" fill="none" stroke="' + C.teal + '" stroke-width="2" stroke-dasharray="6 5"/>' + T(26, 158, '트랜잭션: 한 묶음', { fs: 10, a: 'start', c: C.tealDark });
+      s += box(26, 170, 88, 46, '주문 적기', { fs: 10 }) + box(128, 170, 88, 46, '재고 줄이기', { fs: 10 }) + T(121, 197, '+', { fs: 13 });
+      s += ar('M228 176 C 250 168 256 164 270 162', m.teal, { color: C.teal }) + ar('M228 200 C 250 208 256 212 270 214', m.berry, { color: C.berry });
+      s += box(274, 144, 112, 36, '전부 반영', { fs: 10, sub: '둘 다 성공하면', sfs: 8, fill: '#E1F1EE', stroke: C.teal }) + box(274, 196, 112, 36, '전부 취소', { fs: 10, sub: '하나라도 실패하면', sfs: 8, fill: '#F9E4E5', stroke: C.berry });
+      s += tok('M70 222 H230 C 252 222 258 164 330 162', { dur: 4.5, tr: .8, r: 4 });
+      return s;
+    });
+  },
+  /* 30 13장 설계와 보안 */
+  function(){
+    return dia('바깥에서 온 요청이 서버의 인증, 인가, 입력 확인 관문을 차례로 지나야 데이터에 닿는 구조', function(m){
+      var s = '<rect x="8" y="30" width="112" height="184" rx="10" fill="#FBF0F0"/>' + T(64, 48, '바깥 · 믿지 않음', { fs: 10, c: C.berry });
+      s += box(18, 62, 92, 46, '주문 요청', { fs: 10, sub: '떡볶이 1개', sfs: 8.5 }) + box(18, 150, 92, 46, '조작된 요청', { fs: 10, sub: '가격: 900원', sfs: 8.5, fill: '#F9E4E5', stroke: C.berry });
+      s += '<rect x="132" y="30" width="260" height="184" rx="10" fill="#F1F7F5"/>' + T(262, 48, '서버 · 여기서 다시 확인', { fs: 10, c: C.tealDark });
+      [['인증', '누구인가'], ['인가', '해도 되는가'], ['입력 확인', '값만 받기']].forEach(function(g, i){
+        var x = 142 + i * 82;
+        s += box(x, 62, 74, 46, g[0], { fs: 10.5, sub: g[1], sfs: 8.5, fill: '#fff', stroke: C.teal }) + hl(x, 62, 74, 46, i * 1.2, 4.8);
+        if (i < 2) s += ar('M' + (x + 74) + ' 85 H' + (x + 80), m.teal, { color: C.teal });
+      });
+      s += ar('M112 85 H138', m.teal, { color: C.teal, w: 2.2 }) + ar('M343 108 V146', m.teal, { color: C.teal, w: 2.2 });
+      s += box(296, 150, 86, 46, '데이터', { fs: 10.5, sub: '주문 · 회원 · 가격', sfs: 8, fill: '#FFF8E6' });
+      s += ar('M112 173 C 150 173 160 150 176 112', m.berry, { color: C.berry, dash: '4 4' });
+      s += '<g transform="translate(196 148)"><g class="pop" style="--d:1.5s"><circle r="11" fill="' + C.berry + '" ' + S(1.6) + '/><path d="M-4.5 -4.5 l9 9 M4.5 -4.5 l-9 9" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></g></g>' + T(222, 178, '가격은 서버가', { fs: 9, c: C.berry }) + T(222, 191, '장부에서 다시 읽음', { fs: 9, c: C.berry });
+      s += tok('M112 85 H343 V168', { dur: 4.5, tr: .85, r: 4.5 }) + tok('M112 173 C 150 173 160 150 176 114', { dur: 4.5, begin: 1.2, tr: .4, r: 4.5, color: C.berry });
+      s += T(200, 236, '밖에서 온 값은 사실이 아니라 주장 · 검사는 반드시 서버에서', { fs: 9.5 });
+      return s;
+    });
+  },
+  /* 31 14장 배포와 관측 */
+  function(){
+    return dia('코드가 빌드, 검사, 배포, 출시를 거쳐 사용자에게 가고, 지표와 추적과 로그로 지켜보다 다시 고치는 순환', function(m){
+      var s = '';
+      ['코드', '빌드', '검사(CI)', '배포', '출시'].forEach(function(n, i){
+        var x = 10 + i * 78;
+        s += box(x, 36, 64, 40, n, { fs: 10.5, fill: i === 4 ? C.teal : '#fff', color: i === 4 ? '#fff' : C.ink });
+        if (i < 4) s += ar('M' + (x + 64) + ' 56 H' + (x + 74), m.ink);
+      });
+      s += tok('M42 86 H354', { dur: 5, tr: .85, r: 4.5 });
+      s += T(200, 104, '배포 = 서버에 올리기 · 출시 = 사용자에게 보이기', { fs: 9.5, c: C.inkSoft });
+      s += T(200, 132, '운영 중에는 세 가지로 지켜봐요', { fs: 10.5 });
+      [['지표', '이상을 알아차림'], ['추적', '어느 구간인지 좁힘'], ['로그', '이유를 읽음']].forEach(function(o, i){
+        var x = 22 + i * 124;
+        s += box(x, 142, 108, 52, o[0], { fs: 11, sub: o[1], sfs: 8.5, fill: '#E1F1EE', stroke: C.teal }) + hl(x, 142, 108, 52, i * 1.3, 3.9);
+        if (i < 2) s += ar('M' + (x + 108) + ' 168 H' + (x + 122), m.teal, { color: C.teal });
+      });
+      s += ar('M324 194 C 324 236 22 240 28 80', m.soft, { color: C.inkSoft, dash: '3 4' }) + T(200, 228, '원인을 찾으면 고쳐서 다시 내보내요', { fs: 9, c: C.inkSoft });
+      return s;
+    });
+  },
+  /* 32 점검표 */
+  function(){
+    return dia('사람이 할 일 점검표에 체크 표시가 차례로 찍히는 그림', function(){
+      var s = '<rect x="104" y="26" width="192" height="214" rx="12" fill="' + C.kraft + '" ' + S(2) + '/>';
+      s += '<rect x="118" y="46" width="164" height="184" rx="4" fill="#fff" ' + S(1.6) + '/><rect x="168" y="16" width="64" height="22" rx="6" fill="' + C.inkSoft + '" ' + S(1.8) + '/>';
+      s += T(200, 70, '사람이 할 일', { cls: 'svg-d', fs: 13 });
+      ['시키기', '확인하기', '좁히기', '지키기'].forEach(function(t, i){
+        var y = 100 + i * 32;
+        s += '<rect x="134" y="' + (y - 9) + '" width="16" height="16" rx="3" fill="#fff" ' + S(1.4) + '/>';
+        s += '<g class="stamp" style="--d:' + (0.5 + i * 0.5) + 's"><path d="M137 ' + (y - 1) + ' l4 5 l8 -10" fill="none" stroke="' + C.teal + '" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>';
+        s += T(160, y + 4, t, { fs: 11, a: 'start' }) + '<path d="M214 ' + y + ' h52" stroke="#E3E6EE" stroke-width="5" stroke-linecap="round"/>';
+      });
+      s += chip(52, 110, 'AI는 일을 맡고', { fs: 9.5, cls: 'pop', d: 2.8 }) + chip(348, 160, '사람은 책임을 맡아요', { fs: 9, cls: 'pop', d: 3.1 });
+      s += sparkle(320, 60, 6, 0) + sparkle(82, 196, 5, .6);
+      return s;
+    });
+  }
+];
+
+/* ---------- 쪽 내용 ---------- */
+var pages = [
+  { type: 'cover', title: '표지', kicker: '그림책으로 읽는 컴퓨터 과학 기초', h1: '떡볶이 주문의<br><em>여행</em>',
+    lead: '배달 앱에서 “주문하기”를 누르면 1초도 안 돼 “접수되었습니다”가 떠요. 그 짧은 사이에 무슨 일이 일어날까요? 주문 쪽지 ‘또또’를 따라가 봐요.',
+    legend: '<b class="teal">청록색</b> 점선은 또또가 지나가는 길이에요.',
+    credit: '원작: <a href="' + SRC + '" target="_blank" rel="noopener">개발의 기초</a> (Jedi Kim, CC0)의 1~5부를 다시 엮었어요.' },
+
+  { chapter: '여행의 시작', title: '“주문하기”를 눌렀어요',
+    story: ['하나가 배달 앱에서 떡볶이를 골라 “주문하기”를 눌렀어요. 그 순간 작은 주문 쪽지 ‘또또’가 태어났어요.',
+            '“떡볶이 1인분이요! 금방 다녀올게요.”',
+            '또또가 돌아오기까지 걸린 시간은 0.15초쯤. 그 사이에 또또는 아주 먼 길을 다녀와요.'],
+    note: ['앱이 서버에 보내는 부탁을 <b>요청</b>, 돌아오는 대답을 <b>응답</b>이라고 해요.',
+           '0.15초의 대부분은 계산이 아니라 인터넷을 오가는 데 쓰여요. 그래서 느린 프로그램은 오가는 횟수부터 줄여요.',
+           '이 길의 어디에서든 일이 잘못될 수 있어요. 잘 만든 프로그램은 잘 안 될 때 티가 나요.'],
+    refs: [ch(0)] },
+  { chapter: '첫 번째 정거장', title: '스마트폰 속 작은 주방',
+    story: ['스마트폰 안은 분식집 주방을 닮았어요.',
+            '요리사는 레시피를 한 줄씩 읽으며 일해요. 조리대에는 지금 쓰는 재료를 펼쳐 두고, 창고에는 나머지를 오래 보관해요.',
+            '창고가 아무리 커도 조리대가 좁으면, 한 번에 만들 수 있는 음식은 늘지 않아요.'],
+    note: ['요리사는 <b>CPU</b>, 조리대는 <b>메모리(RAM)</b>, 창고는 <b>저장장치</b>예요.',
+           '메모리는 “얼마나 보관하나”가 아니라 “한 번에 얼마나 펼쳐 놓고 일하나”를 정해요.',
+           '전원을 끄면 메모리의 내용은 사라지고, 저장장치의 내용은 남아요.'],
+    refs: [ch(1)] },
+  { chapter: '두 번째 정거장', title: '모든 것은 스위치',
+    story: ['주방에 적힌 것들을 자세히 보니, 전부 켜짐과 꺼짐뿐인 작은 스위치였어요.',
+            '같은 스위치 줄도 읽는 약속에 따라 숫자가 되고, 글자가 되고, 그림이 돼요.',
+            '“아하, 나도 스위치로 적혀 있구나!” 또또가 말했어요.'],
+    note: ['스위치 하나가 <b>비트</b>, 여덟 개 묶음이 <b>바이트</b>예요.',
+           '글자가 깨져 보여도 데이터는 멀쩡해요. 틀린 건 읽는 약속(인코딩)이에요.',
+           '컴퓨터에서 0.1 + 0.2가 정확히 0.3이 아닌 것도 스위치로 소수를 적는 방식 때문이에요.'],
+    refs: [ch(2)] },
+  { chapter: '세 번째 정거장', title: '주방을 돌리는 지배인',
+    story: ['요리사는 한 명인데 냄비는 여러 개예요. 그래서 요리사는 냄비 사이를 아주 빠르게 옮겨 다녀요.',
+            '누구 차례인지, 조리대의 어느 자리를 쓸지는 지배인이 정해요.',
+            '창고에 갈 때도 반드시 지배인을 거쳐야 해요.'],
+    note: ['지배인은 <b>운영체제</b>, 실행 중인 프로그램 하나하나는 <b>프로세스</b>예요.',
+           '“동시에 실행된다”는 말은 대부분 아주 빠른 교대라는 뜻이에요.',
+           '프로그램이 파일이나 네트워크를 쓸 때는 운영체제에 부탁해요. 이걸 <b>시스템 호출</b>이라고 해요.',
+           '연 것은 닫아야 해요. 잘됐을 때뿐 아니라 실패했을 때도요.'],
+    refs: [ch(3)] },
+  { chapter: '네 번째 정거장', title: '요리사는 한 가지 말만',
+    story: ['개발자가 쓴 레시피는 사람의 글이에요. 그런데 요리사는 0과 1로 된 말만 알아들어요.',
+            '그래서 번역기가 레시피를 요리사의 말로 옮겨 줘요.',
+            '번역이 잘 끝났다고 음식이 맛있다는 뜻은 아니에요. 먹어 봐야 알아요.'],
+    note: ['레시피는 <b>코드</b>, 번역기는 <b>컴파일러</b>나 <b>인터프리터</b>예요.',
+           '“오류 없이 만들어졌습니다”는 옮길 수 있었다는 뜻일 뿐이에요.',
+           'AI가 그렇게 알려 와도 끝난 게 아니에요. 실제로 실행해서 결과를 눈으로 확인해요.'],
+    refs: [ch(4)] },
+  { chapter: '잠깐, 앱을 만든 곳', title: '개발자의 작업대',
+    story: ['또또가 지나가는 이 앱은 누가 만들었을까요? 개발자의 작업대를 잠깐 들여다봐요.',
+            '개발자는 버튼을 누르는 대신 글로 명령을 내려요. 그리고 고칠 때마다 저장 지점을 남겨요.',
+            '고치다 망가지면, 잘 되던 저장 지점으로 돌아가면 되니까요.'],
+    note: ['글로 명령하는 창이 <b>터미널</b>, 저장 지점을 쌓는 도구가 <b>Git</b>, 저장 지점 하나가 <b>커밋</b>이에요.',
+           '“내 컴퓨터에서는 되는데요”는 작업 환경이 서로 다르다는 신호예요.',
+           '화면에 찍힌 “완료”보다 종료 코드를 믿어요. 0이면 성공이에요.',
+           'AI가 명령을 실행하려 할 때는 허용하기 전에 무엇을 하려는지 읽어요.'],
+    refs: [ch(5), ch(6), ch(7)] },
+  { chapter: '다섯 번째 정거장', title: '알맞은 그릇, 빠른 길',
+    story: ['주방에 주문이 쌓이기 시작했어요. 주문 쪽지는 온 순서대로 줄을 서요.',
+            '메뉴 가격은 이름표가 붙은 서랍에 넣어 둬요. 이름표만 보면 바로 찾을 수 있어요.',
+            '무엇을 가장 자주 하느냐에 따라 알맞은 그릇이 달라요.'],
+    note: ['데이터를 담는 그릇이 <b>자료구조</b>, 문제를 푸는 방법이 <b>알고리즘</b>이에요.',
+           '줄 서기는 <b>큐</b>, 이름표 서랍은 <b>해시 맵</b>이에요. 만능 그릇은 없어요.',
+           '알고리즘의 빠르기는 몇 초가 아니라, 데이터가 늘 때 걸음 수가 어떻게 늘어나는지로 말해요.'],
+    refs: [ch(8), ch(9)] },
+  { chapter: '여섯 번째 정거장', title: '한꺼번에 몰려든 주문',
+    story: ['점심시간이 되자 주문이 몰려들었어요. 떡볶이는 딱 1인분 남았어요.',
+            '두 쪽지가 동시에 확인했어요. “1인분 있네, 내 거!” “1인분 있네, 내 거!”',
+            '둘 다 맞게 확인했는데, 떡볶이는 한 접시뿐이에요.'],
+    note: ['프로그램이 기억하고 있는 값을 <b>상태</b>라고 해요. 남은 떡볶이 수가 상태예요.',
+           '둘이 같은 값을 동시에 고쳐서 생기는 사고가 <b>경쟁 상태</b>예요.',
+           '재료는 두 가지예요. 함께 쓰는 값, 그리고 확인과 변경 사이의 틈. 하나를 없애면 사라져요.',
+           '프로그램이 느리면 먼저 물어요. 지금 기다리는 중인가, 계산하는 중인가?'],
+    refs: [ch(10), ch(11)] },
+  { chapter: '일곱 번째 정거장', title: '버그 수사',
+    story: ['쿠폰을 쓰면 결제가 실패한다는 신고가 들어왔어요. 탐정 여우가 나섰어요.',
+            '여우는 아무 데나 찍지 않아요. 똑같이 다시 일으켜 보고, 남은 발자국을 읽고, 범위를 절반씩 좁혀요.',
+            '범인을 잡은 뒤에는 경보기를 달아요. 같은 버그가 돌아오면 바로 울리도록요.'],
+    note: ['문제가 드러난 곳은 출발점일 뿐이에요. 고칠 곳은 값이 처음 틀어진 곳이에요.',
+           '경보기가 <b>테스트</b>예요. “고쳤다”의 증거는 고치기 전에 실패하고 고친 뒤에 통과하는 테스트예요.',
+           'AI에게 맡길 때는 “고쳐 줘”에서 멈추지 말고, 재현 순서와 오류 글 전체를 주고 원인과 증거를 받아요.'],
+    refs: [ch(12)] },
+  { chapter: '여덟 번째 정거장', title: '인터넷을 건너',
+    story: ['드디어 또또가 스마트폰을 떠나요. 그런데 분식집이 어디 있는지 몰라요.',
+            '주소 안내소에서 알려 줬어요. “분식집 주소는 203.0.113.7이에요.”',
+            '또또는 작은 조각으로 나뉘어 여러 길로 달려가요. 도착하면 다시 하나로 맞춰져요.'],
+    note: ['컴퓨터의 주소가 <b>IP 주소</b>, 그 안의 어느 프로그램인지 정하는 번호가 <b>포트</b>예요. 건물 주소와 호수 같아요.',
+           '이름을 주소로 바꿔 주는 안내소가 <b>DNS</b>예요.',
+           '<code>localhost</code>는 언제나 입력한 기기 자신이에요.',
+           '연결이 안 될 때는 이름 → 길 → 문 → 내용 순서로 확인해요.'],
+    refs: [ch(14)] },
+  { chapter: '아홉 번째 정거장', title: '주문서와 답변서',
+    story: ['또또는 정해진 양식의 주문서가 되어, 잠긴 상자에 담겨 가요. 가는 길에 아무도 엿보지 못하게요.',
+            '분식집은 주문서를 읽고 답변서를 돌려줘요.',
+            '답변서 첫 줄의 숫자만 봐도 어떻게 됐는지 알 수 있어요.'],
+    note: ['주문서와 답변서의 양식이 <b>HTTP</b>, 잠긴 상자가 <b>HTTPS</b>예요.',
+           '상태 코드가 4로 시작하면 주문서를 고칠 일, 5로 시작하면 가게를 살필 일이에요.',
+           '답이 안 오는 건 “안 됐다”가 아니라 “모른다”예요. 다시 보내기 전에 두 번 처리돼도 괜찮은지 확인해요.'],
+    refs: [ch(15)] },
+  { chapter: '열 번째 정거장', title: '지워지지 않는 장부',
+    story: ['분식집에 도착했어요. 주문을 잃어버리면 안 되니까, 가게는 장부에 적어 둬요.',
+            '“1042번, 떡볶이 1인분, 접수.”',
+            '주문을 적는 일과 재고를 줄이는 일은 한 묶음이에요. 둘 다 되거나, 둘 다 안 되거나.'],
+    note: ['요청을 받아 처리하는 컴퓨터가 <b>서버</b>, 장부가 <b>데이터베이스</b>예요.',
+           '전부 되거나 전부 안 되게 묶는 것이 <b>트랜잭션</b>이에요.',
+           '한 가지 사실은 한 곳에만 적고, 다른 곳에서는 번호로 가리켜요. 그러면 고칠 곳도 한 곳이에요.',
+           '“썼다”와 “디스크에 있다”는 다른 말이에요.'],
+    refs: [ch(16), ch(17)] },
+  { chapter: '열한 번째 정거장', title: '문단속',
+    story: ['가게 문 앞에는 문지기 부엉이가 서 있어요.',
+            '어떤 쪽지에는 “떡볶이 900원”이라고 적혀 있었어요. 누가 가격을 몰래 고친 거예요.',
+            '부엉이는 쪽지에 적힌 가격을 믿지 않아요. 가게 장부에서 가격을 다시 확인해요.'],
+    note: ['밖에서 온 값은 사실이 아니라 <b>주장</b>이에요. 서버가 다시 확인하기 전에는 믿지 않아요.',
+           '누구인지 확인하는 것이 <b>인증</b>, 해도 되는지 확인하는 것이 <b>인가</b>예요.',
+           '“로그인했다”와 “이것을 봐도 된다”는 다른 이야기예요. 요청마다 서버에서 확인해요.',
+           '비밀번호나 API 키 같은 비밀 값은 코드에 적지 않아요.'],
+    refs: [ch(18), ch(19)] },
+  { chapter: '열두 번째 정거장', title: '가게를 열고, 지켜보기',
+    story: ['개발자가 앱을 고치면 새 버전이 상자에 담겨 나와요. 상자는 검사대를 통과해야 가게로 갈 수 있어요.',
+            '가게가 열린 뒤에도 일은 끝나지 않아요. 계기판을 보고, 기록을 남겨요.',
+            '문제가 생기면 바로 알아차리고, 왜 그랬는지 읽을 수 있도록요.'],
+    note: ['새 버전을 서버에 올리는 일이 <b>배포</b>, 올릴 때마다 자동으로 도는 검사가 <b>CI</b>예요.',
+           '사람들이 쓰는 건 내 코드가 아니라 그 코드로 만든 상자예요. 맞는 상자가 나갔는지 따로 확인해요.',
+           '<b>지표</b>로 이상을 알아차리고, <b>추적</b>으로 구간을 좁히고, <b>로그</b>로 이유를 읽어요.'],
+    refs: [ch(20), ch(21), ch(22)] },
+  { chapter: '여행의 끝', title: '돌아온 대답',
+    story: ['또또가 왔던 길을 되돌아 스마트폰에 도착했어요. 화면에 “주문이 접수되었습니다”가 떴어요.',
+            '하나에게는 0.15초였지만, 또또에게는 긴 여행이었어요.',
+            '이 길을 아는 사람은 AI에게 일을 맡겨도 길을 잃지 않아요.'],
+    noteLabel: 'AI와 만들 때 사람이 할 일',
+    note: ['<b>시키기</b>: 무엇을 만들지 빠짐없이 말해요. “인터넷이 끊기면?”, “둘이 동시에 누르면?”은 아는 사람만 말할 수 있어요.',
+           '<b>확인하기</b>: AI의 “다 됐습니다”를 직접 돌려 보고, 바뀐 곳을 읽어요.',
+           '<b>좁히기</b>: 고장이 나면 스마트폰, 인터넷, 서버, 데이터베이스 중 어디인지 좁혀서 말해 줘요.'],
+    refs: [ch(0)] },
+  { type: 'end', chapter: '1부를 마치며', title: '단어장',
+    words: [
+      ['요청 · 응답', '앱이 서버에 보내는 부탁과 돌아오는 대답'],
+      ['CPU · 메모리', '명령을 하나씩 해내는 요리사와, 지금 쓰는 것을 펼쳐 두는 조리대'],
+      ['운영체제', '프로그램들의 차례와 자리를 정해 주는 지배인'],
+      ['서버', '요청을 받아 처리해 주는 컴퓨터'],
+      ['데이터베이스', '정보를 안전하게 모아 두는 장부'],
+      ['커밋', '언제든 돌아올 수 있는 저장 지점'],
+      ['배포', '고친 프로그램을 서버에 올려 내보내는 일']],
+    notes: ['원작 ‘개발의 기초’는 32장짜리 책이에요. 이 책은 그중 핵심인 1~5부(0~22장)를 다시 엮었어요.',
+            '게임(6부), AI(7부), AI와 함께 만들기(8부)는 원작에서 이어 읽을 수 있어요.'],
+    links: [['원작 웹북', SRC], ['GitHub 저장소', 'https://github.com/jedikim/cs-foundations']] },
+
+  /* ================= 2부 · 심화편 ================= */
+  { type: 'tbcover', title: '심화편 표지', h1: '개발의 기초<br><em>교과서</em>',
+    lead: '또또가 지나간 길을 14장으로 다시 걸어요. 장마다 움직이는 도식과 핵심 정리, 그리고 AI에게 맡길 때 확인할 것을 담았어요.',
+    bullets: ['<b>1~4장</b>은 컴퓨터라는 기계, <b>5~6장</b>은 개발자의 작업대, <b>7~10장</b>은 프로그램을 짓는 재료예요.',
+              '<b>11~13장</b>은 연결되는 시스템, <b>14장</b>은 내보내고 운영하기예요.',
+              '도식 속 노란 점은 일이 흘러가는 방향이에요. 붉은색은 실패와 주의할 곳이에요.',
+              '장 끝의 “원문”은 원작의 해당 장으로 이어져요.'] },
+
+  { type: 'tb', no: '01', kicker: '컴퓨터의 몸', title: 'CPU, 메모리, 저장장치', storyPage: 2,
+    lede: '컴퓨터는 분식집 주방과 닮았어요. 요리사, 조리대, 창고가 맡은 일이 서로 달라서, 하나가 넉넉해도 다른 하나가 모자라면 전체가 느려져요.',
+    blocks: [
+      { h: '세 부품이 하는 일' },
+      { table: { head: ['부품', '주방에서는', '하는 일'], rows: [
+        ['CPU', '요리사', '프로그램의 명령을 하나씩 가져와 계산해요.'],
+        ['메모리(RAM)', '조리대', '실행 중인 프로그램과 데이터를 펼쳐 놓는 자리예요. 전원을 끄면 사라져요.'],
+        ['저장장치', '창고', '사진, 앱, 파일을 오래 보관해요. 전원을 꺼도 남아요.'],
+        ['GPU', '손이 수천 개인 보조', '같은 종류의 단순한 계산을 한꺼번에 많이 해요. 그래픽과 AI 계산에 써요.']] } },
+      { h: '왜 따로 둘까' },
+      { ul: ['빠른 부품일수록 비싸고 담는 양이 적어요. CPU 바로 옆이 가장 빠르고, 저장장치가 가장 느려요.',
+             '그래서 지금 쓰는 것만 메모리에 올려 두고, 나머지는 저장장치에 둬요.',
+             '프로그램을 켜는 일은 창고(저장장치)에서 조리대(메모리)로 재료를 옮기는 일이에요.'] },
+      { h: '느릴 때 무엇이 모자란지 가리기' },
+      { ul: ['프로그램을 여러 개 켜면 느려진다: <b>메모리</b>가 모자라요. 저장장치를 큰 것으로 바꿔도 해결되지 않아요.',
+             '파일을 저장할 수 없다: <b>저장 공간</b>이 모자라요.',
+             '한 프로그램이 계산하느라 오래 걸린다: <b>CPU</b>가 바빠요.'] },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['“느려요”라고만 하지 말고, 무엇을 할 때 느린지와 메모리·CPU 사용량을 함께 알려 줘요.',
+             'AI가 “사양을 올리세요”라고 하면 어느 부품이 왜 모자란지 근거를 물어봐요.'] }
+    ],
+    key: ['메모리는 “얼마나 보관하나”가 아니라 “한 번에 얼마나 펼쳐 놓나”를 정해요.', '저장 공간이 남아도 메모리가 모자라면 컴퓨터는 느려져요.'],
+    refs: [ch(1)] },
+
+  { type: 'tb', no: '02', kicker: '0과 1', title: '스위치로 모든 것을 적는 법', storyPage: 3,
+    lede: '컴퓨터 안의 모든 것은 켜짐과 꺼짐뿐인 스위치 줄이에요. 그 줄을 어떤 약속으로 읽느냐에 따라 숫자도, 글자도, 그림도 돼요.',
+    blocks: [
+      { h: '비트와 바이트' },
+      { ul: ['스위치 하나가 <b>비트</b>예요. 0 아니면 1이에요.',
+             '비트 8개를 묶은 것이 <b>바이트</b>예요. 256가지(0~255)를 구분할 수 있어요.',
+             '파일 크기의 KB, MB, GB는 바이트를 세는 단위예요.'] },
+      { h: '같은 바이트, 다른 약속' },
+      { table: { head: ['무엇을', '어떤 약속으로', '알아 둘 점'], rows: [
+        ['정수', '2진수', '칸이 꽉 차면 처음으로 돌아가요(오버플로).'],
+        ['소수', '부동소수점', '0.1 + 0.2가 정확히 0.3이 아니에요. 돈 계산은 정수(원 단위)로 해요.'],
+        ['글자', '문자표 + 인코딩(UTF-8)', '한글이 깨지면 읽는 인코딩이 틀린 거예요.'],
+        ['색과 그림', '점 하나에 숫자 세 개(빨강·초록·파랑)', '사진은 이 점들의 큰 표예요.']] } },
+      { code: '0.1 + 0.2        →  0.30000000000000004\n4000 * 0.9       →  3600.0000000000005 일 수도 있음\n4000 * 90 / 100  →  3600 (정수로 계산)', cap: '돈처럼 딱 떨어져야 하는 값은 소수로 계산하지 않아요.' },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['금액, 수량처럼 정확해야 하는 값은 “정수로 계산해 줘”라고 미리 말해요.',
+             '글자가 깨지면 “인코딩을 UTF-8로 맞춰서 읽고 써 줘”라고 좁혀서 말해요.',
+             '파일 확장자만 바꾼다고 내용이 바뀌지는 않아요. 바이트는 자기가 무엇인지 스스로 말하지 않아요.'] }
+    ],
+    key: ['컴퓨터 안의 모든 것은 스위치 줄이고, 읽는 약속이 의미를 정해요.', '글자가 깨졌어도 데이터는 멀쩡해요. 틀린 것은 읽는 규칙이에요.'],
+    refs: [ch(2)] },
+
+  { type: 'tb', no: '03', kicker: '운영체제', title: '프로그램들의 차례와 자리', storyPage: 4,
+    lede: '운영체제는 주방을 돌리는 지배인이에요. 요리사(CPU)를 누가 언제 쓸지, 조리대(메모리)의 어느 자리를 쓸지 정해요.',
+    blocks: [
+      { h: '프로세스와 스케줄링' },
+      { ul: ['실행 중인 프로그램 한 건이 <b>프로세스</b>예요. 프로세스마다 자기만의 메모리 공간을 받아요.',
+             '운영체제는 CPU를 아주 짧은 시간씩 나눠 여러 프로세스에 돌려 줘요. 이게 <b>스케줄링</b>이에요.',
+             '정말로 같은 순간에 계산되는 일의 수는 CPU 코어 수를 넘지 못해요.',
+             '한 프로세스 안에서 갈라진 여러 흐름이 <b>스레드</b>예요. 같은 메모리를 함께 써요.'] },
+      { h: '창고는 지배인을 거쳐서만' },
+      { p: '프로그램은 파일, 네트워크, 화면 같은 하드웨어를 직접 만지지 못해요. 운영체제의 핵심인 <b>커널</b>에 부탁해야 해요. 이 부탁이 <b>시스템 호출</b>이에요.' },
+      { h: '값과 참조' },
+      { ul: ['값을 복사하면 따로따로예요. 하나를 바꿔도 다른 하나는 그대로예요.',
+             '위치(참조)를 복사하면 같은 것을 둘이 가리켜요. 하나를 바꾸면 같이 바뀌어요.',
+             '“복사했는데 왜 원본도 바뀌지?”의 범인은 대부분 참조 복사예요.'] },
+      { h: '치우기' },
+      { ul: ['안 쓰는 메모리를 돌려주지 않으면 조금씩 쌓여요. 이게 <b>메모리 누수</b>예요.',
+             '파일, 네트워크 연결처럼 연 것은 닫아요. 잘됐을 때만이 아니라 실패했을 때도요.'] },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['파일이나 연결을 여는 코드를 받으면 “실패했을 때도 닫히는지” 확인해요.',
+             '오래 켜 둘수록 느려지는 프로그램은 “메모리 누수를 의심해서 찾아 줘”라고 좁혀서 말해요.'] }
+    ],
+    key: ['“동시에 실행된다”는 대부분 아주 빠른 교대예요.', '연 것은 닫아요. 실패했을 때도요.'],
+    refs: [ch(3)] },
+
+  { type: 'tb', no: '04', kicker: '실행', title: '코드가 실행되기까지', storyPage: 5,
+    lede: 'CPU는 0과 1로 된 기계의 말만 알아들어요. 사람이 쓴 코드는 번역을 거쳐야 실행돼요.',
+    blocks: [
+      { h: '번역하는 두 가지 방식' },
+      { table: { head: ['방식', '비유', '특징'], rows: [
+        ['컴파일러', '책을 통째로 옮기는 번역가', '미리 다 번역해 실행 파일을 만들어요. 실행이 빨라요.'],
+        ['인터프리터', '한 문장씩 옮기는 통역사', '실행하면서 한 줄씩 옮겨요. 고치고 바로 돌려 보기 좋아요.']] } },
+      { p: '둘을 섞은 방식도 많아요. 중간 형태(바이트코드)로 한 번 번역해 두고, 가상 머신이 그것을 실행해요.' },
+      { h: '오류가 드러나는 세 시점' },
+      { ol: ['<b>번역할 때</b>: 문법이나 타입이 틀렸어요. 실행 전에 알려 줘서 가장 싸게 잡혀요.',
+             '<b>실행할 때</b>: 없는 파일을 열거나 0으로 나눠요. 그 줄에 닿아야 드러나요.',
+             '<b>끝난 뒤</b>: 오류 없이 돌아가는데 답이 틀려요. 아무도 알려 주지 않아서 가장 찾기 어려워요.'] },
+      { h: '링크와 빌드' },
+      { ul: ['내 코드는 남이 만든 코드(라이브러리)와 이어 붙여야 완성돼요. 이 과정이 <b>링크</b>예요.',
+             '코드를 실행할 수 있는 결과물로 만드는 전체 과정이 <b>빌드</b>예요.',
+             '같은 코드도 개발용으로 만들면 찾기 쉽고 느리게, 배포용으로 만들면 작고 빠르게 만들어져요.'] },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['“오류 없이 빌드됐습니다”는 끝이 아니에요. 실제로 실행한 결과를 보여 달라고 해요.',
+             '오류 글은 요약하지 말고 전체를 그대로 붙여 줘요. 어느 시점의 오류인지가 실마리예요.'] }
+    ],
+    key: ['“오류 없이 번역됐다”는 “맞게 움직인다”가 아니에요.', '오류는 늦게 드러날수록 찾기 어렵고 비싸요.'],
+    refs: [ch(4)] },
+
+  { type: 'tb', no: '05', kicker: '작업대', title: '터미널과 개발 환경', storyPage: 6,
+    lede: '터미널은 글로 주문하는 창구예요. AI 코딩 도구도 결국 이 창구에서 명령을 실행해요. 그래서 명령 한 줄을 읽을 수 있어야 맡길 수 있어요.',
+    blocks: [
+      { h: '명령 한 줄 읽기' },
+      { code: 'ls -l src\n│  │  └─ 인수: 어디에 (src 폴더)\n│  └──── 옵션: 어떻게 (자세히)\n└─────── 명령: 무엇을 (목록 보기)', cap: '대부분의 명령이 이 세 조각으로 되어 있어요.' },
+      { ul: ['<code>pwd</code>는 지금 서 있는 폴더를 알려 줘요. 상대 경로를 보면 “지금 어디에 서 있지?”부터 물어요.',
+             '<code>|</code>(파이프)는 앞 명령의 결과를 다음 명령으로, <code>&gt;</code>는 파일로 보내요.',
+             '명령은 끝날 때 <b>종료 코드</b>를 남겨요. 0이면 성공, 0이 아니면 실패예요.'] },
+      { h: '개발 환경: 작업실이 같아야 해요' },
+      { ul: ['코드는 설계도일 뿐이에요. 돌아가려면 언어 버전, 패키지, 설정이 갖춰진 작업실이 필요해요.',
+             '“내 컴퓨터에서는 되는데요”는 작업실이 다르다는 신호예요. 코드보다 두 환경의 차이를 먼저 봐요.',
+             '<b>환경 변수</b>는 작업실 벽에 붙인 메모예요. 비밀 값과 설정을 코드 밖에 둘 때 써요.',
+             '“설치되어 있다”와 “지금 그것이 실행된다”는 다른 말이에요. <code>PATH</code> 순서에 따라 다른 버전이 실행될 수 있어요.'] },
+      { h: '지우기 전에 묻는 세 가지' },
+      { ol: ['지금 어디에 서 있는가', '무엇이 지워지는가', '다시 만들 수 있는가'] },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['AI가 명령을 실행하려 하면 허용하기 전에 읽어요. 특히 지우기(<code>rm</code>), 덮어쓰기, <code>sudo</code>가 있는지 봐요.',
+             '<code>Permission denied</code>가 나오면 <code>sudo</code>를 붙이기 전에 물어요. 누가, 어느 파일에, 무엇을 하려다 막혔는가.',
+             '마지막 줄의 “완료”는 아무것도 약속하지 않아요. 종료 코드와 실제 결과를 확인해요.'] }
+    ],
+    key: ['셸의 힘은 큰 명령 하나가 아니라 작은 명령을 잇는 데서 나와요.', '믿을 것은 “완료”라는 글자가 아니라 종료 코드예요.'],
+    refs: [ch(5), ch(6)] },
+
+  { type: 'tb', no: '06', kicker: '변경 이력', title: 'Git으로 저장 지점 쌓기', storyPage: 6,
+    lede: '파일을 “최종”, “진짜최종”으로 복사해 쌓는 대신, Git은 돌아올 수 있는 저장 지점을 쌓아요. AI와 일할 때는 이 저장 지점이 안전망이에요.',
+    blocks: [
+      { h: '세 구역' },
+      { table: { head: ['구역', '하는 일', '명령'], rows: [
+        ['작업 폴더', '파일을 고치는 곳', '—'],
+        ['스테이지', '이번 저장 지점에 넣을 것을 담는 곳', '<code>git add</code>'],
+        ['저장소', '저장 지점(커밋)이 쌓이는 곳', '<code>git commit</code>']] } },
+      { p: '커밋에 들어가는 것은 작업 폴더의 파일이 아니라 스테이지에 올려 둔 내용이에요.' },
+      { h: '브랜치와 병합' },
+      { ul: ['<b>브랜치</b>는 커밋에 붙이는 이름표예요. 실험은 새 브랜치에서 하고, 잘되면 합쳐요(<b>병합</b>).',
+             '두 사람이 같은 줄을 다르게 고치면 <b>충돌</b>이 나요. 어느 쪽을 남길지 사람이 정해야 해요.',
+             '<code>git diff</code>로 무엇이 바뀌었는지 읽어요. AI가 고친 것을 확인하는 가장 확실한 방법이에요.'] },
+      { h: '되돌리기 세 가지' },
+      { table: { head: ['명령', '하는 일', '안전한가'], rows: [
+        ['<code>restore</code>', '아직 커밋하지 않은 수정을 버려요', '버린 수정은 못 살려요'],
+        ['<code>revert</code>', '되돌리는 새 커밋을 만들어요', '이력이 남아서 안전해요'],
+        ['<code>reset</code>', '이름표를 과거로 옮겨요', '이미 공유한 커밋에는 쓰지 않아요']] } },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['큰 일을 맡기기 전에 커밋해 둬요. 망가지면 그 지점으로 돌아가면 돼요.',
+             'AI가 끝냈다고 하면 <code>git diff</code>로 바뀐 곳을 직접 읽어요. 부탁하지 않은 파일이 바뀌지 않았는지도 봐요.',
+             'AI가 이력을 정리하겠다며 리베이스나 강제 푸시를 하려 하면, 이미 공유한 커밋인지부터 확인해요.'] }
+    ],
+    key: ['커밋은 언제든 돌아올 수 있는 저장 지점이에요.', '이미 공유한 커밋의 이력은 고쳐 쓰지 않아요.'],
+    refs: [ch(7)] },
+
+  { type: 'tb', no: '07', kicker: '자료구조', title: '데이터를 담는 그릇', storyPage: 7,
+    lede: '같은 재료도 어떤 그릇에 담느냐에 따라 꺼내 쓰는 속도가 달라져요. 자료구조를 고른다는 것은 “이 데이터로 무엇을 가장 자주 할까”를 정하는 일이에요.',
+    blocks: [
+      { h: '자주 쓰는 그릇' },
+      { table: { head: ['그릇', '생김새', '잘하는 일', '못하는 일'], wide: true, rows: [
+        ['배열', '번호 붙은 칸이 나란히', '번호로 바로 꺼내기', '중간에 끼워 넣기'],
+        ['스택', '접시 쌓기', '마지막에 넣은 것부터 꺼내기 (실행 취소)', '중간 것 꺼내기'],
+        ['큐', '줄 서기', '먼저 온 것부터 처리하기 (주문 대기열)', '중간 것 꺼내기'],
+        ['해시 맵', '이름표 붙은 서랍', '이름으로 바로 찾기', '순서대로 훑기'],
+        ['트리', '위에서 아래로 갈라짐', '폴더처럼 포함 관계 담기, 정렬된 채로 찾기', '—'],
+        ['그래프', '점과 선', '친구 관계, 길 찾기', '—']] } },
+      { h: '오류가 가장 자주 나는 곳: 없음과 빈 값' },
+      { ul: ['“값이 없음”, “빈 글자”, “0”은 서로 달라요. 섞어 쓰면 버그가 생겨요.',
+             '주문이 하나도 없을 때, 이름이 비어 있을 때를 따로 생각해 둬요.'] },
+      { h: '그릇 밖으로 내보낼 때' },
+      { ul: ['프로그램끼리 데이터를 주고받을 때는 JSON 같은 약속된 글 형식으로 바꿔요.',
+             '시각은 <b>UTC로 저장하고 비교</b>해요. 사람에게 보여 줄 때만 그 사람이 있는 곳의 시각으로 바꿔요.'] },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['“목록에서 자주 찾는다”, “순서가 중요하다”처럼 데이터를 어떻게 쓸지 말해 주면 알맞은 그릇을 골라요.',
+             '받은 코드에서 “목록이 비어 있을 때”와 “값이 없을 때”를 어떻게 다루는지 확인해요.'] }
+    ],
+    key: ['만능 그릇은 없어요. 가장 자주 하는 일로 골라요.', '없음, 빈 값, 0은 서로 다른 것이에요.'],
+    refs: [ch(8)] },
+
+  { type: 'tb', no: '08', kicker: '알고리즘', title: '걸음 수로 재는 빠르기', storyPage: 7,
+    lede: '알고리즘은 문제를 푸는 방법이에요. 빠르기는 “몇 초”가 아니라 데이터가 늘 때 걸음 수가 늘어나는 모양으로 말해요.',
+    blocks: [
+      { h: '빅오: 늘어나는 모양에 붙인 이름표' },
+      { table: { head: ['이름표', '뜻', '예', '데이터가 10배면'], wide: true, rows: [
+        ['O(1)', '데이터가 늘어도 그대로', '해시 맵에서 이름으로 찾기', '그대로'],
+        ['O(log n)', '아주 조금씩 늘어남', '정렬된 목록에서 반씩 줄여 찾기', '몇 걸음 더'],
+        ['O(n)', '데이터만큼 늘어남', '목록을 처음부터 끝까지 훑기', '10배'],
+        ['O(n²)', '곱으로 늘어남', '반복문 안에 반복문', '100배']] } },
+      { h: '느려지는 흔한 이유' },
+      { ul: ['<b>반복 안의 반복</b>: 주문 1,000건마다 메뉴 1,000개를 훑으면 100만 걸음이에요.',
+             '메뉴를 해시 맵에 담아 두면 주문마다 한 걸음이면 돼요. 그릇을 바꾸면 알고리즘이 바뀌어요.',
+             '줄을 세워 두면(정렬) 찾기가 쉬워져요. 정렬된 목록은 반씩 줄여 가며 찾을 수 있어요.'] },
+      { h: '메모리도 비용이에요' },
+      { ul: ['큰 파일을 통째로 메모리에 올리면 조리대가 넘쳐요. 조금씩 읽어서 처리해요.',
+             '경우의 수가 폭발하는 문제는 전부 해 볼 수 없어요. “충분히 좋은 답”을 찾는 방법을 써요.'] },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['“데이터가 100건일 때와 100만 건일 때”처럼 예상 규모를 말해 줘요. 그래야 알맞은 방법을 골라요.',
+             '받은 코드에 반복 안의 반복이 있으면 “데이터가 늘면 어떻게 되는지” 물어봐요.',
+             '“빠르게 해 줘”보다 “지금 몇 초 걸리는데 몇 초 안으로”라고 숫자로 말해요.'] }
+    ],
+    key: ['빠르기는 초가 아니라 걸음 수가 늘어나는 모양으로 말해요.', '반복 안의 반복은 걸음이 곱해지는 순간이에요.'],
+    refs: [ch(9)] },
+
+  { type: 'tb', no: '09', kicker: '상태와 동시성', title: '기억하는 것, 한꺼번에 하는 것', storyPage: 8,
+    lede: '프로그램이 기억하고 있는 값이 상태예요. 버그의 대부분은 상태가 예상과 다르게 바뀌어서 생기고, 여러 일이 동시에 일어나면 더 어려워져요.',
+    blocks: [
+      { h: '상태를 다루는 원칙' },
+      { ul: ['<b>원본은 한 곳에</b>: 같은 내용은 한 곳에만 적어요. 계산하면 나오는 값(합계 등)은 따로 적어 두지 않아요.',
+             '<b>계산과 변경을 나누기</b>: 계산은 바깥을 건드리지 않는 함수로 하고, 바깥을 바꾸는 일은 눈에 띄는 한곳에 모아요.',
+             '<b>있을 수 없는 상태를 못 만들게</b>: “접수 → 조리 중 → 배달 중 → 완료”처럼 갈 수 있는 길을 정해 둬요. 이게 <b>상태 기계</b>예요.'] },
+      { h: '동시성: 번갈아 하기와 함께 하기' },
+      { table: { head: ['말', '뜻', '주방에서는'], rows: [
+        ['동시성', '여러 일을 번갈아 진행', '요리사 한 명이 냄비 세 개를 오가기'],
+        ['병렬성', '여러 일을 정말 같은 순간에', '요리사 세 명이 각자 요리하기'],
+        ['비동기', '기다리는 동안 다른 일 하기', '진동벨을 주고 다음 손님 받기']] } },
+      { h: '경쟁 상태' },
+      { p: '재료는 두 가지예요. <b>함께 쓰는 값</b>, 그리고 <b>확인과 변경 사이의 틈</b>. 둘 중 하나를 없애면 사라져요.' },
+      { ul: ['한 번에 한 명만 고치게 잠그거나(<b>락</b>), “재고가 1 이상일 때만 1 줄여라”처럼 확인과 변경을 한 문장으로 묶어요.',
+             '서로 상대가 가진 것을 기다리다 멈추는 것이 <b>교착 상태</b>예요. 잠그는 순서를 통일하면 피할 수 있어요.',
+             '늦게 도착한 응답이 최신 화면을 덮어쓸 수 있어요. 요청에 번호표를 붙여 지난 응답은 버려요.'] },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['“두 사람이 동시에 누르면 어떻게 되는지”를 꼭 물어봐요. AI는 한 사람만 쓸 때의 코드를 먼저 써요.',
+             '시작한 일에는 주인이 있어야 해요. 시간 제한, 취소, 실패 처리가 있는지 확인해요.'] }
+    ],
+    key: ['같은 내용은 한 곳에만 적어요.', '느리면 먼저 물어요. 기다리는 중인가, 계산하는 중인가?'],
+    refs: [ch(10), ch(11)] },
+
+  { type: 'tb', no: '10', kicker: '디버깅과 테스트', title: '버그를 찾고, 돌아오지 못하게 하기', storyPage: 9,
+    lede: '버그 찾기는 찍기가 아니라 수사예요. 그리고 테스트는 잡은 버그가 돌아오면 울리는 경보기예요.',
+    blocks: [
+      { h: '수사의 순서' },
+      { ol: ['<b>다시 일으키기(재현)</b>: 어떤 순서로 하면 문제가 나는지 정확히 적어요. 재현이 안 되면 고쳤는지도 알 수 없어요.',
+             '<b>오류 글 읽기</b>: 오류 종류, 메시지, 줄 번호가 현장에 남은 발자국이에요.',
+             '<b>짐작을 세우고 절반씩 좁히기</b>: “여기까지는 값이 맞다”를 확인하며 범위를 반으로 줄여요.',
+             '<b>고치고 테스트로 고정하기</b>: 같은 버그가 돌아오면 바로 알 수 있게 테스트를 남겨요.'] },
+      { p: '문제가 <b>드러난 곳</b>은 출발점일 뿐이에요. 고칠 곳은 값이 <b>처음 잘못된 곳</b>이에요.' },
+      { h: '테스트를 믿을 수 있으려면' },
+      { ul: ['경계값을 넣어 봐요. 0개, 1개, 최대, 빈 값, 음수.',
+             '작고 빠른 테스트를 많이, 전체를 도는 느린 테스트는 조금 둬요(테스트 피라미드).',
+             '가끔 실패하는 테스트는 경보기를 못 믿게 만들어요. 원인을 찾아 고쳐요.',
+             '느린 것도 버그예요. 추측하지 말고 재서, 가장 오래 걸리는 곳부터 고쳐요.'] },
+      { h: 'AI에게 맡길 때' },
+      { code: '10% 쿠폰을 쓰면 결제가 실패해. 순서는 이래.\n떡볶이 4,000원을 담는다 → 10% 쿠폰을 고른다 → 결제를 누른다.\n3,600원이 결제될 줄 알았는데 “결제에 실패했습니다”가 떠.\n오류 글 전체는 아래에 붙였어.\n\n바로 고치지 말고 원인부터 찾아서, 어떻게 확인했는지 알려 줘.\n그다음 이 버그를 잡는 테스트를 먼저 쓰고 실패하는 결과를 보여 줘.\n그 뒤에 고치고 같은 테스트가 통과하는 결과를 보여 줘.', cap: '원작 12장의 부탁 예시를 줄였어요.' },
+      { ul: ['AI는 드러난 줄만 고치기 쉬워요. 오류를 <code>try</code>로 덮지 않았는지 봐요.',
+             '테스트 쪽을 고쳐서 통과시키지 않았는지 <code>git diff</code>로 확인해요.',
+             '돌려 보지 않고 “고쳤습니다”라고 할 수 있어요. 실행 결과를 그대로 붙여 달라고 해요.'] }
+    ],
+    key: ['“고쳤다”의 증거는 고치기 전에 실패하고 고친 뒤에 통과하는 테스트예요.', '고칠 곳은 드러난 곳이 아니라 처음 틀어진 곳이에요.'],
+    refs: [ch(12)] },
+
+  { type: 'tb', no: '11', kicker: '네트워크와 웹', title: '요청이 건너가는 길', storyPage: 10,
+    lede: '네트워크는 컴퓨터 사이의 우편망이에요. 웹은 그 위에서 주문서(요청)와 답변서(응답)를 주고받는 약속이에요.',
+    blocks: [
+      { h: '주소 체계' },
+      { table: { head: ['이름', '비유', '뜻'], rows: [
+        ['IP 주소', '건물 주소', '어느 컴퓨터인지'],
+        ['포트', '호수', '그 컴퓨터 안의 어느 프로그램인지'],
+        ['DNS', '안내소', '이름(example.com)을 IP 주소로 바꿔 줘요'],
+        ['<code>localhost</code>', '내 방', '언제나 입력한 기기 자신이에요']] } },
+      { h: '안 될 때 확인하는 순서' },
+      { p: '<b>이름 → 길 → 문 → 내용</b>. 이름이 주소로 바뀌는가, 그 주소까지 길이 닿는가, 그 포트에서 프로그램이 듣고 있는가, 주고받는 내용이 맞는가. 한 단계가 성공했다고 그 위 단계까지 성공한 것은 아니에요.' },
+      { h: 'HTTP: 주문서와 답변서' },
+      { ul: ['요청에는 <b>메서드</b>(GET은 보여 줘, POST는 만들어 줘), 주소, 헤더, 본문이 들어 있어요.',
+             '응답 첫 줄의 <b>상태 코드</b>: 2xx는 성공, 4xx는 주문서를 고칠 일, 5xx는 가게(서버)를 살필 일이에요.',
+             '<b>HTTPS</b>는 주문서를 잠긴 상자에 넣어 보내요. 가는 길에 엿보거나 바꿔치지 못해요.',
+             '서버는 손님을 기억하지 못해요. 그래서 쿠키나 토큰 같은 출입증을 요청마다 함께 보내요.'] },
+      { h: '답이 오지 않을 때' },
+      { ul: ['시간 초과는 “안 됐다”가 아니라 “모른다”예요. 주문은 들어갔는데 답만 못 받았을 수 있어요.',
+             '다시 보내기 전에 두 번 처리돼도 괜찮은 요청인지 확인해요. 이 성질이 <b>멱등성</b>이에요.',
+             'CORS 오류는 서버의 거절이 아니라 브라우저의 검사예요. 고치는 곳은 서버의 응답 헤더예요.'] },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['“연결이 안 돼”가 아니라 상태 코드와 오류 글 전체를 줘요. 4xx인지 5xx인지에 따라 볼 곳이 달라요.',
+             '결제처럼 중요한 요청은 “응답을 못 받고 다시 보냈을 때 두 번 처리되지 않게 해 줘”라고 말해요.'] }
+    ],
+    key: ['IP 주소는 어느 컴퓨터인지, 포트는 그 안의 어느 프로그램인지 정해요.', '시간 초과는 실패가 아니라 “모른다”예요.'],
+    refs: [ch(14), ch(15)] },
+
+  { type: 'tb', no: '12', kicker: '데이터', title: '파일과 데이터베이스', storyPage: 12,
+    lede: '주문을 잃어버리면 안 돼요. 그래서 전원이 꺼져도 남는 곳에, 여러 사람이 동시에 고쳐도 꼬이지 않게 적어 둬요.',
+    blocks: [
+      { h: '느린 프로그램은 대부분 기다리는 중' },
+      { ul: ['저장장치와 네트워크는 메모리보다 훨씬 느려요. 프로그램은 그 답을 기다리느라 시간을 써요.',
+             '전체 걸린 시간 가운데 CPU가 일한 시간이 얼마인지 봐요. 차이가 크면 범인은 계산이 아니라 기다림이에요.',
+             '병목이 아닌 곳을 고치면 시간은 그대로예요. 고치기 전에 재고, 고친 뒤에 다시 재요.'] },
+      { h: '데이터베이스: 칸이 정해진 장부' },
+      { ul: ['데이터를 <b>표</b>에 담아요. 가로줄(행)이 한 건, 세로줄(열)이 항목이에요.',
+             '한 가지 사실은 한 곳에만 적고, 다른 표에서는 번호(<b>키</b>)로 가리켜요. 그러면 고칠 곳도 한 곳이에요.',
+             '<b>SQL</b>은 “어떻게”가 아니라 “무엇을 원하는지” 적는 신청서예요.',
+             '<b>인덱스</b>는 책 뒤의 찾아보기예요. 읽기를 빠르게 하는 대신 쓰기를 느리게 해요. 자주 찾는 열에만 만들어요.'] },
+      { code: 'SELECT 이름, 가격\nFROM 메뉴\nWHERE 가격 <= 5000\nORDER BY 가격;', cap: '5,000원 이하 메뉴를 싼 순서로 보여 달라는 신청서' },
+      { h: '사고를 막는 두 장치' },
+      { table: { head: ['장치', '막는 사고'], rows: [
+        ['트랜잭션', '중간에 멈추는 사고. 주문은 적혔는데 재고는 안 줄어든 상태를 막아요.'],
+        ['잠금 · 조건부 수정', '동시에 고치는 사고. 한 접시가 두 번 팔리는 것을 막아요.']] } },
+      { ul: ['“저장했습니다”가 디스크까지 갔다는 뜻인지 확인해요. “썼다”와 “디스크에 있다”는 달라요.',
+             '원본은 하나예요. 복제본과 캐시는 언제나 원본보다 조금 늦어요.',
+             '백업은 되살려 본 적이 있어야 백업이에요.'] },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['여러 표를 함께 고치는 일은 “트랜잭션으로 묶어 줘”라고 말해요.',
+             '목록 화면이 느리면 “한 건마다 쿼리를 또 보내는지(N+1) 확인해 줘”라고 좁혀서 말해요.',
+             '데이터를 지우거나 표 구조를 바꾸는 명령은 실행 전에 백업이 있는지부터 확인해요.'] }
+    ],
+    key: ['한 가지 사실은 한 곳에만 적어요.', '트랜잭션은 중간에 멈추는 사고를, 잠금은 동시에 고치는 사고를 막아요.'],
+    refs: [ch(16), ch(17)] },
+
+  { type: 'tb', no: '13', kicker: '설계와 보안', title: '경계를 긋고, 문을 지키기', storyPage: 13,
+    lede: '설계는 선을 긋는 일이에요. 그리고 보안은 그 선을 넘어 들어오는 것을 믿지 않는 데서 시작해요.',
+    blocks: [
+      { h: '좋은 설계' },
+      { ul: ['잘게 많이 나눈 설계가 좋은 설계는 아니에요. 알맞은 곳에 경계를 긋고, 경계마다 “실패하면 이렇게 한다”를 정해 둬요.',
+             '처음에는 한 덩어리(모놀리스)로 시작해요. 나누는 것은 나눠야 할 이유가 생긴 뒤에 해요.',
+             '<b>API</b>는 약속이에요. 한번 공개한 약속을 바꾸면 쓰는 쪽이 깨져요.',
+             '다른 컴퓨터를 부르는 일은 전화와 같아서 끊길 수 있어요. 시간 제한을 두고, 다시 걸 때는 간격을 늘려 가요(백오프).'] },
+      { h: '보안의 첫 원칙' },
+      { p: '건물 밖에서 온 값은 사실이 아니라 <b>주장</b>이에요. 가격도, 회원 번호도, “나는 관리자”라는 말도 서버가 다시 확인하기 전에는 믿지 않아요.' },
+      { table: { head: ['확인', '질문', '예'], rows: [
+        ['인증', '누구인가', '로그인'],
+        ['인가', '이것을 해도 되는가', '남의 주문 내역은 볼 수 없음'],
+        ['입력 확인', '값인가, 명령인가', '입력한 글이 SQL이나 스크립트로 실행되지 않게 함']] } },
+      { h: 'AI가 만든 앱의 흔한 구멍' },
+      { ul: ['권한 검사를 화면(브라우저)에서만 하고 서버에서는 하지 않아요.',
+             '주소의 번호만 바꾸면 남의 데이터가 보여요. 요청마다, 대상마다 서버에서 확인해야 해요.',
+             '비밀번호를 그대로 저장해요. 비밀번호는 서버도 모르게 해시로 보관해요.',
+             'API 키 같은 비밀 값을 코드나 저장소에 적어요. 환경 변수나 비밀 저장소에 둬요.',
+             '사용자 입력을 SQL 문장에 그대로 이어 붙여요. 틀은 내가 정하고, 남이 준 것은 끝까지 값으로만 다뤄요.'] },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['만들기 전에 설계를 먼저 받아 봐요. 무엇을 어디에 두는지, 실패하면 어떻게 하는지.',
+             '“로그인하지 않은 사람, 다른 사람의 계정으로 이 요청을 보내면 어떻게 되는지 보여 줘”라고 확인해요.',
+             '커밋 전에 비밀 값이 코드에 들어가지 않았는지 살펴봐요.'] }
+    ],
+    key: ['밖에서 온 값은 사실이 아니라 주장이에요.', '“로그인했다”와 “이것을 봐도 된다”는 다른 이야기예요.'],
+    refs: [ch(18), ch(19)] },
+
+  { type: 'tb', no: '14', kicker: '배포와 운영', title: '내보내고, 지켜보기',  storyPage: 14,
+    lede: '사람들이 쓰는 것은 내 코드가 아니라 그 코드로 만든 결과물이에요. 그리고 내보낸 뒤에는 보닛을 닫고 달리는 자동차처럼, 계기판으로만 안을 볼 수 있어요.',
+    blocks: [
+      { h: '코드가 사용자에게 가는 길' },
+      { ol: ['<b>빌드</b>: 코드를 실행할 수 있는 결과물(상자)로 만들어요.',
+             '<b>검사(CI)</b>: 올릴 때마다 테스트와 검사가 자동으로 돌아요.',
+             '<b>배포</b>: 상자를 서버에 올려요.',
+             '<b>출시</b>: 사용자에게 보여 줘요. 배포와 떼어 놓으면 따로 되돌릴 수 있어요.'] },
+      { ul: ['<b>잠금 파일</b>은 오늘도 내일도 같은 재료(패키지 버전)를 받게 해 줘요.',
+             '상자는 한 번 만들어 그대로 쓰고, 개발용·운영용의 차이는 설정으로만 둬요.',
+             '옛 버전과 새 버전이 함께 도는 시간이 있어요. 더하는 일은 먼저, 지우는 일은 맨 마지막에 해요.'] },
+      { h: '서버와 클라우드' },
+      { ul: ['<b>클라우드</b>는 늘 켜져 있는 컴퓨터를 빌려 쓰는 것이에요. 쓴 만큼 요금을 내요.',
+             '<b>컨테이너</b>는 작은 가상 머신이 아니라 칸막이를 친 프로그램이에요. 금방 켜지고 금방 사라져요.',
+             '컨테이너는 쓰고 버려요. 남겨야 할 데이터는 컨테이너 밖에 둬요.'] },
+      { h: '관측: 세 가지 도구' },
+      { table: { head: ['도구', '하는 일', '비유'], rows: [
+        ['지표', '숫자로 이상을 알아차려요', '계기판'],
+        ['추적', '요청 하나가 어느 구간에서 느렸는지 좁혀요', '택배 송장 조회'],
+        ['로그', '그때 무슨 일이 있었는지 이유를 읽어요', '블랙박스']] } },
+      { ul: ['평균 하나로는 부족해요. 줄을 세워 가운데(p50)와 끝(p95, p99)을 함께 봐요.',
+             '로그 검색 결과가 0건이라고 사건이 0건인 것은 아니에요. “로그가 오고 있나?”를 먼저 확인해요.',
+             '장애가 나면 먼저 멈추고(되돌리고), 원인은 나중에 찾아요.'] },
+      { h: 'AI에게 맡길 때' },
+      { ul: ['인프라 설정을 고친 뒤에는 고친 줄만 보지 말고 미리 보기(plan) 결과를 읽어요. 지워지는 것이 있으면 무엇인지 알기 전에는 적용하지 않아요.',
+             '배포를 맡길 때는 되돌리는 방법도 함께 받아 둬요.',
+             '요금이 나오는 자원을 만들었다면 끄는 방법과 예상 요금을 물어봐요.'] }
+    ],
+    key: ['배포는 서버에 올리는 일, 출시는 사용자에게 보여 주는 일이에요.', '지표로 알아차리고, 추적으로 좁히고, 로그로 이유를 읽어요.'],
+    refs: [ch(20), ch(21), ch(22), ch(13)] },
+
+  { type: 'check', title: 'AI에게 맡길 때 점검표', lede: 'AI가 코드를 써 줘도 사람이 할 일은 남아요. 맡기기 전과 받은 뒤에 하나씩 확인해 보세요.' }
+];
+
+var CHECKS = [
+  ['시키기', ['무엇을 만들지와 함께 “어떻게 되면 끝인지”를 적었다', '인터넷이 끊길 때, 값이 비어 있을 때처럼 잘 안 되는 경우를 말해 줬다', '두 사람이 동시에 누르는 경우를 말해 줬다', '데이터가 얼마나 많아질지 예상 규모를 알려 줬다']],
+  ['확인하기', ['“다 됐습니다”를 믿지 않고 직접 실행해 봤다', '<code>git diff</code>로 바뀐 곳을 읽었고, 부탁하지 않은 파일이 바뀌지 않았다', '테스트가 지워지거나 고쳐지지 않았고, 통과한 개수가 줄지 않았다', '화면의 “완료”가 아니라 종료 코드와 실제 결과를 봤다']],
+  ['좁히기', ['문제를 다시 일으키는 순서를 적어서 줬다', '오류 글을 요약하지 않고 전체를 붙였다', '스마트폰, 인터넷, 서버, 데이터베이스 중 어디인지 좁혀서 말했다']],
+  ['지키기', ['큰 일을 맡기기 전에 커밋해 뒀다', '지우기, 덮어쓰기, <code>sudo</code>가 들어간 명령은 읽고 나서 허용했다', '비밀 값이 코드나 저장소에 들어가지 않았다', '권한 검사가 화면이 아니라 서버에 있다']]
+];
+var CORE = [
+  ['원작 ‘개발의 기초’ 전체 목차 (32장)', SRC],
+  ['이어 읽기: 6부 게임 (23~25장)', SRC + 'ch23.html'],
+  ['이어 읽기: 7부 AI (26~29장)', SRC + 'ch26.html'],
+  ['이어 읽기: 8부 AI와 함께 만들기 (30~31장)', SRC + 'ch30.html'],
+  ['막혔을 때: 증상으로 찾기', SRC + 'trouble.html']
+];
+
+return { cfg: { title: '떡볶이 주문의 여행', id: 'cs-book', hash: 'cs', storyLast: 16, part2: 17, noteLabel: '실제 컴퓨터에서는',
+  brand1: '떡볶이 주문의 <span>여행</span>', brand2: '개발의 기초 <span>교과서</span>' },
+  scenes: scenes, pages: pages, CHECKS: CHECKS, CORE: CORE };
+};
+
+function startBook(def, myGen){
+var BOOK = def.cfg, scenes = def.scenes, pages = def.pages, CHECKS = def.CHECKS, CORE = def.CORE, STORY_LAST = BOOK.storyLast, PART2 = BOOK.part2;
 /* ---------- 쪽 그리기 ---------- */
 function esc(s){ return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 function refsHtml(refs){
@@ -1828,42 +3043,27 @@ function renderPage(p, i){
   var inner;
   if (p.type === 'cover'){
     inner = '<div class="text cover"><div class="text-inner">' +
-      '<p class="chapter">그림책으로 읽는 하네스 엔지니어링</p>' +
-      '<h1>번개와<br>다섯 가지 <em>장비</em></h1>' +
-      '<p class="lead">AI 코딩 에이전트에게 일을 믿고 맡기려면 무엇이 필요할까요? 힘센 말 ‘번개’와 번개를 돌보는 아이 ‘하나’의 이야기로 따라가 봐요.</p>' +
-      '<p class="legend"><i></i><span><b class="teal">청록색</b>으로 그린 것은 모두 번개의 장비, 즉 하네스예요.</span></p>' +
+      '<p class="chapter">' + p.kicker + '</p>' +
+      '<h1>' + p.h1 + '</h1>' +
+      '<p class="lead">' + p.lead + '</p>' +
+      '<p class="legend"><i></i><span>' + p.legend + '</span></p>' +
       '<div class="actions"><button class="solid" type="button" data-go="1">책 펼치기</button><button class="ghost" type="button" data-go="' + PART2 + '">심화편 바로 가기</button><button class="ghost" type="button" id="resume" hidden></button></div>' +
-      '<p class="credit">원작 강의: <a href="' + REPO + '" target="_blank" rel="noopener">Learn Harness Engineering</a> (walkinglabs, MIT 라이선스)</p>' +
+      '<p class="credit">' + p.credit + '</p>' +
       '</div></div>';
   } else if (p.type === 'end'){
-    var words = [
-      ['하네스', '모델 바깥에서 AI의 일을 받쳐 주는 모든 장치. 그림책에서는 번개의 ‘장비’로 그렸고, 지침, 상태, 범위, 검증, 세션 관리 다섯 가지로 봤어요.'],
-      ['컨텍스트 윈도', 'AI가 한 번에 보고 기억할 수 있는 양'],
-      ['세션', 'AI와 일하는 한 번의 작업 단위. 끝나면 기억이 사라져요.'],
-      ['WIP=1', '진행 중인 일은 하나만'],
-      ['완료 기준', '기계가 확인할 수 있는 “끝”의 조건'],
-      ['E2E 테스트', '사용자처럼 처음부터 끝까지 써 보는 검사'],
-      ['메이커-체커', '만드는 쪽과 검사하는 쪽을 나누는 구조']
-    ];
     inner = '<div class="text"><div class="text-inner">' +
       '<p class="chapter">' + p.chapter + '</p><h2>' + p.title + '</h2>' +
-      '<dl class="glossary">' + words.map(function(w){ return '<dt>' + w[0] + '</dt><dd>' + w[1] + '</dd>'; }).join('') + '</dl>' +
-      '<aside class="note"><p class="note-label">더 읽기</p><ul>' +
-        '<li>원작은 강의 14개, 실습 8개로 이루어져 있고 한국어를 포함한 15개 언어로 볼 수 있어요.</li>' +
-        '<li>강의 2장은 하네스를 지시, 도구, 환경, 상태, 피드백으로 나누기도 해요. 두 가지 나누는 법은 2부 심화편 2장에서 비교해요.</li>' +
-      '</ul><p class="refs"><a href="' + REPO + '" target="_blank" rel="noopener">GitHub 레포</a><a href="' + REPO + '/tree/main/docs/ko" target="_blank" rel="noopener">한국어 강의 문서</a></p></aside>' +
+      '<dl class="glossary">' + p.words.map(function(w){ return '<dt>' + w[0] + '</dt><dd>' + w[1] + '</dd>'; }).join('') + '</dl>' +
+      '<aside class="note"><p class="note-label">더 읽기</p><ul>' + p.notes.map(function(n){ return '<li>' + n + '</li>'; }).join('') +
+      '</ul><p class="refs">' + p.links.map(function(r){ return '<a href="' + r[1] + '" target="_blank" rel="noopener">' + r[0] + '</a>'; }).join('') + '</p></aside>' +
       '<div class="actions"><button class="solid" type="button" data-go="' + PART2 + '">심화편으로 이어서</button><button class="ghost" type="button" data-go="0">처음으로</button></div>' +
       '</div></div>';
   } else if (p.type === 'tbcover'){
     inner = '<div class="text cover tb"><div class="text-inner">' +
       '<p class="chapter">2부 · 심화편</p>' +
-      '<h1>하네스 설계<br><em>교과서</em></h1>' +
-      '<p class="lead">그림책 속 다섯 가지 장비를 실제 저장소에서 하네스로 설계하는 방법을 14장에 담았어요. 장마다 움직이는 도식, 원문 근거, 바로 쓰는 템플릿이 있어요.</p>' +
-      '<ul class="tl">' +
-        '<li><b>1~10장</b>은 하네스, <b>11장</b>은 루프, <b>12장</b>은 그래프, <b>13~14장</b>은 제품 비교와 실습 로드맵이에요.</li>' +
-        '<li>도식 속 노란 점은 일이 흘러가는 방향이에요. 청록색은 하네스, 붉은색은 실패와 되돌아가는 길이에요.</li>' +
-        '<li>장 끝의 “원문”은 한국어 강의 문서로, “그림책 다시 보기”는 1부의 같은 장면으로 이어져요.</li>' +
-      '</ul>' +
+      '<h1>' + p.h1 + '</h1>' +
+      '<p class="lead">' + p.lead + '</p>' +
+      '<ul class="tl">' + p.bullets.map(function(b){ return '<li>' + b + '</li>'; }).join('') + '</ul>' +
       '<div class="actions"><button class="solid" type="button" data-go="' + (PART2 + 1) + '">1장부터 읽기</button><button class="ghost" type="button" data-go="0">그림책 처음으로</button></div>' +
       '</div></div>';
   } else if (p.type === 'tb'){
@@ -1881,7 +3081,7 @@ function renderPage(p, i){
     inner = '<div class="text tb"><div class="text-inner">' +
       '<p class="tb-kicker"><span class="tb-no">끝</span><span>심화편을 마치며</span></p>' +
       '<h2>' + p.title + '</h2>' +
-      '<p class="tb-lede">AI에게 일을 맡기기 전에 하나씩 확인해 보세요. 체크 표시는 지금 보고 있는 브라우저에만 저장돼요.</p>' +
+      '<p class="tb-lede">' + (p.lede || 'AI에게 일을 맡기기 전에 하나씩 확인해 보세요.') + ' 체크 표시는 지금 보고 있는 브라우저에만 저장돼요.</p>' +
       '<p class="ck-count" id="ckCount"></p>' +
       CHECKS.map(function(g){
         return '<div class="ck-group"><p class="ck-title">' + g[0] + '</p>' + g[1].map(function(t){
@@ -1896,7 +3096,7 @@ function renderPage(p, i){
     inner = '<div class="text"><div class="text-inner">' +
       '<p class="chapter">' + p.chapter + '</p><h2>' + p.title + '</h2>' +
       '<div class="story">' + p.story.map(function(s){ return '<p>' + s + '</p>'; }).join('') + '</div>' +
-      '<aside class="note"><p class="note-label">' + (p.noteLabel || 'AI 개발에서는') + '</p><ul>' + p.note.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul>' +
+      '<aside class="note"><p class="note-label">' + (p.noteLabel || BOOK.noteLabel) + '</p><ul>' + p.note.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul>' +
       (p.refs ? refsHtml(p.refs) : '') + '</aside>' +
       '</div></div>';
   }
@@ -1972,7 +3172,7 @@ function layout(){
 }
 layout();
 if (window.ResizeObserver){ try { new ResizeObserver(layout).observe(book); } catch (e) {} }
-window.addEventListener('resize', layout);
+window.addEventListener('resize', function(){ if (myGen === GEN) layout(); });
 
 var trackFill = document.getElementById('trackFill'), trackTick = document.getElementById('trackTick');
 var brandEl = document.getElementById('brand');
@@ -2050,7 +3250,7 @@ function updateUI(){
   prevBtn.disabled = cur === 0;
   nextBtn.disabled = cur === N - 1;
   trackFill.style.width = (cur / (N - 1) * 100) + '%';
-  brandEl.innerHTML = cur >= PART2 ? '하네스 설계 <span>교과서</span>' : '번개와 다섯 가지 <span>장비</span>';
+  brandEl.innerHTML = cur >= PART2 ? BOOK.brand2 : BOOK.brand1;
   whereEl.textContent = label(cur);
   liveEl.textContent = label(cur);
   leaves.forEach(function(l, i){
@@ -2059,8 +3259,8 @@ function updateUI(){
     l.inert = hide;
   });
   tocItems.forEach(function(b, i){ if (i === cur) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
-  try { history.replaceState(null, '', '#p' + cur); } catch (e) {}
-  try { if (cur > 0) localStorage.setItem('harness-book-page', String(cur)); } catch (e) {}
+  try { history.replaceState(null, '', '#' + BOOK.hash + '-p' + cur); } catch (e) {}
+  try { if (cur > 0) localStorage.setItem(BOOK.id + '-page', String(cur)); } catch (e) {}
 }
 
 /* 목차 */
@@ -2081,6 +3281,7 @@ tocClose.addEventListener('click', closeToc);
 toc.addEventListener('click', function(e){ if (e.target === toc) closeToc(); });
 
 document.addEventListener('click', function(e){
+  if (myGen !== GEN) return;
   var b = e.target.closest('[data-go]');
   if (!b) return;
   var t = parseInt(b.getAttribute('data-go'), 10);
@@ -2090,6 +3291,7 @@ document.addEventListener('click', function(e){
 prevBtn.addEventListener('click', function(){ go(cur - 1); });
 nextBtn.addEventListener('click', function(){ go(cur + 1); });
 document.addEventListener('keydown', function(e){
+  if (myGen !== GEN) return;
   if (!toc.hidden){ if (e.key === 'Escape') closeToc(); return; }
   if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); go(cur + 1); }
   else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(cur - 1); }
@@ -2112,17 +3314,17 @@ book.addEventListener('pointerup', function(e){
 book.addEventListener('pointercancel', function(){ sx = null; });
 
 /* 처음 펼칠 쪽 */
-function fromHash(){ var m = /^#p(\d+)$/.exec(location.hash || ''); return m ? Math.min(N - 1, parseInt(m[1], 10)) : null; }
+function fromHash(){ var m = new RegExp('^#' + BOOK.hash + '-p(\\d+)$').exec(location.hash || ''); return m ? Math.min(N - 1, parseInt(m[1], 10)) : null; }
 var start = fromHash();
 if (start !== null) cur = start;
 rest();
 updateUI();
 setPlay();
 layout();
-window.addEventListener('hashchange', function(){ var h = fromHash(); if (h !== null && h !== cur) go(h); });
+window.addEventListener('hashchange', function(){ if (myGen !== GEN) return; var h = fromHash(); if (h !== null && h !== cur) go(h); });
 
 /* 점검표 체크 표시 (이 브라우저에만 저장) */
-var CK_KEY = 'harness-book-checks', ckState = {};
+var CK_KEY = BOOK.id + '-checks', ckState = {};
 try { ckState = JSON.parse(localStorage.getItem(CK_KEY) || '{}') || {}; } catch (e) { ckState = {}; }
 var ckBoxes = Array.prototype.slice.call(document.querySelectorAll('[data-ck]'));
 function ckRender(){
@@ -2142,15 +3344,67 @@ ckBoxes.forEach(function(b){
 ckRender();
 
 var saved = null;
-try { saved = parseInt(localStorage.getItem('harness-book-page') || '', 10); } catch (e) {}
+try { saved = parseInt(localStorage.getItem(BOOK.id + '-page') || '', 10); } catch (e) {}
 var resume = document.getElementById('resume');
 if (resume && saved && saved > 0 && saved < N && start === null){
   resume.hidden = false;
   resume.textContent = '이어 읽기: ' + label(saved);
   resume.setAttribute('data-go', String(saved));
 }
+
+}
+
+/* ---------- 책장: 책 고르기 ---------- */
+var SHELF = [
+  { key: 'cs', vol: '첫째 권 · 기초', title: '떡볶이 주문의 여행', desc: '“주문하기” 버튼을 누른 뒤 0.15초 동안 무슨 일이 일어날까요? 주문 쪽지 ‘또또’를 따라가며 컴퓨터, 인터넷, 서버가 일하는 원리를 배워요.', meta: ['그림책 15쪽', '교과서 14장', '컴퓨터 과학 기초'] },
+  { key: 'harness', vol: '둘째 권 · AI 협업', title: '번개와 다섯 가지 장비', desc: 'AI 코딩 에이전트에게 일을 믿고 맡기려면 무엇이 필요할까요? 똑똑하지만 덤벙대는 말 ‘번개’와 함께 하네스 엔지니어링을 배워요.', meta: ['그림책 15쪽', '교과서 14장', '하네스 엔지니어링'] }
+];
+var DEFS = {}, GEN = 0;
+function getDef(key){ if (!DEFS[key]) DEFS[key] = BOOKS[key](); return DEFS[key]; }
+var shelfEl = document.getElementById('shelf'), rootEl = document.getElementById('root'), shellTpl = document.getElementById('shellTpl');
+function openBook(key){
+  var def = getDef(key);
+  GEN += 1;
+  shelfEl.hidden = true;
+  rootEl.hidden = false;
+  rootEl.innerHTML = shellTpl.innerHTML;
+  document.title = def.cfg.title;
+  startBook(def, GEN);
+}
+function openShelf(){
+  GEN += 1;
+  rootEl.innerHTML = '';
+  rootEl.hidden = true;
+  shelfEl.hidden = false;
+  document.title = 'AI 개발 책장';
+  try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+  shelfEl.scrollTop = 0;
+}
+document.getElementById('shelfBooks').innerHTML = SHELF.map(function(b){
+  var def = getDef(b.key), saved = 0;
+  try { saved = parseInt(localStorage.getItem(def.cfg.id + '-page') || '', 10) || 0; } catch (e) {}
+  return '<article class="bookcard"><figure class="plate play" style="margin:0">' + def.scenes[0]() + '</figure>' +
+    '<p class="vol">' + b.vol + '</p><h2>' + b.title + '</h2><p class="desc">' + b.desc + '</p>' +
+    '<ul class="meta">' + b.meta.map(function(m){ return '<li>' + m + '</li>'; }).join('') + '</ul>' +
+    '<div class="actions"><button class="solid" type="button" data-book="' + b.key + '">' + (saved > 0 ? '이어서 읽기' : '읽기 시작') + '</button>' +
+    (saved > 0 ? '<button class="ghost" type="button" data-book="' + b.key + '" data-first="1">처음부터</button>' : '') + '</div></article>';
+}).join('');
+document.addEventListener('click', function(e){
+  var t = e.target.closest ? e.target.closest('[data-book],#shelfBtn') : null;
+  if (!t) return;
+  if (t.id === 'shelfBtn'){ openShelf(); return; }
+  var key = t.getAttribute('data-book'), def = getDef(key);
+  if (t.getAttribute('data-first')){ try { history.replaceState(null, '', '#' + def.cfg.hash + '-p0'); } catch (e2) {} }
+  else {
+    var sv = 0; try { sv = parseInt(localStorage.getItem(def.cfg.id + '-page') || '', 10) || 0; } catch (e3) {}
+    try { history.replaceState(null, '', '#' + def.cfg.hash + '-p' + sv); } catch (e4) {}
+  }
+  openBook(key);
+});
+var hm = /^#(harness|cs)(-p\d+)?$/.exec(location.hash || '');
+if (hm) openBook(hm[1]);
+
 })();
 </script>
-
 </body>
 </html>
