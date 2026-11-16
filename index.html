@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23168A82%27/%3E%3Cpath d=%27M36 8 L16 36 H30 L26 56 L48 26 H34 Z%27 fill=%27%23F2B630%27 stroke=%27%2323305E%27 stroke-width=%273%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
-<meta name="description" content="AI와 함께 만드는 사람을 위한 세 권의 웹북. CS 기초, AI 기초, AI 하네스를 그림책과 도식 교과서로 읽어요.">
+<meta name="description" content="AI와 함께 만드는 사람을 위한 네 권의 웹북. CS 기초, 연결 기초, AI 기초, AI 하네스를 그림책과 도식 교과서로 읽어요.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="AI 개발 책장">
-<meta property="og:description" content="AI와 함께 만드는 사람을 위한 세 권의 웹북. CS 기초, AI 기초, AI 하네스를 그림책과 도식 교과서로 읽어요.">
+<meta property="og:description" content="AI와 함께 만드는 사람을 위한 네 권의 웹북. CS 기초, 연결 기초, AI 기초, AI 하네스를 그림책과 도식 교과서로 읽어요.">
 <meta property="og:url" content="https://notadev-iamaura.github.io/harness-book/">
 <meta property="og:image" content="https://notadev-iamaura.github.io/harness-book/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -374,7 +374,7 @@ table.tbl{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5}
 .shelf-kicker{margin:0;font:600 12px/1.2 var(--font-ui);letter-spacing:.08em;color:var(--teal)}
 .shelf h1{margin:0;font-family:var(--font-display);font-weight:400;font-size:clamp(30px,6vw,44px);line-height:1.12;color:var(--ink);text-wrap:balance}
 .shelf-sub{margin:0;font-family:var(--font-story);font-size:16px;line-height:1.7;color:var(--ink);word-break:keep-all;max-width:38em}
-.shelf-books{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px}
+.shelf-books{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
 .bookcard{
   position:relative;display:flex;flex-direction:column;gap:14px;min-width:0;
   background:var(--paper);border-radius:3px 12px 12px 3px;padding:20px 20px 20px 28px;
@@ -400,8 +400,8 @@ table.tbl{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5}
 #root{height:100%}
 
 #shelf h1,#shelf h2,#shelf p{word-break:keep-all}
-.path{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 26px;counter-reset:pth}
-.path li{position:relative;counter-increment:pth;display:flex;flex-direction:column;gap:3px;padding:10px 14px 10px 40px;background:#fff;border:1.5px solid var(--rule);border-radius:10px;min-width:0;flex:1 1 200px}
+.path{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 24px;counter-reset:pth}
+.path li{position:relative;counter-increment:pth;display:flex;flex-direction:column;gap:3px;padding:10px 14px 10px 40px;background:#fff;border:1.5px solid var(--rule);border-radius:10px;min-width:0;flex:1 1 170px}
 .path li::before{content:counter(pth);position:absolute;left:11px;top:11px;width:21px;height:21px;border-radius:50%;background:var(--teal);color:#fff;font:600 12px/21px var(--font-ui);text-align:center}
 .path li + li::after{content:"";position:absolute;left:-19px;top:50%;width:9px;height:9px;border-top:2px solid var(--teal);border-right:2px solid var(--teal);transform:translateY(-50%) rotate(45deg)}
 .path b{font:600 14px/1.2 var(--font-ui);color:var(--ink)}
@@ -414,10 +414,11 @@ table.tbl{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5}
   <div class="shelf-inner">
     <header class="shelf-head">
       <p class="shelf-kicker">AI와 함께 만드는 사람을 위한 책장</p>
-      <h1>그림책으로 시작해서, 교과서로 깊어지는 세 권</h1>
-      <p class="shelf-sub">세 권 모두 1부는 그림책, 2부는 움직이는 도식으로 읽는 교과서예요. 처음이라면 첫째 권부터 차례로 읽기를 권해요.</p>
+      <h1>그림책으로 시작해서, 교과서로 깊어지는 네 권</h1>
+      <p class="shelf-sub">네 권 모두 1부는 그림책, 2부는 움직이는 도식으로 읽는 교과서예요. 처음이라면 첫째 권부터 차례로 읽기를 권해요.</p>
       <ol class="path" aria-label="읽는 순서">
         <li><b>CS 기초</b><span>컴퓨터가 일하는 원리를 알고</span></li>
+        <li><b>연결 기초</b><span>시스템을 잇는 길목을 이해하고</span></li>
         <li><b>AI 기초</b><span>AI를 다루는 기본기를 익히고</span></li>
         <li><b>AI 하네스</b><span>AI에게 일을 믿고 맡겨요</span></li>
       </ol>
@@ -2723,7 +2724,7 @@ var pages = [
       ['커밋', '언제든 돌아올 수 있는 저장 지점'],
       ['배포', '고친 프로그램을 서버에 올려 내보내는 일']],
     notes: ['원작 ‘개발의 기초’는 32장짜리 책이에요. 이 책은 그중 핵심인 1~5부(0~22장)를 다시 엮었어요.',
-            'AI가 무엇이고 어떻게 일을 시키는지는 둘째 권 ‘책벌레 신입사원 루미’에서 이어져요.',
+            '서버가 여러 시스템과 이어질 때의 이야기는 둘째 권 ‘지점이 백 개가 되면’에서 이어져요.',
             '게임(6부), AI(7부), AI와 함께 만들기(8부)는 원작에서 이어 읽을 수 있어요.'],
     links: [['원작 웹북', SRC], ['GitHub 저장소', 'https://github.com/jedikim/cs-foundations']] },
 
@@ -3105,6 +3106,862 @@ var CORE = [
 
 return { cfg: { title: '떡볶이 주문의 여행', id: 'cs-book', hash: 'cs', storyLast: 16, part2: 17, noteLabel: '실제 컴퓨터에서는', legs: ['스마트폰', '작업실', '인터넷', '분식집 서버', '돌아오기'],
   brand1: '떡볶이 주문의 <span>여행</span>', brand2: '개발의 기초 <span>교과서</span>' },
+  scenes: scenes, pages: pages, CHECKS: CHECKS, CORE: CORE };
+};
+/* ================= 연결 기초: 지점이 백 개가 되면 ================= */
+BOOKS.net = function(){
+function arw(x1, y1, x2, y2, o){
+  o = o || {};
+  var c = o.color || C.ink, a = Math.atan2(y2 - y1, x2 - x1), h = 7;
+  return '<path d="M' + x1 + ' ' + y1 + ' L' + x2 + ' ' + y2 + '" stroke="' + c + '" stroke-width="' + (o.w || 2) + '" stroke-linecap="round"' + (o.dash ? ' stroke-dasharray="' + o.dash + '"' : '') + ' fill="none"/>' +
+    '<path d="M' + x2 + ' ' + y2 + ' L' + (x2 - h * Math.cos(a - .45)).toFixed(1) + ' ' + (y2 - h * Math.sin(a - .45)).toFixed(1) + ' L' + (x2 - h * Math.cos(a + .45)).toFixed(1) + ' ' + (y2 - h * Math.sin(a + .45)).toFixed(1) + ' Z" fill="' + c + '"/>';
+}
+function nd(x, y, w, h, t, sub, o){ o = o || {}; return box(x, y, w, h, t, { fs: o.fs || 10.5, sub: sub, sfs: 8.5, fill: o.fill || '#fff', stroke: o.stroke || C.ink, color: o.color, scolor: o.scolor }); }
+function dot(path, b, col, dur){ return '<circle r="4" fill="' + (col || C.sun) + '" stroke="' + C.ink + '" stroke-width="1.4"><animateMotion dur="' + (dur || 3) + 's" begin="' + (b || 0) + 's" repeatCount="indefinite" path="' + path + '"/></circle>'; }
+function xm(x, y, r, d){ return '<g transform="translate(' + x + ' ' + y + ')"><g class="pop" style="--d:' + (d || 0) + 's"><circle r="' + r + '" fill="' + C.berry + '" ' + S(1.6) + '/><path d="M' + (-r * .4) + ' ' + (-r * .4) + ' l' + (r * .8) + ' ' + (r * .8) + ' M' + (r * .4) + ' ' + (-r * .4) + ' l' + (-r * .8) + ' ' + (r * .8) + '" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></g></g>'; }
+var TEALBG = '#E1F1EE', REDBG = '#F9E4E5', SUNBG = '#FFF3D6';
+
+var scenes = [
+  /* 0 표지 */
+  function(){
+    var s = '';
+    [[60, 200], [130, 222], [272, 222], [342, 200]].forEach(function(p, i){
+      s += '<path class="flow" d="M200 150 Q' + ((200 + p[0]) / 2) + ' ' + (p[1] - 70) + ' ' + p[0] + ' ' + (p[1] - 40) + '" fill="none" stroke="' + C.teal + '" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/>' + shop(p[0], p[1], .55, { sign: (i + 1) + '호' });
+    });
+    return svgWrap('본점을 가운데 두고 여러 지점이 점선 길로 이어진 그림', '#BBDCEA', '#EDF5F0',
+      sun(340, 44, 16) + cloud(90, 44, .8, 0) + cloud(230, 30, .6, 3) + s + shop(200, 168, 1.05, { sign: '본점' }) +
+      sparkle(150, 96, 6, 0) + sparkle(262, 90, 5, .7), { h1: '#B8D59A', h2: '#9CC27F' });
+  },
+  /* 1 연결이 일이 된다 */
+  function(){
+    var ln = '', s = '';
+    [['결제 회사', 20, 28], ['배달 대행', 280, 28], ['재고 창고', 20, 176], ['지점 100곳', 280, 176], ['포인트', 150, 14], ['통계', 150, 194]].forEach(function(b, i){
+      ln += '<path d="M200 123 L' + (b[1] + 50) + ' ' + (b[2] + 18) + '" stroke="' + (i % 3 === 0 ? C.berry : C.inkSoft) + '" stroke-width="1.8" stroke-dasharray="' + (i % 3 === 0 ? '5 4' : '2 5') + '"/>';
+      s += nd(b[1], b[2], 100, 36, b[0]);
+    });
+    s = ln + s + nd(150, 100, 100, 46, '주문 서버', '본점', { fill: SUNBG });
+    return svgWrap('주문 서버 하나가 결제, 배달, 재고, 지점, 포인트, 통계 시스템과 얽혀 있는 그림', '#EEF0F5', '#F2F3F6',
+      s + T(200, 244, '시스템이 늘면, 잇는 선이 더 빨리 늘어요', { fs: 9.5, c: C.berry }), { hills: false });
+  },
+  /* 2 프록시 */
+  function(){
+    var s = '';
+    [56, 110, 164].forEach(function(y, i){ s += nd(14, y - 16, 84, 32, '지점 ' + (i + 1), '10.0.' + (i + 1) + '.7') + arw(100, y, 148, 110); });
+    s += nd(152, 78, 96, 64, '프록시', '대신 나가는 창구', { fill: TEALBG, stroke: C.teal });
+    s += arw(250, 110, 296, 110, { color: C.teal, w: 2.4 }) + '<g transform="translate(346 124)">' + cloud(0, -20, 1.1, 0) + '</g>' + T(346, 146, '바깥 서비스', { fs: 10 });
+    s += chip(322, 62, '보이는 주소: 198.51.100.9', { fs: 8.5, cls: 'pop', d: .8 });
+    s += chip(200, 174, '기록 · 차단 · 허용 목록', { fs: 9.5, cls: 'pop', d: 1.2 });
+    s += dot('M100 56 L150 106 H346', 0) + dot('M100 164 L150 114 H346', 1.2);
+    return svgWrap('지점 세 곳의 요청이 프록시 한 곳을 거쳐 바깥으로 나가고, 바깥에서는 프록시 주소만 보이는 그림', '#E9F3F1', '#F3F7F4',
+      s + T(200, 232, '안에서 밖으로 나갈 때 거치는 길목', { fs: 10 }), { hills: false });
+  },
+  /* 3 리버스 프록시 */
+  function(){
+    var s = '';
+    [58, 102, 146].forEach(function(y){ s += nd(8, y, 56, 32, '손님 앱', null, { fs: 9 }); });
+    s += arw(66, 118, 108, 118) + nd(112, 78, 104, 80, '리버스 프록시', '주소는 여기 하나', { fill: TEALBG, stroke: C.teal });
+    [44, 108, 172].forEach(function(y, i){
+      s += arw(218, 118, 268, y + 18, { color: i === 2 ? C.berry : C.teal, dash: i === 2 ? '4 4' : null }) + nd(272, y, 108, 36, '서버 ' + (i + 1), i === 2 ? '응답 없음' : '정상', { fill: i === 2 ? REDBG : '#fff', stroke: i === 2 ? C.berry : C.ink }) + (i < 2 ? hl(272, y, 108, 36, i * 1.4, 2.8) : '');
+    });
+    s += xm(380, 172, 9, 1.4) + chip(164, 184, '암호 풀기 · 나눠 보내기 · 상태 확인', { fs: 8.5, cls: 'pop', d: 1 });
+    return svgWrap('손님 요청이 리버스 프록시 한 곳으로 들어와 정상인 서버 두 대로만 나뉘어 가는 그림', '#FBEFD2', '#F8F1E2',
+      s + T(200, 236, '밖에서 안으로 들어올 때 거치는 길목', { fs: 10 }), { hills: false });
+  },
+  /* 4 게이트웨이 */
+  function(){
+    var s = '<rect x="150" y="36" width="100" height="176" rx="8" fill="' + C.teal + '" ' + S() + '/>' + T(200, 56, 'API 게이트웨이', { fs: 10, c: '#fff' });
+    ['누구인가', '얼마나 썼나', '어디로 보낼까', '기록 남기기'].forEach(function(t, i){
+      s += '<g class="stamp" style="--d:' + (.4 + i * .4) + 's"><rect x="160" y="' + (68 + i * 34) + '" width="80" height="26" rx="6" fill="#fff" ' + S(1.4) + '/>' + T(200, 85 + i * 34, t, { fs: 9.5 }) + '</g>';
+    });
+    [['배달 대행', 60], ['결제 회사', 124], ['제휴 앱', 188]].forEach(function(b, i){ s += nd(14, b[1] - 18, 92, 36, b[0], '키 ' + ['A', 'B', 'C'][i]) + arw(108, b[1], 146, b[1]); });
+    [['주문 API', 60], ['메뉴 API', 124], ['정산 API', 188]].forEach(function(b){ s += arw(252, b[1], 290, b[1], { color: C.teal }) + nd(294, b[1] - 18, 92, 36, b[0]); });
+    return svgWrap('바깥 협력사 세 곳의 요청이 API 게이트웨이에서 신원, 사용량, 경로, 기록 네 단계를 거쳐 안쪽 API로 가는 그림', '#EAF3F0', '#F3F6F1',
+      s + dot('M108 124 H290', 0, C.sun, 3.4) + T(200, 240, '규칙을 서버마다 따로 두지 않고 문 한 곳에 모아요', { fs: 9.5 }), { hills: false });
+  },
+  /* 5 IP ACL */
+  function(){
+    var s = '<rect x="150" y="30" width="110" height="126" rx="4" fill="#fff" ' + S(1.8) + '/>' + T(205, 50, '허용 명단', { fs: 10.5 }) +
+      T(205, 74, '203.0.113.0/24', { cls: 'svg-m', fs: 9.5 }) + T(205, 90, '결제 회사', { fs: 8.5, c: C.inkSoft }) +
+      T(205, 112, '198.51.100.9/32', { cls: 'svg-m', fs: 9.5 }) + T(205, 128, '본사 프록시', { fs: 8.5, c: C.inkSoft }) + T(205, 148, '그 밖은 모두 거부', { fs: 8.5, c: C.berry });
+    s += nd(14, 44, 104, 40, '203.0.113.25', '결제 회사', { fill: TEALBG, stroke: C.teal }) + arw(120, 64, 146, 78, { color: C.teal }) + check(132, 50, 9, 1);
+    s += nd(14, 116, 104, 40, '192.0.2.44', '모르는 곳', { fill: REDBG, stroke: C.berry }) + arw(120, 136, 146, 122, { color: C.berry, dash: '4 4' }) + xm(132, 150, 9, 1.6);
+    s += arw(262, 78, 296, 78, { color: C.teal }) + nd(300, 56, 86, 44, '결제 알림', '수신 서버');
+    s += '<g class="pop" style="--d:2.2s">' + nd(120, 178, 170, 40, '명단은 “어디서”만 확인해요', '“누구”인지는 출입증(토큰)으로', { fill: SUNBG, fs: 9.5 }) + '</g>';
+    return svgWrap('허용 명단에 있는 주소의 요청은 통과하고 명단에 없는 주소는 거부되는 그림', '#ECE8F3', '#F3F1F6', s, { hills: false });
+  },
+  /* 6 웹훅 */
+  function(){
+    var s = T(20, 36, '폴링: 계속 물어보기', { fs: 10.5, a: 'start' }) + nd(14, 46, 90, 40, '주문 서버') + nd(296, 46, 90, 40, '배달 대행');
+    [0, 1, 2].forEach(function(i){ s += '<g class="pop" style="--d:' + (i * .5) + 's">' + chip(146 + i * 54, 56, '됐나요?', { fs: 8 }) + '</g>'; });
+    s += arw(106, 76, 292, 76, { color: C.inkSoft, dash: '2 5' }) + T(200, 98, '대부분 “아직이요”가 돌아와요', { fs: 9, c: C.inkSoft });
+    s += '<path d="M14 116 H386" stroke="#D7DAE5" stroke-width="1.5" stroke-dasharray="4 5"/>';
+    s += T(20, 140, '웹훅: 일이 생기면 알려 주기', { fs: 10.5, a: 'start' }) + nd(14, 150, 90, 40, '주문 서버', '받는 주소 등록', { fill: TEALBG, stroke: C.teal }) + nd(296, 150, 90, 40, '배달 대행');
+    s += arw(292, 170, 108, 170, { color: C.teal, w: 2.4 }) + '<g class="pop" style="--d:1.6s">' + nd(142, 146, 116, 30, '배달 완료 + 서명', null, { fill: SUNBG, fs: 9.5 }) + '</g>' + dot('M292 170 H108', 1, C.sun, 2.6);
+    return svgWrap('위에는 주문 서버가 배달 대행에 계속 물어보는 폴링, 아래에는 배달 대행이 일이 생겼을 때 알려 주는 웹훅을 비교한 그림', '#FBEFD2', '#F8F1E2',
+      s + T(200, 228, '알림은 두 번 오거나, 순서가 바뀌거나, 가짜일 수 있어요', { fs: 9.5, c: C.berry }), { hills: false });
+  },
+  /* 7 카프카 */
+  function(){
+    var s = nd(8, 40, 78, 40, '주문 서버', '적는 쪽') + arw(88, 60, 108, 60, { color: C.teal });
+    for (var i = 0; i < 8; i++) s += '<g class="pop" style="--d:' + (i * .18) + 's"><rect x="' + (112 + i * 34) + '" y="42" width="32" height="36" rx="3" fill="' + (i === 7 ? SUNBG : '#fff') + '" ' + S(1.5) + '/>' + T(128 + i * 34, 58, '주문', { fs: 8, c: C.inkSoft }) + T(128 + i * 34, 71, String(i), { cls: 'svg-m', fs: 10 }) + '</g>';
+    s += T(248, 32, '주문 기록 줄 (지워지지 않고 번호가 붙어요)', { fs: 9.5 });
+    [['주방', 7, C.teal], ['재고', 5, '#5A8FC4'], ['통계', 2, C.berry]].forEach(function(r, i){
+      var x = 128 + r[1] * 34, y = 126 + i * 34;
+      s += '<path d="M' + x + ' 80 V' + (y - 12) + '" stroke="' + r[2] + '" stroke-width="2" stroke-dasharray="3 4"/><path d="M' + (x - 6) + ' 80 h12 l-6 9 z" fill="' + r[2] + '"/>';
+      s += nd(Math.min(x - 44, 300), y - 12, 88, 26, r[0] + ' · ' + r[1] + '번까지', null, { fs: 9.5, stroke: r[2] });
+    });
+    return svgWrap('주문 서버가 번호 붙은 기록 줄에 주문을 적고, 주방과 재고와 통계가 각자 다른 위치까지 읽은 그림', '#E9F3F1', '#F3F7F4',
+      s + T(200, 240, '읽는 쪽마다 자기 책갈피를 따로 가져요', { fs: 9.5 }), { hills: false });
+  },
+  /* 8 중복 */
+  function(){
+    var s = nd(14, 60, 96, 44, '주문 1042', '첫 번째 도착', { fill: TEALBG, stroke: C.teal }) + nd(14, 130, 96, 44, '주문 1042', '다시 보낸 것', { fill: SUNBG });
+    s += arw(112, 82, 156, 108, { color: C.teal }) + arw(112, 152, 156, 126, { color: C.inkSoft, dash: '4 4' });
+    s += '<rect x="160" y="52" width="108" height="130" rx="4" fill="#fff" ' + S(1.8) + '/>' + T(214, 72, '처리한 번호', { fs: 10 });
+    ['1040', '1041', '1042'].forEach(function(n, i){ s += '<g class="' + (i === 2 ? 'pop' : '') + '" style="--d:.9s">' + T(214, 96 + i * 22, n, { cls: 'svg-m', fs: 11, c: i === 2 ? C.tealDark : C.inkSoft }) + '</g>'; });
+    s += hl(170, 126, 88, 22, 1.4, 4) + T(214, 172, '이미 있으면 건너뜀', { fs: 8.5, c: C.berry });
+    s += arw(270, 110, 300, 110, { color: C.teal }) + nd(304, 86, 84, 48, '재고 −1', '딱 한 번', { fill: TEALBG, stroke: C.teal });
+    return svgWrap('같은 주문이 두 번 도착해도 처리한 번호 목록 덕분에 재고는 한 번만 줄어드는 그림', '#ECE8F3', '#F3F1F6',
+      s + T(200, 226, '두 번 와도 결과가 한 번인 것, 그것이 멱등성이에요', { fs: 10 }), { hills: false });
+  },
+  /* 9 차단기 */
+  function(){
+    var s = nd(14, 60, 88, 44, '주문 서버') + nd(292, 60, 94, 44, '결제 회사', '응답 30초', { fill: REDBG, stroke: C.berry });
+    s += '<path d="M104 82 H168" ' + S(2.2) + '/><path d="M232 82 H288" ' + S(2.2) + '/><circle cx="170" cy="82" r="4" fill="' + C.ink + '"/><circle cx="230" cy="82" r="4" fill="' + C.ink + '"/>';
+    s += '<g class="sweep" style="transform-origin:0% 100%"><path d="M170 82 L222 56" stroke="' + C.berry + '" stroke-width="3.4" stroke-linecap="round"/></g>' + T(200, 42, '차단기: 열림', { fs: 10, c: C.berry });
+    [['닫힘', '정상, 그대로 보냄', TEALBG, C.teal], ['열림', '보내지 않고 바로 실패', REDBG, C.berry], ['반열림', '몇 건만 시험 삼아', SUNBG, C.ink]].forEach(function(r, i){
+      s += nd(14 + i * 128, 140, 116, 46, r[0], r[1], { fill: r[2], stroke: r[3] }) + hl(14 + i * 128, 140, 116, 46, i * 1.3, 3.9);
+      if (i < 2) s += arw(132 + i * 128, 163, 140 + i * 128, 163);
+    });
+    return svgWrap('느려진 결제 회사로 가는 길의 차단기가 열려 있고, 아래에 닫힘, 열림, 반열림 세 상태가 있는 그림', '#FBE9E3', '#F8F0EA',
+      s + T(200, 216, '느린 상대를 끝까지 기다리면, 기다리는 쪽이 먼저 쓰러져요', { fs: 9.5 }) + T(200, 236, '빨리 실패하는 편이 전체를 살려요', { fs: 9.5, c: C.berry }), { hills: false });
+  },
+  /* 10 진단 */
+  function(){
+    var s = '';
+    [['앱', 8, 56], ['게이트웨이', 84, 88], ['주문 서버', 192, 88], ['결제 회사', 300, 92]].forEach(function(b, i){
+      s += nd(b[1], 66, b[2], 44, b[0], i === 3 ? '여기서 4.8초' : null, { fill: i === 3 ? REDBG : '#fff', stroke: i === 3 ? C.berry : C.ink });
+      s += '<g class="pop" style="--d:' + (.3 + i * .4) + 's">' + chip(b[1] + b[2] / 2, 126, 'req-7f3a', { fs: 8, bg: SUNBG }) + '</g>';
+    });
+    s += arw(66, 88, 80, 88) + arw(174, 88, 188, 88) + arw(282, 88, 296, 88) + dot('M40 56 H340', 0, C.sun, 4);
+    s += '<g transform="translate(232 172)"><circle r="18" fill="#EAF5FB" ' + S(2.2) + '/><path d="M13 13 L28 28" ' + S(4) + '/></g>';
+    return svgWrap('요청 하나가 앱, 게이트웨이, 주문 서버, 결제 회사를 지나며 같은 요청 번호를 달고 있고, 느린 구간이 붉게 표시된 그림', '#E6EEF0', '#EEF3F2',
+      s + T(200, 40, '같은 번호표를 끝까지 달고 가요', { cls: 'svg-d', fs: 14 }) + T(120, 180, '번호 하나로 검색하면', { fs: 9.5 }) + T(120, 196, '구간별 시간이 한 줄로 이어져요', { fs: 9.5 }), { hills: false });
+  },
+  /* 11 단어장 */
+  function(){
+    return svgWrap('본점과 지점들이 불을 밝힌 밤 풍경', '#2B3566', '#3B4680',
+      moon(330, 50, '#2B3566') + star(80, 40, 0) + star(160, 70, .6) + star(250, 36, 1.1) + shop(200, 214, 1.1, { sign: '본점' }) + shop(84, 220, .6, { sign: '1호' }) + shop(318, 220, .6, { sign: '2호' }) +
+      T(200, 96, '끝', { cls: 'svg-d', fs: 30, c: '#fff' }), { h1: '#4B5A8C', h2: '#3F4D7C' });
+  },
+
+  /* ================= 2부 도식 ================= */
+  /* 12 표지 */
+  function(){
+    return dia('요청이 안에서 밖으로, 밖에서 안으로, 그리고 시스템 사이를 오가는 길목들의 지도', function(m){
+      var s = T(200, 30, '이 책이 다루는 길목', { cls: 'svg-d', fs: 16 });
+      s += nd(10, 60, 86, 40, '우리 서버') + nd(124, 60, 86, 40, '프록시', '1장', { fill: TEALBG, stroke: C.teal }) + nd(304, 60, 86, 40, '바깥 서비스');
+      s += ar('M96 80 H120', m.ink) + ar('M210 80 H300', m.ink) + T(255, 72, '나가는 길', { fs: 8.5, c: C.inkSoft });
+      s += nd(10, 124, 86, 40, '바깥 손님') + nd(124, 124, 120, 40, '게이트웨이 · 리버스 프록시', '2 · 3장', { fill: TEALBG, stroke: C.teal, fs: 8.8 }) + nd(304, 124, 86, 40, '우리 서버');
+      s += ar('M96 144 H120', m.ink) + ar('M244 144 H300', m.ink) + T(274, 118, '들어오는 길', { fs: 8.5, c: C.inkSoft });
+      s += nd(10, 188, 86, 40, '시스템 A') + nd(124, 188, 120, 40, '웹훅 · 카프카', '5 · 6 · 7장', { fill: SUNBG }) + nd(304, 188, 86, 40, '시스템 B');
+      s += ar('M96 208 H120', m.ink) + ar('M244 208 H300', m.ink) + T(274, 182, '사이를 잇는 길', { fs: 8.5, c: C.inkSoft });
+      s += tok('M52 112 H348', { dur: 4, tr: .85, r: 4 });
+      s += T(200, 244, '4장 출입 통제 · 8장 실패 다루기 · 9장 추적과 진단은 모든 길에 걸쳐 있어요', { fs: 8.8, c: C.tealDark });
+      return s;
+    });
+  },
+  /* 13 1장 프록시 */
+  function(){
+    return dia('사내 서버의 요청이 프록시를 거쳐 나가며 출발 주소가 프록시의 주소로 바뀌는 흐름', function(m){
+      var s = '<rect x="6" y="20" width="238" height="150" rx="10" fill="#F1F7F5"/>' + T(125, 36, '사내망', { fs: 10, c: C.tealDark });
+      s += nd(16, 50, 96, 40, '서버 A', '10.0.1.7') + nd(16, 112, 96, 40, '서버 B', '10.0.2.9');
+      s += nd(140, 76, 94, 52, '프록시', '198.51.100.9', { fill: TEALBG, stroke: C.teal });
+      s += ar('M112 70 L136 92', m.ink) + ar('M112 132 L136 112', m.ink) + ar('M234 102 H292', m.teal, { color: C.teal, w: 2.2 });
+      s += nd(296, 78, 94, 48, '바깥 API', '출발지로 보이는 것:', { fs: 10 }) + T(343, 140, '198.51.100.9', { cls: 'svg-m', fs: 9, c: C.tealDark });
+      s += tok('M112 70 L140 100 H296', { dur: 4, tr: .85, r: 4 });
+      [['HTTP', '프록시가 요청을 읽고 대신 보냄'], ['HTTPS', 'CONNECT로 터널만 열어 줌 · 내용은 못 봄']].forEach(function(r, i){
+        s += box(10, 182 + i * 30, 60, 24, r[0], { mono: true, fs: 10, fill: i ? TEALBG : '#fff' }) + T(80, 198 + i * 30, r[1], { fs: 9.5, a: 'start' });
+      });
+      return s;
+    });
+  },
+  /* 14 2장 리버스 프록시 */
+  function(){
+    return dia('클라이언트의 HTTPS 요청이 리버스 프록시에서 풀리고, 헤더가 붙어 정상인 서버로 나뉘어 가는 흐름', function(m){
+      var s = nd(8, 76, 78, 44, '클라이언트', '203.0.113.5') + ar('M86 98 H118', m.teal, { color: C.teal, w: 2.2 }) + T(102, 90, 'HTTPS', { fs: 8, c: C.tealDark });
+      s += nd(122, 56, 116, 84, '리버스 프록시', 'TLS 종료 · 라우팅', { fill: TEALBG, stroke: C.teal });
+      [28, 86, 144].forEach(function(y, i){
+        s += ar('M238 98 L282 ' + (y + 18), i === 2 ? m.berry : m.ink, { color: i === 2 ? C.berry : C.ink, dash: i === 2 ? '4 4' : null });
+        s += nd(286, y, 104, 36, '서버 ' + (i + 1), i === 2 ? '상태 확인 실패 → 제외' : '10.0.3.' + (i + 11), { fill: i === 2 ? REDBG : '#fff', stroke: i === 2 ? C.berry : C.ink }) + (i < 2 ? hl(286, y, 104, 36, i * 1.5, 3) : '');
+      });
+      s += tok('M86 98 H238 L286 46', { dur: 3, tr: .8, r: 4 }) + tok('M86 98 H238 L286 104', { dur: 3, begin: 1.5, tr: .8, r: 4 });
+      s += '<rect x="8" y="192" width="384" height="50" rx="6" fill="#1F2A52"/>' + T(18, 210, 'X-Forwarded-For: 203.0.113.5', { cls: 'svg-m', fs: 9.5, a: 'start', c: '#E8ECF7' }) + T(18, 228, 'X-Forwarded-Proto: https', { cls: 'svg-m', fs: 9.5, a: 'start', c: '#E8ECF7' }) + T(382, 219, '프록시가 붙여 주는 원래 정보', { fs: 8.5, a: 'end', c: '#BFC8E4' });
+      return s;
+    });
+  },
+  /* 15 3장 게이트웨이 */
+  function(){
+    return dia('API 게이트웨이 안에서 요청이 인증, 한도, 라우팅, 기록 단계를 차례로 지나고 각 단계에서 거절될 수 있는 흐름', function(m){
+      var s = '<rect x="64" y="26" width="272" height="116" rx="10" fill="#F1F7F5" stroke="' + C.teal + '" stroke-width="1.8"/>' + T(200, 44, 'API 게이트웨이', { fs: 10.5, c: C.tealDark });
+      [['인증', '키 · 토큰 검증', '401'], ['한도', '호출 수 세기', '429'], ['라우팅', '경로 → 서비스', '404'], ['기록', '로그 · 지표', null]].forEach(function(st, i){
+        var x = 72 + i * 66;
+        s += box(x, 58, 58, 44, st[0], { fs: 10, sub: st[1], sfs: 7.5, fill: '#fff', stroke: C.teal }) + hl(x, 58, 58, 44, i * 1, 4);
+        if (i < 3) s += ar('M' + (x + 58) + ' 80 H' + (x + 64), m.teal, { color: C.teal });
+        if (st[2]) s += ar('M' + (x + 29) + ' 102 V122', m.berry, { color: C.berry, dash: '3 3' }) + T(x + 29, 136, st[2], { cls: 'svg-m', fs: 9.5, c: C.berry });
+      });
+      s += nd(4, 60, 52, 40, '요청', null, { fill: SUNBG }) + ar('M56 80 H68', m.ink) + ar('M336 80 H346', m.ink) + nd(348, 60, 48, 40, '서비스');
+      s += tok('M30 52 H372', { dur: 4.5, tr: .85, r: 4 });
+      [['리버스 프록시', '보내 주기'], ['로드 밸런서', '나눠 보내기'], ['API 게이트웨이', 'API 규칙까지'], ['CDN', '가까이서 대신 답']].forEach(function(r, i){
+        s += box(8 + i * 97, 170, 91, 44, r[0], { fs: 9.5, sub: r[1], sfs: 8.5, fill: i === 2 ? TEALBG : '#fff', stroke: i === 2 ? C.teal : C.ink });
+      });
+      s += T(200, 160, '비슷해 보이는 넷, 중심이 되는 일이 달라요', { fs: 9.5 }) + T(200, 236, '게이트웨이는 리버스 프록시에 API 관리 기능을 더한 것', { fs: 9, c: C.inkSoft });
+      return s;
+    });
+  },
+  /* 16 4장 출입 통제 */
+  function(){
+    return dia('요청이 방화벽과 IP 허용 목록, 인증, 인가의 세 겹을 차례로 지나며 각 겹에서 다른 증상으로 막히는 그림', function(m){
+      var s = T(200, 28, '세 겹의 문, 겹마다 묻는 것이 달라요', { cls: 'svg-d', fs: 14 });
+      [['IP ACL · 방화벽', '어디서 왔나', '시간 초과 · 연결 거부', 10], ['인증', '누구인가', '401', 140], ['인가', '이 일을 해도 되나', '403', 270]].forEach(function(g, i){
+        s += box(g[3], 50, 120, 56, g[0], { fs: 10.5, sub: g[1], sfs: 9, fill: i === 0 ? SUNBG : '#fff', stroke: C.teal }) + hl(g[3], 50, 120, 56, i * 1.3, 3.9);
+        if (i < 2) s += ar('M' + (g[3] + 120) + ' 78 H' + (g[3] + 130), m.teal, { color: C.teal });
+        s += ar('M' + (g[3] + 60) + ' 106 V126', m.berry, { color: C.berry, dash: '3 3' }) + T(g[3] + 60, 140, g[2], { fs: 9, c: C.berry, cls: i ? 'svg-m' : '' });
+      });
+      s += tok('M20 42 H380', { dur: 4.5, tr: .85, r: 4 });
+      s += '<rect x="10" y="158" width="380" height="46" rx="6" fill="#1F2A52"/>' + T(22, 177, '203.0.113.0/24', { cls: 'svg-m', fs: 11, a: 'start', c: '#fff' }) + T(22, 194, '앞의 24비트가 같은 주소 256개', { fs: 8.5, a: 'start', c: '#BFC8E4' });
+      s += T(378, 177, '203.0.113.25/32', { cls: 'svg-m', fs: 11, a: 'end', c: '#fff' }) + T(378, 194, '주소 딱 하나', { fs: 8.5, a: 'end', c: '#BFC8E4' });
+      s += T(200, 228, 'IP는 “어디서”일 뿐이에요. 주소가 맞아도 인증은 따로 해요', { fs: 9.5, c: C.berry });
+      return s;
+    });
+  },
+  /* 17 5장 웹훅 */
+  function(){
+    return dia('보내는 쪽이 서명을 붙여 웹훅을 보내고, 받는 쪽이 서명 검증, 중복 확인, 빠른 응답, 나중 처리 순서로 다루는 흐름', function(m){
+      var s = nd(8, 30, 92, 48, '보내는 쪽', '이벤트 발생') + ar('M100 54 H148', m.teal, { color: C.teal, w: 2.2 });
+      s += '<rect x="152" y="24" width="150" height="60" rx="6" fill="#1F2A52"/>' + T(160, 42, 'POST /hooks/delivery', { cls: 'svg-m', fs: 8.5, a: 'start', c: '#fff' }) + T(160, 57, 'X-Signature: 9f2c…', { cls: 'svg-m', fs: 8.5, a: 'start', c: '#F2D76B' }) + T(160, 72, '{ "id": "evt_81", … }', { cls: 'svg-m', fs: 8.5, a: 'start', c: '#BFE6DF' });
+      s += ar('M302 54 H330', m.teal, { color: C.teal, w: 2.2 }) + nd(334, 30, 58, 48, '받는 쪽');
+      s += T(200, 108, '받는 쪽이 지킬 순서', { fs: 10.5 });
+      [['서명 검증', '본문 원문으로 HMAC'], ['중복 확인', '이벤트 ID 조회'], ['바로 2xx', '몇 초 안에 응답'], ['나중 처리', '큐에 넣고 작업']].forEach(function(st, i){
+        var x = 8 + i * 97;
+        s += box(x, 118, 91, 48, st[0], { fs: 10, sub: st[1], sfs: 8, fill: i === 2 ? TEALBG : '#fff', stroke: i === 2 ? C.teal : C.ink }) + hl(x, 118, 91, 48, i * 1.1, 4.4);
+        if (i < 3) s += ar('M' + (x + 91) + ' 142 H' + (x + 95), m.ink);
+      });
+      s += tok('M54 176 H346', { dur: 4, tr: .85, r: 4 });
+      s += ar('M362 80 C 384 120 384 190 300 206', m.berry, { color: C.berry, dash: '4 4' }) + T(200, 204, '2xx가 늦거나 없으면 보내는 쪽이 다시 보내요', { fs: 9.5, c: C.berry });
+      s += T(200, 232, '그래서 같은 알림이 두 번 오는 것은 정상이에요', { fs: 9.5 });
+      return s;
+    });
+  },
+  /* 18 6장 카프카 */
+  function(){
+    return dia('토픽의 파티션 두 개에 키에 따라 메시지가 쌓이고, 컨슈머 그룹 두 개가 각자의 오프셋으로 읽는 구조', function(m){
+      var s = nd(6, 46, 70, 44, '프로듀서', '키: 주문 번호') + T(216, 22, '토픽 orders', { fs: 10.5 });
+      [0, 1].forEach(function(p){
+        var y = 32 + p * 42;
+        s += T(100, y + 21, 'P' + p, { cls: 'svg-m', fs: 9.5, c: C.inkSoft });
+        for (var i = 0; i < 7; i++) s += '<rect x="' + (114 + i * 30) + '" y="' + y + '" width="28" height="32" rx="2" fill="' + (i > 4 + p ? '#F4F5F8' : '#fff') + '" stroke="' + (i > 4 + p ? '#D7DAE5' : C.ink) + '" stroke-width="1.3"/>' + (i <= 4 + p ? T(128 + i * 30, y + 20, String(i), { cls: 'svg-m', fs: 9.5 }) : '');
+        s += ar('M76 68 L96 ' + (y + 16), m.teal, { color: C.teal });
+      });
+      s += T(356, 52, '새 메시지는', { fs: 8.5, c: C.inkSoft }) + T(356, 66, '뒤에만 붙어요', { fs: 8.5, c: C.inkSoft });
+      [['그룹: 주방', 'P0 → 4 · P1 → 5', C.teal, 16], ['그룹: 통계', 'P0 → 1 · P1 → 2', C.berry, 206]].forEach(function(g, i){
+        s += box(g[3], 138, 178, 46, g[0], { fs: 10.5, sub: '읽은 위치(오프셋) ' + g[1], sfs: 8.5, stroke: g[2] }) + hl(g[3], 138, 178, 46, i * 1.6, 3.2);
+        s += ar('M' + (g[3] + 89) + ' 108 V134', i ? m.berry : m.teal, { color: g[2], dash: '3 4' });
+      });
+      s += T(200, 204, '그룹마다 오프셋이 따로라서, 같은 기록을 각자 처음부터 다시 읽을 수 있어요', { fs: 9 });
+      s += T(200, 224, '순서는 한 파티션 안에서만 지켜져요', { fs: 9.5, c: C.berry }) + T(200, 241, '같은 주문의 사건은 같은 키로 보내 같은 파티션에 모아요', { fs: 9, c: C.inkSoft });
+      return s;
+    });
+  },
+  /* 19 7장 전달 보장 */
+  function(){
+    return dia('처리와 오프셋 커밋의 순서에 따라 유실 또는 중복이 생기는 두 경우와, 멱등 처리로 중복을 흡수하는 그림', function(m){
+      var s = T(200, 26, '“처리”와 “읽었다고 표시”의 순서', { cls: 'svg-d', fs: 14 });
+      [['먼저 표시 → 처리', '표시 뒤에 죽으면/그 메시지는 사라져요', '최대 한 번 (유실 가능)', REDBG, C.berry, 40], ['먼저 처리 → 표시', '처리 뒤에 죽으면/같은 것을 다시 받아요', '최소 한 번 (중복 가능)', TEALBG, C.teal, 104]].forEach(function(r, i){
+        s += box(10, r[5], 132, 50, r[0], { fs: 10, fill: '#fff' }) + ar('M142 ' + (r[5] + 25) + ' H156', m.ink) + box(160, r[5], 124, 50, r[2], { fs: 9.5, fill: r[3], stroke: r[4] }) + T(292, r[5] + 20, r[1].split('/')[0], { fs: 8.5, a: 'start', c: C.inkSoft }) + T(292, r[5] + 34, r[1].split('/')[1], { fs: 8.5, a: 'start', c: C.inkSoft });
+        s += hl(160, r[5], 124, 50, i * 1.8, 3.6);
+      });
+      s += T(200, 180, '실무의 기본은 “최소 한 번 + 멱등 처리”', { fs: 10.5 });
+      s += nd(10, 192, 110, 40, '같은 메시지 2번', null, { fill: SUNBG }) + ar('M120 212 H140', m.ink) + nd(144, 192, 124, 40, '처리한 ID인지 확인', '유니크 제약', { stroke: C.teal }) + ar('M268 212 H288', m.teal, { color: C.teal }) + nd(292, 192, 98, 40, '결과는 1번', null, { fill: TEALBG, stroke: C.teal });
+      s += tok('M64 240 H340', { dur: 3.6, tr: .85, r: 4 });
+      return s;
+    });
+  },
+  /* 20 8장 실패 다루기 */
+  function(){
+    return dia('재시도 간격이 두 배씩 늘어나는 백오프와 서킷 브레이커의 닫힘, 열림, 반열림 상태 전환', function(m){
+      var s = T(12, 28, '재시도: 간격을 두 배씩, 조금씩 흩어서', { fs: 10.5, a: 'start' });
+      s += '<path d="M14 70 H386" ' + S(1.6) + '/>';
+      [[14, '요청'], [44, '1초 뒤'], [104, '2초 뒤'], [224, '4초 뒤']].forEach(function(p, i){
+        s += '<g class="pop" style="--d:' + (i * .5) + 's"><circle cx="' + (p[0] + 6) + '" cy="70" r="7" fill="' + (i === 3 ? C.teal : C.berry) + '" ' + S(1.5) + '/>' + T(p[0] + 6, 52, p[1], { fs: 8.5 }) + '</g>';
+      });
+      s += T(306, 60, '횟수 상한 3회', { fs: 9, c: C.inkSoft }) + T(200, 94, '모두가 같은 순간에 다시 보내면 상대가 또 쓰러져요. 그래서 지터를 섞어요', { fs: 8.8, c: C.inkSoft });
+      s += T(12, 124, '서킷 브레이커', { fs: 10.5, a: 'start' });
+      s += box(14, 136, 104, 50, '닫힘', { fs: 11, sub: '정상 통과', sfs: 8.5, fill: TEALBG, stroke: C.teal }) + box(148, 136, 104, 50, '열림', { fs: 11, sub: '호출 없이 즉시 실패', sfs: 8.5, fill: REDBG, stroke: C.berry }) + box(282, 136, 104, 50, '반열림', { fs: 11, sub: '시험 호출 몇 건', sfs: 8.5, fill: SUNBG });
+      s += ar('M118 152 H144', m.berry, { color: C.berry }) + T(131, 146, '실패율↑', { fs: 7.5, c: C.berry }) + ar('M252 152 H278', m.ink) + T(265, 146, '대기 후', { fs: 7.5 });
+      s += ar('M334 186 C 320 222 90 222 66 190', m.teal, { color: C.teal }) + T(200, 226, '시험 성공 → 닫힘', { fs: 8.5, c: C.tealDark });
+      s += ar('M300 186 C 290 204 220 204 206 190', m.berry, { color: C.berry, dash: '3 3' }) + T(256, 208, '실패', { fs: 8, c: C.berry });
+      s += hl(14, 136, 104, 50, 0, 4.5) + hl(148, 136, 104, 50, 1.5, 4.5) + hl(282, 136, 104, 50, 3, 4.5);
+      return s;
+    });
+  },
+  /* 21 9장 추적 */
+  function(){
+    return dia('트레이스 ID 하나가 게이트웨이, 주문 서버, 결제 호출, 카프카 발행 구간을 묶어 구간별 시간을 보여 주는 그림', function(m){
+      var s = T(12, 26, 'trace_id 4bf92f…', { cls: 'svg-m', fs: 10, a: 'start' }) + T(388, 26, '전체 5.1초', { fs: 9.5, a: 'end', c: C.berry });
+      [['게이트웨이', 0, 380, '5.1초', '#C9D3E3'], ['주문 서버', 12, 360, '5.0초', '#9AA6D1'], ['결제 API 호출', 30, 310, '4.8초', C.berry], ['카프카 발행', 346, 18, '0.02초', C.teal]].forEach(function(r, i){
+        var y = 40 + i * 30;
+        s += T(10, y + 15, r[0], { fs: 9, a: 'start' }) + '<g class="grow" style="--d:' + (i * .35) + 's"><rect x="' + (96 + r[1] * .76) + '" y="' + y + '" width="' + Math.max(r[2] * .76, 8) + '" height="20" rx="4" fill="' + r[4] + '"/></g>' + T(96 + r[1] * .76 + Math.max(r[2] * .76, 8) / 2, y + 14, i === 3 ? '' : r[3], { fs: 8.5, c: i === 2 ? '#fff' : C.ink });
+      });
+      s += T(200, 176, '증상으로 구간을 좁혀요', { fs: 10.5 });
+      [['401 · 403', '인증 · 권한'], ['407', '나가는 프록시'], ['429', '호출 한도'], ['502 · 504', '길목 뒤쪽 서버']].forEach(function(c, i){
+        s += box(8 + i * 97, 186, 91, 42, c[0], { mono: true, fs: 11, sub: c[1], sfs: 8.5, fill: i === 3 ? REDBG : '#fff', stroke: i === 3 ? C.berry : C.ink });
+      });
+      s += T(200, 244, '코드조차 없이 시간 초과라면 방화벽 · ACL · 주소부터', { fs: 9, c: C.berry });
+      return s;
+    });
+  },
+  /* 22 점검표 */
+  function(){
+    return dia('연동 점검표에 체크 표시가 차례로 찍히는 그림', function(){
+      var s = '<rect x="104" y="26" width="192" height="214" rx="12" fill="' + C.kraft + '" ' + S(2) + '/>';
+      s += '<rect x="118" y="46" width="164" height="184" rx="4" fill="#fff" ' + S(1.6) + '/><rect x="168" y="16" width="64" height="22" rx="6" fill="' + C.inkSoft + '" ' + S(1.8) + '/>';
+      s += T(200, 70, '연동 점검표', { cls: 'svg-d', fs: 13 });
+      ['길목', '출입 통제', '알림과 기록 줄', '실패와 추적'].forEach(function(t, i){
+        var y = 100 + i * 32;
+        s += '<rect x="134" y="' + (y - 9) + '" width="16" height="16" rx="3" fill="#fff" ' + S(1.4) + '/>';
+        s += '<g class="stamp" style="--d:' + (0.5 + i * 0.5) + 's"><path d="M137 ' + (y - 1) + ' l4 5 l8 -10" fill="none" stroke="' + C.teal + '" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>';
+        s += T(160, y + 4, t, { fs: 11, a: 'start' });
+      });
+      s += sparkle(320, 60, 6, 0) + sparkle(82, 196, 5, .6);
+      return s;
+    });
+  }
+];
+
+function rf(label, url){ return { label: label, url: url }; }
+var R = {
+  mdnProxy: rf('MDN: 프록시 서버와 터널링', 'https://developer.mozilla.org/ko/docs/Web/HTTP/Proxy_servers_and_tunneling'),
+  mdnXff: rf('MDN: X-Forwarded-For', 'https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/X-Forwarded-For'),
+  mdnStatus: rf('MDN: HTTP 상태 코드', 'https://developer.mozilla.org/ko/docs/Web/HTTP/Status'),
+  kafka: rf('Apache Kafka 문서', 'https://kafka.apache.org/documentation/'),
+  trace: rf('W3C Trace Context', 'https://www.w3.org/TR/trace-context/')
+};
+
+var pages = [
+  { type: 'cover', title: '표지', kicker: '연결 기초 · 시스템과 시스템을 잇는 길목', h1: '지점이<br><em>백 개</em>가 되면',
+    lead: '가게가 하나일 때는 주문 서버 한 대면 충분했어요. 지점이 늘고 결제 회사, 배달 대행과 이어지면서, 이제 어려운 일은 “잇는 것”이 됐어요. 프록시, 게이트웨이, 웹훅, 카프카가 왜 생겼는지 사건 순서대로 따라가요.',
+    legend: '<b class="teal">청록색</b>은 요청이 지나는 길목이에요. 붉은색은 막히거나 실패한 곳이에요.',
+    credit: '첫째 권의 네트워크, HTTP, 서버를 읽었다고 보고 시작해요. 1부는 흐름을 잡는 용도이고, 정확한 정의와 세부는 2부 교과서에 있어요.' },
+
+  { leg: 0, chapter: '사건의 시작', title: '잇는 일이 본업이 되다',
+    story: ['첫째 권에서 주문은 스마트폰에서 서버 한 곳으로 갔다가 돌아왔어요. 가게가 하나일 때의 이야기예요.',
+            '분식집이 프랜차이즈가 되자 주문 서버가 상대해야 할 곳이 늘었어요. 결제 회사, 배달 대행, 재고 창고, 포인트, 통계, 그리고 지점 백 곳이에요.',
+            '서로를 직접 부르는 방식은 금방 한계가 왔어요. 결제 회사가 3초 느려지면 주문도 3초 느려졌고, 통계 서버가 죽자 주문까지 실패했어요.',
+            '상대가 바뀔 때마다 고칠 곳도 여러 군데였어요. 인증 방식, 주소, 호출 한도를 서버마다 따로 알고 있었으니까요.',
+            '이 책에 나오는 장치들은 모두 같은 질문에서 나왔어요. <b>요청이 지나는 길목을 어디에 두고, 거기서 무엇을 할 것인가.</b>'],
+    note: ['시스템이 n개면 서로 잇는 선은 최대 n(n−1)/2개예요. 10개면 45개, 20개면 190개예요.',
+           '직접 부르고 답을 기다리는 방식을 <b>동기 호출</b>이라고 해요. 상대의 지연과 장애가 그대로 나에게 넘어와요.',
+           '이 책의 장치는 세 종류예요. 길목에 세우는 것(프록시, 게이트웨이), 문을 지키는 것(ACL, 인증), 기다리지 않고 잇는 것(웹훅, 카프카).'],
+    next: '가장 단순한 길목부터 봐요. 안에서 밖으로 나가는 길이에요.',
+    refs: [R.mdnStatus] },
+  { leg: 0, chapter: '첫 번째 길목', title: '대신 나가 주는 창구',
+    story: ['지점 서버들이 저마다 바깥 서비스를 부르기 시작했어요. 어느 지점이 어디로 무엇을 보내는지 본사는 알 수 없었어요.',
+            '결제 회사는 이렇게 요구했어요. “우리는 미리 등록된 주소에서 온 요청만 받습니다.” 지점 백 곳의 주소를 모두 등록할 수는 없었어요.',
+            '그래서 본사는 나가는 길에 창구를 하나 세웠어요. 지점 서버는 바깥을 직접 부르지 않고 이 창구에 부탁해요. 창구가 대신 나가서 답을 받아 돌려줘요.',
+            '바깥에서 보면 요청을 보낸 곳은 언제나 이 창구 하나예요. 결제 회사에는 창구 주소 하나만 등록하면 돼요.',
+            '창구는 지나가는 요청을 기록하고, 허용하지 않은 곳으로 가는 요청은 막아요.'],
+    note: ['이 창구가 <b>프록시</b>(포워드 프록시)예요. 요청을 보내는 쪽 편에 서서 대신 나가요.',
+           '바깥에서 보이는 출발 주소를 <b>출구 IP</b>(egress IP)라고 해요. 상대의 허용 목록에 올리는 주소가 이것이에요.',
+           'HTTPS 요청은 프록시가 내용을 읽지 못해요. <code>CONNECT</code>로 통로만 열어 줘요.',
+           '사내에서만 외부 호출이 실패한다면 프록시 설정부터 봐요. 상태 코드 <code>407</code>은 프록시가 인증을 요구한다는 뜻이에요.'],
+    next: '이번에는 반대 방향이에요. 밖에서 안으로 들어오는 요청은 누가 받을까요?',
+    refs: [R.mdnProxy] },
+  { leg: 0, chapter: '두 번째 길목', title: '주소는 하나, 서버는 여럿',
+    story: ['점심시간에 주문이 몰리자 주문 서버 한 대로는 버틸 수 없었어요. 본사는 서버를 세 대로 늘렸어요.',
+            '그런데 손님 앱은 주소 하나만 알아요. 세 대의 주소를 앱에 모두 넣을 수는 없고, 한 대가 죽었을 때 앱이 알아서 피하게 할 수도 없어요.',
+            '그래서 서버들 앞에 안내 창구를 세웠어요. 손님은 이 창구의 주소만 알아요. 창구는 들어온 요청을 뒤에 있는 서버 세 대에 나눠 보내요.',
+            '창구는 서버들에게 주기적으로 안부를 물어요. 대답이 없는 서버는 명단에서 잠시 빼고, 살아난 뒤에 다시 넣어요.',
+            '암호화된 요청을 푸는 일도 창구가 맡아요. 뒤의 서버들은 인증서를 따로 관리하지 않아도 돼요.'],
+    note: ['이 창구가 <b>리버스 프록시</b>예요. 요청을 받는 쪽 편에 서서 대신 받아요.',
+           '여러 서버에 나눠 보내는 역할을 <b>로드 밸런서</b>, 안부 확인을 <b>헬스 체크</b>, 암호를 창구에서 푸는 것을 <b>TLS 종료</b>라고 해요.',
+           '뒤의 서버가 보는 출발 주소는 창구의 주소예요. 원래 손님의 주소는 <code>X-Forwarded-For</code> 헤더로 전달돼요.',
+           '<code>502</code>와 <code>504</code>는 창구가 내는 코드예요. 창구는 살아 있는데 뒤의 서버가 잘못됐다는 뜻이에요.'],
+    next: '바깥 협력사들이 우리 API를 부르기 시작했어요. 나눠 보내는 것만으로는 부족해졌어요.',
+    refs: [R.mdnXff] },
+  { leg: 0, chapter: '세 번째 길목', title: '규칙을 문 한 곳에',
+    story: ['배달 대행, 결제 회사, 제휴 앱이 본사의 API를 부르게 됐어요. 주문 API, 메뉴 API, 정산 API를 만든 팀은 모두 달랐어요.',
+            '팀마다 “누가 부르는지 확인하는 코드”를 따로 짰어요. 방식이 조금씩 달랐고, 한 팀은 확인을 빠뜨렸어요.',
+            '어느 날 제휴 앱의 버그로 메뉴 API에 초당 수천 건이 쏟아졌어요. 메뉴 API가 느려지자 주문 화면까지 멈췄어요.',
+            '본사는 모든 API 앞에 문을 하나 세우고, 공통 규칙을 그 문으로 옮겼어요. 호출한 곳이 누구인지 확인하고, 얼마나 불렀는지 세고, 경로를 보고 알맞은 API로 보내고, 기록을 남겨요.',
+            '이제 각 팀은 자기 API의 일만 하면 돼요. 한도를 넘긴 곳은 문 앞에서 돌려보내니 안쪽은 영향을 받지 않아요.'],
+    note: ['이 문이 <b>API 게이트웨이</b>예요. 리버스 프록시에 인증, 호출 한도, 라우팅, 계측 같은 API 관리 기능을 더한 것이에요.',
+           '정해진 시간 안에 부를 수 있는 횟수를 제한하는 것이 <b>레이트 리밋</b>이에요. 넘으면 <code>429</code>를 돌려줘요.',
+           '게이트웨이에는 모든 API에 공통인 규칙만 둬요. 주문 금액 계산 같은 업무 규칙을 넣으면 고칠 때마다 문 전체를 건드리게 돼요.',
+           '모든 요청이 지나는 곳이라 게이트웨이가 죽으면 전부 멈춰요. 여러 대로 두고 앞에 로드 밸런서를 세워요.'],
+    next: '문을 세웠으니, 누구에게 문을 열어 줄지 정해야 해요.',
+    refs: [R.mdnStatus] },
+  { leg: 1, chapter: '문단속', title: '허용 명단',
+    story: ['결제가 끝나면 결제 회사가 본사 서버에 결과를 알려 줘요. 이 알림을 받는 주소는 인터넷에 열려 있어야 해요.',
+            '열려 있다는 것은 누구나 보낼 수 있다는 뜻이에요. 누군가 “결제 완료”라는 가짜 알림을 보내면, 돈을 받지 않은 주문이 나갈 수 있어요.',
+            '첫 번째 방어는 명단이에요. 결제 회사가 알림을 보내는 주소 범위를 미리 받아 두고, 그 범위에서 온 요청만 통과시켜요. 나머지는 문 앞에서 버려요.',
+            '반대 방향도 같아요. 결제 회사도 본사의 출구 주소를 자기 명단에 올려 둬요. 그래서 프록시의 주소가 바뀌면 결제가 갑자기 막혀요.',
+            '하지만 명단은 “어디서 왔는지”만 확인해요. 같은 주소 뒤에 여러 시스템이 있을 수 있고, 주소는 바뀌기도 해요. 그래서 “누구인지”를 증명하는 출입증을 함께 확인해요.'],
+    note: ['주소를 기준으로 통과와 거부를 정한 목록이 <b>IP ACL</b>(접근 제어 목록)이에요. 허용할 것만 적는 방식을 허용 목록(allowlist)이라고 해요.',
+           '주소 범위는 <code>203.0.113.0/24</code>처럼 적어요. 이 표기를 <b>CIDR</b>이라고 하고, <code>/24</code>는 주소 256개, <code>/32</code>는 1개예요.',
+           '명단에 없는 요청은 보통 답 없이 버려져요. 그래서 증상이 오류 코드가 아니라 <b>시간 초과</b>로 나타나요.',
+           '출입증은 API 키, 토큰, 서명 같은 것이에요. IP 확인과 겹쳐서 써요.'],
+    next: '알림 이야기가 나왔어요. 결제 회사는 왜 우리가 묻기 전에 먼저 알려 줄까요?',
+    refs: [R.mdnXff] },
+  { leg: 2, chapter: '기다리지 않고 잇기 1', title: '묻지 말고, 알림 받기',
+    story: ['배달 대행에 배달을 맡기고 나면 본사는 상태가 궁금해요. 처음에는 3초마다 물었어요. “1042번 배달 끝났나요?”',
+            '주문이 만 건이면 3초마다 만 번을 묻는 셈이에요. 돌아오는 답은 대부분 “아직이요”였어요. 배달 대행은 호출 한도를 걸었고, 본사는 <code>429</code>를 받기 시작했어요.',
+            '방법을 바꿨어요. 본사가 “일이 생기면 이 주소로 알려 주세요”라고 주소를 등록해 둬요. 배달이 끝나면 배달 대행이 그 주소로 요청을 보내요.',
+            '이 방식에는 주의할 점이 세 가지 있어요. 알림은 인터넷으로 들어오니 가짜일 수 있어요. 그래서 배달 대행이 붙인 서명을 검증해요.',
+            '그리고 알림은 두 번 올 수 있고, 순서가 바뀌어 올 수 있어요. 보내는 쪽은 답을 받지 못하면 다시 보내니까요.'],
+    note: ['주기적으로 물어보는 방식이 <b>폴링</b>, 일이 생겼을 때 상대가 내 주소로 요청을 보내 주는 방식이 <b>웹훅</b>이에요.',
+           '웹훅은 방향이 반대인 API 호출이에요. 평소에는 내가 상대를 부르지만, 웹훅은 상대가 나를 불러요.',
+           '서명은 보통 <b>HMAC</b>이에요. 양쪽만 아는 비밀 값과 본문으로 계산해요. 본문이 한 글자라도 바뀌면 값이 달라져요.',
+           '받으면 몇 초 안에 2xx로 답하고, 오래 걸리는 일은 그 뒤에 해요. 답이 늦으면 상대는 실패로 보고 다시 보내요.'],
+    next: '웹훅은 회사와 회사 사이의 알림이에요. 회사 안에서 여러 시스템에 알릴 때는 다른 장치를 써요.',
+    refs: [R.mdnStatus] },
+  { leg: 3, chapter: '기다리지 않고 잇기 2', title: '주문 기록 줄',
+    story: ['주문이 하나 들어오면 알아야 할 곳이 많아요. 주방은 조리를 시작하고, 재고는 수량을 줄이고, 포인트는 적립하고, 통계는 집계해요.',
+            '처음에는 주문 서버가 넷을 차례로 불렀어요. 통계 서버가 점검에 들어간 날, 주문 서버는 통계의 답을 기다리다 주문을 받지 못했어요. 주문과 상관없는 시스템 때문에 주문이 멈춘 거예요.',
+            '본사는 가운데에 기록 줄을 뒀어요. 주문 서버는 “1042번 주문이 들어왔다”는 사실을 줄 끝에 적기만 하고 바로 다음 주문을 받아요.',
+            '주방, 재고, 포인트, 통계는 각자 이 줄을 읽어요. 저마다 “어디까지 읽었는지” 책갈피를 따로 가지고 있어요.',
+            '통계 서버가 한 시간 쉬었다 돌아오면 책갈피가 있던 자리부터 이어서 읽어요. 기록은 읽어도 지워지지 않으니, 새로 생긴 부서가 처음부터 다시 읽을 수도 있어요.'],
+    note: ['이 기록 줄이 <b>카프카</b>예요. 줄 하나가 <b>토픽</b>, 적는 쪽이 <b>프로듀서</b>, 읽는 쪽이 <b>컨슈머</b>, 책갈피가 <b>오프셋</b>이에요.',
+           '일반적인 메시지 큐는 읽으면 메시지가 사라져요. 카프카는 정해진 기간 동안 남겨 두고, 읽는 쪽이 자기 위치를 기억해요.',
+           '처리량을 늘리려고 줄을 여러 갈래(<b>파티션</b>)로 나눠요. 순서는 한 갈래 안에서만 지켜져요.',
+           '적는 쪽은 읽는 쪽이 누구인지, 살아 있는지 몰라도 돼요. 이것을 느슨한 결합이라고 해요.'],
+    next: '기록 줄에도 대가가 있어요. 같은 주문이 두 번 읽히는 일이 생겨요.',
+    refs: [R.kafka] },
+  { leg: 3, chapter: '기다리지 않고 잇기 3', title: '같은 주문이 두 번 왔다',
+    story: ['재고 서버가 1042번 주문을 읽고 재고를 하나 줄였어요. 그런데 “여기까지 읽었다”고 책갈피를 옮기기 직전에 서버가 재시작됐어요.',
+            '다시 켜진 재고 서버는 책갈피가 있던 자리, 그러니까 1042번부터 다시 읽었어요. 재고가 한 번 더 줄었어요.',
+            '웹훅에서도 같은 일이 있었어요. 답이 늦자 배달 대행이 “배달 완료” 알림을 한 번 더 보냈고, 손님에게 완료 문자가 두 통 갔어요.',
+            '보내는 쪽이 “한 번만” 보내도록 만드는 것은 어려워요. 답을 못 받았을 때 상대가 받았는지 알 길이 없으니까요. 그래서 대부분의 시스템은 “적어도 한 번”을 약속하고, 중복은 받는 쪽이 감당해요.',
+            '재고 서버는 처리한 주문 번호를 적어 두기로 했어요. 이미 적힌 번호가 다시 오면 아무것도 하지 않고 건너뛰어요.'],
+    note: ['같은 요청을 여러 번 처리해도 결과가 한 번 처리한 것과 같은 성질이 <b>멱등성</b>이에요.',
+           '전달 보장은 세 가지예요. 최대 한 번(유실 가능), 최소 한 번(중복 가능), 정확히 한 번(제한된 조건에서만).',
+           '중복을 걸러 내는 기준이 되는 값을 <b>멱등 키</b>라고 해요. 주문 번호나 이벤트 ID를 써요.',
+           '“재고를 1 줄여라”는 멱등하지 않아요. “1042번 주문으로 재고를 줄여라”는 번호를 기억하면 멱등하게 만들 수 있어요.'],
+    next: '중복은 다뤘어요. 이번에는 상대가 아예 느려지거나 죽었을 때예요.',
+    refs: [R.kafka] },
+  { leg: 4, chapter: '장애 대응 1', title: '한 곳이 느려지면',
+    story: ['어느 저녁 결제 회사의 응답이 0.3초에서 30초로 늘어났어요. 죽은 것이 아니라 느려진 거예요.',
+            '주문 서버는 결제 답을 기다리는 요청으로 가득 찼어요. 동시에 처리할 수 있는 수가 정해져 있어서, 결제와 상관없는 메뉴 조회까지 자리를 얻지 못했어요.',
+            '첫 번째 대책은 <b>기다리는 시간에 상한</b>을 두는 거예요. 3초 안에 답이 없으면 포기해요.',
+            '두 번째는 <b>다시 시도하는 규칙</b>이에요. 바로 다시 보내면 힘든 상대를 더 누르게 돼요. 1초, 2초, 4초로 간격을 늘리고, 횟수도 정해 둬요.',
+            '세 번째는 <b>차단기</b>예요. 실패가 계속되면 일정 시간 동안은 아예 보내지 않고 바로 실패로 처리해요. 잠시 뒤 몇 건만 시험 삼아 보내 보고, 잘되면 다시 열어요.'],
+    note: ['기다리는 상한이 <b>타임아웃</b>, 간격을 늘려 가는 재시도가 <b>지수 백오프</b>, 차단기가 <b>서킷 브레이커</b>예요.',
+           '죽은 서버보다 느린 서버가 더 위험해요. 죽으면 바로 실패하지만, 느리면 부르는 쪽의 자원을 붙잡고 있어요.',
+           '재시도는 멱등한 요청에만 해요. 결제 요청을 멱등 키 없이 다시 보내면 두 번 결제될 수 있어요.',
+           '시간 초과는 “실패”가 아니라 “모른다”예요. 상대는 처리를 끝냈을 수도 있어요.'],
+    next: '길목이 이렇게 많아졌어요. 문제가 생기면 어디서부터 봐야 할까요?',
+    refs: [R.mdnStatus] },
+  { leg: 4, chapter: '장애 대응 2', title: '어디서 막혔나',
+    story: ['손님 문의가 들어왔어요. “결제했는데 주문이 안 들어갔어요.” 요청은 앱, 게이트웨이, 주문 서버, 결제 회사, 기록 줄, 주방을 차례로 지나요.',
+            '예전에는 팀마다 자기 로그를 뒤졌어요. 시각을 맞춰 보며 “우리 쪽은 정상인데요”를 주고받았어요.',
+            '지금은 요청이 문에 들어서는 순간 번호표를 하나 받아요. 이 번호는 다음 서버를 부를 때도, 기록 줄에 적을 때도 함께 넘어가요.',
+            '번호 하나로 검색하면 모든 구간의 기록이 한 줄로 이어져요. 게이트웨이 5.1초, 주문 서버 5.0초, 그 안에서 결제 호출이 4.8초였어요.',
+            '상태 코드도 단서예요. 어느 길목이 낸 코드인지 알면 볼 곳이 절반으로 줄어요.'],
+    noteLabel: '증상에서 구간으로',
+    note: ['번호표가 <b>트레이스 ID</b>(요청 ID)예요. 헤더에 실어 다음 구간으로 넘기는 것을 전파라고 해요.',
+           '<code>401</code>은 인증, <code>403</code>은 권한이나 ACL, <code>407</code>은 나가는 프록시, <code>429</code>는 호출 한도예요.',
+           '<code>502</code>와 <code>504</code>는 길목은 살아 있고 그 뒤가 문제라는 뜻이에요.',
+           '코드 없이 시간 초과만 난다면 방화벽, ACL, 주소를 먼저 의심해요.'],
+    next: '2부 교과서에서는 각 장치의 정확한 정의, 설정에서 자주 틀리는 곳, 증상별 진단을 9장으로 정리해요.',
+    refs: [R.trace] },
+  { type: 'end', chapter: '1부를 마치며', title: '단어장',
+    words: [
+      ['프록시', '보내는 쪽을 대신해 밖으로 나가는 길목'],
+      ['리버스 프록시', '받는 쪽을 대신해 요청을 받아 뒤의 서버로 넘기는 길목'],
+      ['API 게이트웨이', '인증, 호출 한도, 라우팅, 기록을 한곳에서 처리하는 API의 정문'],
+      ['IP ACL', '주소를 기준으로 통과와 거부를 정한 목록'],
+      ['웹훅', '일이 생겼을 때 상대가 내 주소로 보내 주는 요청'],
+      ['카프카', '사건을 순서대로 적어 두고 여러 시스템이 각자 읽어 가는 기록 줄'],
+      ['멱등성', '같은 요청을 여러 번 처리해도 결과가 한 번과 같은 성질']],
+    notes: ['이 권의 내용은 다음 권으로 이어져요. AI에게 도구와 연결 기능을 주는 일도 결국 게이트웨이, 인증, 호출 한도 위에서 돌아가요.',
+            '2부 9장 끝에서 AI 게이트웨이와 MCP가 이 권의 어느 개념에 해당하는지 짚어요.'],
+    links: [['Apache Kafka 문서', 'https://kafka.apache.org/documentation/'], ['MDN HTTP 문서', 'https://developer.mozilla.org/ko/docs/Web/HTTP']] },
+
+  /* ================= 2부 ================= */
+  { type: 'tbcover', title: '심화편 표지', h1: '연결 기초<br><em>교과서</em>',
+    lead: '1부의 사건을 장치별로 다시 정리해요. 장마다 정확한 정의, 동작 순서, 설정에서 자주 틀리는 곳, 증상을 담았어요.',
+    bullets: ['<b>1~3장</b>은 길목이에요. 프록시, 리버스 프록시와 로드 밸런서, API 게이트웨이를 다뤄요.',
+              '<b>4장</b>은 출입 통제예요. IP ACL, CIDR, 방화벽과 인증의 관계를 다뤄요.',
+              '<b>5~7장</b>은 비동기 연결이에요. 웹훅, 카프카, 전달 보장과 멱등성을 다뤄요.',
+              '<b>8~9장</b>은 운영이에요. 타임아웃, 재시도, 서킷 브레이커, 추적과 진단을 다뤄요.',
+              '예시 주소는 문서용으로 예약된 범위(203.0.113.0/24, 198.51.100.0/24, 192.0.2.0/24)를 썼어요.'] },
+
+  { type: 'tb', no: '01', kicker: '길목', title: '프록시', storyPage: 2,
+    lede: '프록시는 클라이언트를 대신해 서버에 요청을 보내는 중계 서버예요. 요청을 보내는 쪽에 속해 있고, 서버는 프록시를 클라이언트로 봐요.',
+    blocks: [
+      { h: '왜 두는가' },
+      { ul: ['<b>나가는 길 통제</b>: 사내 서버가 접속할 수 있는 외부 주소를 허용 목록으로 제한해요. 침해된 서버가 임의의 곳으로 데이터를 내보내는 것을 막아요.',
+             '<b>출구 주소 고정</b>: 서버가 몇 대든 바깥에서는 프록시의 IP로 보여요. 상대의 허용 목록에는 이 주소만 등록해요.',
+             '<b>기록과 감사</b>: 누가 언제 어디로 요청했는지 한곳에 남아요.',
+             '<b>캐시</b>: 같은 응답을 저장해 두었다가 돌려줘요. 패키지 저장소 미러가 대표적이에요.'] },
+      { h: 'HTTP와 HTTPS에서 동작이 달라요' },
+      { table: { head: ['', 'HTTP', 'HTTPS'], rows: [
+        ['프록시가 하는 일', '요청 전체를 받아 읽고, 자기가 서버에 다시 보냄', '<code>CONNECT host:443</code>을 받아 TCP 통로만 열어 줌'],
+        ['프록시가 볼 수 있는 것', '주소, 헤더, 본문 전부', '목적지 호스트와 포트, 주고받은 양'],
+        ['내용 기반 차단', '가능', '불가능 (호스트 단위만 가능)']] } },
+      { p: 'HTTPS 내용까지 검사하는 회사는 프록시가 TLS를 중간에서 풀고 다시 암호화해요. 이때 프록시가 자체 인증서로 서명하므로, 사내 PC와 서버에 회사의 루트 인증서(CA)가 설치돼 있어야 해요. 이것이 없으면 인증서 오류가 나요.' },
+      { h: '설정하는 방법' },
+      { code: 'export HTTPS_PROXY=http://proxy.corp.example:3128\nexport HTTP_PROXY=http://proxy.corp.example:3128\nexport NO_PROXY=localhost,127.0.0.1,.corp.example', cap: '대부분의 명령줄 도구와 라이브러리가 이 환경 변수를 읽어요. NO_PROXY에 적은 곳은 프록시를 거치지 않아요.' },
+      { ul: ['환경 변수를 읽지 않는 프로그램도 있어요. 그런 경우 프로그램 자체의 프록시 설정을 따로 해야 해요.',
+             '사내 주소를 <code>NO_PROXY</code>에 넣지 않으면, 사내 호출이 프록시로 나갔다가 실패해요.'] },
+      { h: '증상으로 알아보기' },
+      { table: { head: ['증상', '의심할 곳'], rows: [
+        ['<code>407 Proxy Authentication Required</code>', '프록시가 인증을 요구함. 계정이나 토큰 설정 확인'],
+        ['프록시가 <code>403</code>을 돌려줌', '목적지가 프록시의 허용 목록에 없음'],
+        ['인증서 검증 오류', 'TLS를 검사하는 프록시인데 회사 CA가 신뢰 목록에 없음'],
+        ['내 PC에서는 되는데 서버에서는 안 됨', '서버에 프록시 환경 변수가 없거나, 서버의 출구가 다름']] } },
+      { h: '설계할 때' },
+      { ul: ['외부 호출이 필요한 기능을 만들 때는 처음부터 “어떤 호스트로, 어느 포트로 나가는지” 목록을 적어요. 프록시 허용 신청에 그대로 써요.',
+             '상대가 IP 허용 목록을 쓴다면, 등록할 주소는 내 서버의 IP가 아니라 출구 IP예요.'] }
+    ],
+    key: ['프록시는 보내는 쪽 편에 서서 대신 나가요.', 'HTTPS에서는 통로만 열어 주고 내용은 보지 못해요.', '상대에게 등록할 주소는 출구 IP예요.'],
+    refs: [R.mdnProxy] },
+
+  { type: 'tb', no: '02', kicker: '길목', title: '리버스 프록시와 로드 밸런서', storyPage: 3,
+    lede: '리버스 프록시는 서버를 대신해 클라이언트의 요청을 받는 중계 서버예요. 요청을 받는 쪽에 속해 있고, 클라이언트는 리버스 프록시를 서버로 봐요.',
+    blocks: [
+      { h: '프록시와 무엇이 다른가' },
+      { table: { head: ['', '프록시', '리버스 프록시'], rows: [
+        ['누구 편인가', '클라이언트', '서버'],
+        ['누가 설정하는가', '요청을 보내는 조직', '요청을 받는 조직'],
+        ['숨기는 것', '클라이언트의 실제 주소', '서버의 실제 주소와 대수'],
+        ['클라이언트가 아는가', '알고 설정함', '모름. 그냥 서버인 줄 앎']] } },
+      { h: '하는 일' },
+      { ul: ['<b>TLS 종료</b>: 암호화를 여기서 풀어요. 인증서를 한곳에서 관리하고, 뒤의 서버는 평문 또는 내부용 TLS로 받아요.',
+             '<b>라우팅</b>: 호스트 이름이나 경로를 보고 알맞은 서버 묶음으로 보내요. <code>/api</code>는 API 서버로, 나머지는 웹 서버로.',
+             '<b>부하 분산</b>: 같은 일을 하는 서버 여러 대에 요청을 나눠요.',
+             '<b>헬스 체크</b>: 정해진 주소를 주기적으로 불러 보고, 실패한 서버를 대상에서 빼요.',
+             '<b>완충</b>: 느린 클라이언트의 요청과 응답을 대신 붙잡아 줘서, 뒤의 서버가 빨리 다음 일을 해요.'] },
+      { code: 'upstream order_api {\n    server 10.0.3.11:8080;\n    server 10.0.3.12:8080;\n}\nserver {\n    listen 443 ssl;\n    server_name api.example.com;\n    location /orders/ {\n        proxy_pass http://order_api;\n        proxy_set_header Host $host;\n        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n        proxy_set_header X-Forwarded-Proto $scheme;\n        proxy_read_timeout 5s;\n    }\n}', cap: 'nginx 설정의 뼈대예요. 받는 주소 하나, 뒤의 서버 두 대, 원래 정보를 전하는 헤더 세 개.' },
+      { h: '원래 정보는 헤더로 전달돼요' },
+      { ul: ['뒤의 서버가 보는 접속 상대는 리버스 프록시예요. 클라이언트의 주소는 <code>X-Forwarded-For</code>에 담겨 와요.',
+             '이 헤더는 클라이언트가 직접 써서 보낼 수도 있어요. <b>내가 신뢰하는 프록시가 붙인 값만</b> 믿어야 해요. 4장에서 다시 다뤄요.',
+             '원래 HTTPS였는지는 <code>X-Forwarded-Proto</code>로 알아요. 이것을 무시하면 리다이렉트 주소가 <code>http://</code>로 만들어지는 버그가 생겨요.'] },
+      { h: '부하 분산의 계층과 방식' },
+      { table: { head: ['구분', '보는 것', '할 수 있는 것'], rows: [
+        ['L4 (전송 계층)', 'IP와 포트', '빠르고 단순. 내용은 모름'],
+        ['L7 (응용 계층)', 'HTTP 경로, 헤더, 쿠키', '경로별 라우팅, 헤더 추가, 재시도']] } },
+      { ul: ['<b>라운드 로빈</b>은 차례대로, <b>최소 연결</b>은 지금 가장 한가한 서버로, <b>해시</b>는 같은 키(예: 사용자)를 항상 같은 서버로 보내요.',
+             '로그인 상태를 서버 메모리에 두면 같은 사용자를 같은 서버로 보내야 해요(고정 세션). 상태를 서버 밖(DB, 캐시)에 두면 이 제약이 사라져요.'] },
+      { h: '길목이 내는 상태 코드' },
+      { table: { head: ['코드', '뜻', '흔한 원인'], rows: [
+        ['<code>502 Bad Gateway</code>', '뒤의 서버에서 올바른 응답을 받지 못함', '서버 프로세스가 죽음, 포트가 다름, 연결이 중간에 끊김'],
+        ['<code>503 Service Unavailable</code>', '보낼 수 있는 서버가 없음', '모든 서버가 헬스 체크 실패, 배포 중, 과부하'],
+        ['<code>504 Gateway Timeout</code>', '뒤의 서버가 제한 시간 안에 답하지 않음', '느린 쿼리, 외부 호출 대기, 길목의 타임아웃이 너무 짧음']] } }
+    ],
+    key: ['리버스 프록시는 받는 쪽 편에 서서 대신 받아요.', '원래 클라이언트 정보는 X-Forwarded-* 헤더로 전달돼요.', '502, 503, 504는 길목이 뒤쪽 서버에 대해 내는 코드예요.'],
+    refs: [R.mdnXff, R.mdnStatus] },
+
+  { type: 'tb', no: '03', kicker: '길목', title: 'API 게이트웨이', storyPage: 4,
+    lede: 'API 게이트웨이는 여러 API 앞에 서서 인증, 호출 한도, 라우팅, 계측 같은 공통 기능을 한곳에서 처리하는 리버스 프록시예요.',
+    blocks: [
+      { h: '헷갈리는 넷을 구분하기' },
+      { table: { head: ['이름', '중심이 되는 일', '판단 기준'], wide: true, rows: [
+        ['리버스 프록시', '대신 받아서 뒤로 넘김', '호스트, 경로'],
+        ['로드 밸런서', '같은 서버 여러 대에 나눔', '서버 상태, 연결 수'],
+        ['API 게이트웨이', 'API 호출자를 식별하고 규칙을 적용', 'API 키, 토큰, 요금제, 경로'],
+        ['CDN', '사용자 가까운 곳에서 대신 응답', '캐시 가능 여부, 지역']] } },
+      { p: '제품 하나가 여러 역할을 겸하는 경우가 많아요. 이름보다 “이 길목에서 지금 어떤 기능을 쓰고 있는가”로 생각하는 편이 정확해요.' },
+      { h: '게이트웨이가 처리하는 것' },
+      { ol: ['<b>인증</b>: API 키가 유효한지, 토큰(JWT)의 서명과 만료 시각이 맞는지 확인해요. 실패하면 <code>401</code>.',
+             '<b>호출 한도</b>: 호출자별로 정해진 시간 안의 호출 수를 세요. 넘으면 <code>429</code>와 함께 <code>Retry-After</code>로 언제 다시 올지 알려 줘요.',
+             '<b>라우팅</b>: 경로와 버전을 보고 알맞은 서비스로 보내요. <code>/v1/orders</code>와 <code>/v2/orders</code>를 다른 서비스로.',
+             '<b>변환</b>: 헤더를 더하거나 지우고, 필요하면 요청 형식을 바꿔요.',
+             '<b>계측</b>: 호출자별 호출 수, 지연 시간, 오류율을 남겨요.'] },
+      { h: '호출 한도를 세는 방식' },
+      { table: { head: ['방식', '동작', '특징'], rows: [
+        ['고정 창', '매 분 0초에 횟수를 초기화', '단순. 경계 시점에 두 배가 몰릴 수 있음'],
+        ['이동 창', '지금부터 과거 60초를 셈', '정확. 계산이 더 필요'],
+        ['토큰 버킷', '토큰이 일정 속도로 채워지고, 호출마다 하나 소모', '잠깐 몰리는 것은 허용하고 평균은 제한']] } },
+      { ul: ['한도는 호출자 단위(키), 경로 단위, 전체 단위로 겹쳐서 걸 수 있어요.',
+             '호출하는 쪽이라면 <code>429</code>를 받았을 때 <code>Retry-After</code>를 지키고, 바로 다시 보내지 않아요.'] },
+      { h: '넣지 말아야 할 것' },
+      { ul: ['<b>업무 규칙</b>: 할인 계산, 주문 검증은 서비스에 있어야 해요. 게이트웨이에 넣으면 배포와 테스트가 한곳에 묶여요.',
+             '<b>세밀한 권한 검사</b>: “이 사용자가 이 주문을 볼 수 있는가”는 데이터를 아는 서비스가 판단해요. 게이트웨이는 “인증된 호출자인가”까지만 봐요.',
+             '게이트웨이를 지났다고 서비스가 검사를 생략하면 안 돼요. 내부에서 게이트웨이를 거치지 않고 부르는 길이 생기는 순간 구멍이 돼요.'] },
+      { h: '운영에서 볼 것' },
+      { ul: ['모든 요청이 지나므로 단일 장애점이에요. 여러 대로 띄우고 앞에 로드 밸런서를 둬요.',
+             '게이트웨이의 타임아웃은 뒤의 서비스보다 조금 길게 잡아요. 짧으면 서비스는 성공했는데 클라이언트는 <code>504</code>를 받아요.',
+             '설정 변경이 곧 전체 영향이에요. 설정도 코드처럼 버전 관리하고 단계적으로 반영해요.'] }
+    ],
+    key: ['게이트웨이는 리버스 프록시에 API 관리 기능을 더한 것이에요.', '공통 규칙만 두고, 업무 규칙과 세밀한 권한은 서비스에 둬요.', '429를 받으면 Retry-After를 지켜요.'],
+    refs: [R.mdnStatus] },
+
+  { type: 'tb', no: '04', kicker: '출입 통제', title: 'IP ACL, 방화벽, 그리고 인증', storyPage: 5,
+    lede: 'IP ACL은 출발지나 목적지의 주소와 포트를 기준으로 통신을 허용하거나 거부하는 규칙 목록이에요. 가장 바깥에서 가장 싸게 걸러 내는 문이지만, 이것만으로는 누구인지 알 수 없어요.',
+    blocks: [
+      { h: 'CIDR 읽는 법' },
+      { table: { head: ['표기', '주소 수', '범위'], rows: [
+        ['<code>203.0.113.25/32</code>', '1', '203.0.113.25 하나'],
+        ['<code>203.0.113.0/24</code>', '256', '203.0.113.0 ~ 203.0.113.255'],
+        ['<code>10.0.0.0/16</code>', '65,536', '10.0.0.0 ~ 10.0.255.255'],
+        ['<code>0.0.0.0/0</code>', '전체', '모든 IPv4 주소']] } },
+      { p: '슬래시 뒤의 숫자는 “앞에서부터 몇 비트가 같아야 하는가”예요. 숫자가 작을수록 범위가 넓어요. 허용 규칙에 <code>0.0.0.0/0</code>이 있다면 사실상 전부 여는 것이에요.' },
+      { h: '규칙이 적용되는 방식' },
+      { ul: ['<b>기본 거부</b>가 원칙이에요. 허용할 것만 적고, 나머지는 모두 막아요.',
+             '방향이 있어요. 들어오는 것(인바운드)과 나가는 것(아웃바운드)을 따로 정해요.',
+             '제품에 따라 규칙을 위에서부터 차례로 보고 처음 맞는 것을 적용해요. 이 경우 순서가 결과를 바꿔요.',
+             '응답 통신을 자동으로 허용하는 방식(상태 기억)과 양방향을 모두 적어야 하는 방식이 있어요. 클라우드에서는 두 가지가 함께 쓰이므로 둘 다 확인해요.'] },
+      { h: '어디에 걸려 있는가' },
+      { table: { head: ['위치', '예'], rows: [
+        ['네트워크 경계', '방화벽, 클라우드의 네트워크 규칙'],
+        ['서버 앞', '서버 단위 방화벽, 보안 그룹'],
+        ['길목', '리버스 프록시와 게이트웨이의 IP 허용 설정'],
+        ['서비스 자체', 'SaaS의 “허용 IP 목록” 설정, DB의 접속 허용 주소']] } },
+      { p: '여러 겹에 걸려 있으므로, “열었는데도 안 된다”면 다른 겹이 막고 있는 거예요. 요청이 지나는 구간을 순서대로 적고 겹마다 확인해요.' },
+      { h: '양쪽의 주소를 정확히 알기' },
+      { ul: ['<b>상대가 나를 허용할 때</b>: 등록할 주소는 내 서버 IP가 아니라 <b>출구 IP</b>예요. 프록시나 NAT를 거치면 그 장비의 공인 IP가 돼요.',
+             '<b>내가 상대를 허용할 때</b>: 상대가 공개한 발신 주소 범위를 등록해요. 범위는 바뀔 수 있으니 변경 공지를 받는 방법을 확인해요.',
+             '출구 IP가 고정이 아니면 허용 목록 방식은 쓸 수 없어요. 고정 출구를 만들거나 다른 인증 수단으로 가야 해요.'] },
+      { h: 'X-Forwarded-For를 믿을 때의 함정' },
+      { p: '길목 뒤의 서버가 IP로 접근을 제어하려면 헤더의 주소를 봐야 해요. 그런데 이 헤더는 클라이언트가 임의로 채워 보낼 수 있어요. 신뢰하는 프록시가 덧붙인 가장 오른쪽 값부터 거슬러 올라가며 읽고, 클라이언트가 보낸 값은 무시하도록 길목에서 덮어써요.' },
+      { h: 'IP는 “어디서”, 인증은 “누구”' },
+      { table: { head: ['수단', '확인하는 것', '약점'], rows: [
+        ['IP ACL', '어느 네트워크에서 왔는가', '같은 주소 뒤의 누구인지는 모름. 주소 변경에 취약'],
+        ['API 키', '어느 호출자인가', '유출되면 누구나 사용. 주기적 교체 필요'],
+        ['OAuth 토큰', '누구이며 무엇을 허락받았는가', '발급과 갱신 절차가 필요'],
+        ['mTLS', '양쪽이 서로의 인증서를 확인', '인증서 발급과 교체 운영이 필요']] } },
+      { p: '실무에서는 겹쳐 써요. IP로 대부분의 잡음을 걸러 내고, 통과한 요청에 대해 키나 토큰으로 호출자를 확인해요.' },
+      { h: '증상으로 구분하기' },
+      { table: { head: ['증상', '뜻'], rows: [
+        ['한참 기다리다 시간 초과', '방화벽이 답 없이 버림. ACL, 라우팅, 주소 오타'],
+        ['즉시 “연결 거부”', '서버까지는 닿았으나 그 포트에서 듣는 프로그램이 없음'],
+        ['<code>403</code>', '길목이나 서비스가 받고 나서 거절함. 허용 IP 설정 또는 권한'],
+        ['<code>401</code>', '키나 토큰이 없거나 틀림']] } }
+    ],
+    key: ['허용할 것만 적고 나머지는 막아요.', '상대에게 등록할 주소는 출구 IP예요.', 'IP는 어디서 왔는지만 말해 줘요. 누구인지는 인증으로 확인해요.'],
+    refs: [R.mdnXff] },
+
+  { type: 'tb', no: '05', kicker: '비동기 연결', title: '웹훅', storyPage: 6,
+    lede: '웹훅은 어떤 사건이 일어났을 때 상대 시스템이 내가 등록해 둔 URL로 HTTP 요청을 보내 주는 방식이에요. 방향이 반대인 API 호출이에요.',
+    blocks: [
+      { h: '폴링과 비교' },
+      { table: { head: ['', '폴링', '웹훅'], rows: [
+        ['누가 시작하는가', '내가 주기적으로 물음', '상대가 일이 생겼을 때 보냄'],
+        ['지연', '주기만큼 늦음', '거의 즉시'],
+        ['낭비', '변화가 없어도 호출', '사건이 있을 때만 호출'],
+        ['필요한 것', '나가는 길만 열려 있으면 됨', '밖에서 들어올 수 있는 수신 주소'],
+        ['놓쳤을 때', '다음 주기에 다시 받음', '상대의 재시도에 의존']] } },
+      { h: '받는 쪽이 지켜야 할 네 가지' },
+      { ol: ['<b>서명을 검증해요.</b> 수신 주소는 인터넷에 열려 있으므로 누구나 요청을 보낼 수 있어요.',
+             '<b>중복을 걸러요.</b> 이벤트 ID를 저장해 두고, 이미 처리한 ID면 아무것도 하지 않고 2xx로 답해요.',
+             '<b>빨리 답해요.</b> 검증하고 저장한 뒤 바로 2xx를 돌려줘요. 오래 걸리는 처리는 큐에 넣어 따로 해요.',
+             '<b>순서를 가정하지 않아요.</b> “취소”가 “생성”보다 먼저 도착할 수 있어요. 이벤트의 발생 시각이나 버전으로 판단해요.'] },
+      { h: '서명 검증' },
+      { code: 'raw    = 요청 본문의 원문 바이트        # 파싱하기 전의 것\nts     = 헤더 X-Timestamp\nsig    = 헤더 X-Signature\n\nexpect = HMAC_SHA256(secret, ts + "." + raw)\n\nif abs(now - ts) > 5분:              거절   # 옛 요청 재전송 방지\nif not constant_time_equal(sig, expect):  거절\n통과', cap: '서비스마다 헤더 이름과 조합 방식은 달라요. 구조는 같아요.' },
+      { ul: ['반드시 <b>원문 바이트</b>로 계산해요. JSON으로 파싱했다가 다시 문자열로 만들면 공백이나 키 순서가 달라져 검증이 실패해요.',
+             '시각을 서명에 포함하고 허용 범위를 둬요. 가로챈 요청을 나중에 그대로 다시 보내는 공격을 막아요.',
+             '비교는 걸린 시간으로 정답을 추측할 수 없게 일정 시간 비교 함수를 써요.',
+             '비밀 값은 코드가 아니라 비밀 저장소에 두고, 교체할 수 있게 만들어요.'] },
+      { h: '보내는 쪽의 재시도를 이해하기' },
+      { ul: ['대부분 2xx가 아니거나 몇 초 안에 답이 없으면 실패로 보고, 간격을 늘려 가며 여러 번 다시 보내요.',
+             '계속 실패하면 웹훅을 꺼 버리는 서비스도 있어요. 수신 서버의 오류율을 지표로 봐야 하는 이유예요.',
+             '처리 중 내 쪽 오류가 났다면 5xx로 답해 재시도를 받아요. 본문이 잘못돼 다시 받아도 소용없다면 2xx로 받고 따로 기록해요.'] },
+      { h: '웹훅만 믿지 않기' },
+      { p: '재시도가 끝날 때까지 내 서버가 죽어 있었다면 그 사건은 영영 오지 않아요. 중요한 데이터는 주기적으로 상대의 조회 API를 불러 내 기록과 맞춰 보는 대사 작업을 함께 둬요. 웹훅은 빠른 반영을, 폴링은 누락 보정을 맡아요.' },
+      { h: '네트워크 쪽 준비물' },
+      { ul: ['수신 주소는 HTTPS여야 하고, 상대가 접속할 수 있어야 해요. 사내망 안쪽이면 게이트웨이나 리버스 프록시로 받는 길을 만들어요.',
+             '상대의 발신 IP 범위를 받아 수신 길목의 허용 목록에 넣어요. 서명 검증과 함께 써요.',
+             '개발 중에는 내 PC가 밖에서 보이지 않아요. 터널 도구로 임시 주소를 만들거나, 받은 요청을 저장해 다시 보내 보는 방식으로 시험해요.'] }
+    ],
+    key: ['웹훅은 방향이 반대인 API 호출이에요.', '서명 검증, 중복 제거, 빠른 응답, 순서 무관 처리를 지켜요.', '누락에 대비해 주기적인 대사를 함께 둬요.'],
+    refs: [R.mdnStatus] },
+
+  { type: 'tb', no: '06', kicker: '비동기 연결', title: '메시지 큐와 카프카', storyPage: 7,
+    lede: '카프카는 사건(이벤트)을 순서대로 이어 붙여 저장하는 분산 로그예요. 쓰는 쪽은 끝에 붙이기만 하고, 읽는 쪽은 각자 어디까지 읽었는지 기억하면서 따라와요.',
+    blocks: [
+      { h: '왜 사이에 무언가를 두는가' },
+      { ul: ['<b>시간의 분리</b>: 받는 쪽이 느리거나 잠시 죽어 있어도 보내는 쪽은 자기 일을 끝내요.',
+             '<b>대상의 분리</b>: 보내는 쪽은 누가 읽는지 몰라도 돼요. 읽는 시스템을 늘려도 보내는 쪽 코드는 그대로예요.',
+             '<b>완충</b>: 순간적으로 몰린 요청을 쌓아 두고, 처리할 수 있는 속도로 꺼내요.',
+             '대가도 있어요. 결과를 바로 알 수 없고, 중복과 순서 문제를 직접 다뤄야 하며, 운영할 시스템이 하나 늘어요.'] },
+      { h: '메시지 큐와 카프카의 차이' },
+      { table: { head: ['', '전통적인 메시지 큐', '카프카'], wide: true, rows: [
+        ['저장 모델', '대기 줄. 처리되면 메시지가 사라짐', '로그. 보존 기간 동안 남아 있음'],
+        ['읽은 위치', '브로커가 메시지별로 관리', '읽는 쪽이 오프셋으로 관리'],
+        ['여러 시스템이 읽기', '시스템마다 큐를 따로 두고 복사', '같은 토픽을 그룹별로 독립적으로 읽음'],
+        ['다시 읽기', '불가능 (이미 사라짐)', '오프셋을 되돌려 재처리 가능'],
+        ['어울리는 일', '작업 분배, 메시지별 지연·재시도', '사건 기록, 여러 곳으로의 전파, 대량 스트림']] } },
+      { h: '용어' },
+      { table: { head: ['용어', '뜻'], rows: [
+        ['토픽', '같은 종류의 사건을 모은 이름 붙은 로그. 예: <code>orders</code>'],
+        ['파티션', '토픽을 나눈 갈래. 각 갈래는 순서가 있는 이어 쓰기 전용 기록'],
+        ['오프셋', '파티션 안에서 메시지의 일련번호'],
+        ['프로듀서', '메시지를 쓰는 쪽'],
+        ['컨슈머 그룹', '함께 일을 나눠 읽는 컨슈머들의 묶음. 그룹마다 오프셋을 따로 가짐'],
+        ['브로커', '카프카 서버 한 대. 여러 대가 파티션의 복제본을 나눠 가짐'],
+        ['보존 기간', '메시지를 남겨 두는 기간. 기본값은 7일이고 토픽별로 바꿀 수 있음']] } },
+      { h: '순서와 병렬 처리는 파티션이 정해요' },
+      { ul: ['순서는 <b>한 파티션 안에서만</b> 지켜져요. 토픽 전체의 순서는 없어요.',
+             '메시지에 <b>키</b>를 주면 같은 키는 항상 같은 파티션으로 가요. 주문 번호를 키로 쓰면 한 주문의 “생성 → 결제 → 취소”가 순서대로 읽혀요.',
+             '한 그룹 안에서 파티션 하나는 컨슈머 하나만 읽어요. 그래서 동시에 일할 수 있는 컨슈머 수의 상한은 파티션 수예요.',
+             '파티션 수를 나중에 늘리면 키와 파티션의 대응이 바뀌어요. 그 시점 전후로 같은 키의 순서가 깨질 수 있으니 처음에 여유 있게 잡아요.',
+             '특정 키에 메시지가 몰리면 한 파티션만 바빠져요. 키를 고를 때 분포를 봐요.'] },
+      { h: '컨슈머 그룹의 동작' },
+      { ul: ['컨슈머가 죽거나 늘어나면 파티션을 다시 나눠요. 이것을 <b>리밸런싱</b>이라고 해요. 그동안 읽기가 잠깐 멈추고, 직전에 처리한 메시지를 다시 받을 수 있어요.',
+             '컨슈머는 처리한 위치를 주기적으로 기록해요. 이것을 <b>오프셋 커밋</b>이라고 해요. 언제 커밋하느냐가 유실과 중복을 가르는데, 7장에서 다뤄요.',
+             '가장 최근 메시지의 오프셋과 그룹이 읽은 오프셋의 차이가 <b>컨슈머 랙</b>이에요. 운영에서 가장 먼저 보는 지표예요. 계속 늘어난다면 처리 속도가 유입 속도를 못 따라가는 거예요.'] },
+      { h: '메시지에 무엇을 담을까' },
+      { ul: ['이름은 일어난 사실로 지어요. <code>OrderCreated</code>, <code>PaymentCompleted</code>처럼요. “재고를 줄여라” 같은 명령이 아니에요.',
+             '이벤트 ID, 발생 시각, 대상의 키, 스키마 버전을 넣어요. 중복 제거와 순서 판단에 써요.',
+             '형식은 한번 정하면 읽는 쪽이 여럿이라 바꾸기 어려워요. 필드를 더하는 것은 괜찮지만, 지우거나 뜻을 바꾸는 것은 새 버전으로 해요.'] },
+      { h: '쓰지 않는 편이 나은 경우' },
+      { ul: ['결과를 바로 받아야 화면을 그릴 수 있는 일. 그냥 API를 불러요.',
+             '읽는 시스템이 하나뿐이고 양이 적은 일. 단순한 큐나 DB 테이블로 충분해요.',
+             '메시지마다 다른 지연 시간이나 우선순위가 필요한 일. 전통적인 메시지 큐가 더 맞아요.'] }
+    ],
+    key: ['카프카는 지워지지 않는 로그이고, 읽는 쪽이 자기 위치를 기억해요.', '순서는 파티션 안에서만 지켜져요. 같은 대상은 같은 키로 보내요.', '컨슈머 랙이 계속 늘면 처리 속도가 모자란 거예요.'],
+    refs: [R.kafka] },
+
+  { type: 'tb', no: '07', kicker: '비동기 연결', title: '전달 보장과 멱등성', storyPage: 8,
+    lede: '네트워크 너머로 무언가를 보내면 세 가지 중 하나가 돼요. 도착했거나, 도착하지 않았거나, 도착했는데 답만 못 받았거나. 셋째 경우 때문에 중복은 피할 수 없어요.',
+    blocks: [
+      { h: '세 가지 전달 보장' },
+      { table: { head: ['보장', '뜻', '어떻게 생기는가'], rows: [
+        ['최대 한 번', '유실될 수 있지만 중복은 없음', '실패해도 다시 보내지 않음. 또는 처리 전에 먼저 커밋'],
+        ['최소 한 번', '유실은 없지만 중복될 수 있음', '답을 받을 때까지 다시 보냄. 또는 처리 후에 커밋'],
+        ['정확히 한 번', '유실도 중복도 없음', '제한된 범위 안에서만 가능']] } },
+      { h: '커밋 시점이 결과를 정해요' },
+      { code: '방식 A: 커밋 → 처리\n  커밋 직후 죽으면  →  재시작 시 다음 메시지부터  →  그 메시지는 유실\n\n방식 B: 처리 → 커밋\n  처리 직후 죽으면  →  재시작 시 같은 메시지부터  →  그 메시지는 두 번 처리', cap: '대부분의 업무에서는 유실보다 중복이 다루기 쉬워요. 그래서 B가 기본이에요.' },
+      { h: '“정확히 한 번”의 범위' },
+      { p: '카프카의 트랜잭션은 “토픽에서 읽고, 가공해서, 다른 토픽에 쓰고, 오프셋을 커밋하는 것”을 한 묶음으로 만들어 줘요. 카프카 안에서는 정확히 한 번이 돼요. 하지만 그 사이에 외부 DB를 고치거나 메일을 보내거나 다른 API를 부른다면 그 부분은 묶음 밖이에요. 바깥에 영향을 주는 일은 결국 멱등하게 만들어야 해요.' },
+      { h: '멱등하게 만드는 방법' },
+      { table: { head: ['방법', '내용', '예'], rows: [
+        ['처리 기록 테이블', '이벤트 ID에 유니크 제약을 걸고, 업무 변경과 같은 트랜잭션으로 넣음', '삽입이 충돌하면 이미 처리한 것이므로 건너뜀'],
+        ['덮어쓰기(upsert)', '“더하기”가 아니라 “이 값으로 맞추기”로 표현', '재고 −1 대신, 주문 1042의 차감 내역을 한 행으로 기록'],
+        ['조건부 변경', '현재 상태가 기대와 같을 때만 변경', '상태가 “결제 대기”일 때만 “결제 완료”로'],
+        ['멱등 키 헤더', '호출하는 쪽이 요청마다 고유 키를 보냄', '결제 API의 <code>Idempotency-Key</code>']] } },
+      { ul: ['처리 기록과 업무 변경은 반드시 <b>같은 트랜잭션</b>이어야 해요. 따로 하면 둘 사이에서 죽었을 때 다시 어긋나요.',
+             '멱등 키는 호출하는 쪽이 만들어요. 재시도할 때 같은 키를 써야 의미가 있어요.'] },
+      { h: 'DB 변경과 이벤트 발행을 함께 성공시키기' },
+      { p: '“주문을 DB에 저장하고 이벤트를 카프카에 쓴다”는 두 시스템에 걸친 일이라 한 트랜잭션으로 묶을 수 없어요. 저장 후 발행 전에 죽으면 이벤트가 빠져요. 그래서 이벤트를 같은 DB의 발행 대기 테이블에 주문과 함께 저장하고, 별도의 프로세스가 그 테이블을 읽어 카프카에 써요. 이것을 <b>아웃박스 패턴</b>이라고 해요. 발행은 최소 한 번이 되고, 읽는 쪽이 멱등하면 전체가 맞아요.' },
+      { h: '순서가 뒤바뀌었을 때' },
+      { ul: ['이벤트에 대상의 버전 번호나 발생 시각을 실어요.',
+             '내가 가진 것보다 오래된 이벤트가 오면 버려요.',
+             '앞선 이벤트가 아직 안 왔다면 잠시 보류했다가 다시 시도하거나, 상대의 조회 API로 최신 상태를 직접 읽어 와요.'] },
+      { h: '처리할 수 없는 메시지' },
+      { ul: ['형식이 깨졌거나 코드의 버그로 계속 실패하는 메시지가 있어요. 이것을 계속 재시도하면 그 뒤의 메시지가 모두 막혀요.',
+             '정해진 횟수만큼 시도하고 실패하면 별도의 토픽이나 큐로 옮겨요. 이곳을 <b>DLQ</b>(dead letter queue)라고 해요.',
+             'DLQ는 쌓아 두는 곳이 아니에요. 건수에 알림을 걸고, 원인을 고친 뒤 다시 흘려보내는 절차를 미리 만들어 둬요.'] }
+    ],
+    key: ['기본은 “최소 한 번 전달 + 멱등 처리”예요.', '처리 기록과 업무 변경은 같은 트랜잭션으로 묶어요.', '계속 실패하는 메시지는 DLQ로 빼서 줄을 막지 않아요.'],
+    refs: [R.kafka] },
+
+  { type: 'tb', no: '08', kicker: '운영', title: '실패를 다루기', storyPage: 9,
+    lede: '다른 시스템을 부르는 코드는 언젠가 실패해요. 설계할 것은 실패하지 않는 방법이 아니라, 실패가 퍼지지 않게 하는 방법이에요.',
+    blocks: [
+      { h: '타임아웃' },
+      { ul: ['타임아웃이 없는 호출은 상대가 답할 때까지 스레드와 연결을 붙잡아요. 느린 상대 하나가 내 서버 전체를 멈춰요.',
+             '<b>연결 타임아웃</b>(접속까지)과 <b>읽기 타임아웃</b>(응답까지)을 따로 정해요. 연결은 짧게, 읽기는 그 API의 정상 응답 시간을 보고 정해요.',
+             '기준은 평균이 아니라 느린 쪽이에요. 정상일 때의 p99 응답 시간보다 조금 길게 잡아요.',
+             '호출이 이어져 있다면 바깥쪽이 더 길어야 해요. 게이트웨이 5초, 서비스 4초, 서비스가 부르는 외부 API 3초처럼요. 반대로 잡으면 안쪽은 성공했는데 바깥은 이미 포기한 상태가 돼요.'] },
+      { h: '재시도' },
+      { table: { head: ['규칙', '이유'], rows: [
+        ['멱등한 요청만', '멱등하지 않은 요청을 다시 보내면 두 번 실행될 수 있음'],
+        ['다시 해 볼 만한 실패만', '시간 초과, 502·503·504, 429는 대상. 400·401·403·404는 다시 보내도 같음'],
+        ['간격을 늘려 가며', '1초, 2초, 4초. 상대가 회복할 시간을 줌'],
+        ['간격에 무작위를 섞어', '모든 호출자가 같은 순간에 다시 보내는 것을 막음 (지터)'],
+        ['횟수와 총 시간에 상한', '끝없이 시도하지 않음. 보통 2~3회'],
+        ['한 층에서만', '층마다 3번씩 하면 3단계에서 27번이 됨']] } },
+      { h: '서킷 브레이커' },
+      { table: { head: ['상태', '동작', '다음 상태로'], rows: [
+        ['닫힘', '호출을 그대로 보냄. 실패율을 셈', '실패율이 기준을 넘으면 열림'],
+        ['열림', '호출하지 않고 즉시 실패를 돌려줌', '정해진 시간이 지나면 반열림'],
+        ['반열림', '일부만 시험 삼아 보냄', '성공하면 닫힘, 실패하면 다시 열림']] } },
+      { ul: ['목적은 두 가지예요. 내 자원을 지키는 것, 그리고 힘든 상대에게 숨 돌릴 틈을 주는 것.',
+             '열렸을 때 무엇을 돌려줄지 정해 둬요. 캐시된 값, 기본값, “잠시 후 다시 시도”라는 안내 같은 것이에요.'] },
+      { h: '함께 쓰는 장치' },
+      { table: { head: ['장치', '하는 일'], rows: [
+        ['격벽(벌크헤드)', '상대별로 연결 풀이나 스레드 수를 나눔. 한 상대가 느려도 다른 호출의 자리는 남음'],
+        ['부하 차단', '감당할 수 없는 요청은 받자마자 거절. 다 받다가 전부 느려지는 것보다 나음'],
+        ['역압(백프레셔)', '받는 쪽이 “천천히 보내라”는 신호를 보냄. 큐가 끝없이 쌓이지 않게 함'],
+        ['비동기 전환', '바로 끝내지 않아도 되는 일은 큐에 넣고 먼저 답함']] } },
+      { h: '시간 초과의 뜻' },
+      { p: '시간 초과는 “실패했다”가 아니라 “결과를 모른다”예요. 상대는 요청을 받아 처리를 끝냈는데 답만 늦었을 수 있어요. 그래서 돈이나 재고처럼 중요한 변경은 멱등 키를 붙여 다시 보내거나, 조회 API로 실제 결과를 확인한 뒤에 다음 행동을 정해요.' },
+      { h: '호출 코드를 받았을 때 확인할 것' },
+      { ul: ['타임아웃이 설정돼 있는가. 라이브러리 기본값이 “무제한”인 경우가 많아요.',
+             '재시도 대상과 횟수가 정해져 있는가. 멱등하지 않은 요청을 재시도하고 있지 않은가.',
+             '실패했을 때 사용자에게 무엇을 보여 주는가. 오류를 삼키고 성공처럼 보이게 하고 있지 않은가.'] }
+    ],
+    key: ['모든 외부 호출에 타임아웃을 걸어요.', '재시도는 멱등한 요청에, 간격을 늘리고 흩어서, 한 층에서만 해요.', '시간 초과는 실패가 아니라 “모른다”예요.'],
+    refs: [R.mdnStatus] },
+
+  { type: 'tb', no: '09', kicker: '운영', title: '추적과 진단, 그리고 AI로 가는 다리', storyPage: 10,
+    lede: '요청이 길목을 여럿 지나면 “어디서 잘못됐는가”가 가장 어려운 질문이 돼요. 답은 요청마다 붙인 번호와, 코드가 어느 구간에서 나왔는지 읽는 눈에 있어요.',
+    blocks: [
+      { h: '트레이스 ID 전파' },
+      { ul: ['요청이 처음 들어오는 길목(보통 게이트웨이)에서 고유한 ID를 만들어요.',
+             '다른 서비스를 부를 때 이 ID를 헤더에 실어 넘겨요. 표준 헤더는 <code>traceparent</code>예요.',
+             '카프카에 쓸 때는 메시지 헤더에 넣어요. 읽는 쪽이 이어받아야 비동기 구간도 한 줄로 이어져요.',
+             '모든 로그에 이 ID를 찍어요. 그러면 ID 하나로 여러 시스템의 로그를 한꺼번에 찾을 수 있어요.',
+             '응답 헤더에도 넣어 줘요. 문의가 들어왔을 때 이 값 하나만 받으면 돼요.'] },
+      { code: 'traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01\n             │  └─ trace-id (요청 전체)          └─ span-id (이 구간)\n             └─ 버전', cap: 'W3C Trace Context 형식이에요. trace-id는 끝까지 같고, span-id는 구간마다 새로 만들어요.' },
+      { h: '증상별 진단표' },
+      { table: { head: ['증상', '어느 구간', '먼저 볼 것'], wide: true, rows: [
+        ['시간 초과 (코드 없음)', '네트워크 경로', '방화벽·ACL, 출구 IP 등록 여부, 주소와 포트, DNS'],
+        ['즉시 연결 거부', '대상 서버', '프로세스가 떠 있는가, 포트가 맞는가'],
+        ['인증서 오류', 'TLS', '프록시의 TLS 검사와 회사 CA, 인증서 만료, 호스트 이름 불일치'],
+        ['<code>407</code>', '나가는 프록시', '프록시 인증 설정'],
+        ['<code>401</code>', '게이트웨이 또는 서비스의 인증', '키·토큰 누락, 만료, 환경(개발/운영) 혼동'],
+        ['<code>403</code>', '길목의 IP 허용 설정 또는 서비스의 권한', '어느 층이 냈는지 응답 본문과 헤더로 구분'],
+        ['<code>429</code>', '게이트웨이의 호출 한도', '<code>Retry-After</code>, 호출량, 재시도 폭주 여부'],
+        ['<code>502</code>', '길목 뒤의 서버', '서버 프로세스, 포트, 배포 직후 여부'],
+        ['<code>503</code>', '길목 뒤의 서버 묶음', '헬스 체크 결과, 살아 있는 서버 수'],
+        ['<code>504</code>', '길목 뒤의 서버 또는 그 뒤', '느린 구간의 추적 기록, 구간별 타임아웃 설정'],
+        ['웹훅이 안 옴', '상대 → 내 수신 길목', '등록 주소, 수신 길목의 ACL, 서명 검증 실패 로그, 상대의 전송 기록'],
+        ['웹훅이 여러 번 옴', '내 수신 서버', '응답 시간, 2xx가 아닌 응답, 멱등 처리'],
+        ['이벤트 반영이 늦음', '카프카 컨슈머', '컨슈머 랙, 리밸런싱 반복, 한 파티션 쏠림, DLQ 건수']] } },
+      { h: '진단의 순서' },
+      { ol: ['요청이 지나는 구간을 순서대로 적어요. 프록시, 방화벽, 게이트웨이처럼 평소 잊고 있던 길목도 포함해요.',
+             '오류를 <b>누가 냈는지</b> 가려요. 응답 헤더의 서버 이름, 본문 형식이 단서예요. 게이트웨이의 오류와 서비스의 오류는 본문 모양이 달라요.',
+             '트레이스 ID로 마지막으로 기록이 남은 구간을 찾아요. 그 다음 구간이 용의자예요.',
+             '절반씩 좁혀요. 길목을 건너뛰고 서버를 직접 불러 보거나, 같은 망 안의 다른 서버에서 불러 봐요.'] },
+      { h: 'AI 게이트웨이' },
+      { p: 'AI 모델을 부르는 일도 외부 API 호출이에요. 여러 팀이 여러 모델을 쓰기 시작하면 3장과 같은 문제가 생기고, 같은 해법이 나와요. 모델 호출 앞에 세우는 게이트웨이를 AI 게이트웨이라고 불러요.' },
+      { table: { head: ['이 책의 개념', 'AI 게이트웨이에서는'], rows: [
+        ['인증과 키 관리', '모델 제공사의 API 키를 한곳에 두고, 팀에는 사내용 키를 따로 발급'],
+        ['호출 한도', '요청 수뿐 아니라 토큰 수와 비용 기준의 한도'],
+        ['라우팅', '모델 이름에 따라 제공사를 고르고, 장애 시 다른 모델로 넘김'],
+        ['계측', '팀별·기능별 토큰 사용량과 비용, 지연 시간'],
+        ['기록', '프롬프트와 응답의 로그. 개인정보는 가려서 저장'],
+        ['프록시의 내용 검사', '내보내면 안 되는 정보가 프롬프트에 있는지 검사하는 규칙']] } },
+      { h: 'MCP와 도구 호출' },
+      { ul: ['다음 권에 나오는 연결 기능(MCP)의 원격 서버는 HTTP로 접속하는 엔드포인트예요. 인증은 보통 OAuth 토큰으로 해요.',
+             '사내 시스템을 AI의 도구로 붙인다는 것은 그 시스템의 API에 새 호출자를 하나 추가하는 일이에요. 4장의 허용 목록과 인증, 3장의 호출 한도가 그대로 적용돼요.',
+             'AI가 도구를 부르는 호출은 재시도되거나 여러 번 실행될 수 있어요. 변경을 일으키는 도구는 7장의 멱등성을 갖춰야 해요.',
+             '에이전트가 한 요청에서 도구를 여러 번 부르면 추적이 더 중요해져요. 도구 호출에도 같은 트레이스 ID를 이어 붙여요.'] }
+    ],
+    key: ['트레이스 ID를 처음 길목에서 만들고 끝까지 넘겨요.', '오류는 “누가 냈는가”부터 가려요.', 'AI 게이트웨이와 MCP도 같은 길목, 같은 규칙 위에 있어요.'],
+    refs: [R.trace, R.mdnStatus] },
+
+  { type: 'check', title: '연동 점검표', lede: '다른 시스템과 잇는 기능을 설계하거나, AI가 만든 연동 코드를 검토할 때 하나씩 확인해 보세요.' }
+];
+
+var CHECKS = [
+  ['길목', ['요청이 지나는 구간(프록시, 방화벽, 게이트웨이)을 순서대로 적었다', '나가는 호출의 목적지 호스트와 포트 목록이 있고, 프록시에 허용돼 있다', '게이트웨이, 서비스, 외부 호출의 타임아웃이 바깥쪽일수록 길다', '게이트웨이에는 공통 규칙만 있고, 서비스도 권한을 다시 확인한다']],
+  ['출입 통제', ['상대에게 등록한 주소가 서버 IP가 아니라 출구 IP다', '허용 규칙에 필요한 범위만 있고 0.0.0.0/0이 없다', 'IP 확인과 별도로 키, 토큰, 서명으로 호출자를 확인한다', '비밀 값이 코드가 아니라 비밀 저장소에 있고 교체할 수 있다']],
+  ['알림과 기록 줄', ['웹훅 서명을 본문 원문으로 검증하고, 오래된 요청은 거절한다', '이벤트 ID로 중복을 걸러 내며, 그 기록이 업무 변경과 같은 트랜잭션에 있다', '웹훅을 받으면 바로 2xx로 답하고 무거운 일은 나중에 한다', '같은 대상의 이벤트는 같은 키로 보내 순서를 지킨다', '계속 실패하는 메시지를 DLQ로 빼고, 건수에 알림을 걸었다']],
+  ['실패와 추적', ['모든 외부 호출에 연결 타임아웃과 읽기 타임아웃이 있다', '재시도는 멱등한 요청에만, 간격을 늘려, 한 층에서만 한다', '시간 초과 뒤에는 결과를 조회로 확인하거나 멱등 키로 다시 보낸다', '트레이스 ID가 HTTP 호출과 메시지 헤더로 끝까지 넘어간다', '컨슈머 랙과 웹훅 수신 오류율을 지표로 보고 있다']]
+];
+var CORE = [
+  ['Apache Kafka 공식 문서', 'https://kafka.apache.org/documentation/'],
+  ['MDN: 프록시 서버와 터널링', 'https://developer.mozilla.org/ko/docs/Web/HTTP/Proxy_servers_and_tunneling'],
+  ['MDN: HTTP 상태 코드', 'https://developer.mozilla.org/ko/docs/Web/HTTP/Status'],
+  ['W3C Trace Context', 'https://www.w3.org/TR/trace-context/']
+];
+
+return { cfg: { title: '지점이 백 개가 되면', id: 'net-book', hash: 'net', storyLast: 11, part2: 12, noteLabel: '정확한 용어로는', legs: ['길목', '출입 통제', '알림', '기록 줄', '장애 대응'],
+  brand1: '지점이 <span>백 개</span>가 되면', brand2: '연결 기초 <span>교과서</span>' },
   scenes: scenes, pages: pages, CHECKS: CHECKS, CORE: CORE };
 };
 /* ================= AI 기초: 책벌레 신입사원 루미 (원작: 아빠도, 엄마도 AI) ================= */
@@ -3640,7 +4497,7 @@ var pages = [
       ['MCP', 'AI와 바깥 서비스를 잇는 연결 기능의 공통 규격'],
       ['딥페이크', '목소리나 얼굴을 흉내 낸 가짜 영상과 음성']],
     notes: ['원작 ‘아빠도, 엄마도 AI’는 직장 경험이 있는 분을 위한 AI 교과서예요. 장마다 직접 해 보는 실습과 확인 문제가 있어요.',
-            'AI에게 코딩을 맡기는 법은 셋째 권 ‘번개와 다섯 가지 장비’에서 이어져요.'],
+            'AI에게 코딩을 맡기는 법은 넷째 권 ‘번개와 다섯 가지 장비’에서 이어져요.'],
     links: [['원작 웹북', SRC]] },
 
   /* ================= 2부 ================= */
@@ -4189,12 +5046,17 @@ var SHELF = [
     learn: ['컴퓨터, 인터넷, 서버, 데이터베이스가 하는 일', '코드가 실행되고, 저장되고, 배포되는 과정', 'AI가 만든 결과를 확인하고 문제를 좁히는 눈'],
     who: 'AI로 무언가 만들기 시작했는데 용어와 원리가 낯선 분',
     meta: ['그림책 15쪽', '교과서 14장'] },
-  { key: 'ai', vol: '둘째 권', subject: 'AI 기초', subjectSub: 'AI를 다루는 기본기', title: '책벌레 신입사원 루미',
+  { key: 'net', vol: '둘째 권', subject: '연결 기초', subjectSub: '시스템과 시스템을 잇는 길목', title: '지점이 백 개가 되면',
+    what: '서버 한 대를 넘어 여러 시스템이 이어질 때 쓰는 장치들을 다뤄요. 프록시, 리버스 프록시, API 게이트웨이, IP ACL, 웹훅, 카프카가 왜 생겼고 어떻게 동작하는지 배워요.',
+    learn: ['길목의 종류와 차이, 길목이 내는 상태 코드', '출입 통제, 웹훅 검증, 카프카의 순서와 중복', '타임아웃, 재시도, 추적으로 장애 구간 좁히기'],
+    who: '연동 회의에서 용어는 들었는데 정확한 차이와 동작이 궁금했던 분. 네 권 중 가장 깊은 내용이에요.',
+    meta: ['그림책 10쪽', '교과서 9장'] },
+  { key: 'ai', vol: '셋째 권', subject: 'AI 기초', subjectSub: 'AI를 다루는 기본기', title: '책벌레 신입사원 루미',
     what: 'ChatGPT, Claude 같은 생성형 AI가 무엇을 잘하고 무엇을 못하는지, 어떻게 일을 시키고 결과를 확인하는지 배워요.',
     learn: ['좋은 지시문의 네 가지 요소와 검수하는 법', 'AI의 기억력, 자료 첨부, 역할 분담', '에이전트, 도구, MCP 같은 요즘 용어와 안전 수칙'],
     who: 'AI를 써 보긴 했지만 답이 들쭉날쭉해서 답답했던 분',
     meta: ['그림책 12쪽', '교과서 9장'] },
-  { key: 'harness', vol: '셋째 권', subject: 'AI 하네스', subjectSub: 'AI에게 일을 믿고 맡기는 설계', title: '번개와 다섯 가지 장비',
+  { key: 'harness', vol: '넷째 권', subject: 'AI 하네스', subjectSub: 'AI에게 일을 믿고 맡기는 설계', title: '번개와 다섯 가지 장비',
     what: '하네스(harness)는 말에게 채우는 장비라는 뜻이에요. AI 코딩 에이전트가 엉뚱한 길로 가지 않도록 둘러 주는 지시, 도구, 점검 장치를 통틀어 이렇게 불러요.',
     learn: ['똑똑한 AI가 일을 그르치는 이유', '번개에게 채워 주는 다섯 가지 장비와 쓰임', '긴 작업을 끝까지 맡기는 하네스 설계'],
     who: 'AI에게 코딩을 맡겨 봤는데 끝까지 믿고 맡기기 어려웠던 분',
@@ -4245,7 +5107,7 @@ document.addEventListener('click', function(e){
   }
   openBook(key);
 });
-var hm = /^#(harness|cs|ai)(-p\d+)?$/.exec(location.hash || '');
+var hm = /^#(harness|cs|ai|net)(-p\d+)?$/.exec(location.hash || '');
 if (hm) openBook(hm[1]);
 
 })();

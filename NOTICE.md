@@ -4,11 +4,15 @@
 
 [jedikim/cs-foundations](https://github.com/jedikim/cs-foundations) "개발의 기초"(Jedi Kim)의 1~5부를 바탕으로 다시 쓴 것입니다. 원작은 CC0 1.0(퍼블릭 도메인)으로 공개되어 있습니다. 표시 의무는 없지만 출처를 밝혀 둡니다.
 
-## 둘째 권: 책벌레 신입사원 루미
+## 둘째 권: 지점이 백 개가 되면
+
+이 책장을 위해 새로 쓴 내용입니다.
+
+## 셋째 권: 책벌레 신입사원 루미
 
 웹 교과서 [아빠도, 엄마도 AI](https://textbook-web-production.up.railway.app/)의 9장을 바탕으로 다시 쓴 것입니다.
 
-## 셋째 권: 번개와 다섯 가지 장비
+## 넷째 권: 번개와 다섯 가지 장비
 
 이 웹북의 내용은 [walkinglabs/learn-harness-engineering](https://github.com/walkinglabs/learn-harness-engineering) 강의 문서를 바탕으로 다시 쓴 것이며, 원작의 MIT 라이선스 고지를 아래에 그대로 싣습니다.
 
