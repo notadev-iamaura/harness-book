@@ -21,7 +21,7 @@
    이야기 아래에는 테이프로 붙인 '개발자 메모' 카드. 청록색은 오직 장비(하네스)에만 쓴다.
    인쇄된 그림책 한 권이라는 하나의 모습으로 고정한 단일 라이트 디자인. */
 :root{
-  --desk:#DCE1D5;
+  --desk:#ECE9E1;
   --desk-line:#D2D8CA;
   --paper:#FCFBF7;
   --paper-back:#EFEEE5;
@@ -45,8 +45,6 @@ html{height:100%;box-sizing:border-box}
 body{
   height:100%;margin:0;overflow:hidden;
   background:var(--desk);
-  background-image:repeating-linear-gradient(90deg,transparent 0 3px,var(--desk-line) 3px 4px),repeating-linear-gradient(0deg,transparent 0 3px,var(--desk-line) 3px 4px);
-  background-blend-mode:multiply;
   color:var(--ink);font-family:var(--font-ui);font-size:14px;
   -webkit-font-smoothing:antialiased;
 }
@@ -361,71 +359,101 @@ table.tbl{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5}
 .nextline{margin:2px 0 0;font-size:13.5px;line-height:1.6;color:var(--ink-soft);word-break:keep-all;border-top:1.5px dashed var(--rule);padding-top:10px}
 .nextline b{font:600 11px/1 var(--font-ui);letter-spacing:.06em;color:var(--teal);margin-right:8px}
 .text h2{word-break:keep-all}
-
 /* ---------- 책장 (책 고르기) ---------- */
 .top-actions{display:flex;gap:8px;flex:none}
-.shelf{height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.shelf{height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--desk)}
 .shelf-inner{
-  max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:22px;
+  max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:20px;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
-  padding-block:26px 40px;
+  padding-block:28px 32px;
 }
 .shelf-head{display:flex;flex-direction:column;gap:8px}
-.shelf-kicker{margin:0;font:600 12px/1.2 var(--font-ui);letter-spacing:.08em;color:var(--teal)}
-.shelf h1{margin:0;font-family:var(--font-display);font-weight:400;font-size:clamp(30px,6vw,44px);line-height:1.12;color:var(--ink);text-wrap:balance}
-.shelf-sub{margin:0;font-family:var(--font-story);font-size:16px;line-height:1.7;color:var(--ink);word-break:keep-all;max-width:38em}
-.shelf-books{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px}
-.bookcard{
-  position:relative;display:flex;flex-direction:column;gap:14px;min-width:0;
-  background:var(--paper);border-radius:3px 12px 12px 3px;padding:20px 20px 20px 28px;
-  box-shadow:3px 3px 0 -1px #EAE9E0,6px 6px 0 -2px #E1E0D6,0 22px 40px -16px rgba(35,48,94,.4);
+.shelf-kicker{margin:0;font:600 12px/1.2 var(--font-ui);letter-spacing:.06em;color:var(--teal)}
+.shelf h1{margin:0;font-family:var(--font-display);font-weight:400;font-size:clamp(26px,3.6vw,38px);line-height:1.18;color:var(--ink);text-wrap:balance}
+.shelf-sub{margin:0;font-size:15px;line-height:1.6;color:var(--ink-soft)}
+#shelf h1,#shelf h2,#shelf p{word-break:keep-all}
+
+/* 나무 책장: 옆판과 윗판, 바닥 선반 */
+.case{
+  --wood:#A87D4F;--wood-dark:#8C6640;
+  position:relative;background:#E4DDCF;
+  border:12px solid var(--wood);border-bottom:0;border-radius:8px 8px 0 0;
+  box-shadow:inset 0 10px 18px -10px rgba(60,40,20,.35),inset 10px 0 14px -12px rgba(60,40,20,.3),inset -10px 0 14px -12px rgba(60,40,20,.3);
+  padding:22px 18px 0;
 }
-.bookcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:20px;border-radius:3px 0 0 3px;background:linear-gradient(90deg,rgba(35,48,94,.18),rgba(35,48,94,0));pointer-events:none}
-.bookcard .plate{width:100%;height:auto;aspect-ratio:8/5}
-.bookcard .vol{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font:500 12px/1.2 var(--font-ui);color:var(--ink-soft)}
-.bookcard .volno{font-weight:600;letter-spacing:.06em;color:var(--teal)}
-.bookcard .subject{font:600 13px/1 var(--font-ui);color:#fff;background:var(--ink);border-radius:999px;padding:6px 11px}
-.bookcard .lbl{margin:2px 0 -8px;font:600 11px/1.2 var(--font-ui);letter-spacing:.08em;color:var(--teal)}
-.bookcard .learn{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:4px}
-.bookcard .learn li{font-size:13.5px;line-height:1.6;word-break:keep-all;color:var(--ink)}
-.bookcard .learn li::marker{color:var(--teal)}
-.bookcard .who{margin:0;font-size:13.5px;line-height:1.6;word-break:keep-all;color:var(--ink)}
-.bookcard h2{margin:0;font-family:var(--font-display);font-weight:400;font-size:27px;line-height:1.18;color:var(--ink);text-wrap:balance}
-.bookcard .desc{margin:0;font-size:14.5px;line-height:1.7;word-break:keep-all;color:var(--ink)}
-.bookcard .meta{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
-.bookcard .meta li{font:500 12px/1 var(--font-ui);color:var(--ink-soft);border:1.5px solid var(--rule);border-radius:999px;padding:6px 10px;background:#fff}
-.bookcard .actions{margin-top:auto}
-.shelf-foot{margin:0;font-size:12.5px;line-height:1.6;color:var(--ink-soft)}
+.case::after{
+  content:"";display:block;height:20px;margin:0 -30px;
+  background:linear-gradient(180deg,#B88B5A,var(--wood) 40%,var(--wood-dark));
+  border-radius:0 0 6px 6px;box-shadow:0 14px 24px -14px rgba(60,40,20,.55);
+}
+.shelf-books{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;align-items:stretch}
+
+/* 책 한 권 */
+.book{
+  position:relative;display:flex;flex-direction:column;min-width:0;
+  background:var(--paper);border-radius:3px 8px 0 0;overflow:hidden;
+  box-shadow:0 1px 0 rgba(35,48,94,.08),4px 0 0 -1px #DCD6C8,8px -2px 14px -8px rgba(60,40,20,.35);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:9px;background:var(--bc);z-index:2}
+.book::after{content:"";position:absolute;left:9px;top:0;bottom:0;width:5px;background:linear-gradient(90deg,rgba(0,0,0,.08),rgba(0,0,0,0));pointer-events:none;z-index:2}
+.book{cursor:pointer}
+.book:hover{transform:translateY(-6px)}
+.book .cover{padding:12px 12px 0 21px}
+.book .plate{margin:0;width:100%;height:auto;aspect-ratio:8/5;border-radius:6px}
+.book .info{display:flex;flex-direction:column;gap:7px;padding:12px 14px 16px 21px;flex:1;min-width:0}
+.book .vol{margin:0;display:flex;align-items:center;gap:7px;flex-wrap:wrap;font:600 11.5px/1 var(--font-ui);color:var(--ink-soft)}
+.book .subject{font:600 12px/1 var(--font-ui);color:#fff;background:var(--bc);border-radius:999px;padding:5px 9px}
+.book h2{margin:2px 0 0;font-family:var(--font-display);font-weight:400;font-size:21px;line-height:1.22;color:var(--ink);text-wrap:balance}
+.book .topic{margin:-2px 0 0;font:500 12px/1.4 var(--font-ui);color:var(--bc)}
+.book .desc{margin:0;font-size:13.5px;line-height:1.6;color:var(--ink)}
+.book .meta{margin:0;font:500 11.5px/1.3 var(--font-ui);color:var(--ink-soft)}
+.book .actions{margin-top:auto;padding-top:6px;display:flex;gap:6px;flex-wrap:wrap}
+.book .actions .solid{padding:9px 14px;font-size:13px}
+.book .actions .ghost{padding:9px 10px;font-size:12px}
+
+.shelf-foot{margin:0;font-size:12px;line-height:1.6;color:var(--ink-soft)}
 .shelf-foot a{color:var(--ink-soft)}
 #root{height:100%}
 
-#shelf h1,#shelf h2,#shelf p{word-break:keep-all}
-.path{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px;counter-reset:pth}
-.path li{position:relative;counter-increment:pth;display:flex;flex-direction:column;gap:3px;padding:10px 14px 10px 40px;background:#fff;border:1.5px solid var(--rule);border-radius:10px;min-width:0;flex:1 1 150px}
-.path li::before{content:counter(pth);position:absolute;left:11px;top:11px;width:21px;height:21px;border-radius:50%;background:var(--teal);color:#fff;font:600 12px/21px var(--font-ui);text-align:center}
-.path li + li::after{content:"";position:absolute;left:-19px;top:50%;width:9px;height:9px;border-top:2px solid var(--teal);border-right:2px solid var(--teal);transform:translateY(-50%) rotate(45deg)}
-.path b{font:600 14px/1.2 var(--font-ui);color:var(--ink)}
-.path span{font-size:12.5px;line-height:1.45;color:var(--ink-soft);word-break:keep-all}
-@media (max-width:719px){.path{flex-direction:column;gap:8px}.path li{flex:none}.path li + li::after{display:none}}
+/* 좁은 화면: 책을 눕혀 한 줄씩 */
+@media (max-width:899px){
+  .shelf-books{grid-template-columns:1fr;gap:12px}
+  .case{padding:14px 12px 14px}
+  .case::after{margin:14px -24px 0}
+  .book{flex-direction:row;border-radius:3px 8px 8px 3px}
+  .book:hover{transform:none}
+  .book .cover{flex:0 0 38%;max-width:240px;padding:12px 0 12px 21px;align-self:flex-start}
+  .book .info{padding:12px 14px 14px}
+  .book h2{font-size:19px}
+  .book .meta{display:none}
+}
+@media (max-width:479px){
+  .shelf-inner{gap:16px;padding-block:20px 24px}
+  .shelf-sub{font-size:14px}
+  .book .cover{flex-basis:32%;padding:10px 0 10px 19px}
+  .book .info{gap:5px;padding:10px 12px 12px}
+  .book .topic,.book .actions .solid{display:none}
+  .book .actions{padding-top:2px}
+  .book .actions:empty{display:none}
+  .book .desc{font-size:13px;line-height:1.5}
+  .book h2{font-size:17.5px}
+  .book .info::after{content:"읽기 →";align-self:flex-start;margin-top:2px;font:600 12px/1 var(--font-ui);color:var(--bc)}
+}
 </style>
 </head>
 <body>
 <div class="shelf" id="shelf">
   <div class="shelf-inner">
     <header class="shelf-head">
-      <p class="shelf-kicker">AI와 함께 만드는 사람을 위한 책장</p>
-      <h1>그림책으로 시작해서, 교과서로 깊어지는 다섯 권</h1>
-      <p class="shelf-sub">다섯 권 모두 1부는 그림책, 2부는 움직이는 도식으로 읽는 교과서예요. 처음이라면 첫째 권부터 차례로 읽기를 권해요.</p>
-      <ol class="path" aria-label="읽는 순서">
-        <li><b>CS 기초</b><span>컴퓨터가 일하는 원리를 알고</span></li>
-        <li><b>연결 기초</b><span>시스템을 잇는 길목을 이해하고</span></li>
-        <li><b>AI 기초</b><span>AI를 다루는 기본기를 익히고</span></li>
-        <li><b>AI 제품의 속</b><span>AI 기능이 만들어지는 구조를 보고</span></li>
-        <li><b>AI 하네스</b><span>AI에게 일을 믿고 맡겨요</span></li>
-      </ol>
+      <p class="shelf-kicker">IT · AI 프로덕트를 처음 만드는 사람을 위한 책장</p>
+      <h1>그림책으로 살펴보는 시스템 및 AI에 대한 이해</h1>
+      <p class="shelf-sub">다섯 권 모두 1부는 그림책, 2부는 조금 더 심화버전의 도식화 문서입니다.</p>
     </header>
-    <div class="shelf-books" id="shelfBooks"></div>
-    <p class="shelf-foot">원작: <a href="https://github.com/jedikim/cs-foundations" target="_blank" rel="noopener">개발의 기초</a> (Jedi Kim, CC0) · <a href="https://textbook-web-production.up.railway.app/" target="_blank" rel="noopener">아빠도, 엄마도 AI</a> · <a href="https://github.com/walkinglabs/learn-harness-engineering" target="_blank" rel="noopener">Learn Harness Engineering</a> (walkinglabs, MIT)</p>
+    <div class="case">
+      <div class="shelf-books" id="shelfBooks"></div>
+    </div>
+    <p class="shelf-foot">원작: <a href="https://github.com/jedikim/cs-foundations" target="_blank" rel="noopener">개발의 기초</a> (Jedi Kim, CC0) · <a href="https://textbook-web-production.up.railway.app/" target="_blank" rel="noopener">아빠도, 엄마도 AI</a> · <a href="https://github.com/walkinglabs/learn-harness-engineering" target="_blank" rel="noopener">Learn Harness Engineering</a> (walkinglabs, MIT) · 둘째 권과 넷째 권은 새로 썼어요.</p>
   </div>
 </div>
 <div id="root" hidden></div>
@@ -5937,27 +5965,27 @@ if (resume && saved && saved > 0 && saved < N && start === null){
 
 /* ---------- 책장: 책 고르기 ---------- */
 var SHELF = [
-  { key: 'cs', vol: '첫째 권', subject: 'CS 기초', subjectSub: '컴퓨터가 일하는 원리', title: '떡볶이 주문의 여행',
+  { key: 'cs', color: '#168A82', blurb: '배달 앱의 주문 한 건을 따라가며 컴퓨터, 인터넷, 서버, 데이터베이스가 하는 일을 봐요.', vol: '첫째 권', subject: 'CS 기초', subjectSub: '컴퓨터가 일하는 원리', title: '떡볶이 주문의 여행',
     what: 'CS는 컴퓨터 과학(Computer Science)의 줄임말이에요. 프로그램이 컴퓨터와 인터넷에서 실제로 어떻게 움직이는지에 대한 기본기예요.',
     learn: ['컴퓨터, 인터넷, 서버, 데이터베이스가 하는 일', '코드가 실행되고, 저장되고, 배포되는 과정', 'AI가 만든 결과를 확인하고 문제를 좁히는 눈'],
     who: 'AI로 무언가 만들기 시작했는데 용어와 원리가 낯선 분',
     meta: ['그림책 15쪽', '교과서 14장'] },
-  { key: 'net', vol: '둘째 권', subject: '연결 기초', subjectSub: '시스템과 시스템을 잇는 길목', title: '지점이 백 개가 되면',
+  { key: 'net', color: '#3F5FA8', blurb: '서버가 여러 시스템과 이어질 때 쓰는 프록시, 게이트웨이, 웹훅, 카프카를 다뤄요.', vol: '둘째 권', subject: '연결 기초', subjectSub: '시스템과 시스템을 잇는 길목', title: '지점이 백 개가 되면',
     what: '서버 한 대를 넘어 여러 시스템이 이어질 때 쓰는 장치들을 다뤄요. 프록시, 리버스 프록시, API 게이트웨이, IP ACL, 웹훅, 카프카가 왜 생겼고 어떻게 동작하는지 배워요.',
     learn: ['길목의 종류와 차이, 길목이 내는 상태 코드', '출입 통제, 웹훅 검증, 카프카의 순서와 중복', '타임아웃, 재시도, 추적으로 장애 구간 좁히기'],
     who: '연동 회의에서 용어는 들었는데 정확한 차이와 동작이 궁금했던 분. 연동 설계를 다루는 깊은 내용이에요.',
     meta: ['그림책 10쪽', '교과서 9장'] },
-  { key: 'ai', vol: '셋째 권', subject: 'AI 기초', subjectSub: 'AI를 다루는 기본기', title: '책벌레 신입사원 루미',
+  { key: 'ai', color: '#B87A12', blurb: '생성형 AI에게 일을 시키고, 결과를 확인하고, 안전하게 쓰는 기본기를 익혀요.', vol: '셋째 권', subject: 'AI 기초', subjectSub: 'AI를 다루는 기본기', title: '책벌레 신입사원 루미',
     what: 'ChatGPT, Claude 같은 생성형 AI가 무엇을 잘하고 무엇을 못하는지, 어떻게 일을 시키고 결과를 확인하는지 배워요.',
     learn: ['좋은 지시문의 네 가지 요소와 검수하는 법', 'AI의 기억력, 자료 첨부, 역할 분담', '에이전트, 도구, MCP 같은 요즘 용어와 안전 수칙'],
     who: 'AI를 써 보긴 했지만 답이 들쭉날쭉해서 답답했던 분',
     meta: ['그림책 12쪽', '교과서 9장'] },
-  { key: 'llm', vol: '넷째 권', subject: 'AI 제품의 속', subjectSub: 'AI 기능이 만들어지는 구조', title: '루미, 고객센터에 앉다',
+  { key: 'llm', color: '#C2475A', blurb: '챗봇 하나를 설계하며 토큰, RAG, 도구 호출, 에이전트가 왜 필요한지 따라가요.', vol: '넷째 권', subject: 'AI 제품의 속', subjectSub: 'AI 기능이 만들어지는 구조', title: '루미, 고객센터에 앉다',
     what: 'AI를 쓰는 법이 아니라 AI 기능을 만드는 구조를 다뤄요. 고객센터 챗봇 하나를 설계하면서 토큰, 컨텍스트 창, RAG, 도구 호출, 에이전트, 가드레일이 왜 필요한지 따라가요.',
     learn: ['모델 호출의 구조와 토큰, 컨텍스트 창, 환각의 원인', 'RAG와 파인튜닝의 차이, 도구 호출과 에이전트', '가드레일, 응답 시간과 비용이 정해지는 방식'],
     who: '기술을 직접 다루지 않지만 AI 기능을 기획하고 개발팀과 이야기해야 하는 분',
     meta: ['그림책 12쪽', '교과서 10장'] },
-  { key: 'harness', vol: '다섯째 권', subject: 'AI 하네스', subjectSub: 'AI에게 일을 믿고 맡기는 설계', title: '번개와 다섯 가지 장비',
+  { key: 'harness', color: '#6B4E9B', blurb: 'AI 코딩 에이전트에게 긴 일을 믿고 맡기기 위한 지시, 도구, 점검 장치를 배워요.', vol: '다섯째 권', subject: 'AI 하네스', subjectSub: 'AI에게 일을 믿고 맡기는 설계', title: '번개와 다섯 가지 장비',
     what: '하네스(harness)는 말에게 채우는 장비라는 뜻이에요. AI 코딩 에이전트가 엉뚱한 길로 가지 않도록 둘러 주는 지시, 도구, 점검 장치를 통틀어 이렇게 불러요.',
     learn: ['똑똑한 AI가 일을 그르치는 이유', '번개에게 채워 주는 다섯 가지 장비와 쓰임', '긴 작업을 끝까지 맡기는 하네스 설계'],
     who: 'AI에게 코딩을 맡겨 봤는데 끝까지 믿고 맡기기 어려웠던 분',
@@ -5980,21 +6008,24 @@ function openShelf(){
   rootEl.innerHTML = '';
   rootEl.hidden = true;
   shelfEl.hidden = false;
-  document.title = 'AI 개발 책장';
+  document.title = '시스템과 AI 책장';
   try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
   shelfEl.scrollTop = 0;
 }
 document.getElementById('shelfBooks').innerHTML = SHELF.map(function(b){
   var def = getDef(b.key), saved = 0;
   try { saved = parseInt(localStorage.getItem(def.cfg.id + '-page') || '', 10) || 0; } catch (e) {}
-  return '<article class="bookcard"><figure class="plate play" style="margin:0">' + def.scenes[0]() + '</figure>' +
-    '<p class="vol"><span class="volno">' + b.vol + '</span><span class="subject">' + b.subject + '</span><span class="subsub">' + b.subjectSub + '</span></p>' +
-    '<h2>' + b.title + '</h2><p class="desc">' + b.what + '</p>' +
-    '<p class="lbl">배우는 것</p><ul class="learn">' + b.learn.map(function(m){ return '<li>' + m + '</li>'; }).join('') + '</ul>' +
-    '<p class="lbl">이런 분께</p><p class="who">' + b.who + '</p>' +
-    '<ul class="meta">' + b.meta.map(function(m){ return '<li>' + m + '</li>'; }).join('') + '</ul>' +
-    '<div class="actions"><button class="solid" type="button" data-book="' + b.key + '">' + (saved > 0 ? '이어서 읽기' : '읽기 시작') + '</button>' +
-    (saved > 0 ? '<button class="ghost" type="button" data-book="' + b.key + '" data-first="1">처음부터</button>' : '') + '</div></article>';
+  return '<article class="book" data-book="' + b.key + '" style="--bc:' + b.color + '">' +
+    '<div class="cover"><figure class="plate play">' + def.scenes[0]() + '</figure></div>' +
+    '<div class="info">' +
+      '<p class="vol"><span class="volno">' + b.vol + '</span><span class="subject">' + b.subject + '</span></p>' +
+      '<h2>' + b.title + '</h2>' +
+      '<p class="topic">' + b.subjectSub + '</p>' +
+      '<p class="desc">' + b.blurb + '</p>' +
+      '<p class="meta">' + b.meta.join(' · ') + '</p>' +
+      '<div class="actions"><button class="solid" type="button" data-book="' + b.key + '">' + (saved > 0 ? '이어서 읽기' : '읽기 시작') + '</button>' +
+      (saved > 0 ? '<button class="ghost" type="button" data-book="' + b.key + '" data-first="1">처음부터</button>' : '') + '</div>' +
+    '</div></article>';
 }).join('');
 document.addEventListener('click', function(e){
   var t = e.target.closest ? e.target.closest('[data-book],#shelfBtn') : null;
