@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23168A82%27/%3E%3Cpath d=%27M36 8 L16 36 H30 L26 56 L48 26 H34 Z%27 fill=%27%23F2B630%27 stroke=%27%2323305E%27 stroke-width=%273%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
-<meta name="description" content="AI와 함께 만드는 사람을 위한 두 권의 웹북. 컴퓨터 과학 기초와 하네스 엔지니어링을 그림책과 도식 교과서로 읽어요.">
+<meta name="description" content="AI와 함께 만드는 사람을 위한 세 권의 웹북. CS 기초, AI 기초, AI 하네스를 그림책과 도식 교과서로 읽어요.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="AI 개발 책장">
-<meta property="og:description" content="AI와 함께 만드는 사람을 위한 두 권의 웹북. 컴퓨터 과학 기초와 하네스 엔지니어링을 그림책과 도식 교과서로 읽어요.">
+<meta property="og:description" content="AI와 함께 만드는 사람을 위한 세 권의 웹북. CS 기초, AI 기초, AI 하네스를 그림책과 도식 교과서로 읽어요.">
 <meta property="og:url" content="https://notadev-iamaura.github.io/harness-book/">
 <meta property="og:image" content="https://notadev-iamaura.github.io/harness-book/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -353,11 +353,20 @@ table.tbl{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5}
   .plate *{animation:none!important}
 }
 
+/* 그림책: 지금 위치 표시와 다음 쪽 예고 */
+.legs{list-style:none;margin:0 0 2px;padding:0;display:flex;flex-wrap:wrap;gap:4px 5px;align-items:center}
+.legs li{font:500 11px/1 var(--font-ui);color:var(--ink-soft);padding:5px 8px;border-radius:999px;border:1.5px solid var(--rule);background:#fff;white-space:nowrap}
+.legs li.done{color:var(--teal);border-color:#BFE0DB;background:#EEF7F5}
+.legs li.on{color:#fff;background:var(--teal);border-color:var(--teal);font-weight:600}
+.nextline{margin:2px 0 0;font-size:13.5px;line-height:1.6;color:var(--ink-soft);word-break:keep-all;border-top:1.5px dashed var(--rule);padding-top:10px}
+.nextline b{font:600 11px/1 var(--font-ui);letter-spacing:.06em;color:var(--teal);margin-right:8px}
+.text h2{word-break:keep-all}
+
 /* ---------- 책장 (책 고르기) ---------- */
 .top-actions{display:flex;gap:8px;flex:none}
 .shelf{height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .shelf-inner{
-  max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px;
+  max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:22px;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
   padding-block:26px 40px;
 }
@@ -373,7 +382,14 @@ table.tbl{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5}
 }
 .bookcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:20px;border-radius:3px 0 0 3px;background:linear-gradient(90deg,rgba(35,48,94,.18),rgba(35,48,94,0));pointer-events:none}
 .bookcard .plate{width:100%;height:auto;aspect-ratio:8/5}
-.bookcard .vol{margin:0;font:600 12px/1.2 var(--font-ui);letter-spacing:.06em;color:var(--teal)}
+.bookcard .vol{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font:500 12px/1.2 var(--font-ui);color:var(--ink-soft)}
+.bookcard .volno{font-weight:600;letter-spacing:.06em;color:var(--teal)}
+.bookcard .subject{font:600 13px/1 var(--font-ui);color:#fff;background:var(--ink);border-radius:999px;padding:6px 11px}
+.bookcard .lbl{margin:2px 0 -8px;font:600 11px/1.2 var(--font-ui);letter-spacing:.08em;color:var(--teal)}
+.bookcard .learn{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:4px}
+.bookcard .learn li{font-size:13.5px;line-height:1.6;word-break:keep-all;color:var(--ink)}
+.bookcard .learn li::marker{color:var(--teal)}
+.bookcard .who{margin:0;font-size:13.5px;line-height:1.6;word-break:keep-all;color:var(--ink)}
 .bookcard h2{margin:0;font-family:var(--font-display);font-weight:400;font-size:27px;line-height:1.18;color:var(--ink);text-wrap:balance}
 .bookcard .desc{margin:0;font-size:14.5px;line-height:1.7;word-break:keep-all;color:var(--ink)}
 .bookcard .meta{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
@@ -384,6 +400,13 @@ table.tbl{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5}
 #root{height:100%}
 
 #shelf h1,#shelf h2,#shelf p{word-break:keep-all}
+.path{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 26px;counter-reset:pth}
+.path li{position:relative;counter-increment:pth;display:flex;flex-direction:column;gap:3px;padding:10px 14px 10px 40px;background:#fff;border:1.5px solid var(--rule);border-radius:10px;min-width:0;flex:1 1 200px}
+.path li::before{content:counter(pth);position:absolute;left:11px;top:11px;width:21px;height:21px;border-radius:50%;background:var(--teal);color:#fff;font:600 12px/21px var(--font-ui);text-align:center}
+.path li + li::after{content:"";position:absolute;left:-19px;top:50%;width:9px;height:9px;border-top:2px solid var(--teal);border-right:2px solid var(--teal);transform:translateY(-50%) rotate(45deg)}
+.path b{font:600 14px/1.2 var(--font-ui);color:var(--ink)}
+.path span{font-size:12.5px;line-height:1.45;color:var(--ink-soft);word-break:keep-all}
+@media (max-width:719px){.path{flex-direction:column;gap:8px}.path li{flex:none}.path li + li::after{display:none}}
 </style>
 </head>
 <body>
@@ -391,11 +414,16 @@ table.tbl{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5}
   <div class="shelf-inner">
     <header class="shelf-head">
       <p class="shelf-kicker">AI와 함께 만드는 사람을 위한 책장</p>
-      <h1>그림책으로 시작해서, 교과서로 깊어지는 두 권</h1>
-      <p class="shelf-sub">두 권 모두 1부는 그림책, 2부는 움직이는 도식으로 읽는 교과서예요. 읽고 싶은 책을 골라 주세요.</p>
+      <h1>그림책으로 시작해서, 교과서로 깊어지는 세 권</h1>
+      <p class="shelf-sub">세 권 모두 1부는 그림책, 2부는 움직이는 도식으로 읽는 교과서예요. 처음이라면 첫째 권부터 차례로 읽기를 권해요.</p>
+      <ol class="path" aria-label="읽는 순서">
+        <li><b>CS 기초</b><span>컴퓨터가 일하는 원리를 알고</span></li>
+        <li><b>AI 기초</b><span>AI를 다루는 기본기를 익히고</span></li>
+        <li><b>AI 하네스</b><span>AI에게 일을 믿고 맡겨요</span></li>
+      </ol>
     </header>
     <div class="shelf-books" id="shelfBooks"></div>
-    <p class="shelf-foot">원작: <a href="https://github.com/jedikim/cs-foundations" target="_blank" rel="noopener">개발의 기초</a> (Jedi Kim, CC0) · <a href="https://github.com/walkinglabs/learn-harness-engineering" target="_blank" rel="noopener">Learn Harness Engineering</a> (walkinglabs, MIT)</p>
+    <p class="shelf-foot">원작: <a href="https://github.com/jedikim/cs-foundations" target="_blank" rel="noopener">개발의 기초</a> (Jedi Kim, CC0) · <a href="https://textbook-web-production.up.railway.app/" target="_blank" rel="noopener">아빠도, 엄마도 AI</a> · <a href="https://github.com/walkinglabs/learn-harness-engineering" target="_blank" rel="noopener">Learn Harness Engineering</a> (walkinglabs, MIT)</p>
   </div>
 </div>
 <div id="root" hidden></div>
@@ -1380,7 +1408,7 @@ function hd(name, label){ return { label: label, url: REPO + '/blob/main/docs/ko
 
 /* ---------- 쪽 내용 ---------- */
 var pages = [
-  { type: 'cover', title: '표지', kicker: '그림책으로 읽는 하네스 엔지니어링', h1: '번개와<br>다섯 가지 <em>장비</em>',
+  { type: 'cover', title: '표지', kicker: 'AI 하네스 · 그림책으로 읽는 하네스 엔지니어링', h1: '번개와<br>다섯 가지 <em>장비</em>',
     lead: 'AI 코딩 에이전트에게 일을 믿고 맡기려면 무엇이 필요할까요? 힘센 말 ‘번개’와 번개를 돌보는 아이 ‘하나’의 이야기로 따라가 봐요.',
     legend: '<b class="teal">청록색</b>으로 그린 것은 모두 번개의 장비, 즉 하네스예요.',
     credit: '원작 강의: <a href="' + REPO + '" target="_blank" rel="noopener">Learn Harness Engineering</a> (walkinglabs, MIT 라이선스)' },
@@ -1887,10 +1915,6 @@ return { cfg: { title: '번개와 다섯 가지 장비', id: 'harness-book', has
   scenes: scenes, pages: pages, CHECKS: CHECKS, CORE: CORE };
 };
 /* ================= 둘째 책: 떡볶이 주문의 여행 (원작: 개발의 기초, Jedi Kim, CC0) ================= */
-BOOKS.cs = function(){
-var SRC = 'https://jedikim.github.io/cs-foundations/';
-function ch(n){ return { label: n + '장', url: SRC + 'ch' + (n < 10 ? '0' + n : n) + '.html' }; }
-
 /* ---------- 이 책의 그림 부품 ---------- */
 /* 주문 쪽지 '또또' */
 function toto(x, y, s, o){
@@ -1961,6 +1985,11 @@ function tbl(x, y, title, widths, rows, hi){
   });
   return s;
 }
+
+
+BOOKS.cs = function(){
+var SRC = 'https://jedikim.github.io/cs-foundations/';
+function ch(n){ return { label: n + '장', url: SRC + 'ch' + (n < 10 ? '0' + n : n) + '.html' }; }
 
 /* ---------- 장면 ---------- */
 var scenes = [
@@ -2505,137 +2534,184 @@ var scenes = [
 
 /* ---------- 쪽 내용 ---------- */
 var pages = [
-  { type: 'cover', title: '표지', kicker: '그림책으로 읽는 컴퓨터 과학 기초', h1: '떡볶이 주문의<br><em>여행</em>',
+  { type: 'cover', title: '표지', kicker: 'CS 기초 · 그림책으로 읽는 컴퓨터 과학', h1: '떡볶이 주문의<br><em>여행</em>',
     lead: '배달 앱에서 “주문하기”를 누르면 1초도 안 돼 “접수되었습니다”가 떠요. 그 짧은 사이에 무슨 일이 일어날까요? 주문 쪽지 ‘또또’를 따라가 봐요.',
     legend: '<b class="teal">청록색</b> 점선은 또또가 지나가는 길이에요.',
     credit: '원작: <a href="' + SRC + '" target="_blank" rel="noopener">개발의 기초</a> (Jedi Kim, CC0)의 1~5부를 다시 엮었어요.' },
 
-  { chapter: '여행의 시작', title: '“주문하기”를 눌렀어요',
-    story: ['하나가 배달 앱에서 떡볶이를 골라 “주문하기”를 눌렀어요. 그 순간 작은 주문 쪽지 ‘또또’가 태어났어요.',
-            '“떡볶이 1인분이요! 금방 다녀올게요.”',
-            '또또가 돌아오기까지 걸린 시간은 0.15초쯤. 그 사이에 또또는 아주 먼 길을 다녀와요.'],
+  { leg: 0, chapter: '여행의 시작', title: '“주문하기”를 눌렀어요',
+    story: ['점심시간, 하나가 배달 앱에서 떡볶이를 골라 “주문하기”를 눌렀어요. 그 순간 스마트폰 안에서 작은 주문 쪽지 ‘또또’가 태어났어요.',
+            '또또의 몸에는 “떡볶이 1인분, 4,000원”이라고 적혀 있어요. 이 내용을 분식집에 전하고, 대답을 받아 돌아오는 것이 또또의 일이에요.',
+            '길은 네 구간이에요. <b>스마트폰</b> 안에서 떠날 준비를 하고, <b>인터넷</b>을 건너, <b>분식집 서버</b>에 주문을 전한 다음, 왔던 길로 <b>돌아와요</b>.',
+            '떠나기 전에는 이 앱을 만든 사람들의 <b>작업실</b>도 잠깐 들여다볼 거예요. 길이 왜 이렇게 생겼는지 알 수 있거든요.',
+            '하나가 기다리는 시간은 0.15초쯤이에요. 그 짧은 사이에 벌어지는 일을 천천히 늘려서 따라가 봐요.'],
     note: ['앱이 서버에 보내는 부탁을 <b>요청</b>, 돌아오는 대답을 <b>응답</b>이라고 해요.',
            '0.15초의 대부분은 계산이 아니라 인터넷을 오가는 데 쓰여요. 그래서 느린 프로그램은 오가는 횟수부터 줄여요.',
-           '이 길의 어디에서든 일이 잘못될 수 있어요. 잘 만든 프로그램은 잘 안 될 때 티가 나요.'],
+           '이 길의 어디에서든 일이 잘못될 수 있어요. 어디에서 잘못됐는지 가리려면 길 전체를 알아야 해요.'],
+    next: '또또가 태어난 곳, 스마트폰 안부터 둘러봐요.',
     refs: [ch(0)] },
-  { chapter: '첫 번째 정거장', title: '스마트폰 속 작은 주방',
-    story: ['스마트폰 안은 분식집 주방을 닮았어요.',
-            '요리사는 레시피를 한 줄씩 읽으며 일해요. 조리대에는 지금 쓰는 재료를 펼쳐 두고, 창고에는 나머지를 오래 보관해요.',
-            '창고가 아무리 커도 조리대가 좁으면, 한 번에 만들 수 있는 음식은 늘지 않아요.'],
+  { leg: 0, chapter: '첫 번째 정거장', title: '스마트폰 속 작은 주방',
+    story: ['또또가 눈을 떠 보니 스마트폰 안이었어요. 그런데 이곳은 분식집 주방을 꼭 닮았어요.',
+            '한가운데에는 <b>요리사</b>가 있어요. 레시피를 한 줄씩 읽고 그대로 해내요. 앱이 하는 모든 계산은 이 요리사가 해요.',
+            '요리사 앞에는 <b>조리대</b>가 있어요. 지금 만드는 요리의 재료만 꺼내 펼쳐 두는 곳이에요. 또또도 방금 이 조리대 위에서 만들어졌어요.',
+            '벽 쪽에는 <b>창고</b>가 있어요. 당장 쓰지 않는 것을 오래 보관해요. 배달 앱도 평소에는 창고에 있다가, 하나가 앱을 켜는 순간 조리대로 올라왔어요.',
+            '창고가 아무리 커도 조리대가 좁으면 한 번에 만들 수 있는 음식은 늘지 않아요. 앱을 여러 개 켜 두면 스마트폰이 느려지는 까닭이에요.'],
     note: ['요리사는 <b>CPU</b>, 조리대는 <b>메모리(RAM)</b>, 창고는 <b>저장장치</b>예요.',
            '메모리는 “얼마나 보관하나”가 아니라 “한 번에 얼마나 펼쳐 놓고 일하나”를 정해요.',
            '전원을 끄면 메모리의 내용은 사라지고, 저장장치의 내용은 남아요.'],
+    next: '조리대 위의 또또는 무엇으로 적혀 있을까요? 더 가까이 들여다봐요.',
     refs: [ch(1)] },
-  { chapter: '두 번째 정거장', title: '모든 것은 스위치',
-    story: ['주방에 적힌 것들을 자세히 보니, 전부 켜짐과 꺼짐뿐인 작은 스위치였어요.',
-            '같은 스위치 줄도 읽는 약속에 따라 숫자가 되고, 글자가 되고, 그림이 돼요.',
-            '“아하, 나도 스위치로 적혀 있구나!” 또또가 말했어요.'],
+  { leg: 0, chapter: '두 번째 정거장', title: '모든 것은 스위치',
+    story: ['또또는 조리대에 놓인 자기 몸을 가만히 들여다봤어요. “떡볶이 1인분”이라는 글자가 적혀 있는 줄 알았는데, 가까이 보니 글자가 아니었어요.',
+            '아주 작은 스위치가 줄지어 있었어요. 켜져 있거나 꺼져 있거나, 둘 중 하나예요. 컴퓨터가 아는 것은 이것뿐이에요. 켜짐을 1, 꺼짐을 0이라고 불러요.',
+            '그러면 스위치로 어떻게 글자를 적을까요? 미리 <b>약속</b>을 해 두는 거예요. “이 모양으로 켜져 있으면 숫자 65”, “같은 줄을 글자로 읽으면 A” 하는 식으로요.',
+            '그래서 같은 스위치 줄도 읽는 약속에 따라 숫자가 되고, 글자가 되고, 사진 속 점 하나의 밝기가 돼요.',
+            '“아하, 나는 스위치로 적혀 있구나. 분식집도 같은 약속으로 읽어야 내 말을 알아듣겠네!”'],
     note: ['스위치 하나가 <b>비트</b>, 여덟 개 묶음이 <b>바이트</b>예요.',
-           '글자가 깨져 보여도 데이터는 멀쩡해요. 틀린 건 읽는 약속(인코딩)이에요.',
+           '글자가 깨져 보여도 데이터는 멀쩡해요. 틀린 것은 읽는 약속(인코딩)이에요.',
            '컴퓨터에서 0.1 + 0.2가 정확히 0.3이 아닌 것도 스위치로 소수를 적는 방식 때문이에요.'],
+    next: '또또가 떠나려면 요리사가 움직여 줘야 해요. 그런데 요리사가 무척 바빠 보여요.',
     refs: [ch(2)] },
-  { chapter: '세 번째 정거장', title: '주방을 돌리는 지배인',
-    story: ['요리사는 한 명인데 냄비는 여러 개예요. 그래서 요리사는 냄비 사이를 아주 빠르게 옮겨 다녀요.',
-            '누구 차례인지, 조리대의 어느 자리를 쓸지는 지배인이 정해요.',
-            '창고에 갈 때도 반드시 지배인을 거쳐야 해요.'],
+  { leg: 0, chapter: '세 번째 정거장', title: '주방을 돌리는 지배인',
+    story: ['또또는 얼른 떠나고 싶었어요. 그런데 요리사는 또또만 보고 있지 않았어요. 스마트폰에는 배달 앱 말고도 메신저와 음악이 함께 돌아가고 있었거든요.',
+            '요리사는 한 명인데 냄비는 여러 개예요. 그래서 요리사는 냄비 사이를 아주 빠르게 옮겨 다녀요. 너무 빨라서 밖에서는 모든 요리가 동시에 되는 것처럼 보여요.',
+            '누구 차례인지는 <b>지배인</b> 부엉이가 정해요. “다음은 2번 냄비!” 조리대의 어느 자리를 누가 쓸지도 지배인이 나눠 줘요. 그래야 앱끼리 서로의 재료를 건드리지 않아요.',
+            '또또가 물었어요. “저는 인터넷으로 나가야 하는데요?” 지배인이 대답했어요. “바깥으로 나가는 문은 내가 열어 줘야 해. 앱이 직접 열 수는 없단다.”',
+            '창고에서 꺼내는 일도, 화면에 그리는 일도, 인터넷으로 나가는 일도 모두 지배인을 거쳐요.'],
     note: ['지배인은 <b>운영체제</b>, 실행 중인 프로그램 하나하나는 <b>프로세스</b>예요.',
            '“동시에 실행된다”는 말은 대부분 아주 빠른 교대라는 뜻이에요.',
-           '프로그램이 파일이나 네트워크를 쓸 때는 운영체제에 부탁해요. 이걸 <b>시스템 호출</b>이라고 해요.',
+           '프로그램이 파일이나 네트워크를 쓸 때 운영체제에 하는 부탁을 <b>시스템 호출</b>이라고 해요.',
            '연 것은 닫아야 해요. 잘됐을 때뿐 아니라 실패했을 때도요.'],
+    next: '지배인이 문을 열어 주려면 앱이 먼저 부탁해야 해요. 그 부탁은 어디에 적혀 있을까요?',
     refs: [ch(3)] },
-  { chapter: '네 번째 정거장', title: '요리사는 한 가지 말만',
-    story: ['개발자가 쓴 레시피는 사람의 글이에요. 그런데 요리사는 0과 1로 된 말만 알아들어요.',
-            '그래서 번역기가 레시피를 요리사의 말로 옮겨 줘요.',
+  { leg: 0, chapter: '네 번째 정거장', title: '요리사는 한 가지 말만',
+    story: ['“주문하기를 누르면 쪽지를 만들어 분식집으로 보낸다.” 앱이 할 일은 모두 <b>레시피</b>에 적혀 있어요. 요리사는 이 레시피를 읽고 또또를 만들었고, 지배인에게 문을 열어 달라고 부탁해요.',
+            '레시피는 개발자가 썼어요. 사람이 읽고 쓰기 좋은 글로요. 그런데 요리사는 0과 1, 그러니까 스위치로 된 말만 알아들어요.',
+            '그래서 중간에 <b>번역기</b>가 있어요. 사람의 글로 쓴 레시피를 요리사의 말로 옮겨 줘요. 하나의 스마트폰에 깔린 앱은 이미 번역을 마친 레시피예요.',
+            '번역기는 문법이 틀린 문장을 바로 잡아내요. 하지만 “떡볶이 대신 순대를 보낸다”처럼 문법은 맞고 내용이 틀린 레시피는 그대로 옮겨요.',
             '번역이 잘 끝났다고 음식이 맛있다는 뜻은 아니에요. 먹어 봐야 알아요.'],
     note: ['레시피는 <b>코드</b>, 번역기는 <b>컴파일러</b>나 <b>인터프리터</b>예요.',
            '“오류 없이 만들어졌습니다”는 옮길 수 있었다는 뜻일 뿐이에요.',
            'AI가 그렇게 알려 와도 끝난 게 아니에요. 실제로 실행해서 결과를 눈으로 확인해요.'],
+    next: '이 레시피는 누가, 어디서 쓰고 고칠까요? 떠나기 전에 앱을 만든 곳을 들여다봐요.',
     refs: [ch(4)] },
-  { chapter: '잠깐, 앱을 만든 곳', title: '개발자의 작업대',
-    story: ['또또가 지나가는 이 앱은 누가 만들었을까요? 개발자의 작업대를 잠깐 들여다봐요.',
-            '개발자는 버튼을 누르는 대신 글로 명령을 내려요. 그리고 고칠 때마다 저장 지점을 남겨요.',
-            '고치다 망가지면, 잘 되던 저장 지점으로 돌아가면 되니까요.'],
+  { leg: 1, chapter: '다섯 번째 정거장', title: '개발자의 작업대',
+    story: ['또또는 레시피를 쓴 사람이 궁금해졌어요. 그래서 창문 너머로 개발자의 작업실을 들여다봤어요. 여기서부터 네 쪽은 앱을 만드는 사람들의 이야기예요.',
+            '작업대에는 버튼이 거의 없었어요. 개발자는 까만 창에 글로 명령을 적어요. “테스트 돌려 줘.” 그러면 컴퓨터가 결과를 글로 대답해요.',
+            '글로 시키면 좋은 점이 있어요. 똑같은 일을 몇 번이고 정확히 되풀이할 수 있고, 무엇을 시켰는지 기록이 남아요. AI가 개발을 도울 때도 이 창에서 명령을 실행해요.',
+            '개발자는 레시피를 고칠 때마다 <b>저장 지점</b>을 남겨요. 게임의 세이브와 같아요. 고치다가 앱이 망가지면 잘 되던 지점으로 돌아가면 돼요.',
+            '또또가 태어난 “주문하기” 기능도 이렇게 저장 지점을 하나씩 쌓으며 만들어졌어요.'],
     note: ['글로 명령하는 창이 <b>터미널</b>, 저장 지점을 쌓는 도구가 <b>Git</b>, 저장 지점 하나가 <b>커밋</b>이에요.',
            '“내 컴퓨터에서는 되는데요”는 작업 환경이 서로 다르다는 신호예요.',
            '화면에 찍힌 “완료”보다 종료 코드를 믿어요. 0이면 성공이에요.',
            'AI가 명령을 실행하려 할 때는 허용하기 전에 무엇을 하려는지 읽어요.'],
+    next: '레시피를 쓸 때 개발자가 먼저 정해야 하는 것이 있어요. 주문을 어디에, 어떻게 담아 둘까요?',
     refs: [ch(5), ch(6), ch(7)] },
-  { chapter: '다섯 번째 정거장', title: '알맞은 그릇, 빠른 길',
-    story: ['주방에 주문이 쌓이기 시작했어요. 주문 쪽지는 온 순서대로 줄을 서요.',
-            '메뉴 가격은 이름표가 붙은 서랍에 넣어 둬요. 이름표만 보면 바로 찾을 수 있어요.',
-            '무엇을 가장 자주 하느냐에 따라 알맞은 그릇이 달라요.'],
+  { leg: 1, chapter: '여섯 번째 정거장', title: '알맞은 그릇, 빠른 길',
+    story: ['개발자는 레시피에 이런 것도 정해 둬야 해요. 또또 같은 주문 쪽지가 한꺼번에 많이 오면, 어디에 어떻게 담아 둘까요?',
+            '주문 쪽지는 <b>줄</b>을 세워요. 먼저 온 쪽지가 먼저 나가요. 순서가 중요한 일에는 줄이 알맞아요.',
+            '메뉴 가격은 <b>이름표가 붙은 서랍</b>에 넣어 둬요. “떡볶이” 서랍을 열면 바로 4,000원이 나와요. 처음부터 하나씩 뒤질 필요가 없어요.',
+            '가격을 줄에 세워 두었다면 어땠을까요? 떡볶이 가격을 찾으려고 맨 앞부터 하나씩 확인해야 해요. 메뉴가 열 개면 괜찮지만, 만 개면 한참 걸려요.',
+            '그래서 개발자는 먼저 물어요. “이 데이터로 무엇을 가장 자주 할까?” 그 답에 따라 알맞은 그릇이 달라져요.'],
     note: ['데이터를 담는 그릇이 <b>자료구조</b>, 문제를 푸는 방법이 <b>알고리즘</b>이에요.',
            '줄 서기는 <b>큐</b>, 이름표 서랍은 <b>해시 맵</b>이에요. 만능 그릇은 없어요.',
            '알고리즘의 빠르기는 몇 초가 아니라, 데이터가 늘 때 걸음 수가 어떻게 늘어나는지로 말해요.'],
+    next: '쪽지가 차례대로만 오면 좋겠지만, 점심시간에는 그렇지 않아요.',
     refs: [ch(8), ch(9)] },
-  { chapter: '여섯 번째 정거장', title: '한꺼번에 몰려든 주문',
-    story: ['점심시간이 되자 주문이 몰려들었어요. 떡볶이는 딱 1인분 남았어요.',
-            '두 쪽지가 동시에 확인했어요. “1인분 있네, 내 거!” “1인분 있네, 내 거!”',
-            '둘 다 맞게 확인했는데, 떡볶이는 한 접시뿐이에요.'],
+  { leg: 1, chapter: '일곱 번째 정거장', title: '한꺼번에 몰려든 주문',
+    story: ['개발자가 미리 걱정해 둔 장면이 하나 더 있어요. 주문이 한꺼번에 몰리는 점심시간이에요.',
+            '떡볶이가 딱 1인분 남았어요. 그때 쪽지 두 장이 거의 같은 순간에 도착했어요.',
+            '첫 번째 쪽지가 확인했어요. “1인분 있네, 내 거!” 바로 그 순간 두 번째 쪽지도 확인했어요. “1인분 있네, 내 거!” 아직 아무도 가져가지 않았으니, 둘 다 틀리게 본 것은 아니에요.',
+            '문제는 <b>확인하고 나서 가져가기까지의 짧은 틈</b>이에요. 그 틈에 다른 쪽지가 끼어들면 한 접시가 두 번 팔려요.',
+            '그래서 개발자는 자물쇠를 달아요. 한 쪽지가 “확인하고 가져가기”를 끝낼 때까지 다른 쪽지는 잠깐 기다려요. 이제 한 접시는 한 번만 팔려요.'],
     note: ['프로그램이 기억하고 있는 값을 <b>상태</b>라고 해요. 남은 떡볶이 수가 상태예요.',
-           '둘이 같은 값을 동시에 고쳐서 생기는 사고가 <b>경쟁 상태</b>예요.',
+           '둘이 같은 값을 동시에 고쳐서 생기는 사고가 <b>경쟁 상태</b>, 자물쇠가 <b>락</b>이에요.',
            '재료는 두 가지예요. 함께 쓰는 값, 그리고 확인과 변경 사이의 틈. 하나를 없애면 사라져요.',
            '프로그램이 느리면 먼저 물어요. 지금 기다리는 중인가, 계산하는 중인가?'],
+    next: '이렇게 꼼꼼히 만들어도 실수는 생겨요. 그럴 때는 어떻게 찾아낼까요?',
     refs: [ch(10), ch(11)] },
-  { chapter: '일곱 번째 정거장', title: '버그 수사',
-    story: ['쿠폰을 쓰면 결제가 실패한다는 신고가 들어왔어요. 탐정 여우가 나섰어요.',
-            '여우는 아무 데나 찍지 않아요. 똑같이 다시 일으켜 보고, 남은 발자국을 읽고, 범위를 절반씩 좁혀요.',
-            '범인을 잡은 뒤에는 경보기를 달아요. 같은 버그가 돌아오면 바로 울리도록요.'],
+  { leg: 1, chapter: '여덟 번째 정거장', title: '버그 수사',
+    story: ['아무리 조심해도 레시피에는 실수가 숨어들어요. 프로그램의 이런 실수를 <b>버그</b>라고 해요.',
+            '어느 날 신고가 들어왔어요. “쿠폰을 쓰면 결제가 안 돼요.” 탐정 여우가 나섰어요.',
+            '여우는 아무 데나 찍어서 고치지 않아요. 먼저 신고와 똑같은 순서로 해 봐서 문제가 정말 일어나는지 확인해요. 다시 일으킬 수 없으면 고쳤는지도 알 수 없으니까요.',
+            '다음에는 남은 발자국, 곧 오류 글을 읽어요. 그리고 범위를 절반씩 좁혀요. “여기까지는 값이 맞네. 그럼 범인은 이 뒤에 있어.”',
+            '범인을 잡은 자리에는 경보기를 달아요. 같은 버그가 돌아오면 바로 울리도록요.',
+            '작업실 구경은 여기까지예요. 이렇게 만들고 고친 앱 덕분에 또또는 안심하고 떠날 수 있어요.'],
     note: ['문제가 드러난 곳은 출발점일 뿐이에요. 고칠 곳은 값이 처음 틀어진 곳이에요.',
            '경보기가 <b>테스트</b>예요. “고쳤다”의 증거는 고치기 전에 실패하고 고친 뒤에 통과하는 테스트예요.',
            'AI에게 맡길 때는 “고쳐 줘”에서 멈추지 말고, 재현 순서와 오류 글 전체를 주고 원인과 증거를 받아요.'],
+    next: '지배인이 문을 열어 줬어요. 드디어 스마트폰 밖, 인터넷으로 나가요.',
     refs: [ch(12)] },
-  { chapter: '여덟 번째 정거장', title: '인터넷을 건너',
-    story: ['드디어 또또가 스마트폰을 떠나요. 그런데 분식집이 어디 있는지 몰라요.',
-            '주소 안내소에서 알려 줬어요. “분식집 주소는 203.0.113.7이에요.”',
-            '또또는 작은 조각으로 나뉘어 여러 길로 달려가요. 도착하면 다시 하나로 맞춰져요.'],
+  { leg: 2, chapter: '아홉 번째 정거장', title: '인터넷을 건너',
+    story: ['지배인이 바깥으로 나가는 문을 열어 줬어요. 또또 앞에 수많은 컴퓨터를 잇는 넓은 길, 인터넷이 펼쳐졌어요.',
+            '그런데 또또가 아는 것은 분식집의 이름뿐이에요. 인터넷의 길은 이름이 아니라 숫자로 된 주소로 찾아가요.',
+            '그래서 먼저 <b>주소 안내소</b>에 들렀어요. “분식집이 어디예요?” “주소는 203.0.113.7이에요.”',
+            '주소를 알았으니 출발이에요. 그런데 인터넷의 길은 큰 짐을 한 번에 나르지 못해요. 또또는 작은 조각으로 나뉘고, 조각마다 번호표를 달아요.',
+            '조각들은 그때그때 덜 막히는 길로 흩어져 달려가요. 순서가 뒤바뀌어 도착해도 괜찮아요. 번호표를 보고 다시 하나로 맞추니까요. 도중에 잃어버린 조각은 다시 보내 달라고 해요.'],
     note: ['컴퓨터의 주소가 <b>IP 주소</b>, 그 안의 어느 프로그램인지 정하는 번호가 <b>포트</b>예요. 건물 주소와 호수 같아요.',
            '이름을 주소로 바꿔 주는 안내소가 <b>DNS</b>예요.',
            '<code>localhost</code>는 언제나 입력한 기기 자신이에요.',
            '연결이 안 될 때는 이름 → 길 → 문 → 내용 순서로 확인해요.'],
+    next: '주소까지는 왔어요. 이제 분식집이 알아듣는 양식으로 주문을 건네야 해요.',
     refs: [ch(14)] },
-  { chapter: '아홉 번째 정거장', title: '주문서와 답변서',
-    story: ['또또는 정해진 양식의 주문서가 되어, 잠긴 상자에 담겨 가요. 가는 길에 아무도 엿보지 못하게요.',
-            '분식집은 주문서를 읽고 답변서를 돌려줘요.',
-            '답변서 첫 줄의 숫자만 봐도 어떻게 됐는지 알 수 있어요.'],
-    note: ['주문서와 답변서의 양식이 <b>HTTP</b>, 잠긴 상자가 <b>HTTPS</b>예요.',
-           '상태 코드가 4로 시작하면 주문서를 고칠 일, 5로 시작하면 가게를 살필 일이에요.',
-           '답이 안 오는 건 “안 됐다”가 아니라 “모른다”예요. 다시 보내기 전에 두 번 처리돼도 괜찮은지 확인해요.'],
+  { leg: 2, chapter: '열 번째 정거장', title: '주문서와 답변서',
+    story: ['분식집 앞에 도착했어요. 하지만 아무 말이나 건넨다고 가게가 알아듣지는 않아요. 스위치를 읽을 때처럼 여기에도 약속이 있어요.',
+            '또또는 정해진 양식의 <b>주문서</b>가 됐어요. 맨 위에 “주문을 새로 만들어 주세요”라고 무엇을 원하는지 쓰고, 그 아래에 “떡볶이 1인분”이라는 내용을 적어요.',
+            '주문서는 잠긴 상자에 담겨서 왔어요. 인터넷에서는 여러 컴퓨터의 손을 거치는데, 그중 누구도 안을 엿보거나 내용을 바꾸지 못하게 하려는 거예요.',
+            '가게는 주문서를 읽고 <b>답변서</b>를 써요. 답변서 첫 줄에는 세 자리 숫자가 있어요. 200이면 “잘 됐어요”라는 뜻이에요.',
+            '4로 시작하면 주문서에 문제가 있다는 뜻이고, 5로 시작하면 가게 쪽에 문제가 있다는 뜻이에요.',
+            '또또가 200이 적힌 답변서를 받으려면, 가게 안에서 먼저 할 일이 있어요.'],
+    note: ['주문서와 답변서의 양식이 <b>HTTP</b>, 잠긴 상자가 <b>HTTPS</b>, 세 자리 숫자가 <b>상태 코드</b>예요.',
+           '4로 시작하면 주문서를 고칠 일, 5로 시작하면 가게를 살필 일이에요.',
+           '답이 안 오는 것은 “안 됐다”가 아니라 “모른다”예요. 다시 보내기 전에 두 번 처리돼도 괜찮은지 확인해요.'],
+    next: '가게 안으로 들어가 봐요. 분식집은 주문을 받으면 무엇부터 할까요?',
     refs: [ch(15)] },
-  { chapter: '열 번째 정거장', title: '지워지지 않는 장부',
-    story: ['분식집에 도착했어요. 주문을 잃어버리면 안 되니까, 가게는 장부에 적어 둬요.',
-            '“1042번, 떡볶이 1인분, 접수.”',
-            '주문을 적는 일과 재고를 줄이는 일은 한 묶음이에요. 둘 다 되거나, 둘 다 안 되거나.'],
+  { leg: 3, chapter: '열한 번째 정거장', title: '지워지지 않는 장부',
+    story: ['가게 안으로 들어왔어요. 이 가게는 <b>서버</b>라고 부르는 컴퓨터예요. 하나의 스마트폰처럼 요리사와 조리대와 창고가 있지만, 수많은 손님의 주문을 쉬지 않고 받아요.',
+            '주문을 조리대에만 올려 두면 위험해요. 전원이 꺼지면 조리대 위의 것은 모두 사라지니까요. 그래서 가게는 주문을 <b>장부</b>에 적어요.',
+            '“1042번, 떡볶이 1인분, 접수.” 또또의 내용이 장부에 한 줄로 남았어요.',
+            '적을 것이 하나 더 있어요. 남은 떡볶이 수를 하나 줄여야 해요. 주문만 적고 재고를 줄이기 전에 전원이 꺼지면, 장부의 앞뒤가 안 맞게 돼요.',
+            '그래서 두 가지 일을 한 묶음으로 처리해요. 둘 다 되거나, 둘 다 안 되거나. 작업실에서 본 자물쇠도 바로 이 장부에서 쓰여요.'],
     note: ['요청을 받아 처리하는 컴퓨터가 <b>서버</b>, 장부가 <b>데이터베이스</b>예요.',
            '전부 되거나 전부 안 되게 묶는 것이 <b>트랜잭션</b>이에요.',
            '한 가지 사실은 한 곳에만 적고, 다른 곳에서는 번호로 가리켜요. 그러면 고칠 곳도 한 곳이에요.',
            '“썼다”와 “디스크에 있다”는 다른 말이에요.'],
+    next: '그런데 가게로 오는 쪽지가 모두 또또처럼 정직하지는 않아요.',
     refs: [ch(16), ch(17)] },
-  { chapter: '열한 번째 정거장', title: '문단속',
-    story: ['가게 문 앞에는 문지기 부엉이가 서 있어요.',
-            '어떤 쪽지에는 “떡볶이 900원”이라고 적혀 있었어요. 누가 가격을 몰래 고친 거예요.',
-            '부엉이는 쪽지에 적힌 가격을 믿지 않아요. 가게 장부에서 가격을 다시 확인해요.'],
+  { leg: 3, chapter: '열두 번째 정거장', title: '문단속',
+    story: ['사실 또또는 장부에 적히기 전에 한 곳을 먼저 거쳤어요. 가게 문 앞을 지키는 문지기 부엉이예요.',
+            '인터넷에서는 누구나 가게로 주문서를 보낼 수 있어요. 앱을 거치지 않고 주문서를 직접 꾸며서 보내는 사람도 있어요.',
+            '또또 뒤에 선 쪽지에는 “떡볶이 900원”이라고 적혀 있었어요. 누가 가격을 몰래 고친 거예요.',
+            '부엉이는 쪽지에 적힌 가격을 믿지 않아요. 가게 장부에서 떡볶이 가격을 다시 찾아봐요. 4,000원이에요. 가짜 쪽지는 돌려보내요.',
+            '부엉이는 두 가지를 더 물어요. “너는 누구니?” 그리고 “네가 이 일을 해도 되니?” 하나의 주문 내역은 하나만 볼 수 있어야 하니까요.',
+            '또또는 정직한 쪽지라서 무사히 통과했어요.'],
     note: ['밖에서 온 값은 사실이 아니라 <b>주장</b>이에요. 서버가 다시 확인하기 전에는 믿지 않아요.',
            '누구인지 확인하는 것이 <b>인증</b>, 해도 되는지 확인하는 것이 <b>인가</b>예요.',
            '“로그인했다”와 “이것을 봐도 된다”는 다른 이야기예요. 요청마다 서버에서 확인해요.',
            '비밀번호나 API 키 같은 비밀 값은 코드에 적지 않아요.'],
+    next: '또또의 주문은 안전하게 적혔어요. 그런데 이 가게는 누가, 어떻게 열어 두고 있을까요?',
     refs: [ch(18), ch(19)] },
-  { chapter: '열두 번째 정거장', title: '가게를 열고, 지켜보기',
-    story: ['개발자가 앱을 고치면 새 버전이 상자에 담겨 나와요. 상자는 검사대를 통과해야 가게로 갈 수 있어요.',
-            '가게가 열린 뒤에도 일은 끝나지 않아요. 계기판을 보고, 기록을 남겨요.',
-            '문제가 생기면 바로 알아차리고, 왜 그랬는지 읽을 수 있도록요.'],
+  { leg: 3, chapter: '열세 번째 정거장', title: '가게를 열고, 지켜보기',
+    story: ['또또가 다녀간 이 가게는 어제와 똑같은 가게가 아니에요. 작업실의 개발자가 레시피를 고칠 때마다 새 버전이 가게에 도착하거든요.',
+            '새 버전은 상자에 담겨 나와요. 상자는 곧바로 가게로 가지 않고 먼저 <b>검사대</b>를 지나요. 탐정 여우가 달아 둔 경보기들을 여기서 한꺼번에 울려 봐요. 하나라도 울리면 상자는 통과하지 못해요.',
+            '검사를 통과한 상자만 가게에 놓여요. 손님이 가게를 쓰는 동안에도 조용히 바뀌어요.',
+            '가게가 열린 뒤에도 일은 끝나지 않아요. 벽에는 <b>계기판</b>이 있어요. 지금 주문이 몇 건인지, 대답이 얼마나 걸리는지 숫자로 보여 줘요.',
+            '일어난 일은 시각과 함께 <b>기록</b>해 둬요. “12:01 주문 접수, 12:02 느림 주의.” 문제가 생기면 계기판으로 알아차리고, 기록을 읽어서 이유를 찾아요.'],
     note: ['새 버전을 서버에 올리는 일이 <b>배포</b>, 올릴 때마다 자동으로 도는 검사가 <b>CI</b>예요.',
-           '사람들이 쓰는 건 내 코드가 아니라 그 코드로 만든 상자예요. 맞는 상자가 나갔는지 따로 확인해요.',
+           '사람들이 쓰는 것은 내 코드가 아니라 그 코드로 만든 상자예요. 맞는 상자가 나갔는지 따로 확인해요.',
            '<b>지표</b>로 이상을 알아차리고, <b>추적</b>으로 구간을 좁히고, <b>로그</b>로 이유를 읽어요.'],
+    next: '가게가 할 일은 끝났어요. 이제 또또가 대답을 들고 돌아갈 차례예요.',
     refs: [ch(20), ch(21), ch(22)] },
-  { chapter: '여행의 끝', title: '돌아온 대답',
-    story: ['또또가 왔던 길을 되돌아 스마트폰에 도착했어요. 화면에 “주문이 접수되었습니다”가 떴어요.',
-            '하나에게는 0.15초였지만, 또또에게는 긴 여행이었어요.',
-            '이 길을 아는 사람은 AI에게 일을 맡겨도 길을 잃지 않아요.'],
+  { leg: 4, chapter: '여행의 끝', title: '돌아온 대답',
+    story: ['가게는 답변서를 썼어요. “200, 주문이 접수되었습니다.” 또또는 답변서가 되어 다시 조각으로 나뉘고, 인터넷을 건너 하나의 스마트폰으로 돌아왔어요.',
+            '지배인이 문을 열어 맞아 줬고, 요리사는 답변서를 읽어 화면에 글자를 그렸어요. “주문이 접수되었습니다.”',
+            '하나에게는 0.15초였어요. 그 사이에 또또는 스위치로 적히고, 조각으로 나뉘고, 문지기를 지나, 장부에 남았어요.',
+            '요즘은 AI가 레시피를 대신 써 주기도 해요. 그래도 이 길을 아는 사람만 할 수 있는 일이 세 가지 있어요.'],
     noteLabel: 'AI와 만들 때 사람이 할 일',
     note: ['<b>시키기</b>: 무엇을 만들지 빠짐없이 말해요. “인터넷이 끊기면?”, “둘이 동시에 누르면?”은 아는 사람만 말할 수 있어요.',
            '<b>확인하기</b>: AI의 “다 됐습니다”를 직접 돌려 보고, 바뀐 곳을 읽어요.',
            '<b>좁히기</b>: 고장이 나면 스마트폰, 인터넷, 서버, 데이터베이스 중 어디인지 좁혀서 말해 줘요.'],
+    next: '2부 교과서에서는 같은 길을 14장으로 나눠 더 자세히 걸어요.',
     refs: [ch(0)] },
   { type: 'end', chapter: '1부를 마치며', title: '단어장',
     words: [
@@ -2647,6 +2723,7 @@ var pages = [
       ['커밋', '언제든 돌아올 수 있는 저장 지점'],
       ['배포', '고친 프로그램을 서버에 올려 내보내는 일']],
     notes: ['원작 ‘개발의 기초’는 32장짜리 책이에요. 이 책은 그중 핵심인 1~5부(0~22장)를 다시 엮었어요.',
+            'AI가 무엇이고 어떻게 일을 시키는지는 둘째 권 ‘책벌레 신입사원 루미’에서 이어져요.',
             '게임(6부), AI(7부), AI와 함께 만들기(8부)는 원작에서 이어 읽을 수 있어요.'],
     links: [['원작 웹북', SRC], ['GitHub 저장소', 'https://github.com/jedikim/cs-foundations']] },
 
@@ -3026,8 +3103,757 @@ var CORE = [
   ['막혔을 때: 증상으로 찾기', SRC + 'trouble.html']
 ];
 
-return { cfg: { title: '떡볶이 주문의 여행', id: 'cs-book', hash: 'cs', storyLast: 16, part2: 17, noteLabel: '실제 컴퓨터에서는',
+return { cfg: { title: '떡볶이 주문의 여행', id: 'cs-book', hash: 'cs', storyLast: 16, part2: 17, noteLabel: '실제 컴퓨터에서는', legs: ['스마트폰', '작업실', '인터넷', '분식집 서버', '돌아오기'],
   brand1: '떡볶이 주문의 <span>여행</span>', brand2: '개발의 기초 <span>교과서</span>' },
+  scenes: scenes, pages: pages, CHECKS: CHECKS, CORE: CORE };
+};
+/* ================= AI 기초: 책벌레 신입사원 루미 (원작: 아빠도, 엄마도 AI) ================= */
+/* AI 신입사원 '루미' */
+function rumi(x, y, s, o){
+  o = o || {}; s = s || 1;
+  var body = o.fill || '#DDF0ED', badge = o.badge || C.sun;
+  var face = o.mood === 'sad'
+    ? '<circle cx="-6" cy="-49" r="2" fill="' + C.ink + '"/><circle cx="6" cy="-49" r="2" fill="' + C.ink + '"/><path d="M-4 -42 h8" ' + S(1.5) + '/><path d="M15 -56 q3 5 0 7 q-3 -2 0 -7" fill="#9CCBE8" ' + S(1) + '/>'
+    : '<g class="blink"><circle cx="-6" cy="-49" r="2.2" fill="' + C.ink + '"/><circle cx="6" cy="-49" r="2.2" fill="' + C.ink + '"/></g><path d="M-4 -43 q4 3.4 8 0" fill="none" ' + S(1.5) + '/>' +
+      '<circle cx="-11" cy="-45" r="2.2" fill="' + C.berry + '" opacity=".28"/><circle cx="11" cy="-45" r="2.2" fill="' + C.berry + '" opacity=".28"/>';
+  return '<g transform="translate(' + x + ' ' + y + ') scale(' + s + ')"><g class="' + (o.cls || '') + '">' +
+    '<path d="M-6 -12 v10 M6 -12 v10" stroke="' + C.ink + '" stroke-width="3.4" stroke-linecap="round"/>' +
+    '<ellipse cx="-7" cy="-1.5" rx="5" ry="2.6" fill="' + C.ink + '"/><ellipse cx="7" cy="-1.5" rx="5" ry="2.6" fill="' + C.ink + '"/>' +
+    '<path d="M-13 -28 L-20 -18 M13 -28 L20 -18" stroke="' + C.ink + '" stroke-width="3.2" stroke-linecap="round"/>' +
+    '<rect x="-13" y="-34" width="26" height="24" rx="6" fill="#fff" ' + S() + '/>' +
+    '<path d="M-5 -34 L0 -26 L5 -34" fill="none" stroke="' + C.teal + '" stroke-width="1.6"/><rect x="-4.5" y="-27" width="9" height="11" rx="1.5" fill="' + badge + '" ' + S(1.3) + '/>' +
+    '<path d="M0 -60 V-67" ' + S(1.8) + '/><circle class="twinkle" cx="0" cy="-69" r="3" fill="' + C.sun + '" ' + S(1.2) + '/>' +
+    '<rect x="-16" y="-60" width="32" height="24" rx="9" fill="' + body + '" ' + S() + '/>' +
+    face + (o.extra || '') + '</g></g>';
+}
+function books(x, y, s){
+  return '<g transform="translate(' + x + ' ' + y + ') scale(' + (s || 1) + ')">' +
+    '<rect x="-16" y="-8" width="32" height="8" rx="1.5" fill="#C9665E" ' + S(1.5) + '/><rect x="-14" y="-16" width="28" height="8" rx="1.5" fill="#8C9AC7" ' + S(1.5) + '/><rect x="-15" y="-24" width="30" height="8" rx="1.5" fill="' + C.sun + '" ' + S(1.5) + '/></g>';
+}
+function paper(x, y, w, h, lines, o){
+  o = o || {};
+  var s = '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="3" fill="' + (o.fill || '#fff') + '" stroke="' + (o.stroke || C.ink) + '" stroke-width="1.8"/>';
+  (lines || []).forEach(function(l, i){ s += T(x + w / 2, y + 16 + i * (o.lh || 14), l, { fs: o.fs || 9.5, c: o.c || C.ink }); });
+  return s;
+}
+function xmark(x, y, r, d){
+  return '<g transform="translate(' + x + ' ' + y + ')"><g class="pop" style="--d:' + (d || 0) + 's"><circle r="' + r + '" fill="' + C.berry + '" ' + S(1.6) + '/><path d="M' + (-r * .4) + ' ' + (-r * .4) + ' l' + (r * .8) + ' ' + (r * .8) + ' M' + (r * .4) + ' ' + (-r * .4) + ' l' + (-r * .8) + ' ' + (r * .8) + '" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></g></g>';
+}
+function deskTop(x, y, w){
+  return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="12" rx="3" fill="#C9A77A" ' + S(1.8) + '/><rect x="' + (x + 10) + '" y="' + (y + 12) + '" width="10" height="' + (204 - y - 12) + '" fill="#B08E63" ' + S(1.6) + '/><rect x="' + (x + w - 20) + '" y="' + (y + 12) + '" width="10" height="' + (204 - y - 12) + '" fill="#B08E63" ' + S(1.6) + '/>';
+}
+
+BOOKS.ai = function(){
+var SRC = 'https://textbook-web-production.up.railway.app/';
+function oc(n){ return { label: '원작 ' + n + '장', url: SRC }; }
+
+var scenes = [
+  /* 0 표지 */
+  function(){
+    return svgWrap('책을 한 아름 안은 AI 신입사원 루미가 분식집으로 첫 출근하는 그림', '#CFE6D8', '#F1F5EA',
+      sun(60, 48, 18) + cloud(190, 40, .9, 0) + cloud(312, 58, .7, 3) +
+      shop(330, 214, 1) +
+      rumi(170, 216, 1.7, { cls: 'float' }) + books(118, 196, 1.2) +
+      sparkle(232, 110, 6, 0) + sparkle(96, 130, 5, .7) + sparkle(270, 170, 5, 1.2),
+      { h1: '#B8D59A', h2: '#9CC27F' });
+  },
+  /* 1 첫 출근 */
+  function(){
+    return svgWrap('분식집 사장님 앞에 책 더미를 든 신입사원 루미가 인사하는 그림', '#FBEFD2', '#F8F1E2',
+      floor('#E3D6BC') + '<rect x="14" y="22" width="112" height="58" rx="4" fill="#fff" ' + S(1.8) + '/>' + T(70, 42, '오늘의 메뉴', { fs: 10 }) + T(70, 58, '떡볶이 · 순대 · 튀김', { fs: 9, c: C.inkSoft }) + T(70, 71, '어묵 · 김밥', { fs: 9, c: C.inkSoft }) +
+      chef(92, 204, 1.3) + rumi(238, 204, 1.5) + books(300, 204, 1.3) + books(300, 172, 1.3) +
+      bubble(250, 44, '책은 만 권 읽었어요!', { tx: 240, ty: 100, fs: 11, d: .4 }) +
+      chip(330, 110, '오늘 첫 출근', { fs: 10, cls: 'pop', d: 1 }),
+      { hills: false });
+  },
+  /* 2 잘하는 일, 모르는 일 */
+  function(){
+    var s = '';
+    ['긴 글 요약', '초안 쓰기', '쉬운 말로 풀기', '표로 정리'].forEach(function(t, i){
+      s += '<g class="pop" style="--d:' + (.3 + i * .35) + 's"><rect x="16" y="' + (58 + i * 34) + '" width="118" height="26" rx="13" fill="#fff" ' + S(1.5) + '/>' + T(86, 75 + i * 34, t, { fs: 10 }) + '</g>' + check(34, 71 + i * 34, 8, .5 + i * .35);
+    });
+    ['오늘 남은 재료', '단골손님 취향', '어제 정한 일'].forEach(function(t, i){
+      s += '<g class="pop" style="--d:' + (1.8 + i * .35) + 's"><rect x="266" y="' + (64 + i * 40) + '" width="118" height="26" rx="13" fill="#F9E4E5" stroke="' + C.berry + '" stroke-width="1.5"/>' + T(334, 81 + i * 40, t, { fs: 10 }) + T(282, 82 + i * 40, '?', { fs: 13, c: C.berry }) + '</g>';
+    });
+    return svgWrap('루미가 잘하는 일 네 가지와 모르는 일 세 가지를 양쪽에 나눠 보여 주는 그림', '#EAF3F0', '#F3F6F1',
+      floor('#D9E4DC', 212) + T(76, 40, '잘해요', { cls: 'svg-d', fs: 15, c: C.tealDark }) + T(324, 40, '몰라요', { cls: 'svg-d', fs: 15, c: C.berry }) + s +
+      rumi(200, 212, 1.7),
+      { hills: false });
+  },
+  /* 3 막연한 지시 */
+  function(){
+    return svgWrap('사장님이 전단지를 만들어 달라고만 말하자 루미가 어디에나 쓸 수 있는 밋밋한 전단지를 내미는 그림', '#FBEFD2', '#F8F1E2',
+      floor('#E3D6BC') + chef(78, 204, 1.3) + rumi(210, 204, 1.4, { mood: 'sad' }) +
+      bubble(96, 40, '전단지 만들어 줘', { tx: 84, ty: 96, fs: 11.5, d: .3 }) +
+      '<g class="pop" style="--d:1.1s">' + paper(272, 62, 104, 124, ['전단지', '', '맛있는 음식!', '많이 오세요', '', '좋은 가게'], { fs: 10, lh: 17, c: C.inkSoft }) + '</g>' +
+      T(200, 232, '누구에게, 무엇을, 얼마나? 루미는 알 수 없어요', { fs: 9.5, c: C.berry }),
+      { hills: false });
+  },
+  /* 4 업무 지시서 */
+  function(){
+    var rows = '';
+    [['목적', '10주년 손님 모으기'], ['배경', '학교 앞, 학생 손님'], ['조건', '짧게, 날짜는 꼭'], ['형태', '제목 + 세 줄']].forEach(function(r, i){
+      var y = 78 + i * 30;
+      rows += '<g class="stamp" style="--d:' + (.4 + i * .45) + 's"><rect x="34" y="' + (y - 11) + '" width="36" height="20" rx="10" fill="' + C.teal + '"/>' + T(52, y + 3, r[0], { fs: 9.5, c: '#fff' }) + '</g>' + T(78, y + 3, r[1], { fs: 9.5, a: 'start' });
+    });
+    return svgWrap('목적, 배경, 조건, 형태가 적힌 업무 지시서와 그 덕분에 잘 나온 전단지를 나란히 보여 주는 그림', '#E9F3F1', '#F3F7F4',
+      floor('#D6E3DD', 212) + '<rect x="22" y="34" width="166" height="170" rx="8" fill="' + C.kraft + '" ' + S() + '/><rect x="30" y="50" width="150" height="146" rx="3" fill="#fff" ' + S(1.5) + '/><rect x="80" y="26" width="50" height="16" rx="5" fill="' + C.inkSoft + '" ' + S(1.6) + '/>' +
+      T(105, 64, '업무 지시서', { fs: 10, c: C.inkSoft }) + rows +
+      '<path d="M194 120 H226" stroke="' + C.ink + '" stroke-width="2.4" stroke-linecap="round"/><path d="M220 114 l7 6 l-7 6" fill="none" ' + S(2.2) + '/>' +
+      '<g class="pop" style="--d:2.4s"><rect x="236" y="48" width="112" height="140" rx="3" fill="#FFF8E6" ' + S(1.8) + '/>' + T(292, 72, '개업 10주년', { cls: 'svg-d', fs: 14 }) + T(292, 96, '떡볶이 1+1', { fs: 12, c: C.berry }) + T(292, 118, '이번 토요일 하루', { fs: 10 }) + T(292, 136, '학생증 보여 주면', { fs: 9.5, c: C.inkSoft }) + T(292, 150, '튀김 하나 더', { fs: 9.5, c: C.inkSoft }) + '</g>' +
+      rumi(366, 212, .95, { cls: 'jump' }) + sparkle(352, 44, 6, 2.6),
+      { hills: false });
+  },
+  /* 5 자신 있게 틀린 답 */
+  function(){
+    return svgWrap('루미가 가게 문 연 해를 자신 있게 틀리게 말하고, 사장님이 간판의 연도와 대조해 잡아내는 그림', '#FBE9E3', '#F8F0EA',
+      floor('#EAD9CE') + shop(336, 204, 1.15, { sign: '분식' }) + chip(336, 44, 'SINCE 1998', { fs: 10, cls: 'pop', d: .2 }) +
+      rumi(92, 204, 1.45) + chef(214, 204, 1.2, { extra: '<g transform="translate(20 -30)"><circle r="8" fill="#EAF5FB" ' + S(1.8) + '/><path d="M5.5 6 L13 14" ' + S(3) + '/></g>' }) +
+      bubble(104, 38, '우리 가게는 1975년에 열었어요!', { tx: 96, ty: 108, fs: 10.5, d: .5 }) + xmark(196, 44, 10, 1.8) +
+      T(200, 232, '틀린 답도 맞는 답과 똑같이 자신 있는 말투로 나와요', { fs: 9.5, c: C.berry }),
+      { hills: false });
+  },
+  /* 6 좁은 책상 */
+  function(){
+    var p = '';
+    for (var i = 0; i < 5; i++) p += '<g class="pop" style="--d:' + (.3 + i * .3) + 's"><rect x="' + (124 + i * 44) + '" y="' + (112 - (i % 2) * 6) + '" width="38" height="46" rx="3" fill="#fff" ' + S(1.6) + ' transform="rotate(' + ((i % 2) ? 5 : -4) + ' ' + (143 + i * 44) + ' 135)"/></g>';
+    return svgWrap('서류가 가득 쌓인 책상에서 맨 처음 받은 지시 서류가 밖으로 밀려 떨어지는 그림', '#EEF0F5', '#F2F3F6',
+      floor('#DADFEA') + deskTop(108, 158, 240) + p +
+      '<g class="float"><g transform="rotate(-16 62 150)"><rect x="34" y="124" width="56" height="50" rx="3" fill="#FFF3D6" stroke="' + C.berry + '" stroke-width="1.8"/>' + T(62, 146, '답은', { fs: 10 }) + T(62, 161, '표로!', { fs: 10 }) + '</g></g>' +
+      '<path d="M100 132 q-14 -2 -18 10" fill="none" stroke="' + C.berry + '" stroke-width="1.8" stroke-dasharray="4 3"/>' +
+      rumi(374, 204, 1.05, { mood: 'sad' }) +
+      chip(62, 100, '맨 처음 받은 지시', { fs: 9.5, color: C.berry }) +
+      T(228, 232, '책상이 넘치면 먼저 올려 둔 서류부터 밀려나요', { fs: 9.5 }),
+      { hills: false });
+  },
+  /* 7 자료 건네기 */
+  function(){
+    return svgWrap('사장님이 가게 규정집을 건네자 루미가 쪽수를 짚으며 답하는 그림', '#E9F3F1', '#F3F7F4',
+      floor('#D6E3DD', 208) + chef(80, 208, 1.3) + rumi(292, 208, 1.5) +
+      '<g class="float"><rect x="150" y="120" width="70" height="52" rx="3" fill="' + C.teal + '" ' + S() + '/><rect x="156" y="126" width="58" height="40" rx="2" fill="#fff"/>' + T(185, 144, '가게', { fs: 10 }) + T(185, 158, '규정집', { fs: 10 }) + '</g>' +
+      '<path d="M124 150 H144 M226 150 H250" stroke="' + C.ink + '" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="2 6"/>' +
+      bubble(96, 44, '7쪽 환불 부분만 봐 줘', { tx: 88, ty: 100, fs: 10.5, d: .3 }) +
+      bubble(290, 44, '7쪽에 따르면, 당일 환불돼요', { tx: 292, ty: 104, fs: 10.5, d: 1.3 }) +
+      chip(200, 232, '자료가 있으면 그 자료를 근거로 답해요', { fs: 9.5 }),
+      { hills: false });
+  },
+  /* 8 쓴 사람, 보는 사람 */
+  function(){
+    return svgWrap('루미가 쓴 안내문을 다른 신입 모모가 검토하고 마지막에 사장님이 도장을 찍는 그림', '#ECE8F3', '#F3F1F6',
+      floor('#DDD8E6', 208) + rumi(56, 208, 1.25) + T(56, 228, '쓰는 루미', { fs: 9.5 }) +
+      '<g class="pop" style="--d:.4s">' + paper(104, 96, 52, 66, ['안내문', '', '— — —', '— — —'], { fs: 8.5, lh: 12 }) + '</g>' +
+      '<path d="M162 130 H178" stroke="' + C.ink + '" stroke-width="2.2" stroke-linecap="round"/><path d="M174 125 l6 5 l-6 5" fill="none" ' + S(2) + '/>' +
+      rumi(214, 208, 1.25, { fill: '#FCE3D2', badge: '#9AA6D1', extra: '<g transform="translate(22 -30)"><circle r="7" fill="#EAF5FB" ' + S(1.6) + '/><path d="M5 5 L11 12" ' + S(2.6) + '/></g>' }) + T(214, 228, '살피는 모모', { fs: 9.5 }) +
+      chip(214, 92, '날짜가 틀렸어요', { fs: 9.5, color: C.berry, cls: 'pop', d: 1.2 }) +
+      '<path d="M254 130 H272" stroke="' + C.ink + '" stroke-width="2.2" stroke-linecap="round"/><path d="M268 125 l6 5 l-6 5" fill="none" ' + S(2) + '/>' +
+      chef(332, 208, 1.2) + T(332, 228, '결재하는 사장님', { fs: 9.5 }) +
+      '<g transform="translate(300 96)"><g class="stamp" style="--d:2s"><circle r="15" fill="none" stroke="' + C.berry + '" stroke-width="2.6"/>' + T(0, 4, '확인', { fs: 10, c: C.berry }) + '</g></g>' +
+      T(200, 40, '쓴 사람은 자기 실수를 잘 못 봐요', { cls: 'svg-d', fs: 14 }),
+      { hills: false });
+  },
+  /* 9 루미 팀 */
+  function(){
+    var s = '';
+    [['초대장 쓰기', 76], ['장 볼 목록', 200], ['행사 순서표', 324]].forEach(function(t, i){
+      s += '<path d="M200 96 L' + t[1] + ' 138" stroke="' + C.teal + '" stroke-width="2" stroke-dasharray="3 5"/>' + rumi(t[1], 206, 1, { fill: ['#DDF0ED', '#FFF3D6', '#E6E9F7'][i] }) + chip(t[1], 226, t[0], { fs: 9.5, cls: 'pop', d: .8 + i * .4 });
+    });
+    return svgWrap('팀장 루미가 큰 일을 셋으로 나눠 팀원 루미들에게 맡기는 그림', '#EAF3F0', '#F3F6F1',
+      floor('#D9E4DC', 208) + s + rumi(200, 104, 1.3) + chip(84, 44, '10주년 잔치 준비', { fs: 10.5 }) + T(250, 70, '팀장 루미', { fs: 10, c: C.tealDark }) +
+      tokS('M200 96 L76 138', 0) + tokS('M200 96 L200 138', .4) + tokS('M200 96 L324 138', .8),
+      { hills: false });
+  },
+  /* 10 장비와 출입증 */
+  function(){
+    function tool(x, y, label, icon, d){ return '<g class="pop" style="--d:' + d + 's"><rect x="' + (x - 44) + '" y="' + (y - 26) + '" width="88" height="52" rx="8" fill="#fff" ' + S(1.6) + '/>' + icon + T(x, y + 19, label, { fs: 9.5 }) + '</g>'; }
+    var calc = '<rect x="-9" y="-18" width="18" height="22" rx="2.5" fill="' + C.ink + '"/><rect x="-6" y="-15" width="12" height="6" fill="#BFE6DF"/><path d="M-5 -5 h2 M-1 -5 h2 M3 -5 h2 M-5 -1 h2 M-1 -1 h2 M3 -1 h2" stroke="#fff" stroke-width="1.6"/>';
+    var ph = '<path d="M-9 -15 q-2 9 4 15 q6 6 15 4 l1 -6 l-6 -2 l-3 3 q-5 -2 -7 -7 l3 -3 l-2 -6 z" fill="' + C.teal + '" ' + S(1.4) + '/>';
+    var pass = '<rect x="-11" y="-17" width="22" height="20" rx="3" fill="' + C.sun + '" ' + S(1.5) + '/><circle cx="0" cy="-10" r="3.2" fill="#fff" ' + S(1.2) + '/><path d="M-5 -1 h10" ' + S(1.4) + '/>';
+    var man = '<rect x="-10" y="-18" width="20" height="22" rx="2" fill="#8C9AC7" ' + S(1.5) + '/><path d="M-5 -12 h10 M-5 -7 h10 M-5 -2 h6" stroke="#fff" stroke-width="1.5"/>';
+    function at(x, y, g){ return '<g transform="translate(' + x + ' ' + y + ')">' + g + '</g>'; }
+    return svgWrap('루미 둘레에 계산기, 전화, 출입증, 업무 매뉴얼이 놓이고, 보내기 전에는 사장님 확인이 필요하다는 표시가 있는 그림', '#FBEFD2', '#F8F1E2',
+      floor('#E3D6BC', 212) + rumi(200, 212, 1.5) +
+      tool(66, 62, '계산기', at(66, 60, calc), .3) + tool(66, 136, '전화와 신문', at(66, 134, ph), .7) +
+      tool(334, 62, '출입증', at(334, 60, pass), 1.1) + tool(334, 136, '업무 매뉴얼', at(334, 134, man), 1.5) +
+      '<path d="M112 70 Q150 80 176 120 M112 140 Q150 140 172 150 M288 70 Q250 80 224 120 M288 140 Q250 140 228 150" fill="none" stroke="' + C.teal + '" stroke-width="2" stroke-dasharray="3 5"/>' +
+      chip(200, 30, '장비를 주면 할 수 있는 일이 늘어요', { fs: 10 }) +
+      chip(200, 234, '보내기 · 결제 · 삭제는 사장님이 확인', { fs: 9.5, color: C.berry }),
+      { hills: false });
+  },
+  /* 11 금고와 가짜 전화 */
+  function(){
+    return svgWrap('금고에 넣어 둔 비밀 서류와, 가족 목소리를 흉내 낸 급한 전화를 끊고 알던 번호로 다시 거는 그림', '#ECE8F3', '#F3F1F6',
+      floor('#DDD8E6', 208) +
+      '<rect x="30" y="104" width="104" height="104" rx="8" fill="#5A648C" ' + S() + '/><rect x="42" y="116" width="80" height="80" rx="4" fill="#737EA8" ' + S(1.6) + '/><circle cx="82" cy="156" r="16" fill="#C9CFDD" ' + S(1.8) + '/><path d="M82 144 v24 M70 156 h24" ' + S(2) + '/>' +
+      chip(82, 56, '주민번호 · 계좌 · 비밀번호', { fs: 9, cls: 'pop', d: .3 }) + chip(82, 82, '가게 기밀', { fs: 9, cls: 'pop', d: .6 }) +
+      T(82, 232, 'AI에 넣지 않아요', { fs: 10, c: C.berry }) +
+      '<path d="M200 40 V214" stroke="#C9C3D6" stroke-width="1.6" stroke-dasharray="4 5"/>' +
+      phone(262, 208, 1.5, '<circle cx="0" cy="-34" r="8" fill="' + C.berry + '"/><path d="M-4 -34 h8" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><rect x="-9" y="-20" width="18" height="4" rx="2" fill="#C9D3E3"/>') +
+      '<g fill="none" stroke="' + C.berry + '" stroke-width="2"><circle class="wave" style="--d:0s" cx="262" cy="160" r="20"/><circle class="wave" style="--d:.7s" cx="262" cy="160" r="20"/></g>' +
+      bubble(292, 50, '급해, 지금 돈 보내 줘!', { tx: 270, ty: 112, fs: 10.5, d: .8 }) +
+      chef(348, 208, 1.05) +
+      chip(300, 232, '끊고, 알던 번호로 다시 걸어요', { fs: 9.5, cls: 'pop', d: 1.8 }),
+      { hills: false });
+  },
+  /* 12 같은 신입, 달라진 하루 */
+  function(){
+    function card(x, t, d){ return '<g transform="translate(' + x + ' 42)"><g class="float" style="--d:' + d + 's"><rect x="-40" y="-17" width="80" height="34" rx="7" fill="#fff" ' + S(1.8) + '/><path d="M-39 -10 v-1 a6 6 0 0 1 6 -5 h66 a6 6 0 0 1 6 5 v1 Z" fill="' + C.teal + '"/>' + T(0, 10, t, { fs: 11.5 }) + '</g></g>'; }
+    return svgWrap('분식집 앞에서 사장님과 루미가 기뻐하고, 지시, 검수, 분담, 안전 네 장의 카드가 떠 있는 그림', '#F8D9B4', '#F3EADB',
+      card(62, '지시', 0) + card(154, '검수', .4) + card(246, '분담', .8) + card(338, '안전', 1.2) +
+      shop(200, 216, 1.2) + chef(96, 222, 1.3, { cls: 'jump' }) + rumi(304, 222, 1.5, { cls: 'jump' }) +
+      sparkle(150, 110, 7, 0) + sparkle(256, 104, 6, .6) + sparkle(352, 150, 5, 1.1),
+      { h1: '#C9D6A8', h2: '#AEC48D' });
+  },
+  /* 13 단어장 */
+  function(){
+    return svgWrap('루미가 책 더미 옆에서 쉬는 그림', '#EEF0F5', '#E3E7EF',
+      '<rect x="0" y="214" width="400" height="36" fill="#D9D3C4"/><path d="M0 214 H400" stroke="' + C.ink + '" stroke-width="2"/>' +
+      books(96, 214, 2.4) +
+      '<g transform="translate(316 120)"><circle class="glow" r="54" fill="' + C.sun + '" opacity=".18"/></g>' +
+      '<path d="M316 214 V112" stroke="' + C.ink + '" stroke-width="3"/><path d="M296 112 L336 112 L326 84 L306 84 Z" fill="' + C.sun + '" ' + S(1.8) + '/><rect x="300" y="208" width="32" height="7" rx="2" fill="' + C.ink + '"/>' +
+      rumi(204, 212, 2) + T(200, 52, '끝', { cls: 'svg-d', fs: 30 }) + sparkle(160, 46, 6, 0) + sparkle(242, 42, 5, .8),
+      { hills: false });
+  },
+
+  /* ================= 2부 도식 ================= */
+  /* 14 심화편 표지 */
+  function(){
+    return dia('기본기, 활용, 일 잘 시키기, 안전 네 단계로 이어지는 배움의 순서', function(m){
+      var s = T(200, 38, 'AI와 일하는 네 단계', { cls: 'svg-d', fs: 17 });
+      [['기본기', '1~3장', 14], ['활용', '4~5장', 112], ['일 잘 시키기', '6~8장', 210], ['안전', '9장', 308]].forEach(function(b, i){
+        s += box(b[2], 84, 80, 54, b[0], { fs: 10.5, sub: b[1], sfs: 9, fill: i === 3 ? '#F9E4E5' : (i === 0 ? '#E1F1EE' : '#fff'), stroke: i === 3 ? C.berry : (i === 0 ? C.teal : C.ink) });
+        if (i < 3) s += ar('M' + (b[2] + 80) + ' 111 H' + (b[2] + 96), m.teal, { color: C.teal, w: 2.2 });
+      });
+      s += tok('M54 76 H348', { dur: 4.5, tr: .85, r: 4.5 });
+      [['누구인지 알고', 54], ['자료를 주고', 152], ['일을 나누고', 250], ['지킬 것을 지켜요', 348]].forEach(function(t){ s += T(t[1], 158, t[0], { fs: 9, c: C.inkSoft }); });
+      s += chip(200, 200, '필요한 것은 새 기술보다, 일을 시키고 확인해 본 경험', { fs: 9.5, cls: 'pop', d: 1 });
+      return s;
+    });
+  },
+  /* 15 1장 */
+  function(){
+    return dia('AI의 특징 다섯 가지를 회사에서 겪는 신입사원의 모습과 짝지은 표', function(m){
+      var s = T(104, 30, 'AI의 특징', { fs: 11, c: C.tealDark }) + T(296, 30, '회사에서는', { fs: 11, c: C.inkSoft });
+      [['책과 문서를 아주 많이 읽었다', '박식한 신입사원'], ['우리 회사 사정은 모른다', '오늘 첫 출근한 사람'], ['모르는 것도 그럴듯하게 말한다', '확인 안 한 숫자를 적어 온 신입'], ['지시가 구체적일수록 잘한다', '지시서가 좋으면 일이 빠르다'], ['책임은 쓰는 사람에게 있다', '결재한 사람이 책임진다']].forEach(function(r, i){
+        var y = 42 + i * 39;
+        s += box(10, y, 188, 31, r[0], { fs: 9.5, fill: '#E1F1EE', stroke: C.teal }) + box(214, y, 176, 31, r[1], { fs: 9.5 }) + ar('M198 ' + (y + 15.5) + ' H210', m.soft, { color: C.inkSoft }) + hl(10, y, 380, 31, i * 1.2, 6);
+      });
+      return s;
+    });
+  },
+  /* 16 2장 */
+  function(){
+    return dia('목적, 배경, 조건, 결과물 형태를 하나씩 더할수록 답이 일에 딱 맞아 가는 그림', function(m){
+      var s = T(200, 28, '지시문에 요소를 더할수록', { cls: 'svg-d', fs: 14 });
+      [['목적', '왜 필요한가'], ['배경', '어떤 상황, 누가 읽나'], ['조건', '분량, 말투, 넣고 뺄 것'], ['결과물 형태', '표, 목록, 몇 항목']].forEach(function(r, i){
+        var y = 44 + i * 40;
+        s += '<g class="pop" style="--d:' + (.3 + i * .6) + 's">' + box(12, y, 150, 32, r[0], { fs: 10.5, sub: r[1], sfs: 8.5, fill: '#fff', stroke: C.teal }) + '</g>';
+        s += '<rect x="196" y="' + (y + 8) + '" width="190" height="16" rx="8" fill="#EEF0F5"/><g class="grow" style="--d:' + (.5 + i * .6) + 's"><rect x="196" y="' + (y + 8) + '" width="' + (52 + i * 46) + '" height="16" rx="8" fill="' + (i === 3 ? C.teal : '#7CC3BB') + '"/></g>';
+        s += ar('M164 ' + (y + 16) + ' H192', m.soft, { color: C.inkSoft });
+      });
+      s += T(291, 204, '답이 내 일에 맞는 정도', { fs: 9, c: C.inkSoft });
+      s += T(200, 220, '“안전교육 자료 만들어 줘”만으로는 누구에게, 얼마나인지 알 수 없어요', { fs: 9, c: C.berry }) + T(200, 238, '업무 지시서를 쓰던 방식 그대로예요', { fs: 9.5 });
+      return s;
+    });
+  },
+  /* 17 3장 */
+  function(){
+    return dia('AI 초안이 원문 대조와 다른 AI의 검토를 거쳐 사람의 결재로 끝나는 흐름과 특히 조심할 다섯 가지', function(m){
+      var s = '';
+      [['AI 초안', '보고서, 요약', 12], ['원문과 대조', '숫자, 날짜, 조항', 110], ['다른 AI 검토', '중요한 문서만', 208], ['사람이 결재', '최종 책임', 306]].forEach(function(b, i){
+        s += box(b[2], 36, 82, 52, b[0], { fs: 10.5, sub: b[1], sfs: 8.5, fill: i === 3 ? C.teal : '#fff', color: i === 3 ? '#fff' : C.ink, scolor: i === 3 ? '#DDF0ED' : C.inkSoft });
+        if (i < 3) s += ar('M' + (b[2] + 82) + ' 62 H' + (b[2] + 94), m.ink);
+      });
+      s += tok('M52 98 H348', { dur: 4.5, tr: .85, r: 4.5 });
+      s += T(200, 130, '특히 조심할 곳', { fs: 11 });
+      ['숫자와 날짜', '조항 · 기준 번호', '출처 · 기사 제목', '사람 · 회사 이름', '최근 소식'].forEach(function(t, i){
+        var x = i < 3 ? 70 + i * 130 : 135 + (i - 3) * 130, y = i < 3 ? 156 : 190;
+        s += pill(x, y, 118, 26, t, { fill: '#F9E4E5', stroke: C.berry }) + hl(x - 59, y - 13, 118, 26, i * 1.1, 5.5);
+      });
+      s += T(200, 232, '말투만 보고는 맞고 틀림을 구별할 수 없어요', { fs: 9.5, c: C.berry });
+      return s;
+    });
+  },
+  /* 18 4장 */
+  function(){
+    return dia('책상에 올릴 수 있는 서류 양에 한계가 있어 처음 서류가 밀려나고, 요약을 받아 새 대화로 넘기는 흐름', function(m){
+      var s = T(200, 28, '대화 기억 범위 = 책상 넓이', { cls: 'svg-d', fs: 14 });
+      s += '<rect x="78" y="46" width="300" height="62" rx="6" fill="#FFF8E6" ' + S(1.8) + '/>' + T(228, 122, '한 번에 펼쳐 둘 수 있는 양', { fs: 9, c: C.inkSoft });
+      for (var i = 0; i < 6; i++) s += '<g class="pop" style="--d:' + (i * .25) + 's"><rect x="' + (88 + i * 48) + '" y="56" width="40" height="42" rx="3" fill="#fff" ' + S(1.4) + '/><path d="M' + (95 + i * 48) + ' 68 h26 M' + (95 + i * 48) + ' 76 h26 M' + (95 + i * 48) + ' 84 h16" stroke="#C9CFDD" stroke-width="1.5"/></g>';
+      s += '<g class="float"><rect x="14" y="60" width="48" height="42" rx="3" fill="#F9E4E5" stroke="' + C.berry + '" stroke-width="1.6" transform="rotate(-10 38 81)"/></g>' + T(38, 122, '처음 지시', { fs: 9, c: C.berry }) + ar('M80 76 H66', m.berry, { color: C.berry });
+      [['긴 대화', '앞부분을 놓치기 시작', 20], ['요약 받기', '“지금까지 정리해 줘”', 146], ['새 대화에 붙이기', '조건을 지킨 채 계속', 272]].forEach(function(b, i){
+        s += box(b[2], 150, 108, 52, b[0], { fs: 10.5, sub: b[1], sfs: 8.5, fill: i === 2 ? '#E1F1EE' : '#fff', stroke: i === 2 ? C.teal : C.ink });
+        if (i < 2) s += ar('M' + (b[2] + 108) + ' 176 H' + (b[2] + 122), m.teal, { color: C.teal, w: 2.2 });
+      });
+      s += tok('M74 212 H326', { dur: 4, tr: .85, r: 4 }) + T(200, 236, '인수인계서를 써서 다음 담당자에게 넘기는 것과 같아요', { fs: 9.5 });
+      return s;
+    });
+  },
+  /* 19 5장 */
+  function(){
+    return dia('같은 질문도 자료 없이 물으면 일반 상식으로, 자료를 주고 볼 곳을 짚으면 근거와 함께 답하는 비교', function(m){
+      var s = box(12, 100, 86, 50, '같은 질문', { fs: 10.5, sub: '출장비 기준은?', sfs: 8.5, fill: '#FFF3D6' });
+      s += ar('M98 114 C 120 100 124 66 142 62', m.soft, { color: C.inkSoft }) + ar('M98 136 C 120 150 124 184 142 188', m.teal, { color: C.teal, w: 2.2 });
+      s += box(146, 38, 110, 48, '자료 없이', { fs: 10.5, sub: '“알아서 해 와”', sfs: 8.5 }) + ar('M256 62 H272', m.soft, { color: C.inkSoft }) + box(276, 38, 112, 48, '일반 상식으로 답', { fs: 10, sub: '우리 규정과 다를 수 있음', sfs: 8, fill: '#F4F5F8', stroke: '#C9CFDD' });
+      s += box(146, 164, 110, 48, '자료 첨부', { fs: 10.5, sub: '+ “7조만 봐 줘”', sfs: 8.5, fill: '#E1F1EE', stroke: C.teal }) + ar('M256 188 H272', m.teal, { color: C.teal, w: 2.2 }) + box(276, 164, 112, 48, '근거와 함께 답', { fs: 10, sub: '조항 번호까지', sfs: 8, fill: C.teal, color: '#fff', scolor: '#DDF0ED' });
+      s += tok('M98 136 C 120 150 124 184 146 188 H332', { dur: 4, tr: .85, r: 4.5 });
+      s += T(266, 112, '덧붙일 말', { fs: 9.5, c: C.tealDark }) + T(266, 128, '“자료에 없으면 없다고 말해 줘”', { fs: 9 }) + T(266, 143, '“근거가 된 쪽수를 적어 줘”', { fs: 9 });
+      s += T(200, 238, '참고 서류를 건네며 “이 부분을 보고 해”라고 하는 것과 같아요', { fs: 9.5 });
+      return s;
+    });
+  },
+  /* 20 6장 */
+  function(){
+    return dia('작성 담당 AI, 검토 담당 AI, 사람의 결재로 이어지고 문제점이 작성 담당에게 되돌아가는 검토 라인', function(m){
+      var s = T(200, 28, '쓰는 눈과 보는 눈을 나눠요', { cls: 'svg-d', fs: 14 });
+      s += box(14, 62, 104, 60, '작성 담당 AI', { fs: 10.5, sub: '초안을 쓴다', sfs: 8.5 }) + box(148, 62, 104, 60, '검토 담당 AI', { fs: 10.5, sub: '문제점만 찾는다', sfs: 8.5, fill: '#FFF3D6' }) + box(282, 62, 104, 60, '사람', { fs: 11, sub: '마지막 결재', sfs: 8.5, fill: C.teal, color: '#fff', scolor: '#DDF0ED' });
+      s += ar('M118 84 H144', m.ink) + ar('M252 84 H278', m.ink) + ar('M148 108 H122', m.berry, { color: C.berry, dash: '4 4' }) + T(133, 100, '문제점', { fs: 8.5, c: C.berry });
+      s += tok('M66 54 H334', { dur: 4.5, tr: .85, r: 4.5 });
+      [['같은 AI, 다른 대화창', '새 대화에 검토만 맡기기'], ['다른 회사 AI', '교차 검증'], ['사람', '결재권자의 결재']].forEach(function(r, i){
+        s += box(14 + i * 128, 160, 116, 46, r[0], { fs: 9.5, sub: r[1], sfs: 8.5, fill: '#fff', stroke: i === 2 ? C.teal : C.ink }) + hl(14 + i * 128, 160, 116, 46, i * 1.3, 3.9);
+      });
+      s += T(200, 150, '다른 눈을 구하는 세 가지 방법', { fs: 10 }) + T(200, 232, '설계, 시공, 감리를 나누는 이유와 같아요', { fs: 9.5, c: C.inkSoft });
+      return s;
+    });
+  },
+  /* 21 7장 */
+  function(){
+    return dia('사람이 맡긴 큰 일을 팀장 AI가 나누고 팀원 AI 셋의 결과를 모아 다시 사람에게 올리는 구조', function(m){
+      var s = box(150, 14, 100, 34, '사람', { fs: 11, sub: '일을 맡김', sfs: 8.5, fill: '#FFF3D6' }) + ar('M200 48 V62', m.ink);
+      s += box(136, 66, 128, 40, '팀장 AI (에이전트)', { fs: 10.5, sub: '일을 나누고 모음', sfs: 8.5, fill: C.teal, color: '#fff', scolor: '#DDF0ED' });
+      [['자료 모으기', 20], ['초안 쓰기', 146], ['숫자 맞추기', 272]].forEach(function(t, i){
+        var cx = t[1] + 54;
+        s += ar('M200 106 C 200 126 ' + cx + ' 122 ' + cx + ' 144', m.teal, { color: C.teal });
+        s += box(t[1], 148, 108, 44, '팀원 AI', { fs: 10, sub: t[0], sfs: 9 }) + hl(t[1], 148, 108, 44, i * .3, 4);
+        s += tok('M200 106 C 200 126 ' + cx + ' 122 ' + cx + ' 146', { dur: 3.6, begin: i * .3, tr: .6, r: 4 });
+      });
+      s += ar('M326 192 C 380 214 384 90 268 84', m.soft, { color: C.inkSoft, dash: '3 4' }) + T(392, 210, '결과를 모아 올림', { fs: 8.5, a: 'end', c: C.inkSoft });
+      s += T(160, 216, '잘 시키는 세 가지', { fs: 10 }) + T(160, 234, '무엇을(범위) · 어디까지(완료 기준) · 무엇으로(자료와 도구)', { fs: 8.8, c: C.tealDark });
+      return s;
+    });
+  },
+  /* 22 8장 */
+  function(){
+    return dia('AI 둘레의 도구, 연결 기능, 업무 매뉴얼, 플러그인과 그 아래의 공통 규격 MCP', function(m){
+      var s = box(150, 76, 100, 50, 'AI', { fs: 14, sub: '배운 지식만 있음', sfs: 8.5, fill: '#FFF3D6' });
+      [['도구', '검색, 계산, 파일 읽기', 12, 22], ['연결 기능(커넥터)', '메일, 일정표, 문서함', 268, 22], ['업무 매뉴얼(스킬)', '일하는 방법과 양식', 12, 132], ['플러그인', '위의 것을 한 꾸러미로', 268, 132]].forEach(function(b, i){
+        s += box(b[2], b[3], 120, 46, b[0], { fs: 10, sub: b[1], sfs: 8.5, fill: '#fff', stroke: C.teal }) + hl(b[2], b[3], 120, 46, i * 1.2, 4.8);
+        var sx = b[2] < 100 ? 132 : 268, sy = b[3] + 23, ex = b[2] < 100 ? 150 : 250, ey = b[3] < 100 ? 90 : 112;
+        s += ar('M' + sx + ' ' + sy + ' L' + ex + ' ' + ey, m.teal, { color: C.teal });
+      });
+      s += '<rect x="60" y="196" width="280" height="24" rx="6" fill="#23305E"/>' + T(200, 212, 'MCP · 어느 AI에나 꽂히는 표준 콘센트', { fs: 9.5, c: '#fff' });
+      [110, 200, 290].forEach(function(x){ s += '<circle cx="' + (x - 5) + '" cy="190" r="2.2" fill="' + C.ink + '"/><circle cx="' + (x + 5) + '" cy="190" r="2.2" fill="' + C.ink + '"/>'; });
+      s += T(200, 240, '도구는 권한이에요. 보내기 · 결제 · 삭제는 사람이 확인해요', { fs: 9.5, c: C.berry });
+      return s;
+    });
+  },
+  /* 23 9장 */
+  function(){
+    return dia('AI에 넣지 않는 정보, 가리고 넣는 정보, 넣어도 되는 정보의 구분과 가짜 전화에 대처하는 순서', function(m){
+      var s = '';
+      [['넣지 않아요', ['주민번호 · 여권번호', '계좌 · 카드 · 비밀번호', '회사 기밀'], '#F9E4E5', C.berry], ['가리고 넣어요', ['다른 사람의 이름', '연락처 · 주소', '건강 정보'], '#FFF3D6', C.ink], ['넣어도 돼요', ['공개된 자료', '내가 쓴 초안', '이름을 지운 문서'], '#E1F1EE', C.teal]].forEach(function(c, i){
+        var x = 10 + i * 130;
+        s += '<rect x="' + x + '" y="16" width="120" height="100" rx="8" fill="' + c[2] + '" stroke="' + c[3] + '" stroke-width="1.8"/>' + T(x + 60, 36, c[0], { fs: 11 });
+        c[1].forEach(function(t, k){ s += T(x + 60, 58 + k * 18, t, { fs: 9 }); });
+      });
+      s += T(200, 142, '가족 목소리로 급하게 돈을 요구하는 전화가 오면', { fs: 10.5 });
+      [['급한 돈 요구', '목소리가 똑같아도', 20], ['일단 끊기', '', 146], ['알던 번호로 확인', '직접 다시 걸기', 272]].forEach(function(b, i){
+        s += box(b[2], 154, 108, 48, b[0], { fs: 10.5, sub: b[1] || undefined, sfs: 8.5, fill: i === 0 ? '#F9E4E5' : (i === 2 ? '#E1F1EE' : '#fff'), stroke: i === 0 ? C.berry : (i === 2 ? C.teal : C.ink) });
+        if (i < 2) s += ar('M' + (b[2] + 108) + ' 178 H' + (b[2] + 122), m.ink);
+      });
+      s += tok('M74 212 H326', { dur: 4, tr: .85, r: 4 }) + T(200, 236, '상대가 알려 준 번호가 아니라, 평소 알던 번호로요', { fs: 9.5, c: C.berry });
+      return s;
+    });
+  },
+  /* 24 점검표 */
+  function(){
+    return dia('AI에게 일을 맡길 때의 점검표에 체크 표시가 차례로 찍히는 그림', function(){
+      var s = '<rect x="104" y="26" width="192" height="214" rx="12" fill="' + C.kraft + '" ' + S(2) + '/>';
+      s += '<rect x="118" y="46" width="164" height="184" rx="4" fill="#fff" ' + S(1.6) + '/><rect x="168" y="16" width="64" height="22" rx="6" fill="' + C.inkSoft + '" ' + S(1.8) + '/>';
+      s += T(200, 70, 'AI에게 맡길 때', { cls: 'svg-d', fs: 13 });
+      ['지시하기', '검수하기', '나눠 맡기기', '지키기'].forEach(function(t, i){
+        var y = 100 + i * 32;
+        s += '<rect x="134" y="' + (y - 9) + '" width="16" height="16" rx="3" fill="#fff" ' + S(1.4) + '/>';
+        s += '<g class="stamp" style="--d:' + (0.5 + i * 0.5) + 's"><path d="M137 ' + (y - 1) + ' l4 5 l8 -10" fill="none" stroke="' + C.teal + '" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>';
+        s += T(160, y + 4, t, { fs: 11, a: 'start' }) + '<path d="M230 ' + y + ' h36" stroke="#E3E6EE" stroke-width="5" stroke-linecap="round"/>';
+      });
+      s += chip(54, 110, '초안은 AI가', { fs: 9.5, cls: 'pop', d: 2.8 }) + chip(346, 160, '판단과 책임은 사람이', { fs: 9, cls: 'pop', d: 3.1 });
+      s += sparkle(320, 60, 6, 0) + sparkle(82, 196, 5, .6);
+      return s;
+    });
+  }
+];
+function tokS(path, b){ return '<circle r="4" fill="' + C.sun + '" stroke="' + C.ink + '" stroke-width="1.4"><animateMotion dur="2.6s" begin="' + b + 's" repeatCount="indefinite" path="' + path + '"/></circle>'; }
+
+var pages = [
+  { type: 'cover', title: '표지', kicker: 'AI 기초 · 그림책으로 읽는 AI 사용법', h1: '책벌레 신입사원<br><em>루미</em>',
+    lead: '분식집에 새 직원이 왔어요. 책은 만 권을 읽었지만 우리 가게 사정은 하나도 모르는 AI 신입사원 ‘루미’예요. 사장님은 루미에게 어떻게 일을 맡겨야 할까요?',
+    legend: '<b class="teal">청록색</b> 도장과 표시는 사람이 확인한 자리예요.',
+    credit: '원작: <a href="' + SRC + '" target="_blank" rel="noopener">아빠도, 엄마도 AI</a>의 9장을 다시 엮었어요.' },
+
+  { leg: 0, chapter: '첫 출근', title: '책을 만 권 읽은 신입사원',
+    story: ['또또가 다녀간 그 분식집에 새 직원이 왔어요. 이름은 ‘루미’예요.',
+            '루미는 세상의 책과 글을 아주 많이 읽었어요. 요리책도, 장사 책도, 법률 책도요. 무엇을 물어도 술술 대답해요.',
+            '사장님은 기뻤어요. “이렇게 똑똑한 직원이 오다니!”',
+            '그런데 루미에게는 모르는 것이 하나 있어요. 바로 <b>이 가게</b>예요. 오늘 첫 출근을 했으니까요.',
+            '이 책에서는 AI를 이렇게 불러요. 책은 아주 많이 읽었지만, 우리 가게 사정은 하나도 모르는 신입사원.'],
+    note: ['Claude, ChatGPT, Gemini는 모두 <b>생성형 AI</b>예요. 수많은 글을 읽고 배운 뒤, 질문을 받으면 가장 그럴듯한 답을 만들어 내요.',
+           '신입사원에게 일을 맡길 때 조심하던 것을 떠올리면, AI를 대하는 방법이 그대로 나와요.',
+           '세 AI는 만든 회사가 다른 세 명의 신입사원 같아요. 성격과 강점이 조금씩 달라요.'],
+    next: '루미에게 무엇을 맡기면 좋을까요? 잘하는 일과 못하는 일부터 알아봐요.',
+    refs: [oc(1)] },
+  { leg: 0, chapter: '첫째 날 오전', title: '잘하는 일, 모르는 일',
+    story: ['사장님은 루미가 무엇을 잘하는지 시험해 봤어요.',
+            '긴 위생 안내문을 주자 세 줄로 줄여 줬어요. 메뉴 소개 글도 금방 써 왔어요. 어려운 세금 용어는 쉬운 말로 풀어 줬어요.',
+            '이번에는 이렇게 물었어요. “오늘 어묵은 몇 개 남았지?” 루미는 대답하지 못했어요. 창고를 본 적이 없으니까요.',
+            '“단골 민수는 뭘 좋아하지?” 이것도 몰라요. 루미가 읽은 책 어디에도 우리 가게 이야기는 없어요.',
+            '사장님은 알게 됐어요. 루미가 아는 것은 <b>세상의 일반적인 것</b>이고, 모르는 것은 <b>우리 가게의 오늘</b>이에요. 그건 사장님이 알려 줘야 해요.'],
+    note: ['AI가 잘하는 일: 요약, 초안 쓰기, 쉬운 말로 풀기, 비교해서 표로 정리하기.',
+           'AI가 못하는 일: 우리 회사의 오늘 상황을 알아서 파악하기, 결과에 책임지기.',
+           '초안, 요약, 풀이는 맡기고, 판단과 책임은 사람이 맡아요.'],
+    next: '잘하는 일을 맡겨 봤어요. 그런데 결과가 영 마음에 들지 않아요.',
+    refs: [oc(1)] },
+  { leg: 0, chapter: '첫째 날 오후', title: '“전단지 만들어 줘”',
+    story: ['다음 주는 가게 문을 연 지 10년이 되는 날이에요. 사장님은 루미에게 글쓰기를 맡겼어요. “전단지 만들어 줘.”',
+            '루미는 금방 전단지를 가져왔어요. “맛있는 음식! 많이 오세요. 좋은 가게.”',
+            '틀린 말은 없어요. 하지만 어느 가게 앞에 붙여도 되는 전단지예요. 10주년이라는 말도, 날짜도, 떡볶이도 없어요.',
+            '루미가 게으른 것이 아니에요. 사장님이 말해 주지 않았을 뿐이에요. 누구에게 보여 줄 전단지인지, 무엇을 알리고 싶은지, 얼마나 길어야 하는지요.',
+            '모르는 부분을 루미는 가장 무난한 말로 채웠어요. 그래서 어디에나 맞지만, 어디에도 딱 맞지 않는 전단지가 나왔어요.'],
+    note: ['AI에게 보내는 질문이나 지시를 <b>지시문(프롬프트)</b>이라고 해요.',
+           '답의 품질은 대부분 지시문에서 정해져요.',
+           '“잘 만들어 줘”는 조건이 아니에요. AI는 무엇이 “잘”인지 알 수 없어요.'],
+    next: '사장님은 예전에 직원에게 일을 맡기던 방법을 떠올렸어요.',
+    refs: [oc(2)] },
+  { leg: 0, chapter: '둘째 날', title: '업무 지시서',
+    story: ['사장님은 예전에 직원에게 일을 맡길 때 쓰던 <b>업무 지시서</b>를 꺼냈어요. 그리고 네 가지를 적었어요.',
+            '<b>목적</b>: 10주년을 알려서 토요일에 손님을 모으려고. <b>배경</b>: 학교 앞 가게라 학생 손님이 많음.',
+            '<b>조건</b>: 짧게, 날짜는 꼭 넣기. <b>결과물 형태</b>: 큰 제목 하나와 세 줄.',
+            '루미가 다시 전단지를 가져왔어요. “개업 10주년, 떡볶이 1+1, 이번 토요일 하루. 학생증을 보여 주면 튀김 하나 더.”',
+            '루미가 갑자기 똑똑해진 것이 아니에요. 같은 루미예요. 달라진 것은 사장님의 지시였어요.'],
+    note: ['좋은 지시문의 네 가지 요소는 <b>목적, 배경, 조건, 결과물 형태</b>예요.',
+           '새로운 기술이 아니에요. 사람에게 일을 맡길 때 쓰던 업무 지시서와 같아요.',
+           '질문을 보내기 전에 맨 앞에 “목적:” 한 줄을 먼저 써 보면 좋아요.'],
+    next: '지시를 잘하자 결과가 좋아졌어요. 그래서 사장님은 루미의 말을 그대로 믿기 시작했어요.',
+    refs: [oc(2)] },
+  { leg: 0, chapter: '셋째 날', title: '자신 있게 틀린 답',
+    story: ['전단지에 가게 역사를 한 줄 넣기로 했어요. 사장님이 물었어요. “우리 가게가 언제 문을 열었더라?”',
+            '루미가 또박또박 대답했어요. “1975년에 문을 열었어요!”',
+            '사장님은 고개를 갸웃했어요. 간판에는 “SINCE 1998”이라고 적혀 있거든요.',
+            '루미는 거짓말을 하려던 것이 아니에요. 모르는 것을 “모른다”고 말하는 대신, 그럴듯한 답을 지어낸 거예요. 무서운 점은 <b>틀린 답도 맞는 답과 똑같이 자신 있는 말투</b>로 나온다는 거예요.',
+            '그날부터 사장님은 루미가 써 온 것을 납품받은 물건처럼 검수해요. 숫자와 날짜는 원문과 하나씩 맞춰 보고, 마지막에 직접 도장을 찍어요.'],
+    note: ['AI가 그럴듯하게 지어낸 답을 <b>환각</b>이라고 불러요. 말투만 보고는 맞고 틀림을 구별할 수 없어요.',
+           '특히 조심할 곳: 숫자와 날짜, 법 조항 번호, 출처, 사람과 회사 이름, 최근 소식.',
+           '같은 AI에게 “확실해?”라고 다시 물어도 같은 실수를 되풀이할 수 있어요. 원문을 직접 확인해요.',
+           '최종 책임은 결재한 사람에게 있어요.'],
+    next: '여기까지가 기본기예요. 이제 루미와 오래 일할 때 생기는 일을 봐요.',
+    refs: [oc(3)] },
+  { leg: 1, chapter: '둘째 주', title: '좁은 책상',
+    story: ['사장님과 루미는 하루 종일 한자리에서 10주년 준비를 했어요. 아침에 사장님은 이렇게 말해 뒀어요. “답은 항상 표로 정리해 줘.”',
+            '오전에는 루미가 꼬박꼬박 표로 답했어요. 그런데 오후가 되자 줄글로 답하기 시작했어요.',
+            '사장님은 루미의 책상을 봤어요. 서류가 가득했어요. 새 서류를 올릴 때마다 맨 먼저 올려 둔 서류가 조금씩 밀리더니, “답은 표로”라고 적힌 첫 서류가 책상 밖으로 떨어져 있었어요.',
+            '루미가 고장 난 것이 아니에요. 루미의 책상에는 한 번에 펼쳐 둘 수 있는 양이 정해져 있어요.',
+            '사장님은 방법을 바꿨어요. “지금까지 정한 내용을 정리해 줘.” 그 요약을 들고 새 책상으로 옮겼어요. 인수인계서를 쓰는 것처럼요.'],
+    note: ['AI는 지금 열려 있는 대화창 안의 내용을 바탕으로 답해요. 이것을 <b>맥락(컨텍스트)</b>이라고 해요.',
+           '한 번에 기억할 수 있는 양이 <b>대화 기억 범위</b>예요. 책상 넓이와 같아요.',
+           '주제가 바뀌면 새 대화를 열어요. 긴 작업은 요약을 받아 새 대화 맨 앞에 붙여요.',
+           '새 대화를 열면 AI는 앞 대화의 내용을 모르는 상태에서 시작해요.'],
+    next: '책상을 정리했어요. 이번에는 책상에 무엇을 올려 줄지 생각해 봐요.',
+    refs: [oc(4)] },
+  { leg: 1, chapter: '둘째 주, 이튿날', title: '자료를 건네주기',
+    story: ['손님이 물었어요. “어제 산 김밥, 환불되나요?” 사장님은 루미에게 답장을 맡겼어요.',
+            '루미는 일반적인 환불 이야기를 써 왔어요. 하지만 우리 가게의 규칙과는 달랐어요. 루미는 우리 가게 규정집을 본 적이 없으니까요.',
+            '사장님은 규정집을 건네며 말했어요. “이게 우리 가게 규정집이야. 7쪽 환불 부분만 보고 답해 줘. 여기 없는 내용은 지어내지 말고 없다고 말해 줘.”',
+            '루미가 다시 답했어요. “규정집 7쪽에 따르면, 당일 구매한 음식만 환불돼요.”',
+            '어디를 보고 답했는지 쪽수까지 적혀 있으니, 사장님이 확인하기도 쉬워졌어요.'],
+    note: ['대화창에는 사진, PDF, 엑셀, 문서 같은 <b>첨부 자료</b>를 올릴 수 있어요.',
+           '자료가 없으면 AI는 일반 상식으로 답하고, 자료가 있으면 그 자료를 근거로 답해요.',
+           '무슨 자료인지, 어디를 볼지 말하고, 근거가 된 쪽수를 함께 적어 달라고 해요.',
+           '개인정보나 기밀이 담긴 자료는 올리기 전에 지우거나 가려요.'],
+    next: '루미 혼자 하는 일은 익숙해졌어요. 이제 일을 나눠 맡기는 법을 배워요.',
+    refs: [oc(5)] },
+  { leg: 2, chapter: '셋째 주', title: '쓴 사람, 보는 사람',
+    story: ['10주년 안내문을 거래처에 보내야 해요. 중요한 글이라 사장님은 루미에게 부탁했어요. “다 쓰고 나서 틀린 곳이 없는지도 봐 줘.”',
+            '루미는 “틀린 곳이 없어요”라고 했어요. 그런데 날짜가 하루 틀려 있었어요.',
+            '사장님은 생각했어요. “나도 내가 쓴 글의 오타는 잘 못 찾지.” 쓴 사람은 자기 실수를 잘 보지 못해요. 루미도 그래요.',
+            '그래서 옆 가게에서 일하는 다른 신입 ‘모모’에게 부탁했어요. “너는 깐깐한 검토 담당이야. 고쳐 쓰지는 말고, 문제점만 찾아 줘.”',
+            '모모는 금방 찾아냈어요. “날짜가 틀렸어요.” 루미가 고치고, 사장님이 마지막으로 읽고 도장을 찍었어요.'],
+    note: ['AI에게 “너는 작성 담당”, “너는 검토 담당”처럼 <b>역할</b>을 먼저 정해 주면 일하는 방식이 달라져요.',
+           '작성과 검토를 다른 AI나 다른 대화창에 나눠 맡기는 것이 <b>교차 검증</b>이에요.',
+           '작성한 AI에게 “잘 썼지?”라고 묻는 것은 검토가 아니에요.',
+           '마지막 결재는 언제나 사람이 해요.'],
+    next: '둘이서 나눠 하니 좋았어요. 더 큰 일이라면 어떻게 나눌까요?',
+    refs: [oc(6)] },
+  { leg: 2, chapter: '셋째 주, 잔치 준비', title: '루미 팀',
+    story: ['10주년 잔치를 준비하려니 할 일이 많았어요. 초대장도 써야 하고, 장 볼 목록도 만들어야 하고, 행사 순서도 짜야 해요.',
+            '이번에 사장님은 목표만 말했어요. “토요일 잔치 준비를 맡길게.”',
+            '루미는 일을 셋으로 나눴어요. 그리고 팀원 루미 셋에게 하나씩 맡겼어요. 팀원들은 각자 맡은 일만 동시에 해요. 그래서 빨라요.',
+            '팀장 루미는 결과를 모아 사장님에게 올렸어요. 그런데 장 볼 목록에 음료수가 빠져 있었어요. 아무도 맡지 않았거든요.',
+            '사장님은 알았어요. 팀이 커질수록 중요한 것은 <b>일을 잘 나누는 것</b>이에요. 누가 어디까지 맡는지, 어떻게 되면 끝난 것인지 분명해야 빈틈이 없어요.'],
+    note: ['목표를 받으면 여러 단계를 스스로 해내는 AI를 <b>에이전트</b>라고 해요.',
+           '팀장 에이전트에게 일을 받아 처리하는 팀원 AI가 <b>하위 에이전트(서브에이전트)</b>예요.',
+           '잘 시키는 세 가지: 무엇을(범위), 어디까지(완료 기준), 무엇으로(자료와 도구).',
+           'AI를 많이 쓰거나 비싼 AI를 쓰는 것보다 일을 나누는 방식이 더 중요해요.'],
+    next: '그런데 루미는 장을 보러 나갈 수도, 계산기를 두드릴 수도 없어요.',
+    refs: [oc(7)] },
+  { leg: 2, chapter: '넷째 주', title: '장비와 출입증',
+    story: ['루미는 머릿속 지식만으로 일해 왔어요. 그래서 오늘 날씨를 찾아보거나, 사장님의 일정표를 보거나, 큰 숫자를 정확히 계산하는 일은 하지 못했어요.',
+            '사장님은 루미에게 장비를 줬어요. 정확히 계산하라고 <b>계산기</b>를, 바깥소식을 찾아보라고 <b>전화와 신문</b>을 줬어요.',
+            '일정표와 메일함에 들어갈 수 있는 <b>출입증</b>도 줬어요. 그리고 우리 가게의 보고서 양식과 일하는 순서를 적은 <b>업무 매뉴얼</b>을 건넸어요.',
+            '할 수 있는 일이 훨씬 늘었어요. 그런데 사장님은 걱정도 됐어요. 출입증을 주면 들어갈 수 있는 곳이 늘어나니까요.',
+            '그래서 규칙을 정했어요. “거래처에 메일을 보내거나, 돈을 내거나, 무언가를 지우기 전에는 꼭 나에게 먼저 물어봐.” 되돌리기 어려운 일은 사람이 확인해요.'],
+    note: ['<b>도구</b>는 검색, 계산 같은 개별 기능, <b>연결 기능(커넥터)</b>은 메일, 일정표와 AI를 잇는 통로예요.',
+           '<b>업무 매뉴얼(스킬)</b>은 일하는 방법과 양식을 적어 둔 것, <b>플러그인</b>은 이것들을 한 꾸러미로 묶은 것이에요.',
+           '<b>MCP</b>는 연결 기능의 공통 규격이에요. 어느 제품이든 꽂히는 표준 콘센트 같아요.',
+           '도구는 곧 권한이에요. 필요한 것만 줘요.'],
+    next: '할 수 있는 일이 늘어난 만큼, 지켜야 할 것도 생겼어요.',
+    refs: [oc(8)] },
+  { leg: 3, chapter: '넷째 주, 문단속', title: '금고와 가짜 전화',
+    story: ['루미가 일을 잘하니, 사장님은 이것저것 다 맡기고 싶어졌어요. 직원 통장 사본도, 거래처 계약서도요.',
+            '그러다 멈췄어요. 루미에게 건넨 서류는 가게 밖에 있는 루미네 회사로 전해져요. 가게 밖으로 들고 나가면 안 되는 서류는 루미에게도 주지 않아야 해요.',
+            '사장님은 금고에 넣을 것을 정했어요. 주민등록번호, 계좌번호, 비밀번호, 가게 기밀. 다른 사람의 이름과 연락처는 지우거나 가린 뒤에 건네요.',
+            '그날 저녁 전화가 왔어요. 아들 목소리였어요. “아빠, 사고가 났어. 급해, 지금 돈 좀 보내 줘!”',
+            '사장님은 일단 끊었어요. 그리고 평소에 쓰던 아들 번호로 직접 다시 걸었어요. 아들은 멀쩡히 집에 있었어요. 요즘은 AI로 목소리도 흉내 낼 수 있거든요.'],
+    note: ['AI에 입력한 내용은 서비스 회사의 서버로 전송돼요. 설정에 따라 저장되거나 AI 개선에 쓰일 수 있어요.',
+           '절대 넣지 않는 것: 주민번호, 여권번호, 계좌와 카드 번호, 비밀번호, 회사 기밀.',
+           '목소리나 얼굴을 흉내 낸 가짜 영상과 음성을 <b>딥페이크</b>라고 해요.',
+           '급한 돈 요구는 끊고, 상대가 알려 준 번호가 아니라 평소 알던 번호로 확인해요.'],
+    next: '한 달이 지났어요. 루미와 사장님은 어떻게 달라졌을까요?',
+    refs: [oc(9)] },
+  { leg: 3, chapter: '한 달 뒤', title: '같은 신입, 달라진 하루',
+    story: ['10주년 잔치는 잘 끝났어요. 전단지도, 안내문도, 장 볼 목록도 루미가 초안을 쓰고 사장님이 확인했어요.',
+            '루미는 한 달 전과 똑같은 루미예요. 여전히 가게의 오늘은 모르고, 가끔 자신 있게 틀려요.',
+            '달라진 것은 사장님이에요. 지시서를 쓰고, 자료를 건네고, 원문과 맞춰 보고, 일을 나누고, 줄 것과 주지 않을 것을 가려요.',
+            '모두 사장님이 예전부터 직원들과 일하며 해 오던 일이에요. AI를 잘 쓰는 데 필요한 것은 새로운 기술보다, 일을 시켜 보고 확인해 본 경험이에요.'],
+    noteLabel: '이 책의 네 가지',
+    note: ['<b>지시</b>: 목적, 배경, 조건, 결과물 형태를 알려 줘요.',
+           '<b>검수</b>: 숫자와 출처는 원문과 맞춰 보고, 마지막은 사람이 결재해요.',
+           '<b>분담</b>: 쓰는 눈과 보는 눈을 나누고, 범위와 완료 기준을 정해 줘요.',
+           '<b>안전</b>: 넣지 말 것을 가리고, 되돌리기 어려운 일은 사람이 확인해요.'],
+    next: '2부 교과서에서는 같은 내용을 9장으로 나눠 더 자세히 정리해요.',
+    refs: [oc(9)] },
+  { type: 'end', chapter: '1부를 마치며', title: '단어장',
+    words: [
+      ['생성형 AI', '수많은 글을 읽고 배워서, 질문에 그럴듯한 답을 만들어 내는 AI'],
+      ['지시문(프롬프트)', 'AI에게 보내는 질문이나 지시'],
+      ['환각', 'AI가 모르는 것을 그럴듯하게 지어낸 답'],
+      ['맥락(컨텍스트)', 'AI가 답할 때 바탕으로 삼는, 지금 대화창 안의 내용'],
+      ['에이전트', '목표를 받으면 여러 단계를 스스로 해내는 AI'],
+      ['MCP', 'AI와 바깥 서비스를 잇는 연결 기능의 공통 규격'],
+      ['딥페이크', '목소리나 얼굴을 흉내 낸 가짜 영상과 음성']],
+    notes: ['원작 ‘아빠도, 엄마도 AI’는 직장 경험이 있는 분을 위한 AI 교과서예요. 장마다 직접 해 보는 실습과 확인 문제가 있어요.',
+            'AI에게 코딩을 맡기는 법은 셋째 권 ‘번개와 다섯 가지 장비’에서 이어져요.'],
+    links: [['원작 웹북', SRC]] },
+
+  /* ================= 2부 ================= */
+  { type: 'tbcover', title: '심화편 표지', h1: 'AI 기초<br><em>교과서</em>',
+    lead: '루미와 사장님의 한 달을 9장으로 다시 정리해요. 장마다 움직이는 도식과 회사 일에 빗댄 설명, 바로 해 볼 일을 담았어요.',
+    bullets: ['<b>1~3장</b>은 기본기예요. AI가 누구인지, 어떻게 지시하고 어떻게 검수하는지 다뤄요.',
+              '<b>4~5장</b>은 활용이에요. AI의 기억력을 다루고, 자료를 주며 일을 시켜요.',
+              '<b>6~8장</b>은 일 잘 시키기예요. 역할 분담, AI 팀, 도구를 다뤄요.',
+              '<b>9장</b>은 안전이에요. 넣지 말아야 할 정보와 속지 않는 법을 다뤄요.'] },
+
+  { type: 'tb', no: '01', kicker: '기본기', title: 'AI는 누구인가', storyPage: 1,
+    lede: '지금 쓰는 Claude, ChatGPT, Gemini는 모두 생성형 AI예요. 이 책에서는 AI를 “책은 아주 많이 읽었지만 우리 회사 사정은 하나도 모르는 신입사원”이라고 불러요.',
+    blocks: [
+      { h: '생성형 AI가 답을 만드는 방식' },
+      { ul: ['세상의 수많은 글을 읽고 배웠어요.', '질문을 받으면 배운 내용을 바탕으로 가장 그럴듯한 답을 만들어 내요.', '사전에서 찾아 주는 것이 아니라 그때그때 문장을 지어내요. 그래서 틀릴 수도 있어요.'] },
+      { h: '잘하는 일과 못하는 일' },
+      { table: { head: ['잘하는 일', '못하는 일'], rows: [
+        ['긴 글을 빠르게 읽고 요약하기', '우리 회사의 오늘 상황을 알아서 파악하기'],
+        ['초안 쓰기: 보고서, 공문, 이메일', '모르는 것을 모른다고 솔직하게 말하기'],
+        ['어려운 용어를 쉬운 말로 풀기', '결과에 책임지기'],
+        ['여러 자료를 비교해 표로 정리하기', '—']] } },
+      { h: '신입사원으로 생각하면 쉬워져요' },
+      { ul: ['공부는 많이 했지만 오늘 첫 출근한 사람이에요. 그래서 우리 사정은 알려 줘야 해요.', '해 온 일은 확인해야 해요. 확인 안 한 숫자를 보고서에 채워 올 때가 있어요.', '최종 책임은 결재한 사람에게 있어요.'] },
+      { h: '세 AI는 서로 다른 회사 출신' },
+      { p: 'Claude, ChatGPT, Gemini는 만든 회사가 다른 세 명의 신입사원과 같아요. 같은 질문에도 답이 다를 수 있어요. 한 AI의 답을 다른 AI에게 검토시키면 좋은 이유예요.' },
+      { h: '바로 해 보기' },
+      { ul: ['평소 쓰는 AI에게 “너는 무엇을 잘하고 무엇을 못하니?”라고 물어보세요.'] }
+    ],
+    key: ['AI는 책은 많이 읽었지만 우리 사정은 모르는 신입사원이에요.', '초안, 요약, 풀이는 맡기고, 판단과 책임은 사람이 맡아요.'],
+    refs: [oc(1)] },
+
+  { type: 'tb', no: '02', kicker: '기본기', title: '질문이 답을 만든다', storyPage: 4,
+    lede: 'AI에게 보내는 질문이나 지시를 지시문(프롬프트)이라고 해요. AI가 내놓는 답의 품질은 대부분 이 지시문에서 정해져요.',
+    blocks: [
+      { h: '좋은 지시문의 네 가지 요소' },
+      { table: { head: ['요소', '적을 내용', '업무 지시서에서는'], rows: [
+        ['목적', '무엇을 위해 필요한가', '이 일을 왜 하는지'],
+        ['배경', '어떤 상황인가, 누가 읽는가', '현장 상황, 보고받을 사람'],
+        ['조건', '분량, 말투, 꼭 넣을 것과 뺄 것', '기한, 분량, 지켜야 할 기준'],
+        ['결과물 형태', '표, 목록, 공문, 몇 개 항목', '보고서 양식, 제출 형식']] } },
+      { h: '아쉬운 지시문과 좋은 지시문' },
+      { code: '아쉬운 지시문\n  안전교육 자료 만들어 줘.\n\n좋은 지시문\n  신규 직원 첫날 안전교육에 쓸 자료가 필요해.        ← 목적\n  주방 일이 처음인 아르바이트생이 대상이야.            ← 배경\n  10분 분량, 쉬운 말로, 화상과 미끄러짐 위주로.        ← 조건\n  제목과 5개 항목, 항목마다 한 줄 설명으로 만들어 줘.  ← 결과물 형태', cap: '네 요소가 들어가면 AI가 추측으로 채울 빈칸이 줄어요.' },
+      { h: '자주 하는 실수' },
+      { ul: ['“잘 써 줘”, “꼼꼼하게 해 줘”는 조건이 아니에요. 누구에게, 얼마만큼, 어떤 형태인지 적어요.', '한 번에 완벽한 답을 기대하지 않아요. 답을 보고 조건을 하나씩 더해 가요.', '빈칸을 남기면 AI는 가장 무난한 말로 채워요. 그래서 어디에나 맞지만 어디에도 딱 맞지 않는 답이 나와요.'] },
+      { h: '바로 해 보기' },
+      { ul: ['다음 질문을 보내기 전에 맨 앞에 “목적:” 한 줄을 먼저 써 보세요.'] }
+    ],
+    key: ['답의 품질은 지시문에서 정해져요.', '목적, 배경, 조건, 결과물 형태 네 가지를 넣어요.'],
+    refs: [oc(2)] },
+
+  { type: 'tb', no: '03', kicker: '기본기', title: '검수는 사람의 몫', storyPage: 5,
+    lede: 'AI는 모르는 것을 모른다고 말하는 대신 그럴듯하게 지어낼 때가 있어요. 이것을 환각이라고 불러요. 틀린 답도 맞는 답과 똑같이 자신 있는 말투로 나와요.',
+    blocks: [
+      { h: '특히 조심할 부분' },
+      { ul: ['숫자와 날짜', '법 조항 번호, 기준 번호', '출처, 논문, 기사 제목', '사람 이름, 회사 이름', '최근 소식. AI가 배운 시점 이후의 일은 모를 수 있어요.'] },
+      { h: '납품받은 물건을 검수하듯' },
+      { table: { head: ['AI와 일할 때', '회사에서는'], rows: [
+        ['AI가 쓴 초안', '납품된 결과물'],
+        ['원문 자료, 법령 원문', '계약서, 설계 도면'],
+        ['숫자와 출처 대조', '수량과 규격 확인'],
+        ['다른 AI에게 다시 검토', '제3자 검사'],
+        ['사람의 최종 확인', '결재']] } },
+      { h: '검수 체크리스트' },
+      { ol: ['숫자와 날짜는 원문과 하나씩 맞춰 봐요.', '출처가 나오면 직접 열어서 정말 있는지 확인해요.', '법령은 국가법령정보센터에서 원문을 확인해요.', '이상하면 “그 근거를 원문 그대로 보여 줘”라고 다시 물어요.', '중요한 문서는 다른 AI에게 한 번 더 검토시켜요.'] },
+      { h: '“확실해?”는 검수가 아니에요' },
+      { p: '같은 AI에게 다시 물어도 같은 실수를 되풀이할 수 있어요. “네, 확실합니다”라는 대답도 자신 있는 말투일 뿐이에요. 원문을 직접 확인하는 것이 가장 확실해요.' },
+      { h: '바로 해 보기' },
+      { ul: ['AI의 답에 나온 숫자 하나를 골라 원문과 직접 맞춰 보세요.'] }
+    ],
+    key: ['AI는 틀린 답도 자신 있게 말해요.', '숫자, 날짜, 조항 번호, 출처는 반드시 원문과 맞춰 봐요.', '검수의 마지막은 사람의 결재예요.'],
+    refs: [oc(3)] },
+
+  { type: 'tb', no: '04', kicker: '활용', title: 'AI의 기억력', storyPage: 6,
+    lede: 'AI는 지금 열려 있는 대화창 안의 내용을 바탕으로 답해요. 이것을 맥락(컨텍스트)이라고 해요. 대화창은 업무 노트 한 권이고, 길어지면 인수인계가 필요해요.',
+    blocks: [
+      { h: 'AI가 기억하는 것' },
+      { ul: ['<b>새 대화를 열면</b> 앞 대화의 내용을 모르는 상태에서 시작해요.', '<b>대화가 아주 길어지면</b> 앞부분을 흐리게 기억하거나 놓칠 수 있어요. 한 번에 기억할 수 있는 양을 대화 기억 범위라고 해요.', '<b>최근에는</b> 대화창을 넘어 사용자 정보를 기억하는 기억 기능도 있지만, 기본 원리는 같아요.'] },
+      { h: '책상 위 서류에 빗대면' },
+      { table: { head: ['AI와 일할 때', '회사에서는'], rows: [
+        ['대화창 하나', '업무 노트 한 권'],
+        ['대화 기억 범위', '책상 위에 펼칠 수 있는 서류의 양'],
+        ['대화가 길어져 앞부분을 놓침', '맨 처음 지시 서류가 책상 밖으로 밀림'],
+        ['요약을 받아 새 대화 시작', '인수인계서를 써서 다음 담당자에게 넘김']] } },
+      { h: '기억력을 다루는 요령' },
+      { ol: ['주제가 바뀌면 새 대화를 열어요.', '긴 작업은 중간에 “지금까지 정한 내용을 정리해 줘”라고 요약을 받아요.', '그 요약을 새 대화 맨 앞에 붙여 넣고 이어 가요.', '꼭 지켜야 할 조건은 중요한 순간에 한 번 더 말해 줘요.'] },
+      { h: '이럴 때는 고장이 아니에요' },
+      { p: 'AI가 처음에 정한 양식을 지키지 않기 시작했다면, 고장 난 것이 아니라 책상이 넘친 거예요. 같은 대화창에서 “양식 지켜”만 되풀이하기보다 요약을 받아 새 대화로 넘기는 편이 효과적이에요.' },
+      { h: '바로 해 보기' },
+      { ul: ['주제가 바뀔 때 새 대화를 여는 습관을 하루만 지켜 보세요.'] }
+    ],
+    key: ['AI는 지금 대화창 안의 내용을 바탕으로 답해요.', '주제가 바뀌면 새 대화, 긴 작업은 요약을 넘겨 이어 가요.'],
+    refs: [oc(4)] },
+
+  { type: 'tb', no: '05', kicker: '활용', title: '자료를 주고 일 시키기', storyPage: 7,
+    lede: '대화창에는 사진, PDF, 엑셀, 문서 같은 첨부 자료를 올릴 수 있어요. 자료가 없으면 AI는 일반 상식으로 답하고, 자료가 있으면 그 자료를 근거로 답해요.',
+    blocks: [
+      { h: '이렇게 쓸 수 있어요' },
+      { ul: ['현장 사진을 올리고 “위험해 보이는 곳을 찾아 줘”', '회사 규정집을 올리고 “출장비 기준만 찾아 줘”', '엑셀 표를 올리고 “월별 합계를 구해서 그래프로 보여 줘”', '긴 계약서를 올리고 “우리에게 불리한 조항을 표로 정리해 줘”'] },
+      { h: '자료를 줄 때의 요령' },
+      { table: { head: ['할 일', '예시'], rows: [
+        ['어떤 자료인지 한 줄로 설명', '“우리 회사 출장비 규정이야.”'],
+        ['어디를 볼지 지정', '“7조 숙박비 부분만.”'],
+        ['지어내지 말라고 덧붙이기', '“자료에 없는 내용은 없다고 말해 줘.”'],
+        ['근거를 함께 받기', '“근거가 된 쪽수나 조항을 적어 줘.”']] } },
+      { h: '근거를 받으면 검수가 쉬워져요' },
+      { p: '“7조에 따르면”이라고 적혀 있으면 7조만 펴서 확인하면 돼요. 반대로 “자유롭게 답해 줘”라고 하면 자료 밖의 일반 지식이 섞여서, 어디까지가 우리 자료인지 가리기 어려워요.' },
+      { h: '올리기 전에' },
+      { ul: ['주민등록번호, 계좌번호, 회사 기밀이 담긴 자료는 올리기 전에 지우거나 가려요. 9장에서 자세히 다뤄요.'] },
+      { h: '바로 해 보기' },
+      { ul: ['자주 보는 문서 하나를 첨부하고 “이 문서의 핵심 세 가지와 근거 쪽수”를 물어보세요.'] }
+    ],
+    key: ['자료를 첨부하면 AI는 그 자료를 근거로 답해요.', '무슨 자료인지, 어디를 볼지 말하고, 근거를 적어 달라고 해요.'],
+    refs: [oc(5)] },
+
+  { type: 'tb', no: '06', kicker: '일 잘 시키기', title: '역할을 나눠 서로 검증하기', storyPage: 8,
+    lede: '한 AI에게 작성과 검토를 동시에 맡기면 자기가 쓴 글의 실수를 잘 찾지 못해요. 사람도 마찬가지예요. 그래서 쓰는 눈과 보는 눈을 나눠요.',
+    blocks: [
+      { h: '역할을 먼저 정해 줘요' },
+      { p: '“너는 작성 담당이야”, “너는 깐깐한 검토 담당이야”처럼 역할을 먼저 정해 주면 같은 AI라도 일하는 방식이 달라져요.' },
+      { h: '다른 눈을 구하는 방법' },
+      { ul: ['같은 AI의 <b>새 대화창</b>을 열어 검토만 맡겨요.', '작성은 Claude, 검토는 ChatGPT처럼 <b>다른 회사의 AI</b>에게 맡겨요. 이것이 교차 검증이에요.', '마지막에는 <b>사람</b>이 확인해요.'] },
+      { table: { head: ['AI와 일할 때', '회사에서는'], rows: [
+        ['작성 담당 AI', '기안자'],
+        ['검토 담당 AI', '검토자, 품질 담당'],
+        ['다른 회사 AI로 교차 검증', '외부 기관 검사'],
+        ['사람의 최종 확인', '결재권자의 결재']] } },
+      { h: '검토 담당에게 보내는 지시문' },
+      { code: '너는 20년 경력의 공문 검토 담당이야.\n아래 공문에서 날짜와 숫자가 틀린 곳,\n우리 회사에 불리한 표현을 찾아서 표로 정리해 줘.\n고쳐 쓰지는 말고 문제점만 알려 줘.', cap: '“고쳐 쓰지 말고 문제점만”이 중요해요. 검토자가 고쳐 쓰면 또 다른 작성자가 돼요.' },
+      { h: '바로 해 보기' },
+      { ul: ['AI가 쓴 글을 다른 AI에게 “깐깐한 검토자로서 문제점 세 가지만 찾아 줘”라고 맡겨 보세요.'] }
+    ],
+    key: ['역할을 먼저 정해 주면 일하는 방식이 달라져요.', '작성과 검토는 다른 AI, 다른 대화창으로 나눠요.', '마지막 결재는 언제나 사람이 해요.'],
+    refs: [oc(6)] },
+
+  { type: 'tb', no: '07', kicker: '일 잘 시키기', title: 'AI 팀 꾸리기', storyPage: 9,
+    lede: '지금까지의 AI는 질문 하나에 답 하나를 줬어요. 최근에는 목표를 받으면 여러 단계를 스스로 거쳐 일을 끝까지 해내는 AI가 늘고 있어요. 이것을 에이전트라고 해요.',
+    blocks: [
+      { h: '팀장 AI와 팀원 AI' },
+      { ul: ['에이전트에게 큰 일을 맡기면, 그 일을 여러 조각으로 나눠 다른 AI들에게 맡길 수 있어요.', '이렇게 일을 받아 처리하는 팀원 AI를 하위 에이전트(서브에이전트)라고 해요.', '팀원 AI는 각자 맡은 일에만 집중하고, 여럿이 동시에 일해서 빨라요.', '팀장 AI는 결과만 받아서 모아요.'] },
+      { table: { head: ['AI 팀', '회사에서는'], rows: [
+        ['사람(나)', '발주처, 결재권자'],
+        ['팀장 에이전트', '팀장, 현장 책임자'],
+        ['하위 에이전트', '담당자, 협력업체'],
+        ['결과 취합', '주간 보고서 종합']] } },
+      { h: '일을 잘 시키는 세 가지' },
+      { ol: ['<b>무엇을</b>: 맡길 일의 범위를 분명히 해요.', '<b>어디까지</b>: 어떻게 되면 끝난 것으로 볼지 완료 기준을 정해요.', '<b>무엇으로</b>: 참고할 자료와 쓸 수 있는 도구를 알려 줘요.'] },
+      { h: '많이 쓰는 것보다 잘 나누는 것' },
+      { p: 'AI를 최대한 많이 동원하거나 가장 비싼 AI를 쓴다고 결과가 좋아지지는 않아요. 범위와 완료 기준이 분명해야 결과를 모았을 때 빈틈이 없어요. 사람 팀과 같아요.' },
+      { h: '바로 해 보기' },
+      { ul: ['지금 하는 일 하나를 골라 “세 사람에게 나눈다면 어떻게 나눌까”를 종이에 적어 보세요.'] }
+    ],
+    key: ['에이전트는 목표를 받아 여러 단계를 스스로 해내는 AI예요.', '일을 잘 나누고 잘 시키는 관리 경험이 곧 실력이에요.'],
+    refs: [oc(7)] },
+
+  { type: 'tb', no: '08', kicker: '일 잘 시키기', title: 'AI에게 도구 주기', storyPage: 10,
+    lede: '도구가 없는 AI는 배운 지식만으로 답해요. 오늘 소식을 찾아보거나, 내 메일을 읽거나, 정확히 계산하는 일은 혼자 하지 못해요.',
+    blocks: [
+      { h: 'AI에게 줄 수 있는 것' },
+      { table: { head: ['이름', '무엇인가', '회사에서는'], rows: [
+        ['도구(툴)', '검색, 계산, 파일 읽기 같은 개별 기능', '업무용 전화, 계산기'],
+        ['연결 기능(커넥터)', '메일, 일정표, 문서함과 AI를 잇는 통로', '사내 시스템 출입증'],
+        ['업무 매뉴얼(스킬)', '특정 업무를 잘하는 방법과 양식', '보고서 양식과 작성 요령'],
+        ['플러그인', '위의 것들을 한 꾸러미로 묶은 것', '직무별 장비 세트']] } },
+      { h: 'MCP: 표준 콘센트' },
+      { ul: ['예전에는 AI마다, 서비스마다 연결 방식이 달라 하나하나 따로 만들어야 했어요.', 'MCP는 연결 기능을 만들 때 쓰는 공통 규격이에요. 이 규격에 맞추면 여러 AI에 같은 방식으로 꽂아 쓸 수 있어요.', '제조사가 달라도 꽂히는 표준 콘센트와 같아요.'] },
+      { h: '바깥의 전문 자료도 연결해요' },
+      { p: '연결 기능은 내 메일이나 일정표에만 쓰는 것이 아니에요. 법령, 판례, 공공 통계처럼 바깥에 있는 전문 자료도 연결할 수 있어요. 법령은 자주 바뀌어서, 연결 기능 없이 물으면 AI가 예전 조문이나 없는 조문을 자신 있게 말할 수 있어요.' },
+      { h: '도구는 곧 권한이에요' },
+      { ul: ['출입증을 주면 들어갈 수 있는 곳이 늘어나듯, 도구를 줄수록 AI가 할 수 있는 일이 늘어나요.', '필요한 도구만 줘요.', '메일 보내기, 결제, 삭제처럼 되돌리기 어려운 일은 반드시 사람이 확인해요.', '연결 기능을 거치면 묻는 내용이 그 서비스로 전해져요. 누가 운영하는 서비스인지 확인하고, 기밀과 개인정보는 넣지 않아요.'] },
+      { h: '익히는 순서' },
+      { ol: ['연결 기능을 달아요.', '시험 질문을 해서 원문을 제대로 가져오는지 확인해요.', '잘되면 매번 같은 순서로 일하도록 업무 매뉴얼로 저장해요.'] },
+      { h: '바로 해 보기' },
+      { ul: ['쓰는 AI의 설정 화면에서 지금 켜져 있는 도구와 연결 기능이 무엇인지 확인해 보세요.'] }
+    ],
+    key: ['도구를 주면 AI가 할 수 있는 일이 넓어져요.', 'MCP는 연결 기능의 공통 규격, 표준 콘센트예요.', '도구는 권한이에요. 필요한 것만 주고, 마지막 확인은 사람이 해요.'],
+    refs: [oc(8)] },
+
+  { type: 'tb', no: '09', kicker: '안전', title: '안전하게 쓰기', storyPage: 11,
+    lede: 'AI에 입력한 내용은 서비스 회사의 서버로 전송돼요. 서비스와 설정에 따라 저장되거나 AI 개선에 쓰일 수 있어요. 그래서 무엇을 넣을지 먼저 가려요.',
+    blocks: [
+      { h: '무엇을 넣어도 될까' },
+      { table: { head: ['구분', '해당하는 것'], rows: [
+        ['절대 넣지 않는 것', '주민등록번호, 여권번호, 계좌번호, 카드번호, 비밀번호, 회사 기밀(입찰 금액, 미공개 자료, 계약 조건)'],
+        ['지우거나 가리고 넣는 것', '다른 사람의 이름, 연락처, 주소, 건강 정보처럼 민감한 개인정보'],
+        ['넣어도 되는 것', '공개된 자료, 내가 쓴 초안, 이름과 숫자를 가린 문서']] } },
+      { p: '기준은 간단해요. 회사 밖으로 들고 나가면 안 되는 서류는 AI에도 넣지 않아요.' },
+      { h: 'AI를 악용한 사기' },
+      { ul: ['AI는 사기에도 쓰여요. 가족의 목소리나 얼굴을 흉내 낸 가짜 영상과 음성(딥페이크)으로 급하게 돈을 요구하는 수법이 대표적이에요.', '목소리가 똑같다는 것은 더 이상 증거가 되지 못해요.'] },
+      { h: '확인 원칙' },
+      { ol: ['급하게 돈을 요구하면 일단 끊어요.', '평소 알던 번호로 직접 다시 걸어 확인해요. 상대가 알려 준 번호는 쓰지 않아요.', '가족끼리만 아는 확인 질문을 미리 정해 둬요.', '링크나 앱 설치를 요구하는 문자는 누르지 않아요.'] },
+      { h: '교과서를 마치며' },
+      { p: 'AI를 잘 쓰는 데 필요한 능력은 새로 배우는 기술보다, 일을 시켜 보고 검수해 본 경험에 가까워요. 좋은 지시, 꼼꼼한 검수, 역할 분담, 그리고 안전. 일하며 쌓은 판단력이 그대로 AI를 다루는 실력이 돼요.' },
+      { h: '바로 해 보기' },
+      { ul: ['가족과 “확인 질문” 하나를 미리 정해 두세요.'] }
+    ],
+    key: ['주민번호, 계좌, 비밀번호, 회사 기밀은 넣지 않아요.', '다른 사람의 정보는 지우거나 가리고 넣어요.', '급한 돈 요구는 끊고, 알던 번호로 직접 확인해요.'],
+    refs: [oc(9)] },
+
+  { type: 'check', title: 'AI에게 맡길 때 점검표', lede: 'AI에게 일을 맡기기 전과 결과를 받은 뒤에 하나씩 확인해 보세요.' }
+];
+
+var CHECKS = [
+  ['지시하기', ['목적을 한 줄로 적었다', '상황과 읽을 사람을 알려 줬다', '분량, 말투, 꼭 넣을 것과 뺄 것을 적었다', '결과물의 형태(표, 목록, 항목 수)를 정해 줬다']],
+  ['검수하기', ['숫자와 날짜를 원문과 맞춰 봤다', '출처와 조항 번호를 직접 열어 확인했다', '자료를 줬다면 근거가 된 쪽수를 받았다', '중요한 문서는 다른 AI나 새 대화창에 검토를 맡겼다']],
+  ['나눠 맡기기', ['주제가 바뀌어서 새 대화를 열었다', '긴 작업은 요약을 받아 새 대화로 넘겼다', '맡길 일의 범위와 완료 기준을 정해 줬다']],
+  ['지키기', ['주민번호, 계좌, 비밀번호, 회사 기밀을 넣지 않았다', '다른 사람의 이름과 연락처를 가렸다', '보내기, 결제, 삭제는 내가 직접 확인했다', '필요한 도구와 연결 기능만 켜 뒀다']]
+];
+var CORE = [
+  ['원작 ‘아빠도, 엄마도 AI’ (실습과 확인 문제 포함)', SRC]
+];
+
+return { cfg: { title: '책벌레 신입사원 루미', id: 'ai-book', hash: 'ai', storyLast: 13, part2: 14, noteLabel: '실제 AI에서는', legs: ['기본기', '활용', '일 잘 시키기', '안전'],
+  brand1: '책벌레 신입사원 <span>루미</span>', brand2: 'AI 기초 <span>교과서</span>' },
   scenes: scenes, pages: pages, CHECKS: CHECKS, CORE: CORE };
 };
 
@@ -3094,10 +3920,12 @@ function renderPage(p, i){
       '</div></div>';
   } else {
     inner = '<div class="text"><div class="text-inner">' +
+      (BOOK.legs && p.leg != null ? '<ol class="legs" aria-label="지금 위치">' + BOOK.legs.map(function(l, li){ return '<li' + (li === p.leg ? ' class="on" aria-current="step"' : (li < p.leg ? ' class="done"' : '')) + '>' + l + '</li>'; }).join('') + '</ol>' : '') +
       '<p class="chapter">' + p.chapter + '</p><h2>' + p.title + '</h2>' +
       '<div class="story">' + p.story.map(function(s){ return '<p>' + s + '</p>'; }).join('') + '</div>' +
       '<aside class="note"><p class="note-label">' + (p.noteLabel || BOOK.noteLabel) + '</p><ul>' + p.note.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul>' +
       (p.refs ? refsHtml(p.refs) : '') + '</aside>' +
+      (p.next ? '<p class="nextline"><b>다음 쪽</b>' + p.next + '</p>' : '') +
       '</div></div>';
   }
   var folio = '';
@@ -3356,8 +4184,21 @@ if (resume && saved && saved > 0 && saved < N && start === null){
 
 /* ---------- 책장: 책 고르기 ---------- */
 var SHELF = [
-  { key: 'cs', vol: '첫째 권 · 기초', title: '떡볶이 주문의 여행', desc: '“주문하기” 버튼을 누른 뒤 0.15초 동안 무슨 일이 일어날까요? 주문 쪽지 ‘또또’를 따라가며 컴퓨터, 인터넷, 서버가 일하는 원리를 배워요.', meta: ['그림책 15쪽', '교과서 14장', '컴퓨터 과학 기초'] },
-  { key: 'harness', vol: '둘째 권 · AI 협업', title: '번개와 다섯 가지 장비', desc: 'AI 코딩 에이전트에게 일을 믿고 맡기려면 무엇이 필요할까요? 똑똑하지만 덤벙대는 말 ‘번개’와 함께 하네스 엔지니어링을 배워요.', meta: ['그림책 15쪽', '교과서 14장', '하네스 엔지니어링'] }
+  { key: 'cs', vol: '첫째 권', subject: 'CS 기초', subjectSub: '컴퓨터가 일하는 원리', title: '떡볶이 주문의 여행',
+    what: 'CS는 컴퓨터 과학(Computer Science)의 줄임말이에요. 프로그램이 컴퓨터와 인터넷에서 실제로 어떻게 움직이는지에 대한 기본기예요.',
+    learn: ['컴퓨터, 인터넷, 서버, 데이터베이스가 하는 일', '코드가 실행되고, 저장되고, 배포되는 과정', 'AI가 만든 결과를 확인하고 문제를 좁히는 눈'],
+    who: 'AI로 무언가 만들기 시작했는데 용어와 원리가 낯선 분',
+    meta: ['그림책 15쪽', '교과서 14장'] },
+  { key: 'ai', vol: '둘째 권', subject: 'AI 기초', subjectSub: 'AI를 다루는 기본기', title: '책벌레 신입사원 루미',
+    what: 'ChatGPT, Claude 같은 생성형 AI가 무엇을 잘하고 무엇을 못하는지, 어떻게 일을 시키고 결과를 확인하는지 배워요.',
+    learn: ['좋은 지시문의 네 가지 요소와 검수하는 법', 'AI의 기억력, 자료 첨부, 역할 분담', '에이전트, 도구, MCP 같은 요즘 용어와 안전 수칙'],
+    who: 'AI를 써 보긴 했지만 답이 들쭉날쭉해서 답답했던 분',
+    meta: ['그림책 12쪽', '교과서 9장'] },
+  { key: 'harness', vol: '셋째 권', subject: 'AI 하네스', subjectSub: 'AI에게 일을 믿고 맡기는 설계', title: '번개와 다섯 가지 장비',
+    what: '하네스(harness)는 말에게 채우는 장비라는 뜻이에요. AI 코딩 에이전트가 엉뚱한 길로 가지 않도록 둘러 주는 지시, 도구, 점검 장치를 통틀어 이렇게 불러요.',
+    learn: ['똑똑한 AI가 일을 그르치는 이유', '번개에게 채워 주는 다섯 가지 장비와 쓰임', '긴 작업을 끝까지 맡기는 하네스 설계'],
+    who: 'AI에게 코딩을 맡겨 봤는데 끝까지 믿고 맡기기 어려웠던 분',
+    meta: ['그림책 15쪽', '교과서 14장'] }
 ];
 var DEFS = {}, GEN = 0;
 function getDef(key){ if (!DEFS[key]) DEFS[key] = BOOKS[key](); return DEFS[key]; }
@@ -3384,7 +4225,10 @@ document.getElementById('shelfBooks').innerHTML = SHELF.map(function(b){
   var def = getDef(b.key), saved = 0;
   try { saved = parseInt(localStorage.getItem(def.cfg.id + '-page') || '', 10) || 0; } catch (e) {}
   return '<article class="bookcard"><figure class="plate play" style="margin:0">' + def.scenes[0]() + '</figure>' +
-    '<p class="vol">' + b.vol + '</p><h2>' + b.title + '</h2><p class="desc">' + b.desc + '</p>' +
+    '<p class="vol"><span class="volno">' + b.vol + '</span><span class="subject">' + b.subject + '</span><span class="subsub">' + b.subjectSub + '</span></p>' +
+    '<h2>' + b.title + '</h2><p class="desc">' + b.what + '</p>' +
+    '<p class="lbl">배우는 것</p><ul class="learn">' + b.learn.map(function(m){ return '<li>' + m + '</li>'; }).join('') + '</ul>' +
+    '<p class="lbl">이런 분께</p><p class="who">' + b.who + '</p>' +
     '<ul class="meta">' + b.meta.map(function(m){ return '<li>' + m + '</li>'; }).join('') + '</ul>' +
     '<div class="actions"><button class="solid" type="button" data-book="' + b.key + '">' + (saved > 0 ? '이어서 읽기' : '읽기 시작') + '</button>' +
     (saved > 0 ? '<button class="ghost" type="button" data-book="' + b.key + '" data-first="1">처음부터</button>' : '') + '</div></article>';
@@ -3401,7 +4245,7 @@ document.addEventListener('click', function(e){
   }
   openBook(key);
 });
-var hm = /^#(harness|cs)(-p\d+)?$/.exec(location.hash || '');
+var hm = /^#(harness|cs|ai)(-p\d+)?$/.exec(location.hash || '');
 if (hm) openBook(hm[1]);
 
 })();
