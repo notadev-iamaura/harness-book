@@ -1,10 +1,10 @@
 # AI 개발 책장
 
-그림책으로 시작해서 교과서로 깊어지는 웹북 네 권입니다. 첫 화면의 책장에서 읽을 책을 고릅니다.
+그림책으로 시작해서 교과서로 깊어지는 웹북 다섯 권입니다. 첫 화면의 책장에서 읽을 책을 고릅니다.
 
 바로 보기: https://notadev-iamaura.github.io/harness-book/
 
-읽는 순서: **CS 기초 → 연결 기초 → AI 기초 → AI 하네스**
+읽는 순서: **CS 기초 → 연결 기초 → AI 기초 → AI 제품의 속 → AI 하네스**
 
 ## 첫째 권 · CS 기초 · 떡볶이 주문의 여행
 
@@ -27,7 +27,15 @@
 - **2부 교과서**: 9장 + 점검표
 - 바로 가기: https://notadev-iamaura.github.io/harness-book/#ai
 
-## 넷째 권 · AI 하네스 · 번개와 다섯 가지 장비
+## 넷째 권 · AI 제품의 속 · 루미, 고객센터에 앉다
+
+- AI 기능이 만들어지는 구조: 모델 호출, 토큰과 컨텍스트 창, RAG, 도구 호출, 에이전트, 가드레일, 지연과 비용
+- 기술을 직접 다루지 않는 기획자와 PM을 위한 권
+- **1부 그림책**: 고객센터 챗봇 하나를 설계하며 내리는 결정 12가지
+- **2부 교과서**: 10장 + AI 기능 점검표
+- 바로 가기: https://notadev-iamaura.github.io/harness-book/#llm
+
+## 다섯째 권 · AI 하네스 · 번개와 다섯 가지 장비
 
 - 하네스 엔지니어링: AI 코딩 에이전트에게 일을 믿고 맡기기 위한 지시, 도구, 점검 장치의 설계
 - **1부 그림책**: 똑똑하지만 덤벙대는 말 '번개'와 다섯 가지 장비 이야기
@@ -39,7 +47,8 @@
 - 첫째 권: [jedikim/cs-foundations](https://github.com/jedikim/cs-foundations) "개발의 기초" (Jedi Kim, CC0)의 1~5부(0~22장)
 - 둘째 권: 새로 쓴 내용입니다. 참고 문서는 각 장 끝에 있습니다.
 - 셋째 권: [아빠도, 엄마도 AI](https://textbook-web-production.up.railway.app/)의 9장
-- 넷째 권: [walkinglabs/learn-harness-engineering](https://github.com/walkinglabs/learn-harness-engineering) (MIT 라이선스) 강의의 한국어 문서
+- 넷째 권: 새로 쓴 내용입니다.
+- 다섯째 권: [walkinglabs/learn-harness-engineering](https://github.com/walkinglabs/learn-harness-engineering) (MIT 라이선스) 강의의 한국어 문서
 
 라이선스 고지는 [NOTICE.md](NOTICE.md)에 있습니다.
 

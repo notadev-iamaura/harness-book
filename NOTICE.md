@@ -12,7 +12,11 @@
 
 웹 교과서 [아빠도, 엄마도 AI](https://textbook-web-production.up.railway.app/)의 9장을 바탕으로 다시 쓴 것입니다.
 
-## 넷째 권: 번개와 다섯 가지 장비
+## 넷째 권: 루미, 고객센터에 앉다
+
+이 책장을 위해 새로 쓴 내용입니다.
+
+## 다섯째 권: 번개와 다섯 가지 장비
 
 이 웹북의 내용은 [walkinglabs/learn-harness-engineering](https://github.com/walkinglabs/learn-harness-engineering) 강의 문서를 바탕으로 다시 쓴 것이며, 원작의 MIT 라이선스 고지를 아래에 그대로 싣습니다.
 
